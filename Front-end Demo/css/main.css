@@ -2,16 +2,30 @@
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
 
+.idea:hover {
+	overflow:hidden;
+	box-shadow: 4px 4px 8px #6596C7!important;
+	text-overflow:ellipsis;
+}
+
+.ideabox:hover{
+	box-shadow: 1px 2px 10px #6596C7!important;	
+}
+
 .ideabox {
-	text-overflow:ellipsis!important;
-	box-shadow: 4px 4px 8px #6596C7!important;;
+	overflow:hidden!important;
+	text-overflow:ellipsis;
+}
+.ideabox img{
+	text-overflow:ellipsis;
+	box-shadow:none;
 }
 .ideabox h4{
-	text-overflow:ellipsis!important;
+	text-overflow:ellipsis;
 	box-shadow:none!important;
 }
 .ideabox p{
-	text-overflow:ellipsis!important;
+	text-overflow:ellipsis;
 	box-shadow:none!important;
 }
 
