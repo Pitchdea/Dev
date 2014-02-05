@@ -2,6 +2,19 @@
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
 
+.ideabox {
+	text-overflow:ellipsis!important;
+	box-shadow: 4px 4px 8px #6596C7!important;;
+}
+.ideabox h4{
+	text-overflow:ellipsis!important;
+	box-shadow:none!important;
+}
+.ideabox p{
+	text-overflow:ellipsis!important;
+	box-shadow:none!important;
+}
+
 html,
 button,
 input,
@@ -60,8 +73,19 @@ textarea {
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
    ========================================================================== */
 
+.title {
+	color:#c0392b!important;
+	font-weight:bold;
+}
+
 body {
-    font: 16px/26px Helvetica, Helvetica Neue, Arial;
+    font: 16px/26px 'Lato', Helvetica, Helvetica Neue, Arial;
+   	color:#34495e;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:'Lato', sans-serif;
+	color:#34495e;
 }
 
 .wrapper {
@@ -243,12 +267,12 @@ nav a:hover {
 
     .main article {
         float: left;
-        width: 69%;
+        width: 80%;
     }
 
     .main aside {
         float: right;
-        width: 18%;
+        width: 10%;
     }
 }
 
