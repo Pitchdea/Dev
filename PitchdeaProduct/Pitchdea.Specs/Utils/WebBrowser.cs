@@ -12,10 +12,11 @@ namespace Pitchdea.Specs.Utils
         {
             get
             {
-                FireFox.PathToExe = FireFoxPath;
-
                 if (!ScenarioContext.Current.ContainsKey("browser"))
+                {
+                    FireFox.PathToExe = FireFoxPath;
                     ScenarioContext.Current["browser"] = new FireFox();
+                }
                 return ScenarioContext.Current["browser"] as FireFox;
             }
         }

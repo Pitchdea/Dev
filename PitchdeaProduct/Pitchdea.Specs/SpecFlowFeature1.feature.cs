@@ -69,11 +69,11 @@ namespace Pitchdea.Specs
         public virtual void PageTitleIsCorrect()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Page title is correct", ((string[])(null)));
-#line 4
+#line 3
 this.ScenarioSetup(scenarioInfo);
-#line 5
+#line 4
  testRunner.Given("page \"/login.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 6
+#line 5
  testRunner.Then("page title should be \"Sign in | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

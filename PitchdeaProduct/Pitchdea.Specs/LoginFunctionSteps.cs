@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using Pitchdea.Specs.Utils;
 using TechTalk.SpecFlow;
-using WatiN.Core.Native.Chrome;
 
 namespace Pitchdea.Specs
 {
