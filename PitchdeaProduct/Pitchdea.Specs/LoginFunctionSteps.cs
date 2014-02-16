@@ -6,12 +6,6 @@ namespace Pitchdea.Specs
     [Binding]
     public class LoginFunctionSteps
     {
-        [Given(@"User is not logged in")]
-        public void GivenUserIsNotLoggedIn()
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
         [When(@"page is loaded")]
         public void WhenPageIsLoaded()
         {
