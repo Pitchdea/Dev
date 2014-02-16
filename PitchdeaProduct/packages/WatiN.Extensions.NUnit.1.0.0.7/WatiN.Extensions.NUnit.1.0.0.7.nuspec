@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>WatiN.Extensions.NUnit</id>
+    <version>1.0.0.7</version>
+    <title>WatiN.Extensions.NUnit</title>
+    <authors>Pawel Pekrol, Daniel Kardach</authors>
+    <owners>Pawel Pekrol, Daniel Kardach</owners>
+    <licenseUrl>http://watinextensions.codeplex.com/license</licenseUrl>
+    <projectUrl>http://watinextensions.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>WatiN Extensions for NUnit</description>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <dependencies>
+      <dependency id="WatiN" version="2.1.0" />
+      <dependency id="NUnit" version="2.6.0.12051" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,20 @@
+# HTTP Cookie File
+# http://www.netscape.com/newsref/std/cookie_spec.html
+# This is a generated file!  Do not edit.
+# To delete cookies, use the Cookie Manager.
+
+.pitchdea.com	TRUE	/	FALSE	1455644753	_ga	GA1.2.2022027283.1392572709
+#HttpOnly_.google.com	TRUE	/	FALSE	1408383602	NID	67=lRpPYM2qh53j6y_9g6v_We2RtjHIgiDtWMo_WSNiXsxCmfbWKiPpjwitO2vQDdXVMn9LH6la4S6AdnH-oPzG5Z9aBKhCjB0mE2xLfe_2K9Tbo5fQ1OkvZixlEfupmADm
+.google.com	TRUE	/	FALSE	1455644402	PREF	ID=83cbb2f235b0d98c:FF=0:TM=1392572399:LM=1392572399:S=JGkuL9RDVcUhRY1G
+.start.mozilla.org	TRUE	/	FALSE	1455644528	__utma	212610134.850255690.1392572148.1392572148.1392572148.1
+#HttpOnly_.google.fi	TRUE	/	FALSE	1408383602	NID	67=hLhyjAEVmbkYooO4v_y3ubMofhhOo6-jAzzoWRsc5VVVGaPhuefbma59WPgq0LOMh-OtSoEJV4XlEgYBdPxv3UI8odJf-kPkaFX1g2kkA7g1FBLTKfGrq2LQwDXld1NJ
+.start.mozilla.org	TRUE	/	FALSE	1408340528	__utmz	212610134.1392572148.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+.start.mozilla.org	TRUE	/	FALSE	1392574328	__utmb	212610134.3.10.1392572148
+.mozilla.org	TRUE	/	FALSE	1408340164	__utmz	150903082.1392572150.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+.mozilla.org	TRUE	/	FALSE	1392573964	__utmb	150903082.2.10.1392572150
+.mozilla.org	TRUE	/	FALSE	1455644164	__utma	150903082.883674825.1392572150.1392572150.1392572150.1
+.mozilla.org	TRUE	/	FALSE	1707932164	optimizelyBuckets	%7B%7D
+.mozilla.org	TRUE	/	FALSE	1707932164	optimizelySegments	%7B%22245617832%22%3A%22none%22%2C%22245875585%22%3A%22direct%22%2C%22245677587%22%3A%22ff%22%2C%22246048108%22%3A%22false%22%7D
+.mozilla.org	TRUE	/	FALSE	1707932149	optimizelyEndUserId	oeu1392572149452r0.9423283310481757
+.google.fi	TRUE	/	FALSE	1455644412	PREF	ID=21ff9709f6ed21e1:U=7539a41b85d3fb21:FF=0:TM=1392572399:LM=1392572410:S=cEiT9w_sIXtXunlE
+.246059135.log.optimizely.com	TRUE	/	FALSE	1707932149	end_user_id	oeu1392572149452r0.9423283310481757
