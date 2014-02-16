@@ -72,8 +72,6 @@ namespace Pitchdea.Specs
 #line 4
 this.ScenarioSetup(scenarioInfo);
 #line 5
- testRunner.When("page is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 6
  testRunner.Then("page title should be \"Sign in | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
