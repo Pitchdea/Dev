@@ -1,0 +1,5 @@
+E:\Pitchdea\Dev\PitchdeaProduct\Pitchdea\bin\Pitchdea.dll
+E:\Pitchdea\Dev\PitchdeaProduct\Pitchdea\bin\Pitchdea.pdb
+E:\Pitchdea\Dev\PitchdeaProduct\Pitchdea\obj\Debug\Pitchdea.csprojResolveAssemblyReference.cache
+E:\Pitchdea\Dev\PitchdeaProduct\Pitchdea\obj\Debug\Pitchdea.dll
+E:\Pitchdea\Dev\PitchdeaProduct\Pitchdea\obj\Debug\Pitchdea.pdb
