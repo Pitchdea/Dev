@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pitchdea", "Pitchdea\Pitchdea.csproj", "{34397A34-3B7C-424C-B1E0-8026E804EB96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pitchdea.Specs", "Pitchdea.Specs\Pitchdea.Specs.csproj", "{82FF5F90-289E-4AF3-A0C5-EB31CEB24EE0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pitchdea.Specs.Selenium", "Pitchdea.Specs.Selenium\Pitchdea.Specs.Selenium.csproj", "{7BE1A32B-2D50-4368-9098-5EF762CCC091}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 		{34397A34-3B7C-424C-B1E0-8026E804EB96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34397A34-3B7C-424C-B1E0-8026E804EB96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34397A34-3B7C-424C-B1E0-8026E804EB96}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82FF5F90-289E-4AF3-A0C5-EB31CEB24EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82FF5F90-289E-4AF3-A0C5-EB31CEB24EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82FF5F90-289E-4AF3-A0C5-EB31CEB24EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82FF5F90-289E-4AF3-A0C5-EB31CEB24EE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE1A32B-2D50-4368-9098-5EF762CCC091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE1A32B-2D50-4368-9098-5EF762CCC091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE1A32B-2D50-4368-9098-5EF762CCC091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE1A32B-2D50-4368-9098-5EF762CCC091}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
