@@ -64,6 +64,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Logon.feature</DependentUpon>
     </Compile>
+    <Compile Include="Utils\WebBrowser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

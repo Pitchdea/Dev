@@ -1,7 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.IE;
+using Pitchdea.Specs.Selenium.Utils;
 using TechTalk.SpecFlow;
 
 namespace Pitchdea.Specs.Selenium
@@ -9,22 +8,19 @@ namespace Pitchdea.Specs.Selenium
     [Binding]
     public class LoginFunctionSteps
     {
-        public const string BaseUrl = "http://localhost:28231/";
-
         [Given(@"page ""(.*)"" is open")]
         public void GivenPageIsOpen(string url)
         {
-            IWebDriver driver = new InternetExplorerDriver(@"..\..\Tools\IEDriver");
-            var root = new Uri(BaseUrl);
+            var root = new Uri(WebBrowser.BaseUrl);
             var absoluteUrl = new Uri(root, url);
-            driver.Navigate().GoToUrl(absoluteUrl);
-            Assert.AreEqual(absoluteUrl, driver.Url);
+            WebBrowser.Current.Navigate().GoToUrl(absoluteUrl);
+            Assert.AreEqual(absoluteUrl, WebBrowser.Current.Url);
         }
         
         [Then(@"page title should be ""(.*)""")]
-        public void ThenPageTitleShouldBe(string p0)
+        public void ThenPageTitleShouldBe(string title)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(title, WebBrowser.Current.Title);
         }
     }
 }
