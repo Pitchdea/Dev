@@ -2,20 +2,20 @@
 
 [Header,2]
 0,Version,2,0
-1,AppDir,E:\Pitchdea\Dev\PitchdeaProduct\Pitchdea.Specs\FirefoxPortableLegacy20\App\firefox
+1,AppDir,D:\Pitchdea\Dev\PitchdeaProduct\Pitchdea.Specs\FirefoxPortableLegacy20\App\firefox
 
 [Directories,6]
-0,E:\Pitchdea\Dev\PitchdeaProduct\Pitchdea.Specs\FirefoxPortableLegacy20\App\firefox\components
-1,E:\Pitchdea\Dev\PitchdeaProduct\Pitchdea.Specs\FirefoxPortableLegacy20\App\firefox\extensions\inspector@mozilla.org\components
-2,E:\Pitchdea\Dev\PitchdeaProduct\Pitchdea.Specs\FirefoxPortableLegacy20\Data\profile\extensions\jssh@extensions.mozilla.org\components
-3,E:\Program Files (x86)\Foxit Software\Foxit Reader\plugins
+0,D:\Pitchdea\Dev\PitchdeaProduct\Pitchdea.Specs\FirefoxPortableLegacy20\App\firefox\components
+1,D:\Pitchdea\Dev\PitchdeaProduct\Pitchdea.Specs\FirefoxPortableLegacy20\App\firefox\extensions\inspector@mozilla.org\components
+2,D:\Pitchdea\Dev\PitchdeaProduct\Pitchdea.Specs\FirefoxPortableLegacy20\Data\profile\extensions\jssh@extensions.mozilla.org\components
+3,D:\Pitchdea\Dev\PitchdeaProduct\Pitchdea.Specs\FirefoxPortableLegacy20\Data\plugins
 4,C:\Users\Tero\AppData\Roaming\Mozilla\plugins
-5,E:\Pitchdea\Dev\PitchdeaProduct\Pitchdea.Specs\FirefoxPortableLegacy20\App\firefox\plugins
+5,D:\Pitchdea\Dev\PitchdeaProduct\Pitchdea.Specs\FirefoxPortableLegacy20\App\firefox\plugins
 
 [Files,3]
-0,browser.xpt,0,323212,1229538284000
-1,nsIQTScriptablePlugin.xpt,0,2394,1252538578000
-2,jssh.xpt,2,521,1137690360000
+0,browser.xpt,0,323212,1392705388160
+1,nsIQTScriptablePlugin.xpt,0,2394,1392705388471
+2,jssh.xpt,2,521,1392705390936
 
 [ArchiveItems,0]
 
