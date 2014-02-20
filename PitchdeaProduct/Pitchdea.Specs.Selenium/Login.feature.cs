@@ -25,7 +25,7 @@ namespace Pitchdea.Specs.Selenium
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Logon.feature"
+#line 1 "Login.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]

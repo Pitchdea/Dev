@@ -63,10 +63,10 @@
   <ItemGroup>
     <Compile Include="LoginFunctionSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Logon.feature.cs">
+    <Compile Include="Login.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Logon.feature</DependentUpon>
+      <DependentUpon>Login.feature</DependentUpon>
     </Compile>
     <Compile Include="Utils\WebBrowser.cs" />
   </ItemGroup>
@@ -75,9 +75,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="Logon.feature">
+    <None Include="Login.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Logon.feature.cs</LastGenOutput>
+      <LastGenOutput>Login.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

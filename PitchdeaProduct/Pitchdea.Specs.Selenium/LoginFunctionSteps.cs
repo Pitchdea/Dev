@@ -22,5 +22,18 @@ namespace Pitchdea.Specs.Selenium
         {
             Assert.AreEqual(title, WebBrowser.Current.Title);
         }
+
+        [Then(@"there should be active user field")]
+        public void ThenThereShouldBeActiveUserField()
+        {
+            var driver = WebBrowser.Current;
+            IWebElement myButton = driver.FindElement(By.name("usr"));
+            myButton.Click();
+
+
+            ScenarioContext.Current.Pending();
+        }
+
+       
     }
 }
