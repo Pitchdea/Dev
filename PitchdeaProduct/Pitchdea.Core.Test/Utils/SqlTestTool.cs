@@ -1,7 +1,7 @@
 using System;
 using MySql.Data.MySqlClient;
 
-namespace Pitchdea.Specs.Selenium.Utils
+namespace Pitchdea.Core.Test.Utils
 {
     public class SqlTestTool
     {

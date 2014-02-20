@@ -1,5 +1,5 @@
 ﻿using Pitchdea.Core;
-using Pitchdea.Specs.Selenium.Utils;
+using Pitchdea.Core.Test.Utils;
 using TechTalk.SpecFlow;
 
 namespace Pitchdea.Specs.Selenium

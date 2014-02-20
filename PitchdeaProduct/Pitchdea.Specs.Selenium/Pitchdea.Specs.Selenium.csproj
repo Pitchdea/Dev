@@ -78,7 +78,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.feature</DependentUpon>
     </Compile>
-    <Compile Include="Utils\SqlTestTool.cs" />
     <Compile Include="Utils\WebBrowser.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -89,13 +88,19 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoginRememberMe.feature.cs</LastGenOutput>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Login.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Login.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Pitchdea.Core.Test\Pitchdea.Core.Test.csproj">
+      <Project>{9d878fbd-1ad3-4a8d-98da-0f75416cbf66}</Project>
+      <Name>Pitchdea.Core.Test</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pitchdea.Core\Pitchdea.Core.csproj">
       <Project>{d6ec5b12-35d5-4cd1-bcbf-d9750403b855}</Project>
       <Name>Pitchdea.Core</Name>
