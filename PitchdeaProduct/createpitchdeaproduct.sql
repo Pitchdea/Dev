@@ -25,11 +25,12 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `usr_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing ID ',
-  `username` varchar(44) DEFAULT NULL,
-  `passwd` varchar(44) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  PRIMARY KEY (`usr_id`)
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) DEFAULT NULL,
+  `salt` char(44) DEFAULT NULL,
+  `password` char(44) DEFAULT NULL,
+  PRIMARY KEY (`userid`)
+)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
