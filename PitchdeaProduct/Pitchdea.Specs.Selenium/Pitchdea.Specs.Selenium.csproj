@@ -61,11 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login2.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Login2.feature</DependentUpon>
-    </Compile>
     <Compile Include="LoginFunctionSteps.cs" />
     <Compile Include="LoginRememberMe.feature.cs">
       <AutoGen>True</AutoGen>
@@ -83,10 +78,6 @@
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Login2.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Login2.feature.cs</LastGenOutput>
     </None>
     <None Include="LoginRememberMe.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

@@ -1,28 +1,27 @@
-﻿Feature: login function
-	User should not be logged in until username/email and password fields are filled.
-	User should not be logged in until login-button is clicked
-	User should not be logged in if username/email or password fields are invalid.
-Scenario: Page title is correct
-	Given page "/login.aspx" is open
-	Then page title should be "Sign in | Pitchdea"
+﻿Feature: login(2) function
+	The user can login into the service.
 
-Scenario: User name field is visible and active
-	Given page "/login.aspx" is open
-	Then there should be active user field
+Scenario: The user inputs correct login information, clicks the login button.
+Access is granted.
+	Given user "test@pitchdea.com" with password "password123" exists in the database
+		And page "/login.aspx" is open
+		And username field value is "test@pitchdea.com"
+		And password field value is "password123"
+	When user clicks button "Log in"
+	Then user is redirected to "/main.aspx"
+		And user is logged in as "test@pitchdea.com"
 
-Scenario: password field is visible and active
-	Given page "/login.aspx" is open
-	Then there should be active passwd field
+Scenario: The user inputs correct login information and presses enter.
+Access is granted.
 
-Scenario: login-button is visible and clickable
-	Given page "/login.aspx" is open
-	Then there should be clickable button "login"
+Scenario: The user inputs incorrect login information and clicks the login button.
+Access is not granted.
 
-Scenario: log in
-	Given user with <usr> and <pwd> exists in the database
-		And user is at page "/login.aspx"
-		And usr text field value is "<usr>"
-		And pwd text field value is "<pwd>"
-	When user presses button "login"
-	Then user is redirected to "main.aspx"
-		And user is logged in as <usr>
+Scenario: The user tries to login when email field is empty.
+An error message is shown to the user. Access is not granted.
+
+Scenario: The user tries to login when password field is empty.
+An error message is shown to the user. Access is not granted.
+
+Scenario: The user inputs an invalid format email address and tries to login.
+An error message is shown to the user. Access is not granted.
