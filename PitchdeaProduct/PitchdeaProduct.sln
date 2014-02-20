@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pitchdea", "Pitchdea\Pitchd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pitchdea.Specs.Selenium", "Pitchdea.Specs.Selenium\Pitchdea.Specs.Selenium.csproj", "{7BE1A32B-2D50-4368-9098-5EF762CCC091}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pitchdea.Core", "Pitchdea.Core\Pitchdea.Core.csproj", "{D6EC5B12-35D5-4CD1-BCBF-D9750403B855}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{7BE1A32B-2D50-4368-9098-5EF762CCC091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BE1A32B-2D50-4368-9098-5EF762CCC091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BE1A32B-2D50-4368-9098-5EF762CCC091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6EC5B12-35D5-4CD1-BCBF-D9750403B855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6EC5B12-35D5-4CD1-BCBF-D9750403B855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6EC5B12-35D5-4CD1-BCBF-D9750403B855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6EC5B12-35D5-4CD1-BCBF-D9750403B855}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
