@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using Pitchdea.Specs.Selenium.Utils;
 using TechTalk.SpecFlow;
 
@@ -27,10 +28,8 @@ namespace Pitchdea.Specs.Selenium
         public void ThenThereShouldBeActiveUserField()
         {
             var driver = WebBrowser.Current;
-            IWebElement myButton = driver.FindElement(By.name("usr"));
-            myButton.Click();
-
-
+            IWebElement myButton = driver.FindElement(By.Id("login_email_textbox"));
+            
             ScenarioContext.Current.Pending();
         }
 
