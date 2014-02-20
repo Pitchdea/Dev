@@ -1,4 +1,4 @@
-﻿Feature: login(2) function
+﻿Feature: login
 	The user can login into the service.
 
 Background: 
