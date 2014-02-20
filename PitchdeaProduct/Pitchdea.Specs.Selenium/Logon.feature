@@ -8,22 +8,21 @@ Scenario: Page title is correct
 
 Scenario: User name field is visible and active
 	Given page "/login.aspx" is open
-	Then there should be active user_field
+	Then there should be active user field
 
 Scenario: password field is visible and active
 	Given page "/login.aspx" is open
-	Then there should be active passwd_field
+	Then there should be active passwd field
 
 Scenario: login-button is visible and clickable
 	Given page "/login.aspx" is open
-	Then there should be clickable submit-button
+	Then there should be clickable button "login"
 
 Scenario: log in
-	Given page "/login.aspx" is open
-		And user_field is not empty
-		And passwd_field is not empty
-	When I press the login button	
-	Given user field input is found from database
-		And password_field input is found from database
-	Then user should be logged in 
-		And redirected to main page
+	Given user with <usr> and <pwd> exists in the database
+		And user is at page "/login.aspx"
+		And usr text field value is "<usr>"
+		And pwd text field value is "<pwd>"
+	When user presses button "login"
+	Then user is redirected to "main.aspx"
+		And user is logged in as <usr>
