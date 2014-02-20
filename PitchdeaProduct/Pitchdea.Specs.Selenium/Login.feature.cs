@@ -70,12 +70,6 @@ namespace Pitchdea.Specs.Selenium
 #line 5
  testRunner.Given("user \"test@pitchdea.com\" with password \"password123\" exists in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
-  testRunner.And("user \"test@pitchdea.com\" with password \"password124\" is not in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 7
-  testRunner.And("user \"test2@pitchdea.com\" with password \"password123\" is not in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 8
-  testRunner.And("user \"test2@pitchdea.com\" with password \"password124\" is not in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
   testRunner.And("page \"/login.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
@@ -85,19 +79,19 @@ namespace Pitchdea.Specs.Selenium
         public virtual void TheUserInputsCorrectLoginInformationClicksTheLoginButton_()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user inputs correct login information, clicks the login button.", ((string[])(null)));
-#line 11
+#line 8
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 13
+#line 10
  testRunner.Given("\"email\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 14
+#line 11
   testRunner.And("\"password\" field value is \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
+#line 12
  testRunner.When("user clicks login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 16
+#line 13
  testRunner.Then("page \"/main.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 17
+#line 14
   testRunner.And("user is logged in as \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -110,19 +104,19 @@ this.FeatureBackground();
         public virtual void TheUserInputsCorrectLoginInformationAndPressesEnter_(string fieldname, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user inputs correct login information and presses enter.", exampleTags);
-#line 19
+#line 16
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 21
+#line 18
  testRunner.Given("\"username\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 22
+#line 19
   testRunner.And("\"password\" field value is \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 23
+#line 20
  testRunner.When(string.Format("user hits enter key while \"{0}\" is focused", fieldname), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 24
+#line 21
  testRunner.Then("page \"/main.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 25
+#line 22
   testRunner.And("user is logged in as \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -136,14 +130,20 @@ this.FeatureBackground();
         public virtual void TheUserInputsIncorrectLoginInformationAndClicksTheLoginButton_(string username, string password, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user inputs incorrect login information and clicks the login button.", exampleTags);
-#line 32
+#line 29
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 34
+#line 31
  testRunner.Given(string.Format("\"username\" field value is \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 35
+#line 32
   testRunner.And(string.Format("\"password\" field value is \"{0}\"", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+  testRunner.And("user \"test@pitchdea.com\" with password \"password124\" is not in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+  testRunner.And("user \"test2@pitchdea.com\" with password \"password123\" is not in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+  testRunner.And("user \"test2@pitchdea.com\" with password \"password124\" is not in the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
  testRunner.When("user clicks login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 37

@@ -3,9 +3,6 @@
 
 Background: 
 	Given user "test@pitchdea.com" with password "password123" exists in the database
-		And user "test@pitchdea.com" with password "password124" is not in the database
-		And user "test2@pitchdea.com" with password "password123" is not in the database
-		And user "test2@pitchdea.com" with password "password124" is not in the database
 		And page "/login.aspx" is open
 
 Scenario: The user inputs correct login information, clicks the login button.
@@ -32,7 +29,10 @@ Access is granted.
 Scenario Outline: The user inputs incorrect login information and clicks the login button.
 An error message is shown to the user. Access is not granted.
 	Given "username" field value is "<username>"
-		And "password" field value is "<password>"
+		And "password" field value is "<password>"		
+		And user "test@pitchdea.com" with password "password124" is not in the database
+		And user "test2@pitchdea.com" with password "password123" is not in the database
+		And user "test2@pitchdea.com" with password "password124" is not in the database
 	When user clicks login button
 	Then page "/login.aspx" is open
 		And "errorMessage" field value is "Email and password combination is incorrect."
