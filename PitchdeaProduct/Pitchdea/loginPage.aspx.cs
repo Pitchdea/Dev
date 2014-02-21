@@ -19,6 +19,24 @@ namespace Pitchdea
 
         protected void loginButton_OnClick(object sender, EventArgs e)
         {
+            if (emailTextBox.Text == string.Empty)
+            {
+                errorMessage.Text = "Email address field is empty.";
+                return;
+            }
+
+            if (passwordTextBox.Text == string.Empty)
+            {
+                errorMessage.Text = "Password field is empty.";
+                return;
+            }
+
+            if (!EmailValidator.Validate(emailTextBox.Text))
+            {
+                errorMessage.Text = "Email address is not valid.";
+                return;
+            }
+
             var userId = _auth.Authenticate(emailTextBox.Text, passwordTextBox.Text);
 
             testLabel.Text = userId;
@@ -31,7 +49,7 @@ namespace Pitchdea
             }
             else
             {
-
+                errorMessage.Text = "Email and password combination is incorrect.";
             }
         }
     }
