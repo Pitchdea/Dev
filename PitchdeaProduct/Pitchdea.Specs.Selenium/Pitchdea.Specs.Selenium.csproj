@@ -65,6 +65,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IdeaCreate.feature.cs">
+      <DependentUpon>IdeaCreate.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="LoginFunctionSteps.cs" />
     <Compile Include="LoginRememberMe.feature.cs">
       <AutoGen>True</AutoGen>
@@ -84,6 +89,10 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="IdeaCreate.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>IdeaCreate.feature.cs</LastGenOutput>
+    </Content>
     <None Include="LoginRememberMe.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoginRememberMe.feature.cs</LastGenOutput>
