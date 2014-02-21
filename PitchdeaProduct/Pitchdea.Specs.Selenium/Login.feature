@@ -2,21 +2,22 @@
 	The user can login into the service.
 
 Background: 
-	Given user "test@pitchdea.com" with password "password123" exists in the database
+	Given the user database is empty first
+		And user "test@pitchdea.com" with password "password123" exists in the database
 		And page "/login.aspx" is open
 
 Scenario: The user inputs correct login information, clicks the login button.
 Access is granted.
-	Given "email" field value is "test@pitchdea.com"
-		And "password" field value is "password123"
+	Given "MainContentPlaceHolder_email" field value is "test@pitchdea.com"
+		And "MainContentPlaceHolder_password" field value is "password123"
 	When user clicks login button
 	Then page "/main.aspx" is open
 		And user is logged in as "test@pitchdea.com"
 
 Scenario Outline: The user inputs correct login information and presses enter.
 Access is granted.
-	Given "username" field value is "test@pitchdea.com"
-		And "password" field value is "password123"
+	Given "MainContentPlaceHolder_email" field value is "test@pitchdea.com"
+		And "MainContentPlaceHolder_password" field value is "password123"
 	When user hits enter key while "<fieldname>" is focused
 	Then page "/main.aspx" is open
 		And user is logged in as "test@pitchdea.com"
@@ -28,14 +29,11 @@ Access is granted.
 
 Scenario Outline: The user inputs incorrect login information and clicks the login button.
 An error message is shown to the user. Access is not granted.
-	Given "username" field value is "<username>"
-		And "password" field value is "<password>"		
-		And user "test@pitchdea.com" with password "password124" is not in the database
-		And user "test2@pitchdea.com" with password "password123" is not in the database
-		And user "test2@pitchdea.com" with password "password124" is not in the database
+	Given "MainContentPlaceHolder_email" field value is "<username>"
+		And "MainContentPlaceHolder_password" field value is "<password>"
 	When user clicks login button
 	Then page "/login.aspx" is open
-		And "errorMessage" field value is "Email and password combination is incorrect."
+		And "MainContentPlaceHolder_errorMessage" field value is "Email and password combination is incorrect."
 
 	Examples: 
 		| username           | password    |
@@ -45,22 +43,22 @@ An error message is shown to the user. Access is not granted.
 
 Scenario: The user tries to login when email field is empty.
 An error message is shown to the user. Access is not granted.
-	Given "username" field is ""
+	Given "MainContentPlaceHolder_email" field value is ""
 	When user clicks login button
 	Then page "/login.aspx" is open
-		And "errorMessage" field value is "Email address field is empty."
+		And "MainContentPlaceHolder_errorMessage" field value is "Email address field is empty."
 
 Scenario: The user tries to login when password field is empty.
 An error message is shown to the user. Access is not granted.
-	Given "username" field value is "test@pitchdea.com"
+	Given "MainContentPlaceHolder_email" field value is "test@pitchdea.com"
 		And "password" field is ""
 	When user clicks login button
 	Then page "/login.aspx" is open
-		And "errorMessage" field value is "Password field is empty."
+		And "MainContentPlaceHolder_errorMessage" field value is "Password field is empty."
 
 Scenario: The user inputs an invalid format email address and tries to login.
 An error message is shown to the user. Access is not granted.
-	Given "username" field value is "not an email address"
+	Given "MainContentPlaceHolder_email" field value is "not an email address"
 	When user clicks login button
 	Then page "/login.aspx" is open
-		And "errorMessage" field value is "Email address is not valid."
+		And "MainContentPlaceHolder_errorMessage" field value is "Email address is not valid."

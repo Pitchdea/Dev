@@ -15,7 +15,7 @@ namespace Pitchdea.Core.Test
         public void SetUp()
         {
             _sqlTool = new SqlTestTool();
-            _auth = new Authenticator(SqlTestTool.ConnectionString);
+            _auth = new Authenticator(SqlTestTool.TestConnectionString);
         }
 
         [Test]

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System.Diagnostics;
+using OpenQA.Selenium;
 using OpenQA.Selenium.IE;
 using TechTalk.SpecFlow;
 
@@ -20,6 +21,17 @@ namespace Pitchdea.Specs.Selenium.Utils
                 }
                 return ScenarioContext.Current["browser"] as IWebDriver;
             }
+        }
+
+        public static void Close()
+        {
+            var driver = ScenarioContext.Current["browser"] as IWebDriver;
+
+            Debug.Assert(driver != null, "driver != null");
+            driver.Quit();
+
+            ScenarioContext.Current.Remove("browser");
+
         }
     }
 }

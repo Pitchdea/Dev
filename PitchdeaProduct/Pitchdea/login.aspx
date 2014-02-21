@@ -4,6 +4,7 @@
     
 </asp:Content>
 
-<asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1">
-    <asp:Button runat="server" ID="foo_button" OnClick="foo_button_OnClick"/>
+<asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContentPlaceHolder">
+    <asp:TextBox runat="server" ID="email"/>
+    <asp:TextBox runat="server" ID="password"/>
 </asp:Content>

@@ -5,13 +5,13 @@ namespace Pitchdea.Core.Test.Utils
 {
     public class SqlTestTool
     {
-        public const string ConnectionString = "SERVER=localhost; DATABASE=pitchdeatest; UID=test; PASSWORD=test;";
+        public const string TestConnectionString = "SERVER=localhost; DATABASE=pitchdeatest; UID=test; PASSWORD=test;";
 
         private readonly MySqlConnection _connection;
 
         public SqlTestTool()
         {
-            _connection = new MySqlConnection(ConnectionString);
+            _connection = new MySqlConnection(TestConnectionString);
         }
 
         public void CleanUsers()
