@@ -56,8 +56,8 @@ An error message is shown to the user. Access is not granted.
 
 	Examples: 
 		| username             | password    | errorMessage                  |
-		|                      | password124 | Email address field is empty. |
-		| test1@pitchdea.com   |             | Password field is empty.      |
-		| not an email address | password124 | Email address is not valid.   |
+		|                      | password124 | You forgot to type an email. |
+		| test1@pitchdea.com   |             | You forgot to type a password.      |
+		| not an email address | password124 | This doesn't seem to be an email address.   |
 
 
