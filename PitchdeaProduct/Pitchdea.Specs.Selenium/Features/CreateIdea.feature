@@ -1,18 +1,18 @@
-﻿Feature: IdeaCreate
+﻿Feature: Create Idea
 	User creates an idea.
 
 
 Scenario Outline: user submits an idea
 	Given page "/createIdeaPage.aspx" is open
-		And MainContent_titleTextBox field value is "<title>"
-		And MainContent_ideaTextBox field value is "<ideatext>"
-		And MainContent_questionTextBox field value is "<question>"
+		And "MainContent_titleTextBox" field value is "<title>"
+		And "MainContent_ideaTextBox" field value is "<ideatext>"
+		And "MainContent_questionTextBox" field value is "<question>"
 	When user clicks "MainContent_createIdeaButton" button
 	Then page "/viewIdeaPage.aspx" is open 
 		And Page title is "<title> | Pitchdea" 
-		And Maincontent_ideaHeader is "<title>"
-		And MainContent_ideaText is"<ideatext>"
-		And MainContent_questionText is "<question>"
+		And "Maincontent_ideaHeader" is "<title>"
+		And "MainContent_ideaText" is"<ideatext>"
+		And "MainContent_questionText" is "<question>"
 		And "MainContent_statusMessage" field value is "Your idea has been created succesfully!"
 
 		Examples:

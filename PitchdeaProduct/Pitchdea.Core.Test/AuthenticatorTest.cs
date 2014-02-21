@@ -67,7 +67,7 @@ namespace Pitchdea.Core.Test
             _auth.RegisterNewUser(email, pw);
             var result = _auth.Authenticate(email, pw);
 
-            Assert.AreNotEqual("-1", result);
+            Assert.AreNotEqual(-1, result);
 
             _sqlTool.CleanUsers();
         }

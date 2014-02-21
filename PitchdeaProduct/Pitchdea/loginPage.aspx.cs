@@ -39,9 +39,9 @@ namespace Pitchdea
 
             var userId = _auth.Authenticate(emailTextBox.Text, passwordTextBox.Text);
 
-            testLabel.Text = userId;
+            testLabel.Text = userId.ToString();
 
-            if (userId != "-1")
+            if (userId != -1)
             {
                 Session["userID"] = userId;
                 Session["username"] = emailTextBox.Text.ToLower();

@@ -7,7 +7,7 @@ using Pitchdea.Core.Test.Utils;
 using Pitchdea.Specs.Selenium.Utils;
 using TechTalk.SpecFlow;
 
-namespace Pitchdea.Specs.Selenium
+namespace Pitchdea.Specs.Selenium.Steps
 {
     [Binding]
     public class LoginSteps
