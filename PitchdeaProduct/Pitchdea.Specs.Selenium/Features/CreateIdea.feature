@@ -4,7 +4,7 @@
 
 Scenario Outline: user submits an idea
 	Given page "/createIdeaPage.aspx" is open
-		And the user is logged in (TODO)
+		And user is logged in as "test@pitchdea.com"
 		And "MainContent_titleTextBox" field value is "<title>"
 		And "MainContent_ideaTextBox" field value is "<ideatext>"
 		And "MainContent_questionTextBox" field value is "<question>"
