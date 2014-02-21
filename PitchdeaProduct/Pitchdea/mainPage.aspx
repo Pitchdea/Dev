@@ -1,7 +1,7 @@
 ﻿<%@ Page AutoEventWireup="true" 
-    CodeBehind="login.aspx.cs" 
-    Inherits="Pitchdea.Login" 
-    Title="Sign in | Pitchdea" 
+    CodeBehind="mainPage.aspx.cs" 
+    Inherits="Pitchdea.MainPage" 
+    Title="Pitchdea - Where ideas evolve!" 
     Language="C#" 
     MasterPageFile="Main.Master" %>
 
@@ -10,7 +10,5 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContentPlaceHolder">
-    <asp:TextBox runat="server" ID="emailTextBox"/>
-    <asp:TextBox runat="server" ID="passwordTextBox"/>
-    <asp:Button runat="server" ID="loginButton"/>
+    <asp:Label runat="server" ID="activeUserLabel"/>
 </asp:Content>

@@ -8,30 +8,30 @@ Background:
 
 Scenario: The user inputs correct login information, clicks the login button.
 Access is granted.
-	Given "MainContentPlaceHolder_email" field value is "test@pitchdea.com"
-		And "MainContentPlaceHolder_password" field value is "password123"
-	When user clicks login button
+	Given "MainContentPlaceHolder_emailTextBox" field value is "test@pitchdea.com"
+		And "MainContentPlaceHolder_passwordTextBox" field value is "password123"
+	When user clicks "MainContentPlaceHolder_loginButton" button
 	Then page "/main.aspx" is open
 		And user is logged in as "test@pitchdea.com"
 
 Scenario Outline: The user inputs correct login information and presses enter.
 Access is granted.
-	Given "MainContentPlaceHolder_email" field value is "test@pitchdea.com"
-		And "MainContentPlaceHolder_password" field value is "password123"
+	Given "MainContentPlaceHolder_emailTextBox" field value is "test@pitchdea.com"
+		And "MainContentPlaceHolder_passwordTextBox" field value is "password123"
 	When user hits enter key while "<fieldname>" is focused
 	Then page "/main.aspx" is open
 		And user is logged in as "test@pitchdea.com"
 
 	Examples: 
 		| fieldname |
-		| username  |
-		| password  |
+		| MainContentPlaceHolder_emailTextbox  |
+		| MainContentPlaceHolder_passwordTextbox  |
 
 Scenario Outline: The user inputs incorrect login information and clicks the login button.
 An error message is shown to the user. Access is not granted.
-	Given "MainContentPlaceHolder_email" field value is "<username>"
-		And "MainContentPlaceHolder_password" field value is "<password>"
-	When user clicks login button
+	Given "MainContentPlaceHolder_emailTextBox" field value is "<username>"
+		And "MainContentPlaceHolder_passwordTextBox" field value is "<password>"
+	When user clicks "MainContentPlaceHolder_loginButton" button
 	Then page "/login.aspx" is open
 		And "MainContentPlaceHolder_errorMessage" field value is "Email and password combination is incorrect."
 
@@ -43,22 +43,22 @@ An error message is shown to the user. Access is not granted.
 
 Scenario: The user tries to login when email field is empty.
 An error message is shown to the user. Access is not granted.
-	Given "MainContentPlaceHolder_email" field value is ""
-	When user clicks login button
+	Given "MainContentPlaceHolder_emailTextBox" field value is ""
+	When user clicks "MainContentPlaceHolder_loginButton" button
 	Then page "/login.aspx" is open
 		And "MainContentPlaceHolder_errorMessage" field value is "Email address field is empty."
 
 Scenario: The user tries to login when password field is empty.
 An error message is shown to the user. Access is not granted.
-	Given "MainContentPlaceHolder_email" field value is "test@pitchdea.com"
-		And "password" field is ""
-	When user clicks login button
+	Given "MainContentPlaceHolder_emailTextBox" field value is "test@pitchdea.com"
+		And "MainContentPlaceHolder_passwordTextBox" field value is ""
+	When user clicks "MainContentPlaceHolder_loginButton" button
 	Then page "/login.aspx" is open
 		And "MainContentPlaceHolder_errorMessage" field value is "Password field is empty."
 
 Scenario: The user inputs an invalid format email address and tries to login.
 An error message is shown to the user. Access is not granted.
-	Given "MainContentPlaceHolder_email" field value is "not an email address"
-	When user clicks login button
+	Given "MainContentPlaceHolder_emailTextBox" field value is "not an email address"
+	When user clicks "MainContentPlaceHolder_loginButton" button
 	Then page "/login.aspx" is open
 		And "MainContentPlaceHolder_errorMessage" field value is "Email address is not valid."

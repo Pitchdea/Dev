@@ -86,11 +86,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line 11
- testRunner.Given("\"MainContentPlaceHolder_email\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 12
-  testRunner.And("\"MainContentPlaceHolder_password\" field value is \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("\"MainContentPlaceHolder_passwordTextBox\" field value is \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
- testRunner.When("user clicks login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
  testRunner.Then("page \"/main.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 15
@@ -101,8 +101,8 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("The user inputs correct login information and presses enter.")]
-        [NUnit.Framework.TestCaseAttribute("username", null)]
-        [NUnit.Framework.TestCaseAttribute("password", null)]
+        [NUnit.Framework.TestCaseAttribute("MainContentPlaceHolder_emailTextbox", null)]
+        [NUnit.Framework.TestCaseAttribute("MainContentPlaceHolder_passwordTextbox", null)]
         public virtual void TheUserInputsCorrectLoginInformationAndPressesEnter_(string fieldname, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user inputs correct login information and presses enter.", exampleTags);
@@ -111,9 +111,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line 19
- testRunner.Given("\"MainContentPlaceHolder_email\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 20
-  testRunner.And("\"MainContentPlaceHolder_password\" field value is \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("\"MainContentPlaceHolder_passwordTextBox\" field value is \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
  testRunner.When(string.Format("user hits enter key while \"{0}\" is focused", fieldname), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 22
@@ -137,11 +137,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line 32
- testRunner.Given(string.Format("\"MainContentPlaceHolder_email\" field value is \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("\"MainContentPlaceHolder_emailTextBox\" field value is \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 33
-  testRunner.And(string.Format("\"MainContentPlaceHolder_password\" field value is \"{0}\"", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("\"MainContentPlaceHolder_passwordTextBox\" field value is \"{0}\"", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
- testRunner.When("user clicks login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 35
  testRunner.Then("page \"/login.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 36
@@ -161,9 +161,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line 46
- testRunner.Given("\"MainContentPlaceHolder_email\" field value is \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 47
- testRunner.When("user clicks login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 48
  testRunner.Then("page \"/login.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 49
@@ -183,11 +183,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line 53
- testRunner.Given("\"MainContentPlaceHolder_email\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 54
-  testRunner.And("\"password\" field is \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("\"MainContentPlaceHolder_passwordTextBox\" field value is \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
- testRunner.When("user clicks login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 56
  testRunner.Then("page \"/login.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 57
@@ -206,9 +206,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line 61
- testRunner.Given("\"MainContentPlaceHolder_email\" field value is \"not an email address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"not an email address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 62
- testRunner.When("user clicks login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 63
  testRunner.Then("page \"/login.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 64

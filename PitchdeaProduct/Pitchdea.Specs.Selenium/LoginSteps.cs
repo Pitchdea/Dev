@@ -18,7 +18,6 @@ namespace Pitchdea.Specs.Selenium
             sqlTool.CleanUsers();
         }
 
-
         [Given(@"user ""(.*)"" with password ""(.*)"" exists in the database")]
         public void GivenUserWithPasswordExistsInTheDatabase(string email, string password)
         {
@@ -42,10 +41,32 @@ namespace Pitchdea.Specs.Selenium
             fieldElement.SendKeys(value);
         }
 
-        //[AfterScenario]
-        //public static void CloseDriver()
-        //{
-        //    WebBrowser.Close();
-        //}
+        [When(@"user clicks ""(.*)"" button")]
+        public void WhenUserClicksButton(string buttonId)
+        {
+            IWebElement fieldElement = WebBrowser.Current.FindElement(By.Id(buttonId));
+            fieldElement.Click();
+        }
+
+        [Then(@"page ""(.*)"" is open")]
+        public void ThenPageIsOpen(string url)
+        {
+            var root = new Uri(WebBrowser.BaseUrl);
+            var absoluteUrl = new Uri(root, url);
+            Assert.AreEqual(absoluteUrl, WebBrowser.Current.Url);
+        }
+
+        [Then(@"user is logged in as ""(.*)""")]
+        public void ThenUserIsLoggedInAs(string userName)
+        {
+            IWebElement labelElement = WebBrowser.Current.FindElement(By.Id("MainContentPlaceHolder_activeUserLabel"));
+            Assert.AreEqual(userName, labelElement.Text);
+        }
+
+        [AfterScenario]
+        public static void CloseDriver()
+        {
+            WebBrowser.Close();
+        }
     }
 }
