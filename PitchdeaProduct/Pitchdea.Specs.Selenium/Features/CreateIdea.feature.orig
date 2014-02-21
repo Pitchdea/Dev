@@ -1,0 +1,32 @@
+﻿Feature: Create Idea
+	User creates an idea.
+
+
+Scenario Outline: user submits an idea
+	Given page "/createIdeaPage.aspx" is open
+<<<<<<< HEAD:PitchdeaProduct/Pitchdea.Specs.Selenium/IdeaCreate.feature
+		And user is logged in as "<user>"
+=======
+		And the user is logged in (TODO)
+>>>>>>> ed41dbbfd07f129c65c3efab3fad45eb853bc7ca:PitchdeaProduct/Pitchdea.Specs.Selenium/Features/CreateIdea.feature
+		And "MainContent_titleTextBox" field value is "<title>"
+		And "MainContent_ideaTextBox" field value is "<ideatext>"
+		And "MainContent_questionTextBox" field value is "<question>"
+	When user clicks "MainContent_createIdeaButton" button
+<<<<<<< HEAD:PitchdeaProduct/Pitchdea.Specs.Selenium/IdeaCreate.feature
+	Then "Maincontent_ideaHeader" is "<title>"
+		And "MainContent_ideaText" is"<ideatext>"
+		And "MainContent_questionText" is "<question>"
+=======
+	Then page title is "<title>"
+		And "Maincontent_ideaHeader" value is "<title>"
+		And "MainContent_ideaText" value is"<ideatext>"
+		And "MainContent_questionText" value is "<question>"
+>>>>>>> ed41dbbfd07f129c65c3efab3fad45eb853bc7ca:PitchdeaProduct/Pitchdea.Specs.Selenium/Features/CreateIdea.feature
+		And "MainContent_statusMessage" field value is "Your idea has been created succesfully!"
+
+		Examples:
+			| title        | ideatext                    | question                   |
+			| My Idea      | I teach parrots to speak    | Do you like this idea?     |
+			| Great Idea   | Chaplin movies with dubbing | Would you go see?          |
+			| So Good Idea | Virtual piano lessons       | Would you pay 20 USD/hour? |
