@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using Pitchdea.Core;
@@ -59,8 +60,16 @@ namespace Pitchdea.Specs.Selenium
         [Then(@"user is logged in as ""(.*)""")]
         public void ThenUserIsLoggedInAs(string userName)
         {
-            IWebElement labelElement = WebBrowser.Current.FindElement(By.Id("MainContentPlaceHolder_activeUserLabel"));
+            IWebElement labelElement = WebBrowser.Current.FindElement(By.Id("MainContent_activeUserLabel"));
             Assert.AreEqual(userName, labelElement.Text);
+        }
+
+        [When(@"user hits enter key while ""(.*)"" is focused")]
+        public void WhenUserHitsEnterKeyWhileIsFocused(string fieldId)
+        {
+            IWebElement fieldElement = WebBrowser.Current.FindElement(By.Id(fieldId));
+            fieldElement.SendKeys(Keys.Enter);
+            Thread.Sleep(1000); //TODO: wait for the page to load, is there a "correct" way for doing this?
         }
 
         [AfterScenario]

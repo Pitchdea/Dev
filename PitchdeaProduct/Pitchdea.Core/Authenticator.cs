@@ -12,18 +12,18 @@ namespace Pitchdea.Core
     {
         private readonly MySqlConnection _connection;
 
-        /// <summary>
-        /// Construct a new authenticator using default configuration.
-        /// </summary>
-        public Authenticator()
-        {
-            const string server = "localhost";
-            const string database = "pitchdea";
-            const string uid = "root";
-            const string pw = "root";
-            var connectionString = string.Format("SERVER={0}; DATABASE={1}; UID={2}; PASSWORD={3};", server, database, uid, pw);
-            _connection = new MySqlConnection(connectionString);
-        }
+        ///// <summary>
+        ///// Construct a new authenticator using default configuration.
+        ///// </summary>
+        //public Authenticator()
+        //{
+        //    const string server = "localhost";
+        //    const string database = "pitchdea";
+        //    const string uid = "root";
+        //    const string pw = "root";
+        //    var connectionString = string.Format("SERVER={0}; DATABASE={1}; UID={2}; PASSWORD={3};", server, database, uid, pw);
+        //    _connection = new MySqlConnection(connectionString);
+        //}
 
         /// <summary>
         /// Construct a new authenticator using default configuration.
@@ -39,24 +39,25 @@ namespace Pitchdea.Core
         /// <param name="email">Username to authenticate</param>
         /// <param name="password">Password to authenticate</param>
         /// <returns>True if succesfully authenticated</returns>
-        public bool Authenticate(string email, string password)
+        public string Authenticate(string email, string password)
         {
             _connection.Open();
-            var query = string.Format(@"SELECT salt, password FROM user WHERE email = '{0}';", email);
+            var query = string.Format(@"SELECT salt, password, userid FROM user WHERE email = '{0}';", email);
             var command = new MySqlCommand(query, _connection);
             var reader = command.ExecuteReader();
 
-            if (!reader.Read()) { return false; }
+            if (!reader.Read()) { return "-1"; }
 
             var salt = (string)reader[0];
             var dbPw = (string)reader[1];
+            var userId = reader[2].ToString();
 
             _connection.Close();
 
             var hash = CreateHash(password, salt);
             //var dbPw = (string)result;
             //TODO: constant time equals
-            return dbPw == hash;
+            return dbPw == hash ? userId : "-1";
         }
 
         /// <summary>

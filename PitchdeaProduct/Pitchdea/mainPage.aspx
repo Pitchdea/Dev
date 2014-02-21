@@ -9,6 +9,6 @@
     
 </asp:Content>
 
-<asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContentPlaceHolder">
+<asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
     <asp:Label runat="server" ID="activeUserLabel"/>
 </asp:Content>
