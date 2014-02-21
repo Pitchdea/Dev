@@ -77,74 +77,74 @@ namespace Pitchdea.Specs.Selenium
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user inputs correct login information, clicks the login button.")]
-        public virtual void TheUserInputsCorrectLoginInformationClicksTheLoginButton_()
+        [NUnit.Framework.DescriptionAttribute("Correct login information with button click")]
+        public virtual void CorrectLoginInformationWithButtonClick()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user inputs correct login information, clicks the login button.", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Correct login information with button click", ((string[])(null)));
 #line 9
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 11
- testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 12
-  testRunner.And("\"MainContentPlaceHolder_passwordTextBox\" field value is \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 13
- testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("\"MainContentPlaceHolder_passwordTextBox\" field value is \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
- testRunner.Then("page \"/main.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
+ testRunner.Then("page \"/main.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 16
   testRunner.And("user is logged in as \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user inputs correct login information and presses enter.")]
+        [NUnit.Framework.DescriptionAttribute("Correct login information with enter press")]
         [NUnit.Framework.TestCaseAttribute("MainContentPlaceHolder_emailTextbox", null)]
         [NUnit.Framework.TestCaseAttribute("MainContentPlaceHolder_passwordTextbox", null)]
-        public virtual void TheUserInputsCorrectLoginInformationAndPressesEnter_(string fieldname, string[] exampleTags)
+        public virtual void CorrectLoginInformationWithEnterPress(string fieldname, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user inputs correct login information and presses enter.", exampleTags);
-#line 17
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Correct login information with enter press", exampleTags);
+#line 18
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 19
- testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 20
-  testRunner.And("\"MainContentPlaceHolder_passwordTextBox\" field value is \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
- testRunner.When(string.Format("user hits enter key while \"{0}\" is focused", fieldname), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 22
- testRunner.Then("page \"/main.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.And("\"MainContentPlaceHolder_passwordTextBox\" field value is \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
+ testRunner.When(string.Format("user hits enter key while \"{0}\" is focused", fieldname), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 24
+ testRunner.Then("page \"/main.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 25
   testRunner.And("user is logged in as \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user inputs incorrect login information and clicks the login button.")]
+        [NUnit.Framework.DescriptionAttribute("Incorrect login information")]
         [NUnit.Framework.TestCaseAttribute("test@pitchdea.com", "password124", null)]
         [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "password123", null)]
         [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "password124", null)]
-        public virtual void TheUserInputsIncorrectLoginInformationAndClicksTheLoginButton_(string username, string password, string[] exampleTags)
+        public virtual void IncorrectLoginInformation(string username, string password, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user inputs incorrect login information and clicks the login button.", exampleTags);
-#line 30
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrect login information", exampleTags);
+#line 32
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 32
- testRunner.Given(string.Format("\"MainContentPlaceHolder_emailTextBox\" field value is \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 33
-  testRunner.And(string.Format("\"MainContentPlaceHolder_passwordTextBox\" field value is \"{0}\"", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 34
- testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 35
- testRunner.Then("page \"/login.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given(string.Format("\"MainContentPlaceHolder_emailTextBox\" field value is \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 36
+  testRunner.And(string.Format("\"MainContentPlaceHolder_passwordTextBox\" field value is \"{0}\"", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
+ testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 38
+ testRunner.Then("page \"/login.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 39
   testRunner.And("\"MainContentPlaceHolder_errorMessage\" field value is \"Email and password combinat" +
                     "ion is incorrect.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -152,21 +152,21 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user tries to login when email field is empty.")]
-        public virtual void TheUserTriesToLoginWhenEmailFieldIsEmpty_()
+        [NUnit.Framework.DescriptionAttribute("Empty email field")]
+        public virtual void EmptyEmailField()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user tries to login when email field is empty.", ((string[])(null)));
-#line 44
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Empty email field", ((string[])(null)));
+#line 47
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 46
+#line 50
  testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 47
+#line 51
  testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 48
+#line 52
  testRunner.Then("page \"/login.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 49
+#line 53
   testRunner.And("\"MainContentPlaceHolder_errorMessage\" field value is \"Email address field is empt" +
                     "y.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -174,44 +174,44 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user tries to login when password field is empty.")]
-        public virtual void TheUserTriesToLoginWhenPasswordFieldIsEmpty_()
+        [NUnit.Framework.DescriptionAttribute("Empty password field")]
+        public virtual void EmptyPasswordField()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user tries to login when password field is empty.", ((string[])(null)));
-#line 51
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Empty password field", ((string[])(null)));
+#line 55
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 53
+#line 58
  testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 54
+#line 59
   testRunner.And("\"MainContentPlaceHolder_passwordTextBox\" field value is \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 55
+#line 60
  testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 56
+#line 61
  testRunner.Then("page \"/login.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 57
+#line 62
   testRunner.And("\"MainContentPlaceHolder_errorMessage\" field value is \"Password field is empty.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user inputs an invalid format email address and tries to login.")]
-        public virtual void TheUserInputsAnInvalidFormatEmailAddressAndTriesToLogin_()
+        [NUnit.Framework.DescriptionAttribute("Invalid email format")]
+        public virtual void InvalidEmailFormat()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user inputs an invalid format email address and tries to login.", ((string[])(null)));
-#line 59
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid email format", ((string[])(null)));
+#line 64
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 61
+#line 67
  testRunner.Given("\"MainContentPlaceHolder_emailTextBox\" field value is \"not an email address\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 62
+#line 68
  testRunner.When("user clicks \"MainContentPlaceHolder_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 63
+#line 69
  testRunner.Then("page \"/login.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 64
+#line 70
   testRunner.And("\"MainContentPlaceHolder_errorMessage\" field value is \"Email address is not valid." +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
