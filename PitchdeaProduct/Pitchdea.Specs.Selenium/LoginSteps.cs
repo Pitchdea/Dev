@@ -73,6 +73,14 @@ namespace Pitchdea.Specs.Selenium
             Thread.Sleep(500); //TODO: wait for the page to load, is there a "correct" way for doing this?
         }
 
+        [Then(@"""(.*)"" field value is ""(.*)""")]
+        public void ThenFieldValueIs(string fieldId, string value)
+        {
+            IWebElement fieldElement = WebBrowser.Current.FindElement(By.Id(fieldId));
+            Assert.AreEqual(value, fieldElement.Text);
+        }
+
+
         [AfterScenario]
         public static void CloseDriver()
         {

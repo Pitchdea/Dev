@@ -15,4 +15,6 @@
     <asp:Button runat="server" ID="loginButton" OnClick="loginButton_OnClick"/>
     
     <asp:Label runat="server" ID="testLabel"/>
+    
+    <asp:Label runat="server" ID="errorMessage"/>
 </asp:Content>

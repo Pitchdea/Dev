@@ -36,35 +36,28 @@ An error message is shown to the user. Access is not granted.
 		And "MainContent_passwordTextBox" field value is "<password>"
 	When user clicks "MainContent_loginButton" button
 	Then page "/loginPage.aspx" is open
-		And "MainContentPlaceHolder_errorMessage" field value is "Email and password combination is incorrect."
+		And "MainContent_errorMessage" field value is "<errorMessage>"
 
 	Examples: 
-		| username           | password    |
-		| test@pitchdea.com  | password124 |
-		| test1@pitchdea.com | password123 |
-		| test1@pitchdea.com | password124 |
+		| username           | password    | errorMessage                                 |
+		| test@pitchdea.com  | password124 | Email and password combination is incorrect. |
+		| test1@pitchdea.com | password123 | Email and password combination is incorrect. |
+		| test1@pitchdea.com | password124 | Email and password combination is incorrect. |
 
-Scenario: Empty email field
-The user tries to login when email field is empty.
+
+Scenario Outline: Missing login information
+The user does not input login information or the information is invalid and clicks the login button.
 An error message is shown to the user. Access is not granted.
-	Given "MainContent_emailTextBox" field value is ""
+	Given "MainContent_emailTextBox" field value is "<username>"
+		And "MainContent_passwordTextBox" field value is "<password>"
 	When user clicks "MainContent_loginButton" button
 	Then page "/loginPage.aspx" is open
-		And "MainContentPlaceHolder_errorMessage" field value is "Email address field is empty."
+		And "MainContent_errorMessage" field value is "<errorMessage>"
 
-Scenario: Empty password field
-The user tries to login when password field is empty.
-An error message is shown to the user. Access is not granted.
-	Given "MainContent_emailTextBox" field value is "test@pitchdea.com"
-		And "MainContent_passwordTextBox" field value is ""
-	When user clicks "MainContent_loginButton" button
-	Then page "/loginPage.aspx" is open
-		And "MainContentPlaceHolder_errorMessage" field value is "Password field is empty."
+	Examples: 
+		| username             | password    | errorMessage                  |
+		|                      | password124 | Email address field is empty. |
+		| test1@pitchdea.com   |             | Password field is empty.      |
+		| not an email address | password124 | Email address is not valid.   |
 
-Scenario: Invalid email format
-The user inputs an invalid format email address and tries to login.
-An error message is shown to the user. Access is not granted.
-	Given "MainContent_emailTextBox" field value is "not an email address"
-	When user clicks "MainContent_loginButton" button
-	Then page "/loginPage.aspx" is open
-		And "MainContentPlaceHolder_errorMessage" field value is "Email address is not valid."
+
