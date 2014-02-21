@@ -1,9 +1,12 @@
 ﻿Feature: IdeaCreate
-	
+	User creates an idea.
 
 
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+Scenario: user submits an idea
+	Given page "/ideaPage.aspx" is open
+		And MainContent_titleTextBox field value is not ""
+		And MainContent_ideaTextBox field value is not ""
+		And MainContent_questionTextBox field value is not ""
+	When user clicks "MainContent_createIdeaButton" button
+	Then page "/mainPage.aspx" is open
+		And "MainContentPlaceHolder_okMessage" field value is "Your idea has been created succesfully!"
