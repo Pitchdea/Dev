@@ -77,23 +77,23 @@ this.ScenarioSetup(scenarioInfo);
 #line 6
  testRunner.Given("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
-  testRunner.And(string.Format("MainContent_titleTextBox field value is \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("(logged in)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 8
-  testRunner.And(string.Format("MainContent_ideaTextBox field value is \"{0}\"", ideatext), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("\"MainContent_titleTextBox\" field value is \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
-  testRunner.And(string.Format("MainContent_questionTextBox field value is \"{0}\"", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("\"MainContent_ideaTextBox\" field value is \"{0}\"", ideatext), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
- testRunner.When("user clicks \"MainContent_createIdeaButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And(string.Format("\"MainContent_questionTextBox\" field value is \"{0}\"", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.Then("page \"/viewIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("user clicks \"MainContent_createIdeaButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
-  testRunner.And(string.Format("Page title is \"{0} | Pitchdea\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("page \"/viewIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 13
-  testRunner.And(string.Format("Maincontent_ideaHeader is \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("\"Maincontent_ideaHeader\" is \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
-  testRunner.And(string.Format("MainContent_ideaText is\"{0}\"", ideatext), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("\"MainContent_ideaText\" is\"{0}\"", ideatext), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
-  testRunner.And(string.Format("MainContent_questionText is \"{0}\"", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("\"MainContent_questionText\" is \"{0}\"", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
   testRunner.And("\"MainContent_statusMessage\" field value is \"Your idea has been created succesfull" +
                     "y!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
