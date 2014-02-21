@@ -47,6 +47,7 @@ namespace Pitchdea.Specs.Selenium
         {
             IWebElement fieldElement = WebBrowser.Current.FindElement(By.Id(buttonId));
             fieldElement.Click();
+            Thread.Sleep(500); //TODO: wait for the page to load, is there a "correct" way for doing this?
         }
 
         [Then(@"page ""(.*)"" is open")]
@@ -69,7 +70,7 @@ namespace Pitchdea.Specs.Selenium
         {
             IWebElement fieldElement = WebBrowser.Current.FindElement(By.Id(fieldId));
             fieldElement.SendKeys(Keys.Enter);
-            Thread.Sleep(1000); //TODO: wait for the page to load, is there a "correct" way for doing this?
+            Thread.Sleep(500); //TODO: wait for the page to load, is there a "correct" way for doing this?
         }
 
         [AfterScenario]
