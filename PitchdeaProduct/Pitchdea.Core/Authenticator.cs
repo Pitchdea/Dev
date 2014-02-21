@@ -45,8 +45,8 @@ namespace Pitchdea.Core
 
             var hash = CreateHash(password, salt);
 
-            //TODO: constant time equals
-            return dbPw == hash ? userId : -1;
+
+            return SlowEquals(dbPw, hash) ? userId : -1;
         }
 
         /// <summary>
@@ -129,6 +129,33 @@ namespace Pitchdea.Core
             var bytes = new byte[32];
             gen.GetNonZeroBytes(bytes);
             return bytes;
+        }
+
+        /// <summary>
+        /// Performs and length-constant equals operation to two strings.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns>True, if a and b are equal, otherwise false</returns>
+        private static bool SlowEquals(string a, string b)
+        {
+            return SlowEquals(Convert.FromBase64String(a), Convert.FromBase64String(b));
+        }
+
+
+        //Source: https://crackstation.net/hashing-security.htm - How does the SlowEquals code work?
+        /// <summary>
+        /// Performs and length-constant equals operation to two byte arrays.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns>True, if a and b are equal, otherwise false</returns>
+        private static bool SlowEquals(byte[] a, byte[] b)
+        {
+            int diff = a.Length ^ b.Length;
+            for(int i = 0; i < a.Length && i < b.Length; i++)
+                diff |= a[i] ^ b[i];
+            return diff == 0;
         }
     }
 }

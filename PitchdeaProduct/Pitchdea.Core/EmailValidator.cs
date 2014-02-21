@@ -9,8 +9,6 @@ namespace Pitchdea.Core
 {
     public static class EmailValidator
     {
-        //TODO: Other threats than injections?
-
         /// <summary>
         /// Checks that the email address is a valid email address.
         /// </summary>
