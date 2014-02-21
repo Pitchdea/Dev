@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `pitchdeaproduct` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `pitchdeaproduct`;
+CREATE DATABASE  IF NOT EXISTS `pitchdeatest` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `pitchdeatest`;
 -- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
 --
--- Host: localhost    Database: pitchdeaproduct
+-- Host: localhost    Database: pitchdeatest
 -- ------------------------------------------------------
 -- Server version	5.6.15
 
@@ -25,22 +25,14 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `usr_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing ID ',
-  `username` varchar(44) DEFAULT NULL,
-  `passwd` varchar(44) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  PRIMARY KEY (`usr_id`)
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) DEFAULT NULL,
+  `salt` char(44) DEFAULT NULL,
+  `password` char(44) DEFAULT NULL,
+  PRIMARY KEY (`userid`)
+)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user`
---
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -51,4 +43,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-20 11:47:08
+-- Dump completed on 2014-02-20 11:30:31
