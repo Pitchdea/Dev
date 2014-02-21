@@ -11,6 +11,11 @@ namespace Pitchdea.Core
     {
         //TODO: Other threats than injections?
 
+        /// <summary>
+        /// Checks that the email address is a valid email address.
+        /// </summary>
+        /// <param name="email">Email address to be checked.</param>
+        /// <returns>True if the email address is valid, otherwise false.</returns>
         public static bool Validate(string email)
         {
             if (email.Length > 150)

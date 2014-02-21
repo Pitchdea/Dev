@@ -12,21 +12,8 @@ namespace Pitchdea.Core
     {
         private readonly MySqlConnection _connection;
 
-        ///// <summary>
-        ///// Construct a new authenticator using default configuration.
-        ///// </summary>
-        //public Authenticator()
-        //{
-        //    const string server = "localhost";
-        //    const string database = "pitchdea";
-        //    const string uid = "root";
-        //    const string pw = "root";
-        //    var connectionString = string.Format("SERVER={0}; DATABASE={1}; UID={2}; PASSWORD={3};", server, database, uid, pw);
-        //    _connection = new MySqlConnection(connectionString);
-        //}
-
         /// <summary>
-        /// Construct a new authenticator using default configuration.
+        /// Construct a new authenticator using the given connection string for database connection.
         /// </summary>
         public Authenticator(string connectionstring)
         {
@@ -34,37 +21,39 @@ namespace Pitchdea.Core
         }
 
         /// <summary>
-        /// Authenticates the user. Return true if succesfully authenticated.
+        /// Checks if the email and passsword combination is found in the database.
         /// </summary>
         /// <param name="email">Username to authenticate</param>
         /// <param name="password">Password to authenticate</param>
-        /// <returns>True if succesfully authenticated</returns>
-        public string Authenticate(string email, string password)
+        /// <returns>Non-negative UserID if succesfully authenticated, otherwise "-1"</returns>
+        public int Authenticate(string email, string password)
         {
             _connection.Open();
             var query = string.Format(@"SELECT salt, password, userid FROM user WHERE email = '{0}';", email);
             var command = new MySqlCommand(query, _connection);
             var reader = command.ExecuteReader();
 
-            if (!reader.Read()) { return "-1"; }
+            //The email is not found in the database.
+            if (!reader.Read()) { return -1; }
 
+            //Parse the data
             var salt = (string)reader[0];
             var dbPw = (string)reader[1];
-            var userId = reader[2].ToString();
+            var userId = (int)reader[2];
 
             _connection.Close();
 
             var hash = CreateHash(password, salt);
-            //var dbPw = (string)result;
+
             //TODO: constant time equals
-            return dbPw == hash ? userId : "-1";
+            return dbPw == hash ? userId : -1;
         }
 
         /// <summary>
         /// Checks if the email already exists in the database.
         /// </summary>
-        /// <param name="email">Username to check</param>
-        /// <returns>True if user already exists</returns>
+        /// <param name="email">Email to check</param>
+        /// <returns>True if user already exists, otherwise false.</returns>
         public bool CheckIfUsernameExists(string email)
         {
             _connection.Open();
@@ -77,9 +66,9 @@ namespace Pitchdea.Core
         }
 
         /// <summary>
-        /// Registers the new user. Inserts all required information to the database.
+        /// Registers a new user. Inserts all required information to the database.
         /// </summary>
-        /// <param name="email">Username to register</param>
+        /// <param name="email">Email to register</param>
         /// <param name="password">Password to associate with the email</param>
         public void RegisterNewUser(string email, string password)
         {
@@ -97,7 +86,24 @@ namespace Pitchdea.Core
             command.ExecuteNonQuery();
             _connection.Close();
         }
+        
+        /// <summary>
+        /// Creates SHA256 hash from password and SALT.
+        /// </summary>
+        /// <param name="password">Password to be hashed.</param>
+        /// <param name="salt">SALT to be hashed in string format.</param>
+        /// <returns>The hash in Base64String format.</returns>
+        private string CreateHash(string password, string salt)
+        {
+            return CreateHash(password, Convert.FromBase64String(salt));
+        }
 
+        /// <summary>
+        /// Creates SHA256 hash from password and SALT.
+        /// </summary>
+        /// <param name="password">Password to be hashed.</param>
+        /// <param name="salt">SALT to be hashed in byte array format.</param>
+        /// <returns>The hash in Base64String format.</returns>
         private string CreateHash(string password, byte[] salt)
         {
             var shaHasher = SHA256.Create();
@@ -113,11 +119,10 @@ namespace Pitchdea.Core
             return Convert.ToBase64String(hashedBytes);
         }
 
-        private string CreateHash(string password, string salt)
-        {
-            return CreateHash(password, Convert.FromBase64String(salt));
-        }
-
+        /// <summary>
+        /// Generates a new SALT for the user.
+        /// </summary>
+        /// <returns>The newly generated SALT</returns>
         private static byte[] GenerateNewSalt()
         {
             var gen = RandomNumberGenerator.Create();
