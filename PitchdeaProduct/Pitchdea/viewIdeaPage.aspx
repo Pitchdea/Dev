@@ -13,8 +13,9 @@
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
     <asp:Label runat="server" ID="statusMessage" />
     
-    <asp:TextBox runat="server" ID="titleTextBox"/>
-    <asp:TextBox runat="server" ID="summaryTextBox" />
-    <asp:TextBox runat="server" ID="descriptionTextBox" />
+    <asp:Label runat="server" ID="titleLabel"/>
+    <asp:Label runat="server" ID="summaryLabel" />
+    <asp:Label runat="server" ID="descriptionLabel" />
+
 
 </asp:Content>

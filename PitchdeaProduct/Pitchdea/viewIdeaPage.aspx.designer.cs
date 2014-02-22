@@ -22,30 +22,30 @@ namespace Pitchdea {
         protected global::System.Web.UI.WebControls.Label statusMessage;
         
         /// <summary>
-        /// titleTextBox control.
+        /// titleLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox titleTextBox;
+        protected global::System.Web.UI.WebControls.Label titleLabel;
         
         /// <summary>
-        /// summaryTextBox control.
+        /// summaryLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox summaryTextBox;
+        protected global::System.Web.UI.WebControls.Label summaryLabel;
         
         /// <summary>
-        /// descriptionTextBox control.
+        /// descriptionLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descriptionTextBox;
+        protected global::System.Web.UI.WebControls.Label descriptionLabel;
     }
 }
