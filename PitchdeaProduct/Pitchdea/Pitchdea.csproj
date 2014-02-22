@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="loginPage.aspx" />
     <Content Include="mainPage.aspx" />
+    <Content Include="viewIdeaPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +85,13 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="viewIdeaPage.aspx.cs">
+      <DependentUpon>viewIdeaPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewIdeaPage.aspx.designer.cs">
+      <DependentUpon>viewIdeaPage.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.Master" />
