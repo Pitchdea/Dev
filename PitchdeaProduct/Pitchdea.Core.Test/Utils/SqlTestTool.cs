@@ -34,5 +34,14 @@ namespace Pitchdea.Core.Test.Utils
             command.ExecuteNonQuery();
             _connection.Close();
         }
+
+        public void CleanTestTable()
+        {
+            _connection.Open();
+            var query = String.Format(@"DELETE FROM test");
+            var command = new MySqlCommand(query, _connection);
+            command.ExecuteNonQuery();
+            _connection.Close();
+        }
     }
 }
