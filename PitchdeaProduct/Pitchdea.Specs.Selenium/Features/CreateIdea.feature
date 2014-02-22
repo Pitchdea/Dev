@@ -6,17 +6,17 @@ Scenario Outline: user submits an idea
 	Given page "/createIdeaPage.aspx" is open
 		And user is logged in as "test@pitchdea.com"
 		And "MainContent_titleTextBox" field value is "<title>"
-		And "MainContent_ideaTextBox" field value is "<ideatext>"
-		And "MainContent_questionTextBox" field value is "<question>"
+		And "MainContent_summaryTextBox" field value is "<summary>"
+		And "MainContent_descriptionTextBox" field value is "<description>"
 	When user clicks "MainContent_createIdeaButton" button
-	Then page title is "<title>"
-		And "Maincontent_ideaHeader" value is "<title>"
-		And "MainContent_ideaText" value is"<ideatext>"
-		And "MainContent_questionText" value is "<question>"
+	Then page title is "<title> | Pitchdea"
+		And "Maincontent_ideatitle" value is "<title>"
+		And "MainContent_summaryTextBox" value is"<summary>"
+		And "MainContent_descriptionTextBox" value is "<description>"
 		And "MainContent_statusMessage" field value is "Your idea has been created succesfully!"
 
 		Examples:
-			| title        | ideatext                    | question                   |
-			| My Idea      | I teach parrots to speak    | Do you like this idea?     |
-			| Great Idea   | Chaplin movies with dubbing | Would you go see?          |
-			| So Good Idea | Virtual piano lessons       | Would you pay 20 USD/hour? |
+			| title        | summary                     | description                                                                               |
+			| My Idea      | I teach parrots to speak    | I am a ph.d. in neuroscience and I would like to found a parrot talk clinic               |
+			| Great Idea   | Chaplin movies with dubbing | I would like to use my expertise to put romanian dubbing on chaplin movies                |
+			| So Good Idea | Virtual piano lessons       | I am an alcoholic and have too much spare time so I could think I would be a good teacher |
