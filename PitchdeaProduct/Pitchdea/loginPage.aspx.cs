@@ -21,19 +21,19 @@ namespace Pitchdea
         {
             if (emailTextBox.Text == string.Empty)
             {
-                errorMessage.Text = "Email address field is empty.";
-                return;
-            }
-
-            if (passwordTextBox.Text == string.Empty)
-            {
-                errorMessage.Text = "Password field is empty.";
+                errorMessage.Text = "You forgot to type an email.";
                 return;
             }
 
             if (!EmailValidator.Validate(emailTextBox.Text))
             {
-                errorMessage.Text = "Email address is not valid.";
+                errorMessage.Text = "This doesn't seem to be an email address.";
+                return;
+            }
+
+            if (passwordTextBox.Text == string.Empty)
+            {
+                errorMessage.Text = "You forgot to type a password.";
                 return;
             }
 
