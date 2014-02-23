@@ -1,10 +1,10 @@
 ﻿Feature: View idea
-	User opens their idea 
+	User views an idea 
 
 Scenario Outline: Idea is created then viewed
-	Given idea exists in the database
+	Given idea exists in the database 
 		And the viewIdea page linked to the idea is open
-	Then title is "Your Idea | Pitchdea"
+	Then title is "<titleLabel> | Pitchdea"
 		And "MainContent_titleLabel" field value is "<titleLabel>"
 		And "MainContent_summaryLabel" field value is "<summarylabel>"
 		And "MainContent_descriptionLabel" field value is "<titlelabel>"
