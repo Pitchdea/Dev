@@ -1,9 +1,8 @@
 ﻿<%@ Page Language="C#" 
     AutoEventWireup="true" 
     CodeBehind="viewIdeaPage.aspx.cs" 
-    Inherits="Pitchdea.viewIdeaPage"
-    MasterPageFile="Main.Master" 
-    Title="Your Idea | Pitchdea" %>
+    Inherits="Pitchdea.ViewIdeaPage"
+    MasterPageFile="Main.Master" %>
 
 
 <asp:Content runat="server" ID="Head" ContentPlaceHolderID="head">

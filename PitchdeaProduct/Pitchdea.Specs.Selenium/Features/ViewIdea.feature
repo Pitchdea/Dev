@@ -1,9 +1,13 @@
 ﻿Feature: View idea
 	User views an idea 
 
+Background: 
+	Given "idea" table is empty at first
+		And "user" table is empty at first
+
 Scenario Outline: Idea is created then viewed
-	Given an idea exists with values: "<titleLabel>","<summaryLabel>","<desrcriptionLabel>" and the page for that idea is open.
-	Then title is "<titleLabel> | Pitchdea"
+	Given an idea exists with values: "<titleLabel>","<summaryLabel>","<descriptionlabel>" and the page for that idea is open.
+	Then page title is "<titlelabel>" followed by " | Pitchdea"
 		And "MainContent_titleLabel" field value is "<titleLabel>"
 		And "MainContent_summaryLabel" field value is "<summarylabel>"
 		And "MainContent_descriptionLabel" field value is "<titlelabel>"

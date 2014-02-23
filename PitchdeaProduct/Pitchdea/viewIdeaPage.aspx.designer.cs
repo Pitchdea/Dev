@@ -10,7 +10,7 @@
 namespace Pitchdea {
     
     
-    public partial class viewIdeaPage {
+    public partial class ViewIdeaPage {
         
         /// <summary>
         /// statusMessage control.
