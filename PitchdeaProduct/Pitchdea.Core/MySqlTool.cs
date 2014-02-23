@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace Pitchdea.Core
@@ -12,11 +12,6 @@ namespace Pitchdea.Core
     /// </summary>
     public class MySqlTool : ISqlTool
     {
-        public string InsertIdea(int userId, string title, string summary, string description)
-        {
-            throw new NotImplementedException();
-        }
-
         private readonly MySqlConnection _connection;
 
         /// <summary>
@@ -26,6 +21,75 @@ namespace Pitchdea.Core
         public MySqlTool(string connectionString)
         {
             _connection = new MySqlConnection(connectionString);
+        }
+        
+        public string InsertIdea(int userId, string title, string summary, string description)
+        {
+            var ideaId = SaveIdeaWithoutHash(userId, title, summary, description);
+            
+            //Create the unique hash by combining the idea title and unique id number.
+            var shaHasher = SHA256.Create();
+            var hashedBytes = shaHasher.ComputeHash(Encoding.UTF8.GetBytes(ideaId + title));
+            var hash = Convert.ToBase64String(hashedBytes).Replace("+", "");
+
+            SaveHashWithIdea(hash, ideaId);
+
+            return hash;
+        }
+
+        /// <summary>
+        /// Inserts the idea into the database without unique hash.
+        /// </summary>
+        /// <returns>Inserted idea ID.</returns>
+        private ulong SaveIdeaWithoutHash(int userId, string title, string summary, string description)
+        {
+            _connection.Open();
+
+            var command = new MySqlCommand(
+                "INSERT INTO idea (hash, title, summary, description, userId) VALUES (@hash, @title, @summary, @description, @userId); SELECT LAST_INSERT_ID();",
+                _connection);
+            
+            command.Parameters.Add("@hash", MySqlDbType.String).Value = null;
+            command.Parameters.Add("@title", MySqlDbType.VarChar).Value = title;
+            command.Parameters.Add("@summary", MySqlDbType.VarChar).Value = summary;
+            command.Parameters.Add("@description", MySqlDbType.MediumText).Value = description;
+            command.Parameters.Add("@userId", MySqlDbType.Int32).Value = userId;
+
+            command.Prepare();
+            var result = command.ExecuteScalar();
+
+            _connection.Close();
+            
+            if (result == null)
+            {
+                throw new NotImplementedException();
+            }
+
+            return (ulong) result;
+        }
+
+        /// <summary>
+        /// Saves the unique hash into the existing idea.
+        /// </summary>
+        /// <param name="hash"></param>
+        /// <param name="ideaId"></param>
+        private void SaveHashWithIdea(string hash, ulong ideaId)
+        {
+            _connection.Open();
+            var updateCommand = new MySqlCommand(
+                "UPDATE idea SET idea.hash = @hash WHERE id = @id;",
+                _connection);
+
+            updateCommand.Parameters.Add("@hash", MySqlDbType.String).Value = hash;
+            updateCommand.Parameters.Add("@id", MySqlDbType.Int32).Value = ideaId;
+
+            updateCommand.Prepare();
+            var updateResult = updateCommand.ExecuteNonQuery();
+
+            if (updateResult != 1)
+                throw new NotImplementedException();
+
+            _connection.Close();
         }
 
         /// <summary>

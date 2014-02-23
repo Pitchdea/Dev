@@ -16,7 +16,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         public void GivenTheUserDatabaseIsEmptyFirst()
         {
             var sqlTool = new SqlTestTool();
-            sqlTool.CleanUsers();
+            sqlTool.CleanTable("user");
         }
 
         [Given(@"user ""(.*)"" with password ""(.*)"" exists in the database")]

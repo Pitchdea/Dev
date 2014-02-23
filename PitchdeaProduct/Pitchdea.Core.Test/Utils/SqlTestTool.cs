@@ -22,23 +22,15 @@ namespace Pitchdea.Core.Test.Utils
         {
             _connection = new MySqlConnection(TestConnectionString);
         }
-        
-        /// <summary>
-        /// Removes all users from the test database.
-        /// </summary>
-        public void CleanUsers()
-        {
-            _connection.Open();
-            var query = String.Format(@"DELETE FROM user");
-            var command = new MySqlCommand(query, _connection);
-            command.ExecuteNonQuery();
-            _connection.Close();
-        }
 
-        public void CleanTestTable()
+        /// <summary>
+        /// Cleans a table from the test database.
+        /// </summary>
+        /// <param name="tableName">Table to be cleaned.</param>
+        public void CleanTable(string tableName)
         {
             _connection.Open();
-            var query = String.Format(@"DELETE FROM test");
+            var query = String.Format(@"DELETE FROM {0}", tableName);
             var command = new MySqlCommand(query, _connection);
             command.ExecuteNonQuery();
             _connection.Close();

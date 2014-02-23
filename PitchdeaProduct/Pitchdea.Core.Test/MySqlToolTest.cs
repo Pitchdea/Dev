@@ -1,31 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
 using NUnit.Framework;
 using Pitchdea.Core.Test.Utils;
+using System.Globalization;
 
 namespace Pitchdea.Core.Test
 {
     [TestFixture]
-    public class SqlToolTest
+    public class MySqlToolTest
     {
-        private const string TestConnectionString = "SERVER=localhost; DATABASE=pitchdeatest; UID=test; PASSWORD=test;";
         private readonly MySqlTool _mySqlTool;
         private readonly SqlTestTool _sqlTestTool;
+        private readonly Authenticator _auth;
 
-        public SqlToolTest()
+        public MySqlToolTest()
         {
             _sqlTestTool = new SqlTestTool();
-            _mySqlTool = new MySqlTool(TestConnectionString);
+            _mySqlTool = new MySqlTool(SqlTestTool.TestConnectionString);
+            _auth = new Authenticator(SqlTestTool.TestConnectionString);
         }
 
         [Test]
         public void _01_InsertRowAndRemoveRow()
         {
-            _sqlTestTool.CleanTestTable();
+            _sqlTestTool.CleanTable("test");
 
             const int integerNumber = 2;
             const string textString = "asd";
@@ -69,13 +66,13 @@ namespace Pitchdea.Core.Test
 
             Assert.AreEqual(1, result4);
 
-            _sqlTestTool.CleanTestTable();
+            _sqlTestTool.CleanTable("test");
         }
         
         [Test]
         public void _02_QueryEmptyTable()
         {
-            _sqlTestTool.CleanTestTable();
+            _sqlTestTool.CleanTable("test");
 
             const int integerNumber = 2;
             const string textString = "asd";
@@ -105,7 +102,86 @@ namespace Pitchdea.Core.Test
 
             Assert.AreEqual(0, result4);
 
-            _sqlTestTool.CleanTestTable();
+            _sqlTestTool.CleanTable("test");
+        }
+
+        [Test]
+        public void _03_InsertIdea()
+        {
+            _sqlTestTool.CleanTable("idea");
+            _sqlTestTool.CleanTable("user");
+
+            const string title = "qwerty";
+            const string summary = "asdf";
+            const string description = "jotain ihan muuta";
+
+            InsertIdea(title, summary, description);
+
+            _sqlTestTool.CleanTable("idea");
+            _sqlTestTool.CleanTable("user");
+        }
+        
+        [Test]
+        public void _04_InsertIdea_SpecialCharacters()
+        {
+            _sqlTestTool.CleanTable("idea");
+            _sqlTestTool.CleanTable("user");
+
+            const string title = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\nn \t asd";
+            const string summary = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\nn \t asd";
+            const string description = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\n \t asd";
+
+            InsertIdea( title, summary, description);
+
+            _sqlTestTool.CleanTable("idea");
+            _sqlTestTool.CleanTable("user");
+        }
+
+        private void InsertIdea(string title, string summary, string description)
+        {
+            const string email = "test@pitchdea.com";
+            const string password = "password123";
+
+            _auth.RegisterNewUser(email, password);
+            var userId = _auth.Authenticate(email, password);
+
+            Assert.AreNotEqual(-1, userId);
+
+            var hash = _mySqlTool.InsertIdea(userId, title, summary, description);
+
+            Assert.False(string.IsNullOrEmpty(hash));
+
+            var connection = new MySqlConnection(SqlTestTool.TestConnectionString);
+            connection.Open();
+            var cmd = new MySqlCommand(
+                string.Format("SELECT hash, title, summary, description, userID FROM idea WHERE hash='{0}'", hash)
+                , connection);
+
+            cmd.Prepare();
+            var reader = cmd.ExecuteReader();
+
+            var result = new object[5];
+            var canRead = reader.Read();
+
+            try
+            {
+                result[0] = reader[0];
+                result[1] = reader[1];
+                result[2] = reader[2];
+                result[3] = reader[3];
+                result[4] = reader[4];
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            Assert.True(canRead);
+
+            Assert.AreEqual(title, result[1]);
+            Assert.AreEqual(summary, result[2]);
+            Assert.AreEqual(description, result[3]);
+            Assert.AreEqual(userId, result[4]);
         }
     }
 }

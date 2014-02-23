@@ -8,31 +8,31 @@ namespace Pitchdea.Core.Test
     [TestFixture]
     public class AuthenticatorTest
     {
-        private SqlTestTool _sqlTool;
+        private SqlTestTool _sqlTestTool;
         private Authenticator _auth;
 
         [SetUp]
         public void SetUp()
         {
-            _sqlTool = new SqlTestTool();
+            _sqlTestTool = new SqlTestTool();
             _auth = new Authenticator(SqlTestTool.TestConnectionString);
         }
 
         [Test]
         public void _01_SanityCheck()
         {
-            _sqlTool.CleanUsers();
+            _sqlTestTool.CleanTable("user");
 
             var pw = "123123";
             _auth.RegisterNewUser("testi@testi.com", pw);
 
-            _sqlTool.CleanUsers();
+            _sqlTestTool.CleanTable("user");
         }
 
         [Test]
         public void _02_IterateRandomPasswords()
         {
-            _sqlTool.CleanUsers();
+            _sqlTestTool.CleanTable("user");
 
             var random = new Random();
 
@@ -51,13 +51,13 @@ namespace Pitchdea.Core.Test
                 }
             }
 
-            _sqlTool.CleanUsers();
+            _sqlTestTool.CleanTable("user");
         }
 
         [Test]
         public void _03_RegisterAndAuthenticate()
         {
-            _sqlTool.CleanUsers();
+            _sqlTestTool.CleanTable("user");
 
             const string email = "testi@testi.com";
 
@@ -69,7 +69,7 @@ namespace Pitchdea.Core.Test
 
             Assert.AreNotEqual(-1, result);
 
-            _sqlTool.CleanUsers();
+            _sqlTestTool.CleanTable("user");
         }
     }
 }
