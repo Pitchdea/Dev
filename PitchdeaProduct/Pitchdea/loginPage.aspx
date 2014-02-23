@@ -18,8 +18,4 @@
     
     <asp:Label runat="server" ID="errorMessage"/>
 
-<%-- Below temporary textbox for test purpose--%>
-    <asp:TextBox runat="server" ID="multiBox" TextMode="MultiLine" />
-
-
 </asp:Content>
