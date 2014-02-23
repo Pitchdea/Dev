@@ -2,7 +2,7 @@
 	User views an idea 
 
 Scenario Outline: Idea is created then viewed
-	Given Given idea exists with values: "<titleLabel>","<summaryLabel>","<desrcriptionLabel>" and the page for that idea is open.
+	Given an idea exists with values: "<titleLabel>","<summaryLabel>","<desrcriptionLabel>" and the page for that idea is open.
 	Then title is "<titleLabel> | Pitchdea"
 		And "MainContent_titleLabel" field value is "<titleLabel>"
 		And "MainContent_summaryLabel" field value is "<summarylabel>"
