@@ -9,8 +9,8 @@ Scenario Outline: Idea is created then viewed
 		And "MainContent_descriptionLabel" field value is "<titlelabel>"
 
 	Examples:
-	| titlelabel    | summarylabel                                         | descriptionlabel                                                            |
-	| My Idea!      | ÄÖ "teksti" #¤ £$€                                   | I am a ph.d. in neuroscience and I would like to found a parrot talk clinic |
-	| GREAT IDEA    | 0123456789                                           | More numbers 123123                                                         |
-	| So-Good-Idea? | Virtual piano lessons `?=)(/&%¤#"!@£$€{[]} \ ~*'^ <> | weird characters on label `?=)(/&%¤#"!@£$€{[]} \ ~*'^ <>                    |
- #todo: title         | summary                                              | multiline text                                                                            |
+	| titlelabel    | summarylabel                                         | descriptionlabel                                                             |
+	| My Idea.      | ÄÖ "teksti" #¤ £$€                                   | I am a PH.D. in neuroscience and I would like to found a parrot talk clinic. |
+	| GREAT IDEA!   | 0123456789                                           | More NUMBERS for fun 123123                                                  |
+	| So-Good-Idea? | Virtual PIANO lessons `?=)(/&%¤#"!@£$€{[]} \ ~*'^ <> | weird characters on label `?=)(/&%¤#"!@£$€{[]} \ ~*'^ <>                     |
+	| this_is_title | this_is_summary .                                    | this is\r\n\  multiline \r\n\text                                            |

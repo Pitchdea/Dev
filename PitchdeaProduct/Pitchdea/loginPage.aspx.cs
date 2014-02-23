@@ -19,6 +19,7 @@ namespace Pitchdea
 
         protected void loginButton_OnClick(object sender, EventArgs e)
         {
+            Console.WriteLine(multiBox.Text);
             if (emailTextBox.Text == string.Empty)
             {
                 errorMessage.Text = "You forgot to type an email.";
