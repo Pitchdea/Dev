@@ -76,8 +76,8 @@ namespace Pitchdea.Specs.Selenium.Features
 #line 4
 this.ScenarioSetup(scenarioInfo);
 #line 5
- testRunner.Given("Given idea exists with values: \"<titleLabel>\",\"<summaryLabel>\",\"<desrcriptionLabe" +
-                    "l>\" and the page for that idea is open.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("an idea exists with values: \"<titleLabel>\",\"<summaryLabel>\",\"<desrcriptionLabel>\"" +
+                    " and the page for that idea is open.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
  testRunner.Then("title is \"<titleLabel> | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 7
