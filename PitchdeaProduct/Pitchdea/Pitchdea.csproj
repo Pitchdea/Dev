@@ -57,6 +57,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\main.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\normalize.min.css" />
+    <Content Include="js\jquery.dotdotdot.js" />
+    <Content Include="js\jquery.dotdotdot.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\vendor\jquery-1.10.1.min.js" />
+    <Content Include="js\vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
     <Content Include="loginPage.aspx" />
     <Content Include="mainPage.aspx" />
     <Content Include="viewIdeaPage.aspx" />
@@ -95,6 +104,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.Master" />
+    <Content Include="css\desktop.ini" />
+    <Content Include="img\desktop.ini" />
+    <Content Include="js\desktop.ini" />
+    <Content Include="js\vendor\desktop.ini" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
