@@ -20,3 +20,12 @@ Scenario Outline: user submits an idea
 			| My Idea      | I teach parrots to speak    | I am a ph.d. in neuroscience and I would like to found a parrot talk clinic               |
 			| Great Idea   | Chaplin movies with dubbing | I would like to use my expertise to put romanian dubbing on chaplin movies                |
 			| So Good Idea | Virtual piano lessons       | I am an alcoholic and have too much spare time so I could think I would be a good teacher |
+
+#TODO
+#Scenario Outline: User creates an idea with a multiline description
+	#Given user writes two lines "<line1>" followed by "<line2>"
+	#Then "MainContent_descriptionLabel" field value is two lines "<line1>" followed by "<line2>"
+
+	#Examples:
+	#| line1 | line2 |
+	#| foo   | bar   |

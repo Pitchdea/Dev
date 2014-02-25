@@ -47,22 +47,5 @@ namespace Pitchdea.Specs.Selenium.Steps
         {
             Assert.AreEqual(title+pitchdeaPart, WebBrowser.Current.Title);
         }
-
-        [Given(@"user writes two lines ""(.*)"" followed by ""(.*)""")]
-        public void GivenUserWritesTwoLinesFollowedBy(string p0, string p1)
-        {
-            string info1= = row["<line1>"];
-            string info2= = row["<line2>"];
-        }
-
-        [Then(@"""(.*)"" field value is two lines ""(.*)"" followed by ""(.*)""")]
-        public void ThenFieldValueIsTwoLinesFollowedBy(string p0 + "\r\n" + string p2)
-        {
-            string info1= = row["<line1>"];
-            string info2= = row["<line2>"];
-        }
-
-
-
     }
 }
