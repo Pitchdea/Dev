@@ -79,7 +79,6 @@ namespace Pitchdea.Specs.Selenium.Features
         [NUnit.Framework.TestCaseAttribute("My Idea.", "ÄÖ \"teksti\" #¤ £$€", "I am a PH.D. in neuroscience and I would like to found a parrot talk clinic.", null)]
         [NUnit.Framework.TestCaseAttribute("GREAT IDEA!", "0123456789", "More NUMBERS for fun 123123", null)]
         [NUnit.Framework.TestCaseAttribute("So-Good-Idea?", "Virtual PIANO lessons `?=)(/&%¤#\"!@£$€{[]} \\ ~*\'^ <>", "weird characters on label `?=)(/&%¤#\"!@£$€{[]} \\ ~*\'^ <>", null)]
-        [NUnit.Framework.TestCaseAttribute("this_is_title", "this_is_summary .", "this is \\r\n  multiline \\r\n text", null)]
         public virtual void IdeaIsCreatedThenViewed(string titlelabel, string summarylabel, string descriptionlabel, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Idea is created then viewed", exampleTags);
@@ -98,6 +97,24 @@ this.FeatureBackground();
   testRunner.And(string.Format("\"MainContent_summaryLabel\" field value is \"{0}\"", summarylabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
   testRunner.And(string.Format("\"MainContent_descriptionLabel\" field value is \"{0}\"", descriptionlabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User creates an idea with a multiline description")]
+        [NUnit.Framework.TestCaseAttribute("foo", "bar", null)]
+        public virtual void UserCreatesAnIdeaWithAMultilineDescription(string line1, string line2, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User creates an idea with a multiline description", exampleTags);
+#line 21
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
+#line 22
+ testRunner.Given(string.Format("user writes two lines \"{0}\" followed by \"{1}\"", line1, line2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 23
+ testRunner.Then(string.Format("\"MainContent_descriptionLabel\" field value is two lines \"{0}\" followed by \"{1}\"", line1, line2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

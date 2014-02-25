@@ -17,4 +17,12 @@ Scenario Outline: Idea is created then viewed
 	| My Idea.      | ÄÖ "teksti" #¤ £$€                                   | I am a PH.D. in neuroscience and I would like to found a parrot talk clinic. |
 	| GREAT IDEA!   | 0123456789                                           | More NUMBERS for fun 123123                                                  |
 	| So-Good-Idea? | Virtual PIANO lessons `?=)(/&%¤#"!@£$€{[]} \ ~*'^ <> | weird characters on label `?=)(/&%¤#"!@£$€{[]} \ ~*'^ <>                     |
-	| this_is_title | this_is_summary .                                    | this is \r\n  multiline \r\n text                                            |
+
+Scenario Outline: User creates an idea with a multiline description 
+	Given user writes two lines "<line1>" followed by "<line2>"
+	Then "MainContent_descriptionLabel" field value is two lines "<line1>" followed by "<line2>"
+
+	Examples:
+	| line1 | line2 |
+	| foo   | bar   |
+
