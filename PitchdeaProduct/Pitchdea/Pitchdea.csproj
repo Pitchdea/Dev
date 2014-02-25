@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="createIdeaPage.aspx" />
     <Content Include="css\main.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\normalize.min.css" />
@@ -72,6 +73,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="createIdeaPage.aspx.cs">
+      <DependentUpon>createIdeaPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="createIdeaPage.aspx.designer.cs">
+      <DependentUpon>createIdeaPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="loginPage.aspx.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
