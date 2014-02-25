@@ -15,7 +15,7 @@ namespace Pitchdea.Core
         private readonly MySqlConnection _connection;
 
         /// <summary>
-        /// Constructs a new tool usign the given connection string.
+        /// Constructs a new tool using MySql with the given connection string.
         /// </summary>
         /// <param name="connectionString">Connection string used for MySql connection.</param>
         public MySqlTool(string connectionString)

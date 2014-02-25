@@ -25,9 +25,9 @@ Access is granted.
 		And user is logged in as "test@pitchdea.com"
 
 	Examples: 
-		| fieldname |
-		| MainContent_emailTextBox  |
-		| MainContent_passwordTextBox  |
+		| fieldname                   |
+		| MainContent_emailTextBox    |
+		| MainContent_passwordTextBox |
 
 Scenario Outline: Incorrect login information
 The user inputs incorrect login information and clicks the login button.

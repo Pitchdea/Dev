@@ -37,43 +37,42 @@
 		</script>
 </head>
 <body>
-      <div class="header-container">
-            <header class="wrapper clearfix">
-                <h1 class="title">PITCHDEA</h1>
-                <nav>
-                    <ul>
-                    </ul>
-                </nav>
-            </header>
-        </div>
+    <div class="header-container">
+        <header class="wrapper clearfix">
+            <h1 class="title">PITCHDEA</h1>
+            <nav>
+                <ul>
+                </ul>
+            </nav>
+        </header>
+    </div>
 
-        <div class="main-container">
-            <div class="main wrapper clearfix">
-                <form id="form1" runat="server">
-                <div>
-                    <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-                </div>
-                </form>
-            </div> <!-- #main -->
-        </div> <!-- #main-container -->
+    <div class="main-container">
+        <div class="main wrapper clearfix">
+            <form id="form1" runat="server">
+            <div>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+            </div>
+            </form>
+        </div> <!-- #main -->
+    </div> <!-- #main-container -->
 
-        <div class="footer-container">
-            <footer class="wrapper">
-                <h3>(c) Pitchdea 2014</h3>
-            </footer>
-        </div>
-        <script>
-        window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')
-        </script>
+    <div class="footer-container">
+        <footer class="wrapper">
+            <h3>(c) Pitchdea 2014</h3>
+        </footer>
+    </div>
+    <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')
+    </script>
 
-        <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src='//www.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
-    </body>
+    <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src='//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
 </body>
 </html>
