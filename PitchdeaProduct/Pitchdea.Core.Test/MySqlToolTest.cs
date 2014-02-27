@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using NUnit.Framework;
+using Pitchdea.Core.Model;
 using Pitchdea.Core.Test.Utils;
 using System.Globalization;
 
@@ -147,14 +148,16 @@ namespace Pitchdea.Core.Test
 
             Assert.AreNotEqual(-1, userId);
 
-            var hash = _mySqlTool.InsertIdea(userId, title, summary, description);
+            var idea = new Idea(userId, title, summary, description);
 
-            Assert.False(string.IsNullOrEmpty(hash));
+            var insertedIdea = _mySqlTool.InsertIdea(idea);
+
+            Assert.False(string.IsNullOrEmpty(insertedIdea.Hash));
 
             var connection = new MySqlConnection(SqlTestTool.TestConnectionString);
             connection.Open();
             var cmd = new MySqlCommand(
-                string.Format("SELECT hash, title, summary, description, userID FROM idea WHERE hash='{0}'", hash)
+                string.Format("SELECT hash, title, summary, description, userID FROM idea WHERE hash='{0}'", insertedIdea.Hash)
                 , connection);
 
             cmd.Prepare();

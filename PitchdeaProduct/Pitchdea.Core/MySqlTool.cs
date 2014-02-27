@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using MySql.Data.MySqlClient;
+using Pitchdea.Core.Model;
 
 namespace Pitchdea.Core
 {
@@ -22,19 +23,27 @@ namespace Pitchdea.Core
         {
             _connection = new MySqlConnection(connectionString);
         }
-        
-        public string InsertIdea(int userId, string title, string summary, string description)
+
+
+        public Idea InsertIdea(Idea idea)
         {
-            var ideaId = SaveIdeaWithoutHash(userId, title, summary, description);
-            
+            var ideaId = SaveIdeaWithoutHash(idea.UserId, idea.Title, idea.Summary, idea.Description);
+
             //Create the unique hash by combining the idea title and unique id number.
             var shaHasher = SHA256.Create();
-            var hashedBytes = shaHasher.ComputeHash(Encoding.UTF8.GetBytes(ideaId + title));
+            var hashedBytes = shaHasher.ComputeHash(Encoding.UTF8.GetBytes(ideaId + idea.Title));
             var hash = Convert.ToBase64String(hashedBytes).Replace("+", "");
 
             SaveHashWithIdea(hash, ideaId);
 
-            return hash;
+            idea.Hash = hash;
+
+            return idea;
+        }
+
+        public Idea FetchIdea(string ideaHash)
+        {
+            throw new NotImplementedException("FetchIdea not implemented.");
         }
 
         /// <summary>

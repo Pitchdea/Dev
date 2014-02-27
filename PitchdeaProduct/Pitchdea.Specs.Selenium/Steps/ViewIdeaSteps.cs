@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Pitchdea.Core;
+using Pitchdea.Core.Model;
 using Pitchdea.Core.Test.Utils;
 using Pitchdea.Specs.Selenium.Utils;
 using TechTalk.SpecFlow;
@@ -36,7 +37,10 @@ namespace Pitchdea.Specs.Selenium.Steps
             Assert.AreNotEqual(-1, userId);
 
             ISqlTool sqlTool = new MySqlTool(SqlTestTool.TestConnectionString);
-            var hash = sqlTool.InsertIdea(userId, title, summary, description);
+
+            var idea = new Idea(userId, title, summary, description);
+
+            var hash = sqlTool.InsertIdea(idea).Hash;
 
             var absoluteUrl = WebBrowser.BaseUrl + "/viewIdeaPage.aspx?ID=" + hash;
             WebBrowser.Current.Navigate().GoToUrl(absoluteUrl);

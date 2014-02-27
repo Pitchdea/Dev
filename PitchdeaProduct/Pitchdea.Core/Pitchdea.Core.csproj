@@ -43,6 +43,7 @@
     <Compile Include="Authenticator.cs" />
     <Compile Include="EmailValidator.cs" />
     <Compile Include="ISqlTool.cs" />
+    <Compile Include="Model\Idea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MySqlTool.cs" />
   </ItemGroup>
