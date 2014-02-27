@@ -11,8 +11,14 @@ namespace Pitchdea
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var idea = FindIdea();
             var ideaTitle = "Your Idea";
             Title = ideaTitle+ " | Pitchdea";
         }
+        private Idea FindIdea()
+        {
+            throw new NotImplementedException();
+        }
+    
     }
 }
