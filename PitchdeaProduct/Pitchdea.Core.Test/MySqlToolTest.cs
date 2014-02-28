@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using System;
+using System.Diagnostics;
+using MySql.Data.MySqlClient;
 using NUnit.Framework;
 using Pitchdea.Core.Model;
 using Pitchdea.Core.Test.Utils;
@@ -107,7 +109,7 @@ namespace Pitchdea.Core.Test
         }
 
         [Test]
-        public void _03_InsertIdea()
+        public void _03_InsertAndFetchIdea()
         {
             _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
@@ -117,13 +119,13 @@ namespace Pitchdea.Core.Test
             const string description = "jotain ihan muuta";
 
             InsertIdea(title, summary, description);
-
+            
             _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
         }
         
         [Test]
-        public void _04_InsertIdea_SpecialCharacters()
+        public void _04_InsertAndFetchIdea_SpecialCharacters()
         {
             _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
@@ -132,10 +134,20 @@ namespace Pitchdea.Core.Test
             const string summary = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\nn \t asd";
             const string description = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\n \t asd";
 
-            InsertIdea( title, summary, description);
-
+            InsertIdea(title, summary, description);
+            
             _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
+        }
+
+        [Test]
+        public void _05_TryToFetchIdeaThatDoesNotExist()
+        {
+            _sqlTestTool.CleanTable("idea");
+            _sqlTestTool.CleanTable("user");
+
+            var idea = _mySqlTool.FetchIdea("hash123");
+            Assert.Null(idea);
         }
 
         private void InsertIdea(string title, string summary, string description)
@@ -185,6 +197,14 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(summary, result[2]);
             Assert.AreEqual(description, result[3]);
             Assert.AreEqual(userId, result[4]);
+
+            var fetchedIdea = _mySqlTool.FetchIdea(idea.Hash);
+
+            Assert.AreEqual(idea.Hash, fetchedIdea.Hash);
+            Assert.AreEqual(title, fetchedIdea.Title);
+            Assert.AreEqual(summary, fetchedIdea.Summary);
+            Assert.AreEqual(description, fetchedIdea.Description);
+            Assert.AreEqual(userId, fetchedIdea.UserId);
         }
     }
 }

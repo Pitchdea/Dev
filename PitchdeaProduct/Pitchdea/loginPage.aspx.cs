@@ -12,9 +12,7 @@ namespace Pitchdea
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
-            var connString = config.AppSettings.Settings["MySQL.ConnectionString"].Value;
-            _auth = new Authenticator(connString);
+            _auth = new Authenticator(SqlToolFactory.ConnectionString);
         }
 
         protected void loginButton_OnClick(object sender, EventArgs e)

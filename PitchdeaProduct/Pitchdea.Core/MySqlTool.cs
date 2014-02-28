@@ -43,7 +43,31 @@ namespace Pitchdea.Core
 
         public Idea FetchIdea(string ideaHash)
         {
-            throw new NotImplementedException("FetchIdea not implemented.");
+            _connection.Open();
+
+            var command = new MySqlCommand(
+                "SELECT hash, title, summary, description, userId FROM idea WHERE hash=@hash;",
+                _connection);
+
+            command.Parameters.Add("@hash", MySqlDbType.String).Value = ideaHash;
+
+            command.Prepare();
+            var reader = command.ExecuteReader();
+
+            if (!reader.Read())
+                return null;
+
+            var idea = new Idea((int)reader["userId"], (string)reader["title"], (string)reader["summary"], (string)reader["description"])
+            {
+                Hash = (string)reader["hash"]
+            };
+
+            if(reader.Read())
+                throw new NotImplementedException("More than one idea matching the hash was found.");
+            
+            _connection.Close();
+
+            return idea;
         }
 
         /// <summary>
