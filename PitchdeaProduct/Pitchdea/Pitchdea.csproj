@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controls\LoginStatusControl.ascx" />
     <Content Include="createIdeaPage.aspx" />
     <Content Include="css\main.css" />
     <Content Include="css\normalize.css" />
@@ -73,6 +74,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\LoginStatusControl.ascx.cs">
+      <DependentUpon>LoginStatusControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\LoginStatusControl.ascx.designer.cs">
+      <DependentUpon>LoginStatusControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="createIdeaPage.aspx.cs">
       <DependentUpon>createIdeaPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

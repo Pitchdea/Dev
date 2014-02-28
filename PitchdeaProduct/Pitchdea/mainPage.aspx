@@ -9,6 +9,10 @@
     
 </asp:Content>
 
+<asp:Content runat="server" ID="HeaderContentPlaceHolder" ContentPlaceHolderID="HeaderContent">
+    <controls:LoginStatusControl ID="loginStatusControl" runat="server"/>
+</asp:Content>
+
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
-    <asp:Label runat="server" ID="activeUserLabel"/>
+    
 </asp:Content>

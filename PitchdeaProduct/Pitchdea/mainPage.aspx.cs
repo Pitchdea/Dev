@@ -11,15 +11,7 @@ namespace Pitchdea
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var username = Session["username"];
-            if (username != null)
-            {
-                activeUserLabel.Text = username.ToString();
-            }
-            else
-            {
-                
-            }
+
         }
     }
 }

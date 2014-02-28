@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Pitchdea {
+namespace Pitchdea.Controls {
     
     
-    public partial class MainPage {
+    public partial class LoginStatusControl {
         
         /// <summary>
-        /// loginStatusControl control.
+        /// activeUserLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Pitchdea.Controls.LoginStatusControl loginStatusControl;
+        protected global::System.Web.UI.WebControls.Label activeUserLabel;
     }
 }

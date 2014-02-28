@@ -12,6 +12,6 @@
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
     <asp:TextBox runat="server" ID="emailTextBox"/>
     <asp:TextBox runat="server" ID="passwordTextBox" TextMode="Password"/>
-    <asp:Button runat="server" ID="loginButton" OnClick="loginButton_OnClick"/>
+    <asp:Button runat="server" ID="loginButton" OnClick="loginButton_OnClick" Text="Log in"/>
     <asp:Label runat="server" ID="errorMessage"/>
 </asp:Content>
