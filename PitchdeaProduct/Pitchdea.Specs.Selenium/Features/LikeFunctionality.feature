@@ -42,3 +42,18 @@ Then "Maincontent_VoteValueLabel" field is changed to "You gave this idea -1 poi
 Scenario: User opens their own idea
 When user opens their own idea
 Then "Maincontent_LikeButton" button is disabled and "Maincontent_DislikeButton" button is disabled
+
+Scenario: User likes the idea
+	Given user is logged in
+		And the view idea page is open
+	When the user clicks the like button
+	Then like number is increased by 1
+		And the like button is active
+
+Scenario: User unlikes the idea
+#The user has liked the idea before
+	Given user is logged in
+		And the view idea page is open
+	When the user clicks the like button
+	Then like number is decreased by 1
+		And the like button is inactive

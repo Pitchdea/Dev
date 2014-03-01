@@ -16,10 +16,11 @@ namespace Pitchdea.Controls
             if (username != null)
             {
                 activeUserLabel.Text = username.ToString();
+                logoutLink.Visible = true;
             }
             else
             {
-                activeUserLabel.Text = "Not logged in";
+                loginLink.Visible = true;
             }
         }
     }
