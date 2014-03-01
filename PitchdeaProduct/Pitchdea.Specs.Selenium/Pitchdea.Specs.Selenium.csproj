@@ -70,6 +70,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateIdea.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\LikeFunctionality.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LikeFunctionality.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Login.feature.cs">
       <DependentUpon>Login.feature</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -97,6 +102,10 @@
     <None Include="Features\CreateIdea.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreateIdea.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\LikeFunctionality.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LikeFunctionality.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Login.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
