@@ -68,6 +68,10 @@ namespace Pitchdea.Specs.Selenium.Features
         public virtual void FeatureBackground()
         {
 #line 4
+#line 5
+testRunner.Given("User is logged in and page \"/viewIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 6
+testRunner.And("Idea exists with correct IdeaID and title", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
         
@@ -85,7 +89,7 @@ testRunner.Given("\"Maincontent_LikeInfoLabel\" field value is \"You can like th
 #line 11
 testRunner.When("the user clicks the \"Maincontent_LikeIdeaButton\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
-testRunner.Then("\"Maincontent_VoteValueLabel\" field value is \"You gave this idea +1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("\"Maincontent_LikeInfoLabel\" field value is \"You gave this idea +1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 13
  testRunner.And("\"Maincontent_LikeCountLabel\" field value is increased by 1 point", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -112,22 +116,28 @@ testRunner.Then("\"Maincontent_LikeInfoLabel\" field value is \"You gave this id
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User opens and idea which he has already liked and tries to like again")]
-        public virtual void UserOpensAndIdeaWhichHeHasAlreadyLikedAndTriesToLikeAgain()
+        [NUnit.Framework.DescriptionAttribute("User opens an idea which he has already liked and tries to like again, new like i" +
+            "s not added.")]
+        public virtual void UserOpensAnIdeaWhichHeHasAlreadyLikedAndTriesToLikeAgainNewLikeIsNotAdded_()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User opens and idea which he has already liked and tries to like again", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User opens an idea which he has already liked and tries to like again, new like i" +
+                    "s not added.", ((string[])(null)));
 #line 21
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line 23
-testRunner.Given("User opens and idea he has already liked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("User opens an idea he has already liked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 24
-testRunner.And("\"Maincontent_LikeInfoLabel\" field value is \"You gave this idea +1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("\"Maincontent_LikeInfoLabel\" field value is \"You gave this idea +1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 25
- testRunner.And("\"Maincontent_DislikeButton\" button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("\"Maincontent_DislikeButton\" button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
- testRunner.And("\"Maincontent_LikeButton\" button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("\"Maincontent_LikeButton\" button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+testRunner.When("user clicks \"Maincontent_LikeButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+testRunner.Then("nothing happens", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -137,36 +147,40 @@ testRunner.And("\"Maincontent_LikeInfoLabel\" field value is \"You gave this ide
         public virtual void UserOpensAndIdeaWhichHeHasAlreadyDislikedAndTriesToDislikeAgain()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User opens and idea which he has already disliked and tries to dislike again", ((string[])(null)));
-#line 28
+#line 31
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 30
-testRunner.Given("User opens and idea he has already disliked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 31
-testRunner.And("\"Maincontent_LikeInfoLabel\" field value is \"You gave this idea -1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 32
- testRunner.And("\"Maincontent_DislikeButton\" button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 33
- testRunner.And("\"Maincontent_LikeButton\" button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("User opens an idea he has already disliked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 34
+ testRunner.And("\"Maincontent_LikeInfoLabel\" field value is \"You gave this idea -1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.And("\"Maincontent_DislikeButton\" button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 36
+ testRunner.And("\"Maincontent_LikeButton\" button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
+testRunner.When("user clicks \"Maincontent_DislikeButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 38
+testRunner.Then("nothing happens", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User opens and idea which he has already liked and dislikes it")]
-        public virtual void UserOpensAndIdeaWhichHeHasAlreadyLikedAndDislikesIt()
+        [NUnit.Framework.DescriptionAttribute("User opens an idea which he has already liked and dislikes it")]
+        public virtual void UserOpensAnIdeaWhichHeHasAlreadyLikedAndDislikesIt()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User opens and idea which he has already liked and dislikes it", ((string[])(null)));
-#line 35
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User opens an idea which he has already liked and dislikes it", ((string[])(null)));
+#line 40
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 38
-testRunner.When("the user clicks the \"Maincontent_DislikeIdeaButton\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 39
+#line 43
+testRunner.When("the user clicks the \"Maincontent_DislikeButton\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 44
 testRunner.Then("\"Maincontent_VoteValueLabel\" field is changed to \"You gave this idea -1 point\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 40
+#line 45
  testRunner.And("\"Maincontent_LikeCountLabel\" field value is decreased by 1 point", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -177,13 +191,13 @@ testRunner.Then("\"Maincontent_VoteValueLabel\" field is changed to \"You gave t
         public virtual void UserOpensTheirOwnIdea()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User opens their own idea", ((string[])(null)));
-#line 42
+#line 47
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 43
+#line 48
 testRunner.When("user opens their own idea", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 44
+#line 49
 testRunner.Then("\"Maincontent_LikeButton\" button is disabled and \"Maincontent_DislikeButton\" butto" +
                     "n is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
