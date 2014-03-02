@@ -7,24 +7,6 @@ Background:
 	Given "user" table is empty at first
 		And page "/RegisterPage.aspx" is open
 
-Scenario: Email already exists in database
-
-	Given user with email "test@pitchdea.com" exists in the database
-	When I fill "test@pitchdea.com" as email address
-		And I click register button
-	Then page "/RegisterPage.aspx" is open
-		And I see "Oops! That email is already in use" error message
-
-
-Scenario: Username already exists in database
-
-	Given user with username "test" is exists in the database
-	When I fill "test" in username field
-		And I click register button
-	Then page "/RegisterPage.aspx" is open
-		And I see "Oops! That username has already been taken" error message
-
-
 Scenario: User registers succesfully by clicking
 User fills valid credentials and is logged in by clicking register button.
 
@@ -49,6 +31,30 @@ User fills valid credentials and is logged in by hitting enter while password co
 		And I am logged in as "test@pitchdea.com"
 			
 
+Scenario: Email already exists in database
+
+	Given user with email "test@pitchdea.com" exists in the database
+	When I fill email field with "test@pitchdea.com"
+		And I fill the username field with "mikko"
+		And I fill the password field with "passu"
+		And I fill password confirmation field with "passu"
+		And I click register button 
+	Then page "/RegisterPage.aspx" is open
+		And I see "Oops! That email is already in use" error message
+
+
+Scenario: Username already exists in database
+
+	Given user with username "test" is exists in the database
+	When I fill email field with "test1@pitchdea.com"
+		And I fill the username field with "test"
+		And I fill the password field with "passu"
+		And I fill password confirmation field with "passu"
+		And I click register button
+	Then page "/RegisterPage.aspx" is open
+		And I see "Oops! That username has already been taken" error message
+
+
 Scenario Outline: User fills invalid credentials, clicks, gets error message and is not registered.
 
 	When I fill email field with "<email>"
@@ -66,4 +72,4 @@ Scenario Outline: User fills invalid credentials, clicks, gets error message and
 	| test1@pitchdea.com   | mikko    |          |          | You forgot to type a password.            |
 	| testi1@pitchea.com   |          | passu    | passu    | You forgot to type a username             |
 	| test1@pitchdea.com   | mikko    | passu    | salasana | The passowrds do not match.               |
-	| test1@pitchdea.com   | mikko    | passu    |          | The passwords  do not match.              |
+	| test1@pitchdea.com   | mikko    | passu    |          | The passwords do not match.               |
