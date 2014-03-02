@@ -12,7 +12,8 @@ Scenario: Email already exists in database
 	Given user with email "test@pitchdea.com" exists in the database
 	When I fill "test@pitchdea.com" as email address
 		And I click register button
-	Then I see "Oops! That email is already in use" error message
+	Then page "/RegisterPage.aspx" is open
+		And I see "Oops! That email is already in use" error message
 
 
 Scenario: Username already exists in database
@@ -20,7 +21,8 @@ Scenario: Username already exists in database
 	Given user with username "test" is exists in the database
 	When I fill "test" in username field
 		And I click register button
-	Then I see "Oops! That username has already been taken" error message
+	Then page "/RegisterPage.aspx" is open
+		And I see "Oops! That username has already been taken" error message
 
 
 Scenario: User registers succesfully by clicking
@@ -55,7 +57,7 @@ Scenario Outline: User fills invalid credentials, clicks, gets error message and
 		And I fill password confirmation field with "<confpass>"
 		And I click register button
 	Then page "/RegisterPage.aspx" is open
-		And I get "<errorMessage>" error message
+		And I see "<errorMessage>" error message
 		
 	Examples: 
 	| email                | username | password | confpass | errorMessage                              |
