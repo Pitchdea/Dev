@@ -452,6 +452,18 @@ nav a:hover {
    Helper classes
    ========================================================================== */
 
+.loginstatus {
+    float:right;
+}
+
+.logintext {
+    color:#ccc;
+}
+
+.loginname {
+    color:#48c9b0!important;
+}
+
 .loginform {
     width:50%;
     padding:17px;
