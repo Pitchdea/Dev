@@ -33,7 +33,7 @@ namespace Pitchdea.Specs.Selenium.Features
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Register", "I open the register page and fill the required credentials\r\nAfter completing thos" +
-                    "e steps I will be given access to the site and sent a confirmation email", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "e steps I will be given access to the site", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -117,14 +117,12 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User fills valid credentials, is logged in by clicking and gets notification emai" +
-            "l.")]
+        [NUnit.Framework.DescriptionAttribute("User fills valid credentials, is logged in by clicking.")]
         [NUnit.Framework.TestCaseAttribute("käyttäjä1", "kayttaja@hotmail.com", null)]
         [NUnit.Framework.TestCaseAttribute("user5", "user@gmail.com", null)]
-        public virtual void UserFillsValidCredentialsIsLoggedInByClickingAndGetsNotificationEmail_(string username, string email, string[] exampleTags)
+        public virtual void UserFillsValidCredentialsIsLoggedInByClicking_(string username, string email, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User fills valid credentials, is logged in by clicking and gets notification emai" +
-                    "l.", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User fills valid credentials, is logged in by clicking.", exampleTags);
 #line 33
 this.ScenarioSetup(scenarioInfo);
 #line 6
@@ -147,14 +145,12 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User fills valid credentials, is logged in by pressing enter and gets notificatio" +
-            "n email.")]
+        [NUnit.Framework.DescriptionAttribute("User fills valid credentials, is logged in by pressing enter.")]
         [NUnit.Framework.TestCaseAttribute("käyttäjä1", "kayttaja@hotmail.com", null)]
         [NUnit.Framework.TestCaseAttribute("user5", "user@gmail.com", null)]
-        public virtual void UserFillsValidCredentialsIsLoggedInByPressingEnterAndGetsNotificationEmail_(string username, string email, string[] exampleTags)
+        public virtual void UserFillsValidCredentialsIsLoggedInByPressingEnter_(string username, string email, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User fills valid credentials, is logged in by pressing enter and gets notificatio" +
-                    "n email.", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User fills valid credentials, is logged in by pressing enter.", exampleTags);
 #line 49
 this.ScenarioSetup(scenarioInfo);
 #line 6

@@ -1,6 +1,6 @@
 ﻿Feature: Register
 	I open the register page and fill the required credentials
-	After completing those steps I will be given access to the site and sent a confirmation email
+	After completing those steps I will be given access to the site
 
 
 Background: 
@@ -30,7 +30,7 @@ Scenario: Username already exists in database
 #		| Oops! That username has already been taken |
 
 
-Scenario Outline: User fills valid credentials, is logged in by clicking and gets notification email.
+Scenario Outline: User fills valid credentials, is logged in by clicking.
 
 	When I fill email field "Maincontent_emailTextBox" with "<email>" 
 		And fill the username field "Maincontent_usernameTextBox" with "<username>"  
@@ -46,7 +46,7 @@ Scenario Outline: User fills valid credentials, is logged in by clicking and get
 	| user5     | user@gmail.com       |
 
 
-Scenario Outline: User fills valid credentials, is logged in by pressing enter and gets notification email.
+Scenario Outline: User fills valid credentials, is logged in by pressing enter.
 
 	When I fill email field "Maincontent_emailTextBox" with "<email>"
 		And fil username field "Maincontent_usernameTextBox" with "<username>" 
