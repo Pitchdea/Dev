@@ -40,7 +40,7 @@
     <form id="form1" runat="server">
     <div class="header-container">
         <header class="wrapper clearfix">
-            <h1 class="title">PITCHDEA</h1>
+            <h1 class="title"><a href="mainPage.aspx">PITCHDEA</a></h1>
             <nav>
                 <ul>
                 </ul>

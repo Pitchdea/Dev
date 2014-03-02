@@ -1,7 +1,75 @@
 /* ==========================================================================
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
+a {
+text-decoration:none!important;
+transition: 0.2s;
+}
 
+    a:hover {
+        color:#48c9b0;    
+        transition: 0.2s;
+    }
+
+.title a:visited {
+    font-size:165%;
+	color:#c0392b!important;
+	font-weight:600;
+    text-decoration:none!important;
+
+}
+.title a:hover {
+    color:#48c9b0!important;
+    transition: 0.2s;
+}
+
+
+input[type=submit]{
+
+  color:#fff;
+  border-radius:4px;
+  padding: 10px 30px;
+  margin: 5px 1px 3px 0px;
+  border: none;
+  background:#48c9b0;
+
+}
+
+input[type=password], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #ccc;
+}
+ 
+input[type=password]:focus, textarea:focus {
+  box-shadow: 0 0 5px #48c9b0;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #48c9b0;
+}
+
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #ccc;
+}
+ 
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px #48c9b0;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #48c9b0;
+}
 
 html,
 button,
@@ -69,6 +137,12 @@ textarea {
 	margin-top:20px;
 	transition: all 0.3s;
 	
+}
+
+.main-container {
+min-height:80%;
+min-height:80vh;
+
 }
 
 .linkback:hover{
@@ -152,8 +226,9 @@ textarea {
 }
 
 .title {
+    font-size:165%;
 	color:#c0392b!important;
-	font-weight:bold;
+	font-weight:600;
 }
 
 body {
@@ -176,7 +251,7 @@ h1, h2, h3, h4, h5, h6 {
    =================== */
 
 .header-container {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ddd;
 }
 
 .footer-container,
@@ -319,7 +394,6 @@ nav a:hover {
     WIDE: CSS3 Effects
    ==================== */
 
-    .header-container,
     .main aside {
         -webkit-box-shadow: 0 2px 3px #aaa;
            -moz-box-shadow: 0 2px 3px #aaa;
@@ -369,6 +443,12 @@ nav a:hover {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
+#MainContent_errorMessage {
+    color:#d74a3a;
+    font-weight:700;
+    margin:20px;
+}
 
 .ir {
     background-color: transparent;
