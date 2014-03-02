@@ -5,14 +5,10 @@
 
 Background: 
 	Given "user" table is empty at first
-		And my username "<username>" does not exist in database
-		And my email "<email>" does not exist in database
-		| username | email              |
-		| mikko    | test1@pitchdea.com |
+		And register page "/RegisterPage.aspx" is open
 
 Scenario: Email already exists in database
 
-	Given register page "/RegisterPage.aspx" is open
 		And email address "test@pitchdea.com" exists in the database
 	When I enter "test@pitchdea.com" as email address
 		And click "Maincontent_registerButton" register button
@@ -24,7 +20,6 @@ Scenario: Email already exists in database
 
 Scenario: Username already exists in database
 
-	Given register page "/RegisterPage.aspx" is open
 #		And username "test" already exists in database
 	When I enter "test" in "Maincontent_usernameTextBox" username field
 		And I hit enter key while "Maincontent_passwordConfirmationTextBox" password confirmation field is focused
@@ -58,7 +53,7 @@ Scenario Outline: User fills valid credentials, is logged in by pressing enter a
 		And fill password field "Maincontent_passwordTextBox" with password
 		And fill password confirmation field ""Maincontent_passwordConfirmationTextBox" with password confirmation
 		And hit enter key while "Maincontent_passwordConfirmationTextBox" password confirmation field is focused
-	Then I am logged in with  my "<email>"
+	Then I am logged in with  my email address "<email>"
 
 	Examples: 
 	| username  | email                |
