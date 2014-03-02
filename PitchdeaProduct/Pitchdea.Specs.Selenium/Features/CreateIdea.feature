@@ -22,10 +22,20 @@ Scenario Outline: user submits an idea
 			| So Good Idea | Virtual piano lessons       | I am an alcoholic and have too much spare time so I could think I would be a good teacher |
 
 #TODO
-#Scenario Outline: User creates an idea with a multiline description
-	#Given user writes two lines "<line1>" followed by "<line2>"
-	#Then "MainContent_descriptionLabel" field value is two lines "<line1>" followed by "<line2>"
-
-	#Examples:
-	#| line1 | line2 |
-	#| foo   | bar   |
+#Tapio's multiline version 2: (google: PyStringNode)
+#
+#Scenario: user creates a multiline idea
+#	When user fills "MainContent_description textBox" field with: 
+#    """
+#    This is line 1
+#    This is line 2
+#    This is line 3
+#    """
+#Then "MainContent_descriptionLabel" field value is:
+# "  
+#	"""
+#    This is line 1
+#    This is line 2
+#    This is line 3
+#    """
+# "	

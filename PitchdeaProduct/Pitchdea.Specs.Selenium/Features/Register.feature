@@ -4,9 +4,13 @@
 
 
 	Background: 
-		Given register page is open
+		Given page "/RegisterPage.aspx" is open
 		And my "<username>" does not exist in database
 		And my "<email>" does not exist in database
+
+	Examples: 
+		| username | email |
+		|          |       |
 
 Scenario: Email already exists in database
 
