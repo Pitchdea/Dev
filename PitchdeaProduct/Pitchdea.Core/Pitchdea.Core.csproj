@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAuthenticator.cs" />
     <Compile Include="Authenticator.cs" />
     <Compile Include="EmailValidator.cs" />
     <Compile Include="ISqlTool.cs" />

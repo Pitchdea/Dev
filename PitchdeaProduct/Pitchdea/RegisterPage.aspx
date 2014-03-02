@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" 
     AutoEventWireup="true" 
     CodeBehind="RegisterPage.aspx.cs" 
-    Inherits="Pitchdea.ViewIdeaPage"
+    Inherits="Pitchdea.RegisterPage"
     MasterPageFile="Main.Master" %>
 
 
@@ -15,7 +15,7 @@
     <asp:TextBox runat="server" ID="passwordTextBox" TextMode="Password"/>
     <asp:TextBox runat="server" ID="passwordConfirmationTextBox" TextMode="Password"/>
 
-    <asp:Button runat="server" ID="registerButton" OnClick="registerButton_OnClick" Text="Register"/>
+    <asp:Button runat="server" ID="registerButton" OnClick="registerButton_OnClick"  Text="Register"/>
     <asp:Label runat="server" ID="errorMessage"/>
 
 

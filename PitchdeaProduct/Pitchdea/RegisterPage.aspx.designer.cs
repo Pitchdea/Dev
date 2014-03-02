@@ -10,7 +10,7 @@
 namespace Pitchdea {
     
     
-    public partial class ViewIdeaPage {
+    public partial class RegisterPage {
         
         /// <summary>
         /// emailTextBox control.
