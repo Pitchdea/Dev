@@ -2,34 +2,36 @@
 	I open the register page and fill the required credentials
 	After completing those steps I will be given access to the site and sent a confirmation email
 
-Scenario: Email already exists in database
 
-	Given register page is open
-		And my "<email>" already exists in database
-	When I click registerbutton
-	Then I get "<errorMessage>"
-
-	Examples: 
-		| email              | errorMessage                       |
-		| test1@pitchdea.com | Oops! That email is already in use |
-
-Scenario: Username already exists in database
-
-	Given register page is open
-		And my "<username>" already exists in database
-	When I hit enter key while "Maincontent_passwordConfirmationTextBox" field is focused
-	Then I get "<errorMessage>"
-
-	Examples: 
-		| username | errorMessage                               |
-		| test     | Oops! That username has already been taken | 
-
-
-#Background is here
 	Background: 
 		Given register page is open
 		And my "<username>" does not exist in database
 		And my "<email>" does not exist in database
+
+Scenario: Email already exists in database
+
+	Given register page is open
+		And email "test@pitchdea.com" exists in the database
+	When I enter "test@pitchdea.com" as email
+		And click registerbutton
+	Then I get "<errorMessage>"
+
+	Examples: 
+		| errorMessage                       |
+		| Oops! That email is already in use |
+
+Scenario: Username already exists in database
+
+	Given register page is open
+		And username "test" already exists in database
+	When I enter "test" in "Maincontent_usernameTextBox"
+		And I hit enter key while "Maincontent_passwordConfirmationTextBox" field is focused
+	Then I get "<errorMessage>"
+
+	Examples: 
+		| errorMessage                               |
+		| Oops! That username has already been taken |
+
 
 Scenario Outline: User fills valid credentials, is logged in by clicking and gets notification email.
 
@@ -69,7 +71,6 @@ Scenario Outline: User fills invalid credentials, clicks, gets error message and
 		And I am not logged in
 		
 	Examples: 
-	| email                | username | password | confpass | errorMessage                                     |
 	| email                | username | password | confpass | errorMessage                                     |
 	|                      | mikko    | passu    | passu    | You forgot to type an email.                     |
 	| not an email address | mikko    | passu    | passu    | This doesn't seem to be an email address.        |

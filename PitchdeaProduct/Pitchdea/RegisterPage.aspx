@@ -11,7 +11,7 @@
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
     <asp:TextBox runat="server" ID="emailTextBox"/>
-    <asp:TextBox runat="server" ID="username"/>
+    <asp:TextBox runat="server" ID="usernameTextBox"/>
     <asp:TextBox runat="server" ID="passwordTextBox" TextMode="Password"/>
     <asp:TextBox runat="server" ID="passwordConfirmationTextBox" TextMode="Password"/>
 
