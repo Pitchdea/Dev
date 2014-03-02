@@ -25,6 +25,7 @@ Access is granted.
 	Then page "/mainPage.aspx" is open
 		And user is logged in as "test@pitchdea.com"
 
+
 	Examples: 
 		| fieldname                   |
 		| MainContent_emailTextBox    |

@@ -26,11 +26,12 @@ Scenario: Username already exists in database
 Scenario: User fills valid credentials, is logged in by clicking.
 
 	When I fill email field with "test1@pitchdea.com"
-		And fill the username field with "mikko"
-		And fill the password field with password "passu"
-		And fill fill password confirmation field with "passu"
-		And click register button 
-	Then I am logged in with my email address "test1@pitchdea.com"
+		And I fill the username field with "mikko"
+		And I fill the password field with "passu"
+		And I fill password confirmation field with "passu"
+		And I click register button 
+	Then page "/mainPage.aspx" is open
+		And I am logged in as "test@pitchdea.com"
 	
 
 Scenario Outline: User fills valid credentials, is logged in by pressing enter.

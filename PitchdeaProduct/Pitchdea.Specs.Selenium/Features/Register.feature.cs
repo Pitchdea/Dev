@@ -129,15 +129,17 @@ this.FeatureBackground();
 #line 28
  testRunner.When("I fill email field with \"test1@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 29
-  testRunner.And("fill the username field with \"mikko\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I fill the username field with \"mikko\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 30
-  testRunner.And("fill the password field with password \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I fill the password field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
-  testRunner.And("fill fill password confirmation field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I fill password confirmation field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 32
-  testRunner.And("click register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I click register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 33
- testRunner.Then("I am logged in with my email address \"test1@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("page \"/mainPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 34
+  testRunner.And("I am logged in as \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -149,23 +151,23 @@ this.FeatureBackground();
         public virtual void UserFillsValidCredentialsIsLoggedInByPressingEnter_(string username, string email, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User fills valid credentials, is logged in by pressing enter.", exampleTags);
-#line 36
+#line 37
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 38
- testRunner.When(string.Format("I fill email field with \"{0}\"", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 39
-  testRunner.And(string.Format("fil username field with \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When(string.Format("I fill email field with \"{0}\"", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 40
-  testRunner.And("fill password field with password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("fil username field with \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
+  testRunner.And("fill password field with password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
   testRunner.And("fill password confirmation field \"\"Maincontent_passwordConfirmationTextBox\" with " +
                     "password confirmation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 42
+#line 43
   testRunner.And("hit enter key while \"Maincontent_passwordConfirmationTextBox\" password confirmati" +
                     "on field is focused", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 43
+#line 44
  testRunner.Then(string.Format("I am logged in with  my email address \"{0}\"", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -184,24 +186,24 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User fills invalid credentials, clicks, gets error message and is not registered." +
                     "", exampleTags);
-#line 51
+#line 52
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 53
- testRunner.When(string.Format("I fill email field \"Maincontent_emailTextBox\" with email \"{0}\"", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 54
-  testRunner.And(string.Format("fill username field \"Maincontent_usernameTextBox\" with username \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When(string.Format("I fill email field \"Maincontent_emailTextBox\" with email \"{0}\"", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 55
-  testRunner.And("fill password field \"Maincontent_passwordTextBox\" with password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("fill username field \"Maincontent_usernameTextBox\" with username \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 56
+  testRunner.And("fill password field \"Maincontent_passwordTextBox\" with password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
   testRunner.And("fill password confirmation field \"Maincontent_passwordConfirmationTextBox\" with p" +
                     "assword confirmation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 57
-  testRunner.And("click \"Maincontent_registerButton\" register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 58
- testRunner.Then(string.Format("I get \"{0}\" error message", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.And("click \"Maincontent_registerButton\" register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 59
+ testRunner.Then(string.Format("I get \"{0}\" error message", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 60
   testRunner.And("I am not logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -220,24 +222,24 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User fills invalid credentials, hits enter, gets error message and is not registe" +
                     "red.", exampleTags);
-#line 72
+#line 73
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 74
- testRunner.When(string.Format("I fill email field \"Maincontent_emailTextBox\" with \"{0}\" email address", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 75
-  testRunner.And(string.Format("fill username field \"Maincontent_usernameTextBox\" with \"{0}\" username", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When(string.Format("I fill email field \"Maincontent_emailTextBox\" with \"{0}\" email address", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 76
-  testRunner.And(string.Format("fill password field \"Maincontent_passwordTextBox\" with \"{0}\" password", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("fill username field \"Maincontent_usernameTextBox\" with \"{0}\" username", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 77
+  testRunner.And(string.Format("fill password field \"Maincontent_passwordTextBox\" with \"{0}\" password", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 78
   testRunner.And(string.Format("fill password confirmation field \"Maincontent_passwordConfirmationTextBox\" \"{0}\" " +
                         "password confirmation", confpass), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 78
-  testRunner.And("hit enter key while \"Maincontent_passwordConfirmationTextBox\" field is focused", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 79
- testRunner.Then(string.Format("I get \"{0}\" error message", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.And("hit enter key while \"Maincontent_passwordConfirmationTextBox\" field is focused", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 80
+ testRunner.Then(string.Format("I get \"{0}\" error message", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 81
   testRunner.And("I am not logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

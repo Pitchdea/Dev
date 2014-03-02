@@ -134,19 +134,19 @@ this.FeatureBackground();
         public virtual void IncorrectLoginInformation(string username, string password, string errorMessage, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrect login information", exampleTags);
-#line 33
+#line 34
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 36
- testRunner.Given(string.Format("\"MainContent_emailTextBox\" field value is \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 37
-  testRunner.And(string.Format("\"MainContent_passwordTextBox\" field value is \"{0}\"", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given(string.Format("\"MainContent_emailTextBox\" field value is \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 38
- testRunner.When("user clicks \"MainContent_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And(string.Format("\"MainContent_passwordTextBox\" field value is \"{0}\"", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 39
- testRunner.Then("page \"/loginPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("user clicks \"MainContent_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 40
+ testRunner.Then("page \"/loginPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 41
   testRunner.And(string.Format("\"MainContent_errorMessage\" field value is \"{0}\"", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -160,19 +160,19 @@ this.FeatureBackground();
         public virtual void MissingLoginInformation(string username, string password, string errorMessage, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing login information", exampleTags);
-#line 49
+#line 50
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 52
- testRunner.Given(string.Format("\"MainContent_emailTextBox\" field value is \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 53
-  testRunner.And(string.Format("\"MainContent_passwordTextBox\" field value is \"{0}\"", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given(string.Format("\"MainContent_emailTextBox\" field value is \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 54
- testRunner.When("user clicks \"MainContent_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And(string.Format("\"MainContent_passwordTextBox\" field value is \"{0}\"", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
- testRunner.Then("page \"/loginPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("user clicks \"MainContent_loginButton\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 56
+ testRunner.Then("page \"/loginPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 57
   testRunner.And(string.Format("\"MainContent_errorMessage\" field value is \"{0}\"", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
