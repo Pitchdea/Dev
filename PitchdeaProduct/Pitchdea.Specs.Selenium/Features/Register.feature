@@ -17,14 +17,11 @@ Scenario: Email already exists in database
 
 Scenario: Username already exists in database
 
-#		And username "test" already exists in database
-	When I enter "test" in "Maincontent_usernameTextBox" username field
-		And I hit enter key while "Maincontent_passwordConfirmationTextBox" password confirmation field is focused
-	Then I get "<errorMessage>" error message
-#
-#	Examples: 
-#		| errorMessage                               |
-#		| Oops! That username has already been taken |
+	Given user with username "test" is exists in the database
+	When I enter "test" in username field
+		And I hit enter key while password confirmation field is focused
+	Then I see "Oops! That username has already been taken" error message
+
 
 
 Scenario Outline: User fills valid credentials, is logged in by clicking.
