@@ -23,7 +23,8 @@ Scenario: Username already exists in database
 	Then I see "Oops! That username has already been taken" error message
 
 
-Scenario: User fills valid credentials, is logged in by clicking.
+Scenario: User registers succesfully by clicking
+User fills valid credentials and is logged in by clicking register button.
 
 	When I fill email field with "test1@pitchdea.com"
 		And I fill the username field with "mikko"
@@ -33,29 +34,25 @@ Scenario: User fills valid credentials, is logged in by clicking.
 	Then page "/mainPage.aspx" is open
 		And I am logged in as "test@pitchdea.com"
 	
+Scenario: User registers succesfully with Enter 
+User fills valid credentials and is logged in by hitting enter while password confirmation field is active.
 
-Scenario Outline: User fills valid credentials, is logged in by pressing enter.
-
-	When I fill email field with "<email>"
-		And fil username field with "<username>" 
-		And fill password field with password
-		And fill password confirmation field ""Maincontent_passwordConfirmationTextBox" with password confirmation
-		And hit enter key while "Maincontent_passwordConfirmationTextBox" password confirmation field is focused
-	Then I am logged in with  my email address "<email>"
-
-	Examples: 
-	| username  | email                |
-	| käyttäjä1 | kayttaja@hotmail.com |
-	| user5     | user@gmail.com       |
-	
+	When I fill email field with "test1@pitchdea.com"
+		And I fill the username field with "mikko"
+		And I fill the password field with "passu"
+		And I fill password confirmation field with "passu"
+		And I hit enter key while  password confirmation field is focused
+	Then page "/mainPage.aspx" is open
+		And I am logged in as "test@pitchdea.com"
+			
 
 Scenario Outline: User fills invalid credentials, clicks, gets error message and is not registered.
 
-	When I fill email field "Maincontent_emailTextBox" with email "<email>"
-		And fill username field "Maincontent_usernameTextBox" with username "<username>" 
-		And fill password field "Maincontent_passwordTextBox" with password
-		And fill password confirmation field "Maincontent_passwordConfirmationTextBox" with password confirmation
-		And click "Maincontent_registerButton" register button
+	When I fill email field  with email "<email>"
+		And I fill username field "Maincontent_usernameTextBox" with username "<username>" 
+		And I fill password field with "<password>"
+		And I fill password confirmation field with "<confpass>"
+		And I click  register button
 	Then I get "<errorMessage>" error message
 		And I am not logged in
 		
