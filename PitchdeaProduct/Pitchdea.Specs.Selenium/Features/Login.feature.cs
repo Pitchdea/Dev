@@ -128,9 +128,9 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Incorrect login information")]
-        [NUnit.Framework.TestCaseAttribute("test@pitchdea.com", "password124", "Email and password combination is incorrect.", null)]
-        [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "password123", "Email and password combination is incorrect.", null)]
-        [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "password124", "Email and password combination is incorrect.", null)]
+        [NUnit.Framework.TestCaseAttribute("test@pitchdea.com", "password124", "Email and password don\'t match.", null)]
+        [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "password123", "Email and password don\'t match.", null)]
+        [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "password124", "Email and password don\'t match.", null)]
         public virtual void IncorrectLoginInformation(string username, string password, string errorMessage, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrect login information", exampleTags);

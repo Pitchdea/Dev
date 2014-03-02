@@ -41,10 +41,10 @@ An error message is shown to the user. Access is not granted.
 		And "MainContent_errorMessage" field value is "<errorMessage>"
 
 	Examples: 
-		| username           | password    | errorMessage                                 |
-		| test@pitchdea.com  | password124 | Email and password combination is incorrect. |
-		| test1@pitchdea.com | password123 | Email and password combination is incorrect. |
-		| test1@pitchdea.com | password124 | Email and password combination is incorrect. |
+		| username           | password    | errorMessage                    |
+		| test@pitchdea.com  | password124 | Email and password don't match. |
+		| test1@pitchdea.com | password123 | Email and password don't match. |
+		| test1@pitchdea.com | password124 | Email and password don't match. |
 
 
 Scenario Outline: Missing login information
