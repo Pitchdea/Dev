@@ -178,8 +178,8 @@ this.FeatureBackground();
         [NUnit.Framework.TestCaseAttribute("not an email address", "mikko", "passu", "passu", "This doesn\'t seem to be an email address.", null)]
         [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "mikko", "", "", "You forgot to type a password.", null)]
         [NUnit.Framework.TestCaseAttribute("testi1@pitchea.com", "", "passu", "passu", "You forgot to type a username", null)]
-        [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "mikko", "passu", "salasana", "password and password confirmation do not match.", null)]
-        [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "mikko", "passu", "", "password and password confirmation do not match.", null)]
+        [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "mikko", "passu", "salasana", "The passowrds do not match.", null)]
+        [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "mikko", "passu", "", "The passwords  do not match.", null)]
         public virtual void UserFillsInvalidCredentialsClicksGetsErrorMessageAndIsNotRegistered_(string email, string username, string password, string confpass, string errorMessage, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User fills invalid credentials, clicks, gets error message and is not registered." +
@@ -199,9 +199,9 @@ this.FeatureBackground();
 #line 56
   testRunner.And("I click register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 57
- testRunner.Then(string.Format("I get \"{0}\" error message", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("page \"/RegisterPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 58
-  testRunner.And("page \"/RegisterPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("I get \"{0}\" error message", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

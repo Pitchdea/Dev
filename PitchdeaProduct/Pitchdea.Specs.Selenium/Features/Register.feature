@@ -54,14 +54,14 @@ Scenario Outline: User fills invalid credentials, clicks, gets error message and
 		And I fill password field with "<password>"
 		And I fill password confirmation field with "<confpass>"
 		And I click register button
-	Then I get "<errorMessage>" error message
-		And page "/RegisterPage.aspx" is open
+	Then page "/RegisterPage.aspx" is open
+		And I get "<errorMessage>" error message
 		
 	Examples: 
-	| email                | username | password | confpass | errorMessage                                     |
-	|                      | mikko    | passu    | passu    | You forgot to type an email.                     |
-	| not an email address | mikko    | passu    | passu    | This doesn't seem to be an email address.        |
-	| test1@pitchdea.com   | mikko    |          |          | You forgot to type a password.                   |
-	| testi1@pitchea.com   |          | passu    | passu    | You forgot to type a username                    |
-	| test1@pitchdea.com   | mikko    | passu    | salasana | password and password confirmation do not match. |
-	| test1@pitchdea.com   | mikko    | passu    |          | password and password confirmation do not match. |
+	| email                | username | password | confpass | errorMessage                              |
+	|                      | mikko    | passu    | passu    | You forgot to type an email.              |
+	| not an email address | mikko    | passu    | passu    | This doesn't seem to be an email address. |
+	| test1@pitchdea.com   | mikko    |          |          | You forgot to type a password.            |
+	| testi1@pitchea.com   |          | passu    | passu    | You forgot to type a username             |
+	| test1@pitchdea.com   | mikko    | passu    | salasana | The passowrds do not match.               |
+	| test1@pitchdea.com   | mikko    | passu    |          | The passwords  do not match.              |
