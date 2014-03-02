@@ -3,12 +3,10 @@
 	After completing those steps I will be given access to the site and sent a confirmation email
 
 
-	Background: 
-		Given page "/RegisterPage.aspx" is open
+Background: 
+	Given "user" table is empty at first
 		And my username "<username>" does not exist in database
 		And my email "<email>" does not exist in database
-
-	Examples: 
 		| username | email              |
 		| mikko    | test1@pitchdea.com |
 
@@ -19,22 +17,22 @@ Scenario: Email already exists in database
 	When I enter "test@pitchdea.com" as email address
 		And click "Maincontent_registerButton" register button
 	Then I get "<errorMessage>" error message
-
-	Examples: 
-		| errorMessage                       |
-		| Oops! That email is already in use |
+#
+#	Examples: 
+#		| errorMessage                       |
+#		| Oops! That email is already in use |
 
 Scenario: Username already exists in database
 
 	Given register page "/RegisterPage.aspx" is open
-		And username "test" already exists in database
+#		And username "test" already exists in database
 	When I enter "test" in "Maincontent_usernameTextBox" username field
 		And I hit enter key while "Maincontent_passwordConfirmationTextBox" password confirmation field is focused
 	Then I get "<errorMessage>" error message
-
-	Examples: 
-		| errorMessage                               |
-		| Oops! That username has already been taken |
+#
+#	Examples: 
+#		| errorMessage                               |
+#		| Oops! That username has already been taken |
 
 
 Scenario Outline: User fills valid credentials, is logged in by clicking and gets notification email.
