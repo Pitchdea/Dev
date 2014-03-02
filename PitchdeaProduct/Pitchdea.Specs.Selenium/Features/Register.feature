@@ -5,18 +5,15 @@
 
 Background: 
 	Given "user" table is empty at first
-		And register page "/RegisterPage.aspx" is open
+		And page "/RegisterPage.aspx" is open
 
 Scenario: Email already exists in database
 
-		And email address "test@pitchdea.com" exists in the database
+	Given user with email "test@pitchdea.com" exists in the database
 	When I enter "test@pitchdea.com" as email address
-		And click "Maincontent_registerButton" register button
-	Then I get "<errorMessage>" error message
-#
-#	Examples: 
-#		| errorMessage                       |
-#		| Oops! That email is already in use |
+		And I click register button
+	Then I see "Oops! That email is already in use" error message
+
 
 Scenario: Username already exists in database
 
