@@ -45,7 +45,7 @@ namespace Pitchdea
             }
             else
             {
-                errorMessage.Text = "Email and password combination is incorrect.";
+                errorMessage.Text = "Email and password don't match.";
             }
         }
     }

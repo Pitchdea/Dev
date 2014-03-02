@@ -25,10 +25,9 @@ transition: 0.2s;
 
 
 input[type=submit]{
-
   color:#fff;
   border-radius:4px;
-  padding: 10px 30px;
+  padding: 7px 30px;
   margin: 5px 1px 3px 0px;
   border: none;
   background:#48c9b0;
@@ -36,6 +35,8 @@ input[type=submit]{
 }
 
 input[type=password], textarea {
+    width:100%;
+   height:25px;
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
   -ms-transition: all 0.30s ease-in-out;
@@ -54,6 +55,8 @@ input[type=password]:focus, textarea:focus {
 }
 
 input[type=text], textarea {
+   width:100%;
+   height:25px;
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
   -ms-transition: all 0.30s ease-in-out;
@@ -140,8 +143,8 @@ textarea {
 }
 
 .main-container {
-min-height:80%;
-min-height:80vh;
+min-height:72%;
+min-height:72vh;
 
 }
 
@@ -355,6 +358,9 @@ nav a:hover {
 
 @media only screen and (min-width: 480px) {
 
+    .loginform {
+        width: 100%;
+    }
 /* ====================
     INTERMEDIATE: Menu
    ==================== */
@@ -389,7 +395,9 @@ nav a:hover {
 }
 
 @media only screen and (min-width: 768px) {
-
+    .loginform {
+        width: 100%;
+    }
 /* ====================
     WIDE: CSS3 Effects
    ==================== */
@@ -443,6 +451,26 @@ nav a:hover {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
+.loginstatus {
+    float:right;
+}
+
+.logintext {
+    color:#ccc;
+}
+
+.loginname {
+    color:#48c9b0!important;
+}
+
+.loginform {
+    width:50%;
+    padding:17px;
+    border-radius:9px;
+    background:#f9f9f9;
+    border:1px solid #f5f5f5;
+}
 
 #MainContent_errorMessage {
     color:#d74a3a;
