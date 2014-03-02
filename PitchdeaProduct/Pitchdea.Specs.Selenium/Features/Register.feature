@@ -23,27 +23,21 @@ Scenario: Username already exists in database
 	Then I see "Oops! That username has already been taken" error message
 
 
-Scenario Outline: User fills valid credentials, is logged in by clicking.
+Scenario: User fills valid credentials, is logged in by clicking.
 
-	When I fill email field with "<email>" 
-		And fill the username field with "<username>"  
-		And fill the password field with password 
-		And fill confirmation field with password confirmation
+	When I fill email field with "test1@pitchdea.com"
+		And fill the username field with "mikko"
+		And fill the password field with password "passu"
+		And fill fill password confirmation field with "passu"
 		And click register button 
-
-	Then I am logged in with my email address "<email>"
+	Then I am logged in with my email address "test1@pitchdea.com"
 	
-	Examples: 
-	| username  | email                |
-	| käyttäjä1 | kayttaja@hotmail.com |
-	| user5     | user@gmail.com       |
-
 
 Scenario Outline: User fills valid credentials, is logged in by pressing enter.
 
-	When I fill email field "Maincontent_emailTextBox" with "<email>"
-		And fil username field "Maincontent_usernameTextBox" with "<username>" 
-		And fill password field "Maincontent_passwordTextBox" with password
+	When I fill email field with "<email>"
+		And fil username field with "<username>" 
+		And fill password field with password
 		And fill password confirmation field ""Maincontent_passwordConfirmationTextBox" with password confirmation
 		And hit enter key while "Maincontent_passwordConfirmationTextBox" password confirmation field is focused
 	Then I am logged in with  my email address "<email>"
