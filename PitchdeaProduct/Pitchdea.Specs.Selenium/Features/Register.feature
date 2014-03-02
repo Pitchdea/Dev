@@ -19,21 +19,20 @@ Scenario: Username already exists in database
 
 	Given user with username "test" is exists in the database
 	When I enter "test" in username field
-		And I hit enter key while password confirmation field is focused
+		And I click register button
 	Then I see "Oops! That username has already been taken" error message
-
 
 
 Scenario Outline: User fills valid credentials, is logged in by clicking.
 
-	When I fill email field "Maincontent_emailTextBox" with "<email>" 
-		And fill the username field "Maincontent_usernameTextBox" with "<username>"  
-		And fill the password field "Maincontent_passwordTextBox" with password 
-		And fill confirmation field "Maincontent_passwordConfirmationTextBox" with password confirmation
-		And click "Maincontent_registerButton" register button 
+	When I fill email field with "<email>" 
+		And fill the username field with "<username>"  
+		And fill the password field with password 
+		And fill confirmation field with password confirmation
+		And click register button 
+
 	Then I am logged in with my email address "<email>"
-
-
+	
 	Examples: 
 	| username  | email                |
 	| käyttäjä1 | kayttaja@hotmail.com |
@@ -94,3 +93,5 @@ Scenario Outline: User fills invalid credentials, hits enter, gets error message
 		| testi1@pitchea.com   |          | passu    | passu    | You forgot to type a username                    |
 		| test1@pitchdea.com   | mikko    | passu    | salasana | password and password confirmation do not match. |
 		| test1@pitchdea.com   | mikko    | passu    |          | password and password confirmation do not match. |
+
+		# 		And I hit enter key while password confirmation field is focused
