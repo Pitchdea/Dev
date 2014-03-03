@@ -24,6 +24,8 @@ namespace Pitchdea.Core
         
         public UserInfo RegisterNewUser(string user, string email, string password)
         {
+            //TODO: check that the email and username do not exist in the database.
+
             var salt = GenerateNewSalt();
             var passwordHash = CreateHash(password, salt);
             var saltString = Convert.ToBase64String(salt);
@@ -51,6 +53,24 @@ namespace Pitchdea.Core
                 UserID = userId,
                 Username = user
             };
+        }
+        
+        public bool CheckIfUsernameExists(string email)
+        {
+            throw new NotImplementedException();
+            
+            //_connection.Open();
+            //var query = string.Format(@"SELECT userid FROM user WHERE email = '{0}'", email);
+            //var command = new MySqlCommand(query, _connection);
+            //var result = command.ExecuteScalar();
+            //_connection.Close();
+
+            //return result != null;
+        }
+
+        public bool CheckIfEmailExists(string email)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -84,22 +104,6 @@ namespace Pitchdea.Core
             return SlowEquals(dbPw, hash) ? userId : -1;
         }
 
-        /// <summary>
-        /// Checks if the email already exists in the database.
-        /// </summary>
-        /// <param name="email">Email to check</param>
-        /// <returns>True if user already exists, otherwise false.</returns>
-        public bool CheckIfUsernameExists(string email)
-        {
-            _connection.Open();
-            var query = string.Format(@"SELECT userid FROM user WHERE email = '{0}'", email);
-            var command = new MySqlCommand(query, _connection);
-            var result = command.ExecuteScalar();
-            _connection.Close();
-
-            return result != null;
-        }
-        
         /// <summary>
         /// Creates SHA256 hash from password and SALT.
         /// </summary>
