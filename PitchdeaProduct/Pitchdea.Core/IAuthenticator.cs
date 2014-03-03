@@ -30,7 +30,7 @@ namespace Pitchdea.Core
     {
         public static IAuthenticator CreateNew()
         {
-            throw new NotImplementedException();
+            return new Authenticator(SqlToolFactory.ConnectionString);
         }
     }
 }
