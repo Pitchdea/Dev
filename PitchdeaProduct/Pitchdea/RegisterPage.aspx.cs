@@ -21,6 +21,17 @@ namespace Pitchdea
             var user = usernameTextBox.Text;
             var email = emailTextBox.Text;
             var password = passwordTextBox.Text;
+
+            if (_authenticator.CheckIfUsernameExists(user))
+            {
+                errorMessage.Text = "Oops! That username has already been taken";
+            }
+
+            if (_authenticator.CheckIfEmailExists(email))
+            {
+                errorMessage.Text = "Oops! That email is already in use";
+            }
+
             var userInfo = _authenticator.RegisterNewUser(user, email, password);
 
             //User is logged in

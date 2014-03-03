@@ -12,8 +12,8 @@ Scenario: User registers succesfully by clicking
 User fills valid credentials and is logged in by clicking register button.
 
 	When I fill email field with "test1@pitchdea.com"
-		And I fill the username field with "mikko"
-		And I fill the password field with "passu"
+		And I fill username field with "mikko"
+		And I fill password field with "passu"
 		And I fill password confirmation field with "passu"
 		And I click register button 
 	Then page "/mainPage.aspx" is open
@@ -23,8 +23,8 @@ Scenario: User registers succesfully with Enter
 User fills valid credentials and is logged in by hitting enter while password confirmation field is active.
 
 	When I fill email field with "test1@pitchdea.com"
-		And I fill the username field with "mikko"
-		And I fill the password field with "passu"
+		And I fill username field with "mikko"
+		And I fill password field with "passu"
 		And I fill password confirmation field with "passu"
 		#TODO: repeat "hit enter tests" for every box
 		And I hit enter key while password confirmation field is focused
@@ -36,8 +36,8 @@ Scenario: Email already exists in database
 
 	Given user with email "test@pitchdea.com" exists in the database
 	When I fill email field with "test@pitchdea.com"
-		And I fill the username field with "mikko"
-		And I fill the password field with "passu"
+		And I fill username field with "mikko"
+		And I fill password field with "passu"
 		And I fill password confirmation field with "passu"
 		And I click register button 
 	Then page "/RegisterPage.aspx" is open
@@ -48,8 +48,8 @@ Scenario: Username already exists in database
 
 	Given user with username "test" is exists in the database
 	When I fill email field with "test1@pitchdea.com"
-		And I fill the username field with "test"
-		And I fill the password field with "passu"
+		And I fill username field with "test"
+		And I fill password field with "passu"
 		And I fill password confirmation field with "passu"
 		And I click register button
 	Then page "/RegisterPage.aspx" is open

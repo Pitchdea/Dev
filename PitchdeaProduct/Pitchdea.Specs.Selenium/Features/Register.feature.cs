@@ -89,9 +89,9 @@ this.FeatureBackground();
 #line 14
  testRunner.When("I fill email field with \"test1@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
-  testRunner.And("I fill the username field with \"mikko\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I fill username field with \"mikko\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
-  testRunner.And("I fill the password field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I fill password field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
   testRunner.And("I fill password confirmation field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
@@ -116,9 +116,9 @@ this.FeatureBackground();
 #line 25
  testRunner.When("I fill email field with \"test1@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 26
-  testRunner.And("I fill the username field with \"mikko\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I fill username field with \"mikko\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 27
-  testRunner.And("I fill the password field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I fill password field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
   testRunner.And("I fill password confirmation field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 30
@@ -145,9 +145,9 @@ this.FeatureBackground();
 #line 38
  testRunner.When("I fill email field with \"test@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 39
-  testRunner.And("I fill the username field with \"mikko\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I fill username field with \"mikko\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
-  testRunner.And("I fill the password field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I fill password field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
   testRunner.And("I fill password confirmation field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 42
@@ -174,9 +174,9 @@ this.FeatureBackground();
 #line 50
  testRunner.When("I fill email field with \"test1@pitchdea.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 51
-  testRunner.And("I fill the username field with \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I fill username field with \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
-  testRunner.And("I fill the password field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I fill password field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 53
   testRunner.And("I fill password confirmation field with \"passu\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 54
