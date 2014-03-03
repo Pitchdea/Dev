@@ -8,7 +8,7 @@ namespace Pitchdea.Core
     /// <summary>
     /// Provides methods for authentication related operations with internal database connection.
     /// </summary>
-    public class Authenticator
+    public class Authenticator : IAuthenticator
     {
         private readonly MySqlConnection _connection;
 
@@ -19,6 +19,41 @@ namespace Pitchdea.Core
         {
             _connection = new MySqlConnection(connectionstring);
         }
+
+        #region IAuthenticator Members
+        
+        public UserInfo RegisterNewUser(string user, string email, string password)
+        {
+            var salt = GenerateNewSalt();
+            var passwordHash = CreateHash(password, salt);
+            var saltString = Convert.ToBase64String(salt);
+
+            _connection.Open();
+            var command = new MySqlCommand(
+                "INSERT INTO user (username, email, salt, password) VALUES(@username, @email, @salt, @password); SELECT LAST_INSERT_ID();",
+                _connection);
+
+            command.Parameters.Add("@username", MySqlDbType.VarChar).Value = user;
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@salt", MySqlDbType.String).Value = saltString;
+            command.Parameters.Add("@password", MySqlDbType.String).Value = passwordHash;
+            
+            command.Prepare();
+
+            var result = command.ExecuteScalar();
+
+            _connection.Close();
+
+            var userId = Convert.ToInt32((ulong) result);
+
+            return new UserInfo
+            {
+                UserID = userId,
+                Username = user
+            };
+        }
+
+        #endregion
 
         /// <summary>
         /// Checks if the email and passsword combination is found in the database.
@@ -63,28 +98,6 @@ namespace Pitchdea.Core
             _connection.Close();
 
             return result != null;
-        }
-
-        /// <summary>
-        /// Registers a new user. Inserts all required information to the database.
-        /// </summary>
-        /// <param name="email">Email to register</param>
-        /// <param name="password">Password to associate with the email</param>
-        public void RegisterNewUser(string email, string password)
-        {
-            var salt = GenerateNewSalt();
-            var passwordHash = CreateHash(password, salt);
-            var saltString = Convert.ToBase64String(salt);
-
-            _connection.Open();
-            var query = string.Format(@"INSERT INTO user (email, salt, password) VALUES('{0}', '{1}', '{2}');", 
-                email,
-                saltString,
-                passwordHash
-                );
-            var command = new MySqlCommand(query, _connection);
-            command.ExecuteNonQuery();
-            _connection.Close();
         }
         
         /// <summary>

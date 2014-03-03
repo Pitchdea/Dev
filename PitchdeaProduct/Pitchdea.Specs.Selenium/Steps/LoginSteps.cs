@@ -19,11 +19,11 @@ namespace Pitchdea.Specs.Selenium.Steps
             sqlTool.CleanTable("user");
         }
 
-        [Given(@"user ""(.*)"" with password ""(.*)"" exists in the database")]
-        public void GivenUserWithPasswordExistsInTheDatabase(string email, string password)
+        [Given(@"user ""(.*)"" with email ""(.*)"" with password ""(.*)"" exists in the database")]
+        public void GivenUserWithPasswordExistsInTheDatabase(string username, string email, string password)
         {
             var authenticator = new Authenticator(SqlTestTool.TestConnectionString);
-            authenticator.RegisterNewUser(email, password);
+            authenticator.RegisterNewUser(username, email, password);
         }
 
         [Given(@"page ""(.*)"" is open")]

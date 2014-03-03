@@ -152,10 +152,11 @@ namespace Pitchdea.Core.Test
 
         private void InsertIdea(string title, string summary, string description)
         {
+            const string username = "test";
             const string email = "test@pitchdea.com";
             const string password = "password123";
-
-            _auth.RegisterNewUser(email, password);
+            
+            _auth.RegisterNewUser(username, email, password);
             var userId = _auth.Authenticate(email, password);
 
             Assert.AreNotEqual(-1, userId);

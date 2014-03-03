@@ -24,7 +24,7 @@ namespace Pitchdea.Core.Test
             _sqlTestTool.CleanTable("user");
 
             var pw = "123123";
-            _auth.RegisterNewUser("testi@testi.com", pw);
+            _auth.RegisterNewUser("test","testi@testi.com", pw);
 
             _sqlTestTool.CleanTable("user");
         }
@@ -41,7 +41,7 @@ namespace Pitchdea.Core.Test
                 try
                 {
                     var pw = random.Next(0, 100000000).ToString(CultureInfo.InvariantCulture);
-                    _auth.RegisterNewUser("testi@testi.com", pw);
+                    _auth.RegisterNewUser("test","testi@testi.com", pw);
                 }
                 catch (Exception e)
                 {
@@ -60,11 +60,12 @@ namespace Pitchdea.Core.Test
             _sqlTestTool.CleanTable("user");
 
             const string email = "testi@testi.com";
+            const string username = "test";
 
             var random = new Random();
             var pw = random.Next(0, 100000000).ToString(CultureInfo.InvariantCulture);
 
-            _auth.RegisterNewUser(email, pw);
+            _auth.RegisterNewUser(username, email, pw);
             var result = _auth.Authenticate(email, pw);
 
             Assert.AreNotEqual(-1, result);
