@@ -17,7 +17,7 @@ User fills valid credentials and is logged in by clicking register button.
 		And I fill password confirmation field with "passu"
 		And I click register button 
 	Then page "/mainPage.aspx" is open
-		And I am logged in as "test@pitchdea.com"
+		And I am logged in as "mikko"
 	
 Scenario: User registers succesfully with Enter 
 User fills valid credentials and is logged in by hitting enter while password confirmation field is active.
@@ -29,7 +29,7 @@ User fills valid credentials and is logged in by hitting enter while password co
 		#TODO: repeat "hit enter tests" for every box
 		And I hit enter key while password confirmation field is focused
 	Then page "/mainPage.aspx" is open
-		And I am logged in as "test@pitchdea.com"
+		And I am logged in as "mikko"
 			
 
 Scenario: Email already exists in database
