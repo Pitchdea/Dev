@@ -3,12 +3,23 @@ using System.Threading;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using Pitchdea.Specs.Selenium.Utils;
+using NUnit.Framework;
+using Pitchdea.Core;
+using Pitchdea.Core.Test.Utils;
 
 namespace Pitchdea.Specs.Selenium.Steps
 {
     [Binding]
     public class RegisterSteps
     {
+        [Given(@"user with email ""(.*)"" exists in the database")]
+        public void GivenUserWithEmailExistsInTheDatabase(string email)
+        {
+            //IAuthenticator authenticator = new Authenticator(SqlTestTool.TestConnectionString);
+            //authenticator.RegisterNewUser(email);
+            ScenarioContext.Current.Pending();
+        }
+
         [When(@"I fill email field with ""(.*)""")]
         public void WhenIFillEmailFieldWith(string email)
         {
@@ -40,6 +51,27 @@ namespace Pitchdea.Specs.Selenium.Steps
             fieldElement.Click();
             Thread.Sleep(1000);
         }
+        [When(@"I hit enter key while password confirmation field is focused")]
+        public void WhenIHitEnterKeyWhilePasswordConfirmationFieldIsFocused()
+        {
+            IWebElement fieldElement = WebBrowser.Current.FindElement(By.Id("MainContent_passwordConfirmationTextBox"));
+            fieldElement.SendKeys(Keys.Enter);
+            Thread.Sleep(1000);
+
+        }
+        [Then(@"I am logged in as ""(.*)""")]
+        public void ThenIAmLoggedInAs(string userName)
+        {
+            IWebElement labelElement = WebBrowser.Current.FindElement(By.Id("HeaderContent_loginStatusControl_activeUserLabel"));
+            Assert.AreEqual(userName, labelElement.Text);
+        }
+        [Then(@"I see ""(.*)"" error message")]
+        public void ThenISeeErrorMessage(string value)
+        {
+            IWebElement fieldElement = WebBrowser.Current.FindElement(By.Id("MainContent_errorMessage"));
+            Assert.AreEqual(value, fieldElement.Text);
+        }
+
 
     }
 }
