@@ -195,8 +195,8 @@ this.FeatureBackground();
         [NUnit.Framework.TestCaseAttribute("", "mikko", "passu", "passu", "You forgot to type an email.", null)]
         [NUnit.Framework.TestCaseAttribute("not an email address", "mikko", "passu", "passu", "This doesn\'t seem to be an email address.", null)]
         [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "mikko", "", "", "You forgot to type a password.", null)]
-        [NUnit.Framework.TestCaseAttribute("testi1@pitchea.com", "", "passu", "passu", "You forgot to type a username", null)]
-        [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "mikko", "passu", "salasana", "The passowrds do not match.", null)]
+        [NUnit.Framework.TestCaseAttribute("testi1@pitchea.com", "", "passu", "passu", "You forgot to type a username.", null)]
+        [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "mikko", "passu", "salasana", "The passwords do not match.", null)]
         [NUnit.Framework.TestCaseAttribute("test1@pitchdea.com", "mikko", "passu", "", "The passwords do not match.", null)]
         public virtual void UserFillsInvalidCredentialsClicksGetsErrorMessageAndIsNotRegistered_(string email, string username, string password, string confpass, string errorMessage, string[] exampleTags)
         {

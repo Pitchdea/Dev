@@ -71,6 +71,6 @@ Scenario Outline: User fills invalid credentials, clicks, gets error message and
 	|                      | mikko    | passu    | passu    | You forgot to type an email.              |
 	| not an email address | mikko    | passu    | passu    | This doesn't seem to be an email address. |
 	| test1@pitchdea.com   | mikko    |          |          | You forgot to type a password.            |
-	| testi1@pitchea.com   |          | passu    | passu    | You forgot to type a username             |
-	| test1@pitchdea.com   | mikko    | passu    | salasana | The passowrds do not match.               |
+	| testi1@pitchea.com   |          | passu    | passu    | You forgot to type a username.            |
+	| test1@pitchdea.com   | mikko    | passu    | salasana | The passwords do not match.               |
 	| test1@pitchdea.com   | mikko    | passu    |          | The passwords do not match.               |
