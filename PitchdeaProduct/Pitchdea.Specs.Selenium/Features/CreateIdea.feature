@@ -1,19 +1,22 @@
 ﻿Feature: Create Idea
 	User creates an idea.
 
+Background: 
+	Given "idea" table is empty at first
+		And "user" table is empty at first
 
 Scenario Outline: user submits an idea
-	Given page "/createIdeaPage.aspx" is open
-		And user is logged in as "test@pitchdea.com"
-		And "MainContent_titleTextBox" field value is "<title>"
-		And "MainContent_summaryTextBox" field value is "<summary>"
-		And "MainContent_descriptionTextBox" field value is "<description>"
-	When user clicks "MainContent_createIdeaButton" button
-	Then page title is "<title> | Pitchdea"
-		And "Maincontent_ideatitle" value is "<title>"
-		And "MainContent_summaryTextBox" value is"<summary>"
-		And "MainContent_descriptionTextBox" value is "<description>"
-		And "MainContent_statusMessage" field value is "Your idea has been created succesfully!"
+	Given user is logged in as "test user"
+		And page "/createIdeaPage.aspx" is open		
+		And I fill idea title "<title>"
+		And I fill idea summary "<summary>"
+		And I fill idea description "<description>"
+	When user clicks create idea button
+	Then page title is "<title>" followed by " | Pitchdea"
+		And idea title is "<title>"
+		And idea summary is "<summary>"
+		And idea description is "<description>"
+		And idea owner is "test user"
 
 		Examples:
 			| title        | summary                     | description                                                                               |
