@@ -157,11 +157,11 @@ namespace Pitchdea.Core.Test
             const string password = "password123";
             
             _auth.RegisterNewUser(username, email, password);
-            var userId = _auth.Authenticate(email, password);
+            var userInfo = _auth.Authenticate(email, password);
 
-            Assert.AreNotEqual(-1, userId);
+           Assert.NotNull(userInfo);
 
-            var idea = new Idea(userId, title, summary, description);
+            var idea = new Idea(userInfo.UserID, title, summary, description);
 
             var insertedIdea = _mySqlTool.InsertIdea(idea);
 
@@ -197,7 +197,7 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(title, result[1]);
             Assert.AreEqual(summary, result[2]);
             Assert.AreEqual(description, result[3]);
-            Assert.AreEqual(userId, result[4]);
+            Assert.AreEqual(userInfo, result[4]);
 
             var fetchedIdea = _mySqlTool.FetchIdea(idea.Hash);
 
@@ -205,7 +205,7 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(title, fetchedIdea.Title);
             Assert.AreEqual(summary, fetchedIdea.Summary);
             Assert.AreEqual(description, fetchedIdea.Description);
-            Assert.AreEqual(userId, fetchedIdea.UserId);
+            Assert.AreEqual(userInfo, fetchedIdea.UserId);
         }
     }
 }

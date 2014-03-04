@@ -33,6 +33,14 @@ namespace Pitchdea.Core
         /// <param name="email"></param>
         /// <returns>True if the email address exists, else false.</returns>
         bool CheckIfEmailExists(string email);
+
+        /// <summary>
+        /// Checks if the username/email and passsword combination is found in the database.
+        /// </summary>
+        /// <param name="usernameOrPassword">Username or email to authenticate</param>
+        /// <param name="password">Password to authenticate</param>
+        /// <returns>User info for the authenticated user or null if authentication failed.</returns>
+        UserInfo Authenticate(string usernameOrPassword, string password);
     }
     public class UserInfo
     {

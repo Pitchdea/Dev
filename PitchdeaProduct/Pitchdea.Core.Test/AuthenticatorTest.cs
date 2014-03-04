@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using NUnit.Framework;
 using Pitchdea.Core.Test.Utils;
 
@@ -41,7 +42,7 @@ namespace Pitchdea.Core.Test
                 try
                 {
                     var pw = random.Next(0, 100000000).ToString(CultureInfo.InvariantCulture);
-                    _auth.RegisterNewUser("test","testi@testi.com", pw);
+                    _auth.RegisterNewUser("test"+i,"testi"+i+"@testi.com", pw);
                 }
                 catch (Exception e)
                 {
@@ -55,7 +56,27 @@ namespace Pitchdea.Core.Test
         }
 
         [Test]
-        public void _03_RegisterAndAuthenticate()
+        public void _03_RegisterAndAuthenticate_WithUserName()
+        {
+            _sqlTestTool.CleanTable("user");
+
+            const string email = "testi@testi.com";
+            const string username = "test";
+
+            var random = new Random();
+            var pw = random.Next(0, 100000000).ToString(CultureInfo.InvariantCulture);
+
+            _auth.RegisterNewUser(username, email, pw);
+            var result = _auth.Authenticate(username, pw);
+
+            Assert.NotNull(result);
+            Assert.AreEqual(username, result.Username);
+
+            _sqlTestTool.CleanTable("user");
+        }
+
+        [Test]
+        public void _04_RegisterAndAuthenticate_WithEmail()
         {
             _sqlTestTool.CleanTable("user");
 
@@ -68,7 +89,54 @@ namespace Pitchdea.Core.Test
             _auth.RegisterNewUser(username, email, pw);
             var result = _auth.Authenticate(email, pw);
 
-            Assert.AreNotEqual(-1, result);
+            Assert.NotNull(result);
+            Assert.AreEqual(username, result.Username);
+
+            _sqlTestTool.CleanTable("user");
+        }
+
+        [Test]
+        public void _05_CheckIfUsernameExists()
+        {
+            _sqlTestTool.CleanTable("user");
+
+            const string email = "testi@testi.com";
+            const string username = "test";
+
+            var random = new Random();
+            var pw = random.Next(0, 100000000).ToString(CultureInfo.InvariantCulture);
+
+            var result = _auth.RegisterNewUser(username, email, pw);
+
+            Assert.NotNull(result);
+            Assert.AreEqual(username, result.Username);
+
+            var exists = _auth.CheckIfUsernameExists(username);
+
+            Assert.True(exists);
+
+            _sqlTestTool.CleanTable("user");
+        }
+
+        [Test]
+        public void _05_CheckIfEmailExists()
+        {
+            _sqlTestTool.CleanTable("user");
+
+            const string email = "testi@testi.com";
+            const string username = "test";
+
+            var random = new Random();
+            var pw = random.Next(0, 100000000).ToString(CultureInfo.InvariantCulture);
+
+            var result = _auth.RegisterNewUser(username, email, pw);
+
+            Assert.NotNull(result);
+            Assert.AreEqual(username, result.Username);
+
+            var exists = _auth.CheckIfEmailExists(email);
+
+            Assert.True(exists);
 
             _sqlTestTool.CleanTable("user");
         }
