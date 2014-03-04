@@ -80,7 +80,6 @@ namespace Pitchdea.Specs.Selenium.Steps
             Assert.AreEqual(value, fieldElement.Text);
         }
 
-
         [AfterScenario]
         public static void CloseDriver()
         {

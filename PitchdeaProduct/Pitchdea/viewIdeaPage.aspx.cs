@@ -18,8 +18,9 @@ namespace Pitchdea
             var idea = FindIdea();
             Title = idea.Title + " | Pitchdea";
             titleLabel.Text = idea.Title;
-            summaryLabel.Text = idea.Summary;
-            descriptionLabel.Text = idea.Description;
+            summaryLabel.Text = idea.Summary.Replace(Environment.NewLine, "<br />");
+            descriptionLabel.Text = idea.Description.Replace(Environment.NewLine, "<br />"); ;
+            ideaOwner.Text = _sqlTool.FindUsername(idea.UserId);
         }
 
         private Idea FindIdea()

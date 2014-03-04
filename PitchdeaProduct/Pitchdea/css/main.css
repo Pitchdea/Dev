@@ -464,8 +464,11 @@ nav a:hover {
     color:#48c9b0!important;
 }
 
-.loginform {
-    width:50%;
+.generalForm {
+    margin:0 auto;
+    width:40%;
+    min-width:250px;
+    max-width:600px;
     padding:17px;
     border-radius:9px;
     background:#f9f9f9;

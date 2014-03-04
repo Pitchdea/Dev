@@ -8,12 +8,16 @@
     
 </asp:Content>
 
+<asp:Content runat="server" ID="HeaderContentPlaceHolder" ContentPlaceHolderID="HeaderContent">
+    <controls:LoginStatusControl ID="loginStatusControl" runat="server"/>
+</asp:Content>
+
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
 
     <asp:TextBox runat="server" ID="titleTextBox"/>
-    <asp:TextBox runat="server" ID="summaryTextBox"/>
-	<asp:TextBox runat="server" ID="descriptionTextBox"/>    
+    <asp:TextBox runat="server" ID="summaryTextBox" TextMode="MultiLine" Rows="5"/>
+	<asp:TextBox runat="server" ID="descriptionTextBox" TextMode="MultiLine" Rows="20"/>    
 	
-    <asp:Button runat="server" ID="createIdeaButton" />
+    <asp:Button runat="server" ID="createIdeaButton" OnClick="createIdeaButton_OnClick" />
     
 </asp:Content>

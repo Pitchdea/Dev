@@ -11,6 +11,8 @@ Scenario Outline: Idea is created then viewed
 		And "MainContent_titleLabel" field value is "<titlelabel>"
 		And "MainContent_summaryLabel" field value is "<summarylabel>"
 		And "MainContent_descriptionLabel" field value is "<descriptionlabel>"
+		# User "test" is defined in the Given step.
+		And "MainContent_ideaOwner" field value is "test"
 
 	Examples:
 	| titlelabel    | summarylabel                                         | descriptionlabel                                                             |
