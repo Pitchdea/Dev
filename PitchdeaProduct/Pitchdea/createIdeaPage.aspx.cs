@@ -23,12 +23,13 @@ namespace Pitchdea
             var title = titleTextBox.Text;
             var summary = summaryTextBox.Text;
             var description = descriptionTextBox.Text;
+            var question = questionTextBox.Text;
             var ownerId = Session["userId"];
 
             if (ownerId == null)
                 throw new Exception();
 
-            var idea = new Idea((int) ownerId, title, summary, description);
+            var idea = new Idea((int)ownerId, title, summary, description, question);
 
             var insertedIdea = _sqlTool.InsertIdea(idea);
 

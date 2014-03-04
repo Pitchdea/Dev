@@ -19,5 +19,6 @@
     <asp:Label runat="server" ID="titleLabel"/>
     <asp:Label runat="server" ID="summaryLabel"/>
     <asp:Label runat="server" ID="descriptionLabel" />
+    <asp:Label runat="server" ID="questionLabel"/>
     <asp:Label runat="server" ID="ideaOwner"/>
 </asp:Content>

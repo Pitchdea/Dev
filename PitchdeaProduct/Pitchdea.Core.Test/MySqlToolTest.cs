@@ -117,8 +117,9 @@ namespace Pitchdea.Core.Test
             const string title = "qwerty";
             const string summary = "asdf";
             const string description = "jotain ihan muuta";
+            const string question = "Question?";
 
-            InsertIdea(title, summary, description);
+            InsertIdea(title, summary, description, question);
             
             _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
@@ -133,8 +134,9 @@ namespace Pitchdea.Core.Test
             const string title = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\nn \t asd";
             const string summary = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\nn \t asd";
             const string description = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\n \t asd";
+            const string question = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\n \t asd";
 
-            InsertIdea(title, summary, description);
+            InsertIdea(title, summary, description, question);
             
             _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
@@ -177,11 +179,12 @@ namespace Pitchdea.Core.Test
             const string title = "Multi-line";
             const string summary = "line1\r\nline2";
             const string description = "line1\r\nline2\r\n";
+            const string question = "Question\r\nQuestion??";
 
-            InsertIdea(title, summary, description);
+            InsertIdea(title, summary, description, question);
         }
 
-        private void InsertIdea(string title, string summary, string description)
+        private void InsertIdea(string title, string summary, string description, string question)
         {
             const string username = "test";
             const string email = "test@pitchdea.com";
@@ -192,7 +195,7 @@ namespace Pitchdea.Core.Test
 
            Assert.NotNull(userInfo);
 
-            var idea = new Idea(userInfo.UserID, title, summary, description);
+            var idea = new Idea(userInfo.UserID, title, summary, description, question);
 
             var insertedIdea = _mySqlTool.InsertIdea(idea);
 

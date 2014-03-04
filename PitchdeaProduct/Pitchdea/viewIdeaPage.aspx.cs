@@ -19,7 +19,8 @@ namespace Pitchdea
             Title = idea.Title + " | Pitchdea";
             titleLabel.Text = idea.Title;
             summaryLabel.Text = idea.Summary.Replace(Environment.NewLine, "<br />");
-            descriptionLabel.Text = idea.Description.Replace(Environment.NewLine, "<br />"); ;
+            descriptionLabel.Text = idea.Description.Replace(Environment.NewLine, "<br />");
+            questionLabel.Text = idea.Question.Replace(Environment.NewLine, "<br />");
             ideaOwner.Text = _sqlTool.FindUsername(idea.UserId);
         }
 

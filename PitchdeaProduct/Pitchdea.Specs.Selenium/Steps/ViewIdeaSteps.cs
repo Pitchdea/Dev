@@ -23,8 +23,8 @@ namespace Pitchdea.Specs.Selenium.Steps
         }
 
 
-        [Given(@"an idea exists with values: ""(.*)"",""(.*)"",""(.*)"" and the page for that idea is open\.")]
-        public void GivenAnIdeaExistsWithValuesAndThePageForThatIdeaIsOpen_(string title, string summary, string description)
+        [Given(@"an idea exists with values: ""(.*)"",""(.*)"",""(.*)"",""(.*)"" and the page for that idea is open\.")]
+        public void GivenAnIdeaExistsWithValuesAndThePageForThatIdeaIsOpen_(string title, string summary, string description, string question)
         {
             const string username = "test";
             const string email = "test@pitchdea.com";
@@ -39,7 +39,7 @@ namespace Pitchdea.Specs.Selenium.Steps
 
             ISqlTool sqlTool = new MySqlTool(SqlTestTool.TestConnectionString);
 
-            var idea = new Idea(userInfo.UserID, title, summary, description);
+            var idea = new Idea(userInfo.UserID, title, summary, description, question);
 
             var hash = sqlTool.InsertIdea(idea).Hash;
 

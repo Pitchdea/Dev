@@ -15,8 +15,9 @@
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
 
     <asp:TextBox runat="server" ID="titleTextBox"/>
-    <asp:TextBox runat="server" ID="summaryTextBox" TextMode="MultiLine" Rows="5"/>
-	<asp:TextBox runat="server" ID="descriptionTextBox" TextMode="MultiLine" Rows="20"/>    
+    <asp:TextBox runat="server" ID="summaryTextBox" TextMode="MultiLine" />
+	<asp:TextBox runat="server" ID="descriptionTextBox" TextMode="MultiLine" />    
+	<asp:TextBox runat="server" ID="questionTextBox" TextMode="MultiLine" />    
 	
     <asp:Button runat="server" ID="createIdeaButton" OnClick="createIdeaButton_OnClick" />
     

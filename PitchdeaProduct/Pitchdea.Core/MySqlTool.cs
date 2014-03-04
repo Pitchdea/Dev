@@ -49,7 +49,7 @@ namespace Pitchdea.Core
 
         public Idea InsertIdea(Idea idea)
         {
-            var ideaId = SaveIdeaWithoutHash(idea.UserId, idea.Title, idea.Summary, idea.Description);
+            var ideaId = SaveIdeaWithoutHash(idea.UserId, idea.Title, idea.Summary, idea.Description, idea.Question);
 
             //Create the unique hash by combining the idea title and unique id number.
             var shaHasher = SHA256.Create();
@@ -68,7 +68,7 @@ namespace Pitchdea.Core
             _connection.Open();
 
             var command = new MySqlCommand(
-                "SELECT hash, title, summary, description, userId FROM idea WHERE hash=@hash;",
+                "SELECT hash, title, summary, description, question, userId FROM idea WHERE hash=@hash;",
                 _connection);
 
             command.Parameters.Add("@hash", MySqlDbType.String).Value = ideaHash;
@@ -77,16 +77,22 @@ namespace Pitchdea.Core
             var reader = command.ExecuteReader();
 
             if (!reader.Read())
+            {
+                _connection.Close();
                 return null;
+            }
 
-            var idea = new Idea((int)reader["userId"], (string)reader["title"], (string)reader["summary"], (string)reader["description"])
+            var idea = new Idea((int)reader["userId"], (string)reader["title"], (string)reader["summary"], (string)reader["description"], (string)reader["question"])
             {
                 Hash = (string)reader["hash"]
             };
 
             if(reader.Read())
+            {
+                _connection.Close();
                 throw new NotImplementedException("More than one idea matching the hash was found.");
-            
+            }
+
             _connection.Close();
 
             return idea;
@@ -96,18 +102,19 @@ namespace Pitchdea.Core
         /// Inserts the idea into the database without unique hash.
         /// </summary>
         /// <returns>Inserted idea ID.</returns>
-        private ulong SaveIdeaWithoutHash(int userId, string title, string summary, string description)
+        private ulong SaveIdeaWithoutHash(int userId, string title, string summary, string description, string question)
         {
             _connection.Open();
 
             var command = new MySqlCommand(
-                "INSERT INTO idea (hash, title, summary, description, userId) VALUES (@hash, @title, @summary, @description, @userId); SELECT LAST_INSERT_ID();",
+                "INSERT INTO idea (hash, title, summary, description, question, userId) VALUES (@hash, @title, @summary, @description, @question, @userId); SELECT LAST_INSERT_ID();",
                 _connection);
             
             command.Parameters.Add("@hash", MySqlDbType.String).Value = null;
             command.Parameters.Add("@title", MySqlDbType.VarChar).Value = title;
             command.Parameters.Add("@summary", MySqlDbType.VarChar).Value = summary;
-            command.Parameters.Add("@description", MySqlDbType.MediumText).Value = description;
+            command.Parameters.Add("@description", MySqlDbType.Text).Value = description;
+            command.Parameters.Add("@question", MySqlDbType.VarChar).Value = question;
             command.Parameters.Add("@userId", MySqlDbType.Int32).Value = userId;
 
             command.Prepare();
