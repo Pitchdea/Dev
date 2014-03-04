@@ -24,14 +24,14 @@ namespace Pitchdea.Core
         /// Checks if the username already exists in the database
         /// </summary>
         /// <param name="user"></param>
-        /// <returns>True if the username exists, else null.</returns>
+        /// <returns>True if the username exists, else false.</returns>
         bool CheckIfUsernameExists(string user);
 
         /// <summary>
         /// Checks if the email already exists in the database
         /// </summary>
         /// <param name="email"></param>
-        /// <returns>True if the email address exists, else null.</returns>
+        /// <returns>True if the email address exists, else false.</returns>
         bool CheckIfEmailExists(string email);
     }
     public class UserInfo
