@@ -30,6 +30,7 @@ namespace Pitchdea
             if (!EmailValidator.IsValid(emailTextBox.Text))
             {
                 errorMessage.Text = "This doesn't seem to be an email address.";
+                return;
             }
 
             if (passwordTextBox.Text == string.Empty)

@@ -36,7 +36,7 @@ Scenario: Email already exists in database
 
 	Given user with email "test@pitchdea.com" exists in the database
 	When I fill email field with "test@pitchdea.com"
-		And I fill username field with "mikko"
+		And I fill username field with "test"
 		And I fill password field with "passu"
 		And I fill password confirmation field with "passu"
 		And I click register button 

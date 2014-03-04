@@ -197,7 +197,7 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(title, result[1]);
             Assert.AreEqual(summary, result[2]);
             Assert.AreEqual(description, result[3]);
-            Assert.AreEqual(userInfo, result[4]);
+            Assert.AreEqual(userInfo.UserID, result[4]);
 
             var fetchedIdea = _mySqlTool.FetchIdea(idea.Hash);
 
@@ -205,7 +205,7 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(title, fetchedIdea.Title);
             Assert.AreEqual(summary, fetchedIdea.Summary);
             Assert.AreEqual(description, fetchedIdea.Description);
-            Assert.AreEqual(userInfo, fetchedIdea.UserId);
+            Assert.AreEqual(userInfo.UserID, fetchedIdea.UserId);
         }
     }
 }
