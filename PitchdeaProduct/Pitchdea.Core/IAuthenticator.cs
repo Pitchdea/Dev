@@ -42,12 +42,10 @@ namespace Pitchdea.Core
         /// <returns>User info for the authenticated user or null if authentication failed.</returns>
         UserInfo Authenticate(string usernameOrPassword, string password);
     }
-    public class UserInfo : IEquatable<UserInfo>
+    public class UserInfo
     {
-        public bool Equals(UserInfo other)
+        protected bool Equals(UserInfo other)
         {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
             return UserID == other.UserID && string.Equals(Username, other.Username);
         }
 
@@ -88,6 +86,6 @@ namespace Pitchdea.Core
             return new Authenticator(SqlToolFactory.ConnectionString);
         }
     }
-
+        
 
 }
