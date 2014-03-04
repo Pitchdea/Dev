@@ -30,7 +30,14 @@ namespace Pitchdea.Specs.Selenium.Steps
             var descriptionElement = WebBrowser.Current.FindElement(By.Id("MainContent_descriptionTextBox"));
             descriptionElement.SendKeys(content);
         }
-        
+
+        [Given(@"I fill idea question ""(.*)""")]
+        public void GivenIFillIdeaQuestion(string question)
+        {
+            var descriptionElement = WebBrowser.Current.FindElement(By.Id("MainContent_questionTextBox"));
+            descriptionElement.SendKeys(question);
+        }
+
         [When(@"I click create idea button")]
         public void WhenIClickCreateIdeaButton()
         {
@@ -93,6 +100,13 @@ namespace Pitchdea.Specs.Selenium.Steps
         {
             var descriptionElement = WebBrowser.Current.FindElement(By.Id("MainContent_descriptionLabel"));
             Assert.AreEqual(multilineText, descriptionElement.Text);
+        }
+
+        [Then(@"idea question is ""(.*)""")]
+        public void ThenIdeaQuestionIs(string question)
+        {
+            var questionElement = WebBrowser.Current.FindElement(By.Id("MainContent_questionLabel"));
+            Assert.AreEqual(question, questionElement.Text);
         }
     }
 }

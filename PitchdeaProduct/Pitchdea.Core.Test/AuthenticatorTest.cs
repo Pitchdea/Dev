@@ -22,17 +22,17 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _01_SanityCheck()
         {
+            _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
 
             var pw = "123123";
             _auth.RegisterNewUser("test","testi@testi.com", pw);
-
-            _sqlTestTool.CleanTable("user");
         }
 
         [Test]
         public void _02_IterateRandomPasswords()
         {
+            _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
 
             var random = new Random();
@@ -51,13 +51,12 @@ namespace Pitchdea.Core.Test
                     Assert.Fail();
                 }
             }
-
-            _sqlTestTool.CleanTable("user");
         }
 
         [Test]
         public void _03_RegisterAndAuthenticate_WithUserName()
         {
+            _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
 
             const string email = "testi@testi.com";
@@ -71,13 +70,12 @@ namespace Pitchdea.Core.Test
 
             Assert.NotNull(result);
             Assert.AreEqual(username, result.Username);
-
-            _sqlTestTool.CleanTable("user");
         }
 
         [Test]
         public void _04_RegisterAndAuthenticate_WithEmail()
         {
+            _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
 
             const string email = "testi@testi.com";
@@ -91,13 +89,12 @@ namespace Pitchdea.Core.Test
 
             Assert.NotNull(result);
             Assert.AreEqual(username, result.Username);
-
-            _sqlTestTool.CleanTable("user");
         }
 
         [Test]
         public void _05_CheckIfUsernameExists()
         {
+            _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
 
             const string email = "testi@testi.com";
@@ -114,13 +111,12 @@ namespace Pitchdea.Core.Test
             var exists = _auth.CheckIfUsernameExists(username);
 
             Assert.True(exists);
-
-            _sqlTestTool.CleanTable("user");
         }
 
         [Test]
         public void _05_CheckIfEmailExists()
         {
+            _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
 
             const string email = "testi@testi.com";
@@ -137,8 +133,6 @@ namespace Pitchdea.Core.Test
             var exists = _auth.CheckIfEmailExists(email);
 
             Assert.True(exists);
-
-            _sqlTestTool.CleanTable("user");
         }
     }
 }

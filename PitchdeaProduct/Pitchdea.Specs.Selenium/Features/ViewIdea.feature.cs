@@ -76,10 +76,10 @@ namespace Pitchdea.Specs.Selenium.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Idea is created then viewed")]
-        [NUnit.Framework.TestCaseAttribute("My Idea.", "ÄÖ \"teksti\" #¤ £$€", "I am a PH.D. in neuroscience and I would like to found a parrot talk clinic.", null)]
-        [NUnit.Framework.TestCaseAttribute("GREAT IDEA!", "0123456789", "More NUMBERS for fun 123123", null)]
-        [NUnit.Framework.TestCaseAttribute("So-Good-Idea?", "Virtual PIANO lessons `?=)(/&%¤#\"!@£$€{[]} \\ ~*\'^ <>", "weird characters on label `?=)(/&%¤#\"!@£$€{[]} \\ ~*\'^ <>", null)]
-        public virtual void IdeaIsCreatedThenViewed(string titlelabel, string summarylabel, string descriptionlabel, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("My Idea.", "ÄÖ \"teksti\" #¤ £$€", "I am a PH.D. in neuroscience and I would like to found a parrot talk clinic.", "This is a question?", null)]
+        [NUnit.Framework.TestCaseAttribute("GREAT IDEA!", "0123456789", "More NUMBERS for fun 123123", "Is this a question?", null)]
+        [NUnit.Framework.TestCaseAttribute("So-Good-Idea?", "Virtual PIANO lessons `?=)(/&%¤#\"!@£$€{[]} \\ ~*\'^ <>", "weird characters on label `?=)(/&%¤#\"!@£$€{[]} \\ ~*\'^ <>", "Really?", null)]
+        public virtual void IdeaIsCreatedThenViewed(string titlelabel, string summarylabel, string descriptionlabel, string questionLabel, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Idea is created then viewed", exampleTags);
 #line 8
@@ -87,8 +87,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line 9
- testRunner.Given(string.Format("an idea exists with values: \"{0}\",\"{1}\",\"{2}\" and the page for that idea is open." +
-                        "", titlelabel, summarylabel, descriptionlabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("an idea exists with values: \"{0}\",\"{1}\",\"{2}\",\"{3}\" and the page for that idea is" +
+                        " open.", titlelabel, summarylabel, descriptionlabel, questionLabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
  testRunner.Then(string.Format("page title is \"{0}\" followed by \" | Pitchdea\"", titlelabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
@@ -97,7 +97,9 @@ this.FeatureBackground();
   testRunner.And(string.Format("\"MainContent_summaryLabel\" field value is \"{0}\"", summarylabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
   testRunner.And(string.Format("\"MainContent_descriptionLabel\" field value is \"{0}\"", descriptionlabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
+#line 14
+  testRunner.And(string.Format("\"MainContent_questionLabel\" field value is \"{0}\"", questionLabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
   testRunner.And("\"MainContent_ideaOwner\" field value is \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -108,13 +110,13 @@ this.FeatureBackground();
         public virtual void TryingToOpenANonExistingIdea()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trying to open a non existing idea", ((string[])(null)));
-#line 23
+#line 24
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 24
- testRunner.Given("page \"/viewIdeaPage.aspx?ID=hash123=\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 25
+ testRunner.Given("page \"/viewIdeaPage.aspx?ID=hash123=\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 26
  testRunner.Then("TODO", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

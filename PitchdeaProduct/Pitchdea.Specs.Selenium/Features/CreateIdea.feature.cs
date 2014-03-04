@@ -76,11 +76,8 @@ namespace Pitchdea.Specs.Selenium.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("user submits an idea")]
-        [NUnit.Framework.TestCaseAttribute("My Idea", "I teach parrots to speak", "I am a ph.d. in neuroscience and I would like to found a parrot talk clinic", null)]
-        [NUnit.Framework.TestCaseAttribute("Great Idea", "Chaplin movies with dubbing", "I would like to use my expertise to put romanian dubbing on chaplin movies", null)]
-        [NUnit.Framework.TestCaseAttribute("So Good Idea", "Virtual piano lessons", "I am an alcoholic and have too much spare time so I could think I would be a good" +
-            " teacher", null)]
-        public virtual void UserSubmitsAnIdea(string title, string summary, string description, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("My Idea", "I teach parrots to speak", "Would you buy this idea?", "I am a ph.d. in neuroscience and I would like to found a parrot talk clinic", null)]
+        public virtual void UserSubmitsAnIdea(string title, string summary, string question, string description, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user submits an idea", exampleTags);
 #line 8
@@ -98,16 +95,20 @@ this.FeatureBackground();
 #line 13
   testRunner.And(string.Format("I fill idea description \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
- testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And(string.Format("I fill idea question \"{0}\"", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
- testRunner.Then(string.Format("page title is \"{0}\" followed by \" | Pitchdea\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 16
-  testRunner.And(string.Format("idea title is \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then(string.Format("page title is \"{0}\" followed by \" | Pitchdea\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 17
-  testRunner.And(string.Format("idea summary is \"{0}\"", summary), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("idea title is \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
-  testRunner.And(string.Format("idea description is \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("idea summary is \"{0}\"", summary), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
+  testRunner.And(string.Format("idea description is \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
+  testRunner.And(string.Format("idea question is \"{0}\"", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
   testRunner.And("idea owner is \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -135,19 +136,36 @@ this.FeatureBackground();
 #line 38
   testRunner.And("I fill idea description with lines", "More lines!\r\nEven more lines!!\r\nAnd a few more...", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 44
- testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I fill idea question \"Would you build this idea?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 45
- testRunner.Then("page title is \"Multi-line idea\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 46
+ testRunner.Then("page title is \"Multi-line idea\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 47
   testRunner.And("idea title is \"Multi-line idea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 47
+#line 48
   testRunner.And("idea summary is multiline:", "This is a multiline idea!\r\n\r\nYes, multiple lines!", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 53
+#line 54
   testRunner.And("idea description is multiline:", "More lines!\r\nEven more lines!!\r\nAnd a few more...", ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 59
+#line 60
+  testRunner.And("idea question is \"Would you build this idea?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 61
   testRunner.And("idea owner is \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User is not logged in and opens the page")]
+        public virtual void UserIsNotLoggedInAndOpensThePage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User is not logged in and opens the page", ((string[])(null)));
+#line 63
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }

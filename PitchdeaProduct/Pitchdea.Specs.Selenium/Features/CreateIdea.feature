@@ -11,18 +11,18 @@ Scenario Outline: user submits an idea
 		And I fill idea title "<title>"
 		And I fill idea summary "<summary>"
 		And I fill idea description "<description>"
+		And I fill idea question "<question>"
 	When I click create idea button
 	Then page title is "<title>" followed by " | Pitchdea"
 		And idea title is "<title>"
 		And idea summary is "<summary>"
 		And idea description is "<description>"
+		And idea question is "<question>"
 		And idea owner is "test user"
 
 		Examples:
-			| title        | summary                     | description                                                                               |
-			| My Idea      | I teach parrots to speak    | I am a ph.d. in neuroscience and I would like to found a parrot talk clinic               |
-			| Great Idea   | Chaplin movies with dubbing | I would like to use my expertise to put romanian dubbing on chaplin movies                |
-			| So Good Idea | Virtual piano lessons       | I am an alcoholic and have too much spare time so I could think I would be a good teacher |
+		| title   | summary                  | question                 | description                                                                 |
+		| My Idea | I teach parrots to speak | Would you buy this idea? | I am a ph.d. in neuroscience and I would like to found a parrot talk clinic |
 
 Scenario: user creates an idea with multiline description
 
@@ -41,6 +41,7 @@ Scenario: user creates an idea with multiline description
 		Even more lines!!
 		And a few more...
 		"""
+		And I fill idea question "Would you build this idea?"
 	When I click create idea button
 	Then page title is "Multi-line idea" followed by " | Pitchdea"
 		And idea title is "Multi-line idea"
@@ -56,23 +57,17 @@ Scenario: user creates an idea with multiline description
 		Even more lines!!
 		And a few more...
 		"""
+		And idea question is "Would you build this idea?"
 		And idea owner is "test user"
 
+Scenario: User is not logged in and opens the page
+
+#TODO:
+#piilota kaikki ja laita "please login"
+
 #TODO
-#Tapio's multiline version 2: (google: PyStringNode)
-#
-#Scenario: user creates a multiline idea
-#	When user fills "MainContent_description textBox" field with: 
-#    """
-#    This is line 1
-#    This is line 2
-#    This is line 3
-#    """
-#Then "MainContent_descriptionLabel" field value is:
-# "  
-#	"""
-#    This is line 1
-#    This is line 2
-#    This is line 3
-#    """
-# "	
+#Character limits
+# title = 70
+# summary = 200
+# description = 1500
+# question = 90
