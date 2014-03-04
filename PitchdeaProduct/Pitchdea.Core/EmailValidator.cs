@@ -14,7 +14,7 @@ namespace Pitchdea.Core
         /// </summary>
         /// <param name="email">Email address to be checked.</param>
         /// <returns>True if the email address is valid, otherwise false.</returns>
-        public static bool Validate(string email)
+        public static bool IsValid(string email)
         {
             if (email.Length > 150)
                 return false;

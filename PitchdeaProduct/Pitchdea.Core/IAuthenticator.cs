@@ -42,8 +42,41 @@ namespace Pitchdea.Core
         /// <returns>User info for the authenticated user or null if authentication failed.</returns>
         UserInfo Authenticate(string usernameOrPassword, string password);
     }
-    public class UserInfo
+    public class UserInfo : IEquatable<UserInfo>
     {
+        public bool Equals(UserInfo other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return UserID == other.UserID && string.Equals(Username, other.Username);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((UserInfo) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (UserID*397) ^ (Username != null ? Username.GetHashCode() : 0);
+            }
+        }
+
+        public static bool operator ==(UserInfo left, UserInfo right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(UserInfo left, UserInfo right)
+        {
+            return !Equals(left, right);
+        }
+
         public int UserID { get; set; }
         public string Username { get; set; }
     }
