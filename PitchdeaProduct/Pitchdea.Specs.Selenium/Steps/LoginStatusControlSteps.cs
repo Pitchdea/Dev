@@ -51,5 +51,18 @@ namespace Pitchdea.Specs.Selenium.Steps
             Assert.Throws<NoSuchElementException >(() => WebBrowser.Current.FindElement(By.LinkText(linkText)));
         }
 
+        [When(@"user clicks ""(.*)"" link")]
+        public void WhenUserClicksLink(string linkText)
+        {
+            var element = WebBrowser.Current.FindElement(By.LinkText(linkText));
+            element.Click();
+        }
+
+        [Then(@"user is not logged in")]
+        public void ThenUserIsNotLoggedIn()
+        {
+            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("HeaderContent_loginStatusControl_activeUserLabel")));
+        }
+
     }
 }

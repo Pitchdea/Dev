@@ -10,7 +10,7 @@
 namespace Pitchdea {
     
     
-    public partial class createIdeaPage {
+    public partial class CreateIdeaPage {
         
         /// <summary>
         /// titleTextBox control.

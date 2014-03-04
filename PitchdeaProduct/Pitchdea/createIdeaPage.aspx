@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" 
     AutoEventWireup="true"
     CodeBehind="createIdeaPage.aspx.cs"
-    Inherits="Pitchdea.createIdeaPage"
+    Inherits="Pitchdea.CreateIdeaPage"
     MasterPageFile="Main.Master" %>
 
 <asp:Content runat="server" ID="Head" ContentPlaceHolderID="head">

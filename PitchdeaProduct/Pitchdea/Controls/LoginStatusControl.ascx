@@ -5,6 +5,7 @@
 	Inherits="Pitchdea.Controls.LoginStatusControl" %>
 <div class="loginstatus">
 <span class="logintext">Logged in as</span>  <span class="loginname"><asp:Label runat="server" ID="activeUserLabel"/></span>
-<asp:HyperLink runat="server" Text="Login" Visible="False" ID="loginLink" NavigateUrl="..\loginPage.aspx"/>
-<asp:LinkButton runat="server" Text="Logout" Visible="False" ID="logoutLink"/>
+<asp:LinkButton runat="server" Text="Login" Visible="False" ID="loginLink" OnClick="loginLink_OnClick" />
+<asp:LinkButton runat="server" Text="Register" Visible="False" ID="registerLink" OnClick="registerLink_OnClick" />
+<asp:LinkButton runat="server" Text="Logout" Visible="False" ID="logoutLink" OnClick="logoutLink_OnClick"/>
 </div>

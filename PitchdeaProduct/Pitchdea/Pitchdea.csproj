@@ -70,7 +70,7 @@
     <Content Include="js\vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
     <Content Include="loginPage.aspx" />
     <Content Include="mainPage.aspx" />
-    <Content Include="RegisterPage.aspx" />
+    <Content Include="registerPage.aspx" />
     <Content Include="viewIdeaPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -111,12 +111,12 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterPage.aspx.cs">
-      <DependentUpon>RegisterPage.aspx</DependentUpon>
+    <Compile Include="registerPage.aspx.cs">
+      <DependentUpon>registerPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegisterPage.aspx.designer.cs">
-      <DependentUpon>RegisterPage.aspx</DependentUpon>
+    <Compile Include="registerPage.aspx.designer.cs">
+      <DependentUpon>registerPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewIdeaPage.aspx.cs">
       <DependentUpon>viewIdeaPage.aspx</DependentUpon>

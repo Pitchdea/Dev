@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" 
     AutoEventWireup="true" 
-    CodeBehind="RegisterPage.aspx.cs" 
+    CodeBehind="registerPage.aspx.cs" 
     Inherits="Pitchdea.RegisterPage"
     MasterPageFile="Main.Master" %>
 
