@@ -33,13 +33,13 @@ namespace Pitchdea.Specs.Selenium.Steps
             var auth = new Authenticator(SqlTestTool.TestConnectionString);
 
             auth.RegisterNewUser(username, email, password);
-            var userId = auth.Authenticate(email, password);
+            var userInfo = auth.Authenticate(email, password);
 
-            Assert.AreNotEqual(-1, userId);
+            Assert.NotNull(userInfo);
 
             ISqlTool sqlTool = new MySqlTool(SqlTestTool.TestConnectionString);
 
-            var idea = new Idea(userId, title, summary, description);
+            var idea = new Idea(userInfo.UserID, title, summary, description);
 
             var hash = sqlTool.InsertIdea(idea).Hash;
 

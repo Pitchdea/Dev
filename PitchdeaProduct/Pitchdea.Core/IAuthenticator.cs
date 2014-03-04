@@ -25,6 +25,14 @@ namespace Pitchdea.Core
         
         //Checks if the inputted email already exists in the database already. <returns> error message if exists</returns>
         bool CheckIfEmailExists(string email);
+
+        /// <summary>
+        /// Checks if the username/email and passsword combination is found in the database.
+        /// </summary>
+        /// <param name="usernameOrPassword">Username or email to authenticate</param>
+        /// <param name="password">Password to authenticate</param>
+        /// <returns>User info for the authenticated user or null if authentication failed.</returns>
+        UserInfo Authenticate(string usernameOrPassword, string password);
     }
     public class UserInfo
     {

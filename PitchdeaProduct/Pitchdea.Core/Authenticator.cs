@@ -22,9 +22,57 @@ namespace Pitchdea.Core
 
         #region IAuthenticator Members
         
+        public bool CheckIfUsernameExists(string username)
+        {
+            _connection.Open();
+
+            var command = new MySqlCommand(
+                "SELECT count(*) FROM user WHERE username = @username;",
+                _connection);
+
+            command.Parameters.Add("@username", MySqlDbType.VarChar).Value = username;
+
+            command.Prepare();
+            var count = Convert.ToInt64(command.ExecuteScalar());
+
+            _connection.Close();
+
+            if (count == 1) return true;
+            if (count == 0) return false;
+            
+            //count > 1 or count < 0
+            throw new Exception("Duplicate username in the database: " + username);
+        }
+
+        public bool CheckIfEmailExists(string email)
+        {
+            _connection.Open();
+
+            var command = new MySqlCommand(
+                "SELECT count(*) FROM user WHERE email = @email;",
+                _connection);
+
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+
+            command.Prepare();
+            var count = Convert.ToInt64(command.ExecuteScalar());
+
+            _connection.Close();
+
+            if (count == 1) return true;
+            if (count == 0) return false;
+
+            //count > 1 or count < 0
+            throw new Exception("Duplicate email in the database: " + email);
+        }
+
         public UserInfo RegisterNewUser(string user, string email, string password)
         {
-            //TODO: check that the email and username do not exist in the database.
+            if (CheckIfUsernameExists(user))
+                throw new Exception("Username \"" + user + "\" alreaydy exists." );
+
+            if (CheckIfEmailExists(email))
+                throw new Exception("Email \"" + email + "\" alreaydy exists.");
 
             var salt = GenerateNewSalt();
             var passwordHash = CreateHash(password, salt);
@@ -54,56 +102,50 @@ namespace Pitchdea.Core
                 Username = user
             };
         }
-        
-        public bool CheckIfUsernameExists(string email)
-        {
-            throw new NotImplementedException();
-            
-            //_connection.Open();
-            //var query = string.Format(@"SELECT userid FROM user WHERE email = '{0}'", email);
-            //var command = new MySqlCommand(query, _connection);
-            //var result = command.ExecuteScalar();
-            //_connection.Close();
 
-            //return result != null;
-        }
-
-        public bool CheckIfEmailExists(string email)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
-
-        /// <summary>
-        /// Checks if the email and passsword combination is found in the database.
-        /// </summary>
-        /// <param name="email">Username to authenticate</param>
-        /// <param name="password">Password to authenticate</param>
-        /// <returns>Non-negative UserID if succesfully authenticated, otherwise "-1"</returns>
-        public int Authenticate(string email, string password)
+        public UserInfo Authenticate(string usernameOrPassword, string password)
         {
             _connection.Open();
-            var query = string.Format(@"SELECT salt, password, userid FROM user WHERE email = '{0}';", email);
-            var command = new MySqlCommand(query, _connection);
+            var command = new MySqlCommand(
+                "SELECT salt, password, userid, username FROM user WHERE email = @email OR username = @username;",
+                _connection);
+
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = usernameOrPassword;
+            command.Parameters.Add("@username", MySqlDbType.VarChar).Value = usernameOrPassword;
+
+            command.Prepare();
+
             var reader = command.ExecuteReader();
 
             //The email is not found in the database.
-            if (!reader.Read()) { return -1; }
+            if (!reader.Read()){ return null; }
 
             //Parse the data
-            var salt = (string)reader[0];
-            var dbPw = (string)reader[1];
-            var userId = (int)reader[2];
+            var salt = (string)reader["salt"];
+            var dbPw = (string)reader["password"];
+            var userId = (int)reader["userId"];
+            var username = (string)reader["username"];
 
             _connection.Close();
 
             var hash = CreateHash(password, salt);
+            
+            var areEqual = SlowEquals(dbPw, hash);
 
+            if (areEqual)
+            {
+                return new UserInfo
+                {
+                    UserID = userId,
+                    Username = username
+                };
+            }
 
-            return SlowEquals(dbPw, hash) ? userId : -1;
+            return null;
         }
 
+        #endregion
+        
         /// <summary>
         /// Creates SHA256 hash from password and SALT.
         /// </summary>
