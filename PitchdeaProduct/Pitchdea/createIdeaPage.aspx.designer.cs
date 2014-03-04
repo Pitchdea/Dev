@@ -58,6 +58,33 @@ namespace Pitchdea {
         protected global::System.Web.UI.WebControls.TextBox questionTextBox;
         
         /// <summary>
+        /// ImgUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImgUpload;
+        
+        /// <summary>
+        /// uploadImageButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button uploadImageButton;
+        
+        /// <summary>
+        /// uploadStatusLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uploadStatusLabel;
+        
+        /// <summary>
         /// createIdeaButton control.
         /// </summary>
         /// <remarks>
