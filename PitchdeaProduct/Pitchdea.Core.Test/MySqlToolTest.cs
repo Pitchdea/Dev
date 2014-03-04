@@ -168,6 +168,19 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(username, fetchedUserName);
         }
 
+        [Test]
+        public void _07_InsertAndFetchIdea_Multiline()
+        {
+            _sqlTestTool.CleanTable("idea");
+            _sqlTestTool.CleanTable("user");
+
+            const string title = "Multi-line";
+            const string summary = "line1\r\nline2";
+            const string description = "line1\r\nline2\r\n";
+
+            InsertIdea(title, summary, description);
+        }
+
         private void InsertIdea(string title, string summary, string description)
         {
             const string username = "test";

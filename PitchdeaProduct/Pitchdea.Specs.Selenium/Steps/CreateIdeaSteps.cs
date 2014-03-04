@@ -30,9 +30,9 @@ namespace Pitchdea.Specs.Selenium.Steps
             var descriptionElement = WebBrowser.Current.FindElement(By.Id("MainContent_descriptionTextBox"));
             descriptionElement.SendKeys(content);
         }
-
-        [When(@"user clicks create idea button")]
-        public void WhenUserClicksCreateIdeaButton()
+        
+        [When(@"I click create idea button")]
+        public void WhenIClickCreateIdeaButton()
         {
             var button = WebBrowser.Current.FindElement(By.Id("MainContent_createIdeaButton"));
             button.Click();
@@ -49,7 +49,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         [Then(@"idea summary is ""(.*)""")]
         public void ThenIdeaSummaryIs(string summmary)
         {
-            var summaryElement = WebBrowser.Current.FindElement(By.Id("MainContent_summmaryLabel"));
+            var summaryElement = WebBrowser.Current.FindElement(By.Id("MainContent_summaryLabel"));
             Assert.AreEqual(summmary, summaryElement.Text);
         }
 
@@ -65,6 +65,34 @@ namespace Pitchdea.Specs.Selenium.Steps
         {
             var ownerElement = WebBrowser.Current.FindElement(By.Id("MainContent_ideaOwner"));
             Assert.AreEqual(owner, ownerElement.Text);
+        }
+
+        [Given(@"I fill idea summary with lines")]
+        public void GivenIFillIdeaSummaryWithLines(string multilineText)
+        {
+            var summaryElement = WebBrowser.Current.FindElement(By.Id("MainContent_summaryTextBox"));
+            summaryElement.SendKeys(multilineText);
+        }
+
+        [Given(@"I fill idea description with lines")]
+        public void GivenIFillIdeaDescriptionWithLines(string multilineText)
+        {
+            var summaryElement = WebBrowser.Current.FindElement(By.Id("MainContent_descriptionTextBox"));
+            summaryElement.SendKeys(multilineText);
+        }
+
+        [Then(@"idea summary is multiline:")]
+        public void ThenIdeaSummaryIsMultiline(string multilineText)
+        {
+            var summaryElement = WebBrowser.Current.FindElement(By.Id("MainContent_summaryLabel"));
+            Assert.AreEqual(multilineText, summaryElement.Text);
+        }
+
+        [Then(@"idea description is multiline:")]
+        public void ThenIdeaDescriptionIsMultiline(string multilineText)
+        {
+            var descriptionElement = WebBrowser.Current.FindElement(By.Id("MainContent_descriptionLabel"));
+            Assert.AreEqual(multilineText, descriptionElement.Text);
         }
     }
 }

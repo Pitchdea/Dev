@@ -98,7 +98,7 @@ this.FeatureBackground();
 #line 13
   testRunner.And(string.Format("I fill idea description \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
- testRunner.When("user clicks create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
  testRunner.Then(string.Format("page title is \"{0}\" followed by \" | Pitchdea\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 16
@@ -108,6 +108,45 @@ this.FeatureBackground();
 #line 18
   testRunner.And(string.Format("idea description is \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
+  testRunner.And("idea owner is \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("user creates an idea with multiline description")]
+        public virtual void UserCreatesAnIdeaWithMultilineDescription()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user creates an idea with multiline description", ((string[])(null)));
+#line 27
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
+#line 29
+ testRunner.Given("user is logged in as \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 30
+  testRunner.And("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 31
+  testRunner.And("I fill idea title \"Multi-line idea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 32
+  testRunner.And("I fill idea summary with lines", "This is a multiline idea!\r\n\r\nYes, multiple lines!", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 38
+  testRunner.And("I fill idea description with lines", "More lines!\r\nEven more lines!!\r\nAnd a few more...", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 44
+ testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 45
+ testRunner.Then("page title is \"Multi-line idea\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 46
+  testRunner.And("idea title is \"Multi-line idea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 47
+  testRunner.And("idea summary is multiline:", "This is a multiline idea!\r\n\r\nYes, multiple lines!", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 53
+  testRunner.And("idea description is multiline:", "More lines!\r\nEven more lines!!\r\nAnd a few more...", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 59
   testRunner.And("idea owner is \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
