@@ -10,7 +10,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
-    <div class="loginform">
+    <div class="generalForm">
     Email or username:<br/>
     <asp:TextBox runat="server" ID="emailTextBox"/>
     <br/>Password:<br/>
