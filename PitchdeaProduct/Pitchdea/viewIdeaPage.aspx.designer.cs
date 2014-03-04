@@ -47,5 +47,14 @@ namespace Pitchdea {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label descriptionLabel;
+        
+        /// <summary>
+        /// ideaOwner control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ideaOwner;
     }
 }

@@ -27,6 +27,13 @@ namespace Pitchdea.Core
         /// <param name="ideaHash">Unique identifier hash.</param>
         /// <returns>Idea fetched from the database or null if not found.</returns>
         Idea FetchIdea(string ideaHash);
+
+        /// <summary>
+        /// Fetches the username associated with user ID.
+        /// </summary>
+        /// <param name="userId">The user ID to search.</param>
+        /// <returns>Username associated with the user ID.</returns>
+        string FindUsername(int userId);
     }
 
     public static class SqlToolFactory

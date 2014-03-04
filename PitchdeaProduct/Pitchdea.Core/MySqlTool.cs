@@ -24,6 +24,28 @@ namespace Pitchdea.Core
             _connection = new MySqlConnection(connectionString);
         }
 
+        #region ISqlTool Members
+
+        public string FindUsername(int userId)
+        {
+            _connection.Open();
+
+            var command = new MySqlCommand(
+                "SELECT username FROM user WHERE userid = @userid;",
+                _connection);
+
+            command.Parameters.Add("@userid", MySqlDbType.Int32).Value = userId;
+
+            command.Prepare();
+            var result = command.ExecuteScalar();
+            
+            _connection.Close();
+
+            return (string)result;
+        }
+
+        #endregion
+
 
         public Idea InsertIdea(Idea idea)
         {
@@ -69,7 +91,7 @@ namespace Pitchdea.Core
 
             return idea;
         }
-
+        
         /// <summary>
         /// Inserts the idea into the database without unique hash.
         /// </summary>

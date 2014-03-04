@@ -20,6 +20,7 @@ namespace Pitchdea
             titleLabel.Text = idea.Title;
             summaryLabel.Text = idea.Summary;
             descriptionLabel.Text = idea.Description;
+            ideaOwner.Text = _sqlTool.FindUsername(idea.UserId);
         }
 
         private Idea FindIdea()

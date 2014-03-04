@@ -1,8 +1,6 @@
 ﻿Feature: login
 	The user can login into the service.
 
-#TODO: Add scenarios for testing username + password instead of email. Also update neccessary error messages.
-
 Background: 
 	Given "idea" table is empty at first
 		And "user" table is empty at first

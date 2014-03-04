@@ -150,6 +150,24 @@ namespace Pitchdea.Core.Test
             Assert.Null(idea);
         }
 
+        [Test]
+        public void _06_FindUserById()
+        {
+            _sqlTestTool.CleanTable("idea");
+            _sqlTestTool.CleanTable("user");
+            
+            const string username = "test";
+            const string email = "test@pitchdea.com";
+            const string password = "password123";
+
+            _auth.RegisterNewUser(username, email, password);
+            var userInfo = _auth.Authenticate(email, password);
+
+            var fetchedUserName = _mySqlTool.FindUsername(userInfo.UserID);
+
+            Assert.AreEqual(username, fetchedUserName);
+        }
+
         private void InsertIdea(string title, string summary, string description)
         {
             const string username = "test";

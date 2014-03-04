@@ -97,6 +97,8 @@ this.FeatureBackground();
   testRunner.And(string.Format("\"MainContent_summaryLabel\" field value is \"{0}\"", summarylabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
   testRunner.And(string.Format("\"MainContent_descriptionLabel\" field value is \"{0}\"", descriptionlabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+  testRunner.And("\"MainContent_ideaOwner\" field value is \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -106,13 +108,13 @@ this.FeatureBackground();
         public virtual void TryingToOpenANonExistingIdea()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trying to open a non existing idea", ((string[])(null)));
-#line 21
+#line 23
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 22
+#line 24
  testRunner.Given("page \"/viewIdeaPage.aspx?ID=hash123=\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 23
+#line 25
  testRunner.Then("TODO", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
