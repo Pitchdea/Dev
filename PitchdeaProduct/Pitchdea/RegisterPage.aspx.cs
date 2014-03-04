@@ -62,7 +62,6 @@ namespace Pitchdea
                 return;
             }
 
-
             var userInfo = _authenticator.RegisterNewUser(user, email, password);
 
             //User is logged in
