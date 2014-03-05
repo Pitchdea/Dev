@@ -48,7 +48,7 @@ namespace Pitchdea
                 var config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
                 savePath = config.AppSettings.Settings["savePath"].Value;
             }
-            return savePath;
+            
 
             // Verify that the ImgUpload controller has the file.
             if (!ImgUpload.HasFile)
