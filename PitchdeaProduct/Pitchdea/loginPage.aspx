@@ -11,6 +11,7 @@
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
     <div class="generalForm">
+    <h1>Login</h1>
     Email or username:<br/>
     <asp:TextBox runat="server" ID="emailTextBox"/>
     <br/>Password:<br/>
