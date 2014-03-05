@@ -39,16 +39,8 @@ namespace Pitchdea
 
         protected void uploadImageButton_OnClick(object sender, EventArgs e)
         {
-            // server location where the images are stored.
-            //string savePath = @"\images\ideapics\";
-
-            string savePath = null;
-            if (savePath == null)
-            {
                 var config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
-                savePath = config.AppSettings.Settings["savePath"].Value;
-            }
-            
+                var savePath = config.AppSettings.Settings["savePath"].Value;
 
             // Verify that the ImgUpload controller has the file.
             if (!ImgUpload.HasFile)
@@ -76,7 +68,16 @@ namespace Pitchdea
             // Append the name of the uploaded file to the path.
             savePath += Server.HtmlEncode(ImgUpload.FileName);
             //TODO: Resize the file, 300px*300px perhaps?
-            // Saves the image to the specified path. If a file with the same name already exists it will be overwritten.  
+            // Gets the current milliseconds 
+            int timeNow = DateTime.UtcNow.Millisecond;
+            // Gets the file upload location
+            string imgLocation = Server.MapPath("ideapics");
+            // Gets the extension of the file.
+            string fExtension = Path.GetExtension(ImgUpload.PostedFile.FileName);
+            // Ads the milliseconds and the file extension to the filename
+            string fileName = timeNow + fExtension;
+            // Renames and saves the image to the specified path. If a file with the same name already exists it will be overwritten.  
+            this.ImgUpload.SaveAs(Path.Combine(imgLocation, fileName));
             ImgUpload.SaveAs(savePath);
 
             // Notify the user their file was uploaded successfully.
