@@ -40,7 +40,15 @@ namespace Pitchdea
         protected void uploadImageButton_OnClick(object sender, EventArgs e)
         {
             // server location where the images are stored.
-            string savePath = @"\images\ideapics\";
+            //string savePath = @"\images\ideapics\";
+
+            string savePath = null;
+            if (savePath == null)
+            {
+                var config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
+                savePath = config.AppSettings.Settings["savePath"].Value;
+            }
+            return savePath;
 
             // Verify that the ImgUpload controller has the file.
             if (!ImgUpload.HasFile)
