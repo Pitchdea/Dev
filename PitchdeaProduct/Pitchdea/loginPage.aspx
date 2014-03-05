@@ -16,7 +16,7 @@
     <asp:TextBox runat="server" ID="emailTextBox"/>
     <br/>Password:<br/>
     <asp:TextBox runat="server" ID="passwordTextBox" TextMode="Password"/><br/>
-    <asp:Button runat="server" ID="loginButton" OnClick="loginButton_OnClick" Text="Log in"/>
+    <asp:Button runat="server" ID="loginButton" OnClick="loginButton_OnClick" Text="Log in"/><br/>
     <asp:Label runat="server" ID="errorMessage"/>
     </div>
 </asp:Content>

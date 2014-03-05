@@ -46,7 +46,7 @@ input[type=file]{
 }
 
 input[type=password], textarea {
-    width:100%;
+   width:98%;
    height:25px;
   -webkit-transition: all 0.20s ease-in-out;
   -moz-transition: all 0.20s ease-in-out;
@@ -54,19 +54,21 @@ input[type=password], textarea {
   -o-transition: all 0.20s ease-in-out;
   outline: none;
   padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
+  margin: 5px -5px 3px 0px;
   border: 1px solid #ccc;
+  clear:right;
 }
  
 input[type=password]:focus, textarea:focus {
   box-shadow: 0 0 5px #48c9b0;
   padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
+  margin: 5px -5px 3px 0px;
   border: 1px solid #48c9b0;
+  clear:right;
 }
 
 input[type=text], textarea {
-   width:100%;
+   width:98%;
    height:25px;
   -webkit-transition: all 0.20s ease-in-out;
   -moz-transition: all 0.20s ease-in-out;
@@ -74,15 +76,17 @@ input[type=text], textarea {
   -o-transition: all 0.20s ease-in-out;
   outline: none;
   padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
+  margin: 5px -5px 3px 0px;
   border: 1px solid #ccc;
+  clear:right;
 }
  
 input[type=text]:focus, textarea:focus {
   box-shadow: 0 0 5px #48c9b0;
   padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
+  margin: 5px -5px 3px 0px;
   border: 1px solid #48c9b0;
+  clear:right;
 }
 
 html,
@@ -477,10 +481,10 @@ nav a:hover {
 
 .generalForm {
     margin:0 auto;
-    width:40%;
-    min-width:250px;
-    max-width:600px;
-    padding:17px;
+    width:95%;
+    min-width:220px;
+    max-width:400px;
+    padding:2%;
     border-radius:9px;
     background:#f9f9f9;
     border:1px solid #f5f5f5;

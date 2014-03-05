@@ -11,14 +11,15 @@
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
     <div class="generalForm">
+        <h1>Register</h1>
         Email:<br/>
         <asp:TextBox runat="server" ID="emailTextBox"/>
-        Username:<br />
+        <br />Username:<br />
         <asp:TextBox runat="server" ID="usernameTextBox"/>
-        Password:<br />
+        <br />Password:<br />
         <asp:TextBox runat="server" ID="passwordTextBox" TextMode="Password"/>
-        Confirm password:<br />
-        <asp:TextBox runat="server" ID="passwordConfirmationTextBox" TextMode="Password"/>
+        <br />Confirm password:<br />
+        <asp:TextBox runat="server" ID="passwordConfirmationTextBox" TextMode="Password"/><br />
 
         <asp:Button runat="server" ID="registerButton" OnClick="registerButton_OnClick"  Text="Register"/>
         <asp:Label runat="server" ID="errorMessage"/>
