@@ -22,7 +22,7 @@ namespace Pitchdea
             var config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
             var imagePath = config.AppSettings.Settings["savePath"].Value;
 
-            if (!string.IsNullOrWhiteSpace(idea.ImagePath))
+            if (!string.IsNullOrWhiteSpace(idea.ImagePath)) //Use custom image submitted by the user.
             {
                 ideaImage.ImageUrl = imagePath + idea.ImagePath;
             }
