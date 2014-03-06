@@ -60,9 +60,14 @@ Scenario: user creates an idea with multiline description
 		And idea question is "Would you build this idea?"
 		And idea owner is "test user"
 
-Scenario: User is not logged in and opens the page
+Scenario: User uploads an image
+	When I choose to upload a picture "C:/PitchdeaTestUpload/papukaija.jpg" 
+	Then the image path is "C:/PitchdeaTestUpload/papukaija.jpg" 
+	When I click upload image button
+	Then I get an Ok message "Your image was uploaded successfully."
 
-#TODO:
+#TODO: Scenario: User is not logged in and opens the page
+
 #piilota kaikki ja laita "please login"
 
 #TODO
