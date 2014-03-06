@@ -9,6 +9,15 @@ namespace Pitchdea
     public partial class CreateIdeaPage : Page
     {
         private readonly ISqlTool _sqlTool = SqlToolFactory.CreateNew();
+       
+        public string UploadedImage
+        {
+            get
+            {
+                return (string)this.ViewState["UploadedImage"];
+            }
+            set { this.ViewState["UploadedImage"] = value; }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +35,7 @@ namespace Pitchdea
             if (ownerId == null)
                 throw new Exception();
 
-            var idea = new Idea((int)ownerId, title, summary, description, question);
+            var idea = new Idea((int)ownerId, title, summary, description, question){ImagePath = UploadedImage};
 
             var insertedIdea = _sqlTool.InsertIdea(idea);
 
@@ -46,11 +55,11 @@ namespace Pitchdea
                 return;
             }
 
-            // Allow only smaller than 100kB files.
-            if (ImgUpload.PostedFile.ContentLength >= 102400)
+            // Set filesize limit.
+            if (ImgUpload.PostedFile.ContentLength >= 512000)
             {
                 // Notify the user their file was too big.
-                uploadStatusLabel.Text = "Oops! Your image was bigger than the maximum 100kB.";
+                uploadStatusLabel.Text = "Oops! Your image was bigger than the maximum 500kB.";
                 return;
             }
 
@@ -61,13 +70,10 @@ namespace Pitchdea
                 return;
             }
 
-            // Append the name of the uploaded file to the path.
-            savePath += Server.HtmlEncode(ImgUpload.FileName);
             //TODO: Resize the file, 300px*300px perhaps?
             // Gets the current long UTC time with milliseconds. 
             string timeNow = DateTime.UtcNow.ToString("yyyyMMddHHmmssffff");
-            // Gets the file upload location.
-            string imgLocation = Server.MapPath("ideapics");
+
             // Gets the extension of the file.
             string fExtension = Path.GetExtension(ImgUpload.PostedFile.FileName);
             // Ads the milliseconds and the file extension to the filename.
@@ -75,11 +81,14 @@ namespace Pitchdea
             if (ownerId == null)
                 throw new Exception("User is not logged in.");
             string fileName = ownerId + timeNow + fExtension;
-            
+
+            // Gets the file upload location.
+            string imgLocation = Server.MapPath(savePath + fileName);
             // Renames and saves the image to the specified path. If a file with the same name already exists it will be overwritten.
-            this.ImgUpload.SaveAs(Path.Combine(imgLocation, fileName));
-            ImgUpload.SaveAs(savePath);
+            this.ImgUpload.SaveAs(imgLocation);
+            
             // Notify the user their file was uploaded successfully.
+            UploadedImage = fileName;
             uploadStatusLabel.Text = "Your image was uploaded successfully.";
         }
     }

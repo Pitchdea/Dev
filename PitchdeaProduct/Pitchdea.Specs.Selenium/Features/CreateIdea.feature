@@ -19,6 +19,7 @@ Scenario Outline: user submits an idea
 		And idea description is "<description>"
 		And idea question is "<question>"
 		And idea owner is "test user"
+		And shown image is "http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg"
 
 		Examples:
 		| title   | summary                  | question                 | description                                                                 |
@@ -59,15 +60,30 @@ Scenario: user creates an idea with multiline description
 		"""
 		And idea question is "Would you build this idea?"
 		And idea owner is "test user"
+		And shown image is "http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg"
 
-Scenario: User uploads an image
+Scenario Outline: user submits an idea WITH image.
 	Given user is logged in as "test user"
-		And page "/createIdeaPage.aspx" is open
-	When I choose to upload a picture "TestResources/testImage.jpg" 
-	Then the image path is "TestResources/testImage.jpg" 
-	When I click upload image button
+		And page "/createIdeaPage.aspx" is open		
+		And I fill idea title "<title>"
+		And I fill idea summary "<summary>"
+		And I fill idea description "<description>"
+		And I fill idea question "<question>"
+	When I choose to upload a picture "TestResources\testImage.jpg" 
+		And I click upload image button
 	Then I get an Ok message "Your image was uploaded successfully."
+	When I click create idea button
+	Then page title is "<title>" followed by " | Pitchdea"
+		And idea title is "<title>"
+		And idea summary is "<summary>"
+		And idea description is "<description>"
+		And idea question is "<question>"
+		And idea owner is "test user"
+		And shown image is not "http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg"
 
+		Examples:
+		| title   | summary                  | question                 | description                                                                 |
+		| My Idea | I teach parrots to speak | Would you buy this idea? | I am a ph.d. in neuroscience and I would like to found a parrot talk clinic |
 #TODO: Scenario: User is not logged in and opens the page
 
 #piilota kaikki ja laita "please login"

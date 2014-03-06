@@ -114,15 +114,17 @@ namespace Pitchdea.Specs.Selenium.Steps
         {
             //sets the value of the ImgUpload field to the value of savePath
             String script = "document.getElementById('MainContent_ImgUpload').value='" + picture + "';";
-            var foo = ((IJavaScriptExecutor)WebBrowser.Current).ExecuteScript(script);
-            Console.WriteLine(foo);
+            //var foo = ((IJavaScriptExecutor)WebBrowser.Current).ExecuteScript(script);
+            //Console.WriteLine(foo);
+            var uploadElement = WebBrowser.Current.FindElement(By.Id("MainContent_ImgUpload"));
+            uploadElement.SendKeys(picture);
         }
 
         [Then(@"the image path is ""(.*)""")]
         public void ThenTheImagePathIs(string path)
         {
-            var uploadElement = WebBrowser.Current.FindElement(By.Id("ImgUpload"));
-            Assert.AreEqual(path, uploadElement);
+            var uploadElement = WebBrowser.Current.FindElement(By.Id("MainContent_ImgUpload"));
+            Assert.AreEqual(path, uploadElement.Text); //todo: fix reference
         }
 
         [When(@"I click upload image button")]
@@ -137,7 +139,16 @@ namespace Pitchdea.Specs.Selenium.Steps
         public void ThenIGetAnOkMessage(string message)
         {
             var uploadStatusElement = WebBrowser.Current.FindElement(By.Id("MainContent_uploadStatusLabel"));
-            Assert.AreEqual(message, uploadStatusElement);
+            Assert.AreEqual(message, uploadStatusElement.Text); //todo: fix reference
         }
+
+        [Then(@"shown image is not ""(.*)""")]
+        public void ThenShownImageIsNot(string ideaSrc)
+        {
+            var img = WebBrowser.Current.FindElement(By.Id("MainContent_ideaImage"));
+            var src = img.GetAttribute("src");
+            Assert.AreNotEqual(ideaSrc, src); 
+        }
+
     }
 }
