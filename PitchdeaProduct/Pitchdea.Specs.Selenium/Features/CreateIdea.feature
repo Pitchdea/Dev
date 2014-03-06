@@ -69,7 +69,7 @@ Scenario Outline: user submits an idea WITH image.
 		And I fill idea summary "<summary>"
 		And I fill idea description "<description>"
 		And I fill idea question "<question>"
-	When I choose to upload a picture "TestResources\testImage.jpg" 
+	When I choose to upload a picture "testImage.jpg" 
 		And I click upload image button
 	Then I get an Ok message "Your image was uploaded successfully."
 	When I click create idea button
