@@ -10,6 +10,13 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
+    
+    <asp:Panel runat="server" ID="ideaNotFoundPanel">
+        Idea not found...
+        
+        <a href="mainPage.aspx">Return to main page.</a>
+    </asp:Panel>
+
     <asp:Label runat="server" ID="statusMessage" />
     
     <asp:Label runat="server" ID="titleLabel"/>

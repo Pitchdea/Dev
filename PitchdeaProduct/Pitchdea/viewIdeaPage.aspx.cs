@@ -16,6 +16,20 @@ namespace Pitchdea
         protected void Page_Load(object sender, EventArgs e)
         {
             var idea = FindIdea();
+
+            if (idea == null)
+            {
+                titleLabel.Visible = false;
+                summaryLabel.Visible = false;
+                descriptionLabel.Visible = false;
+                questionLabel.Visible = false;
+                ideaOwner.Visible = false;
+                ideaImage.Visible = false;
+                return;
+            }
+
+            ideaNotFoundPanel.Visible = false;
+
             Title = idea.Title + " | Pitchdea";
             titleLabel.Text = idea.Title;
 
