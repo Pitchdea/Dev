@@ -110,6 +110,8 @@ this.FeatureBackground();
   testRunner.And(string.Format("idea question is \"{0}\"", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
   testRunner.And("idea owner is \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+  testRunner.And("shown image is \"http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -119,61 +121,90 @@ this.FeatureBackground();
         public virtual void UserCreatesAnIdeaWithMultilineDescription()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user creates an idea with multiline description", ((string[])(null)));
-#line 27
+#line 28
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 29
- testRunner.Given("user is logged in as \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 30
-  testRunner.And("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("user is logged in as \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 31
+  testRunner.And("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 32
   testRunner.And("I fill idea title \"Multi-line idea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 32
+#line 33
   testRunner.And("I fill idea summary with lines", "This is a multiline idea!\r\n\r\nYes, multiple lines!", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 38
+#line 39
   testRunner.And("I fill idea description with lines", "More lines!\r\nEven more lines!!\r\nAnd a few more...", ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 44
-  testRunner.And("I fill idea question \"Would you build this idea?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 45
- testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I fill idea question \"Would you build this idea?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 46
- testRunner.Then("page title is \"Multi-line idea\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 47
+ testRunner.Then("page title is \"Multi-line idea\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 48
   testRunner.And("idea title is \"Multi-line idea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 48
+#line 49
   testRunner.And("idea summary is multiline:", "This is a multiline idea!\r\n\r\nYes, multiple lines!", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 54
+#line 55
   testRunner.And("idea description is multiline:", "More lines!\r\nEven more lines!!\r\nAnd a few more...", ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 60
-  testRunner.And("idea question is \"Would you build this idea?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 61
+  testRunner.And("idea question is \"Would you build this idea?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 62
   testRunner.And("idea owner is \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 63
+  testRunner.And("shown image is \"http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User uploads an image")]
-        public virtual void UserUploadsAnImage()
+        [NUnit.Framework.DescriptionAttribute("user submits an idea WITH image.")]
+        [NUnit.Framework.TestCaseAttribute("My Idea", "I teach parrots to speak", "Would you buy this idea?", "I am a ph.d. in neuroscience and I would like to found a parrot talk clinic", null)]
+        public virtual void UserSubmitsAnIdeaWITHImage_(string title, string summary, string question, string description, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User uploads an image", ((string[])(null)));
-#line 63
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user submits an idea WITH image.", exampleTags);
+#line 65
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 64
- testRunner.Given("user is logged in as \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 65
-  testRunner.And("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 66
- testRunner.When("I choose to upload a picture \"TestResources\\testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("user is logged in as \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 67
- testRunner.Then("the image path is \"TestResources\\testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.And("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 68
+  testRunner.And(string.Format("I fill idea title \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 69
+  testRunner.And(string.Format("I fill idea summary \"{0}\"", summary), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 70
+  testRunner.And(string.Format("I fill idea description \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 71
+  testRunner.And(string.Format("I fill idea question \"{0}\"", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 72
+ testRunner.When("I choose to upload a picture \"TestResources\\testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 73
+  testRunner.And("I click upload image button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 74
+ testRunner.Then("I get an Ok message \"Your image was uploaded successfully.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 75
+ testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 76
+ testRunner.Then(string.Format("page title is \"{0}\" followed by \" | Pitchdea\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 77
+  testRunner.And(string.Format("idea title is \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 78
+  testRunner.And(string.Format("idea summary is \"{0}\"", summary), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+  testRunner.And(string.Format("idea description is \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
+  testRunner.And(string.Format("idea question is \"{0}\"", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 81
+  testRunner.And("idea owner is \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 82
+  testRunner.And("shown image is not \"http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

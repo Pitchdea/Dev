@@ -55,11 +55,11 @@ namespace Pitchdea
                 return;
             }
 
-            // Allow only smaller than 100kB files.
-            if (ImgUpload.PostedFile.ContentLength >= 102400)
+            // Set filesize limit.
+            if (ImgUpload.PostedFile.ContentLength >= 512000)
             {
                 // Notify the user their file was too big.
-                uploadStatusLabel.Text = "Oops! Your image was bigger than the maximum 100kB.";
+                uploadStatusLabel.Text = "Oops! Your image was bigger than the maximum 500kB.";
                 return;
             }
 

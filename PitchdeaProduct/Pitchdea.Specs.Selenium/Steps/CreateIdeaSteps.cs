@@ -141,5 +141,14 @@ namespace Pitchdea.Specs.Selenium.Steps
             var uploadStatusElement = WebBrowser.Current.FindElement(By.Id("MainContent_uploadStatusLabel"));
             Assert.AreEqual(message, uploadStatusElement.Text); //todo: fix reference
         }
+
+        [Then(@"shown image is not ""(.*)""")]
+        public void ThenShownImageIsNot(string ideaSrc)
+        {
+            var img = WebBrowser.Current.FindElement(By.Id("MainContent_ideaImage"));
+            var src = img.GetAttribute("src");
+            Assert.AreNotEqual(ideaSrc, src); 
+        }
+
     }
 }
