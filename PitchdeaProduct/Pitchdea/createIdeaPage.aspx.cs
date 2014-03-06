@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Pitchdea.Core;
 using Pitchdea.Core.Model;
 
@@ -68,15 +64,15 @@ namespace Pitchdea
             // Append the name of the uploaded file to the path.
             savePath += Server.HtmlEncode(ImgUpload.FileName);
             //TODO: Resize the file, 300px*300px perhaps?
-            // Gets the current milliseconds 
-            int timeNow = DateTime.UtcNow.Millisecond;
-            // Gets the file upload location
+            // Gets the current long UTC time with milliseconds. 
+            string timeNow = DateTime.UtcNow.ToString("yyyyMMddHHmmssffff");
+            // Gets the file upload location.
             string imgLocation = Server.MapPath("ideapics");
             // Gets the extension of the file.
             string fExtension = Path.GetExtension(ImgUpload.PostedFile.FileName);
-            // Ads the milliseconds and the file extension to the filename
+            // Ads the milliseconds and the file extension to the filename.
             string fileName = timeNow + fExtension;
-            // Renames and saves the image to the specified path. If a file with the same name already exists it will be overwritten.  
+            // Renames and saves the image to the specified path. If a file with the same name already exists it will be overwritten.  TODO: also add userID.
             this.ImgUpload.SaveAs(Path.Combine(imgLocation, fileName));
             ImgUpload.SaveAs(savePath);
 
