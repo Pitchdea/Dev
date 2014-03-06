@@ -90,7 +90,7 @@ namespace Pitchdea.Core
             if(reader.Read())
             {
                 _connection.Close();
-                throw new NotImplementedException("More than one idea matching the hash was found.");
+                throw new Exception("More than one idea matching the hash was found.");
             }
 
             _connection.Close();
@@ -124,7 +124,7 @@ namespace Pitchdea.Core
             
             if (result == null)
             {
-                throw new NotImplementedException();
+                throw new Exception("Failed to save idea.");
             }
 
             return (ulong) result;
@@ -149,7 +149,7 @@ namespace Pitchdea.Core
             var updateResult = updateCommand.ExecuteNonQuery();
 
             if (updateResult != 1)
-                throw new NotImplementedException();
+                throw new Exception("Failed to update idea.");
 
             _connection.Close();
         }

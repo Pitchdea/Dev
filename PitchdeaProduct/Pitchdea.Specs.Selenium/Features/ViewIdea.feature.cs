@@ -94,12 +94,14 @@ this.FeatureBackground();
 #line 11
   testRunner.And(string.Format("\"MainContent_titleLabel\" field value is \"{0}\"", titlelabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
-  testRunner.And(string.Format("\"MainContent_summaryLabel\" field value is \"{0}\"", summarylabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("shown image is \"http://localhost:28231//img/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
-  testRunner.And(string.Format("\"MainContent_descriptionLabel\" field value is \"{0}\"", descriptionlabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("\"MainContent_summaryLabel\" field value is \"{0}\"", summarylabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
+  testRunner.And(string.Format("\"MainContent_descriptionLabel\" field value is \"{0}\"", descriptionlabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
   testRunner.And(string.Format("\"MainContent_questionLabel\" field value is \"{0}\"", questionLabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
+#line 17
   testRunner.And("\"MainContent_ideaOwner\" field value is \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -110,13 +112,13 @@ this.FeatureBackground();
         public virtual void TryingToOpenANonExistingIdea()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trying to open a non existing idea", ((string[])(null)));
-#line 24
+#line 25
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 25
- testRunner.Given("page \"/viewIdeaPage.aspx?ID=hash123=\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 26
+ testRunner.Given("page \"/viewIdeaPage.aspx?ID=hash123=\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 27
  testRunner.Then("TODO", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

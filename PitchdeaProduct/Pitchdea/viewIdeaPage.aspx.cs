@@ -18,6 +18,19 @@ namespace Pitchdea
             var idea = FindIdea();
             Title = idea.Title + " | Pitchdea";
             titleLabel.Text = idea.Title;
+
+            var config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
+            var imagePath = config.AppSettings.Settings["savePath"].Value;
+
+            if (idea.ImagePath != null)
+            {
+                throw new NotImplementedException();
+            }
+            else
+            {
+                ideaImage.ImageUrl = @"img/defaultIdeaImage.jpg";
+            }
+
             summaryLabel.Text = idea.Summary.Replace(Environment.NewLine, "<br />");
             descriptionLabel.Text = idea.Description.Replace(Environment.NewLine, "<br />");
             questionLabel.Text = idea.Question.Replace(Environment.NewLine, "<br />");

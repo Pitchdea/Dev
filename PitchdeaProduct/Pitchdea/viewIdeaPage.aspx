@@ -17,6 +17,9 @@
     <asp:Label runat="server" ID="statusMessage" />
     
     <asp:Label runat="server" ID="titleLabel"/>
+
+    <asp:Image runat="server" ID="ideaImage"/>
+
     <asp:Label runat="server" ID="summaryLabel"/>
     <asp:Label runat="server" ID="descriptionLabel" />
     <asp:Label runat="server" ID="questionLabel"/>

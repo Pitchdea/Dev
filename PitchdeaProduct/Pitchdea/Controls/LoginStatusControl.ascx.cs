@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 
 namespace Pitchdea.Controls
 {
-    //TODO: What's the best way for testing with SpecFlow?
     public partial class LoginStatusControl : UserControl
     {
         protected void Page_Load(object sender, EventArgs e)

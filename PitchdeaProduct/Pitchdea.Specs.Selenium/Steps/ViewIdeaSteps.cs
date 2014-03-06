@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using Pitchdea.Core;
 using Pitchdea.Core.Model;
 using Pitchdea.Core.Test.Utils;
@@ -52,5 +53,14 @@ namespace Pitchdea.Specs.Selenium.Steps
         {
             Assert.AreEqual(title+pitchdeaPart, WebBrowser.Current.Title);
         }
+
+        [Then(@"shown image is ""(.*)""")]
+        public void ThenShownImageIs(string ideaSrc)
+        {
+            var img = WebBrowser.Current.FindElement(By.Id("MainContent_ideaImage"));
+            var src = img.GetAttribute("src");
+            Assert.AreEqual(ideaSrc, src);
+        }
+
     }
 }
