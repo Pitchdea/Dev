@@ -13,4 +13,9 @@ Scenario: All 3 ideas are shown
 	Then idea with "title1" should be on the page
 		And idea with "title2" should be on the page
 		And idea with "title3" should be on the page
-		
+
+Scenario: Open an idea
+	Given an idea exists with values: "title1","summary1","summary1","question1"
+		And page "mainPage.aspx" is open
+	When I click idea "title1"
+	Then page title is "title1" followed by " | Pitchdea"

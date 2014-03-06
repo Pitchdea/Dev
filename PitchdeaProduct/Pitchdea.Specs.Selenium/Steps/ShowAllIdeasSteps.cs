@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using Pitchdea.Core;
@@ -74,5 +75,14 @@ namespace Pitchdea.Specs.Selenium.Steps
         {
             Assert.DoesNotThrow(() => WebBrowser.Current.FindElement(By.PartialLinkText(title)));
         }
+
+        [When(@"I click idea ""(.*)""")]
+        public void WhenIClickIdea(string title)
+        {
+            var link = WebBrowser.Current.FindElement(By.PartialLinkText(title));
+            link.Click();
+            Thread.Sleep(1000);
+        }
+
     }
 }
