@@ -131,10 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.Master" />
-    <Content Include="css\desktop.ini" />
-    <Content Include="img\desktop.ini" />
-    <Content Include="js\desktop.ini" />
-    <Content Include="js\vendor\desktop.ini" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
