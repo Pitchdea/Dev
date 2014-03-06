@@ -63,10 +63,10 @@ Scenario: user creates an idea with multiline description
 Scenario: User uploads an image
 	Given user is logged in as "test user"
 		And page "/createIdeaPage.aspx" is open
-	When I choose to upload a picture "TestResources/testImage.jpg" 
-	Then the image path is "TestResources/testImage.jpg" 
-	When I click upload image button
-	Then I get an Ok message "Your image was uploaded successfully."
+	When I choose to upload a picture "TestResources\testImage.jpg" 
+	Then the image path is "TestResources\testImage.jpg" 
+	#When I click upload image button
+	#Then I get an Ok message "Your image was uploaded successfully."
 
 #TODO: Scenario: User is not logged in and opens the page
 

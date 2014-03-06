@@ -14,5 +14,5 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
-    
+    <a href="createIdeaPage.aspx">Create Idea</a>
 </asp:Content>
