@@ -44,12 +44,43 @@ namespace Pitchdea.Core
             return (string)result;
         }
 
+        public List<Idea> FetchAllIdeas()
+        {
+            _connection.Open();
+
+            var commnad = new MySqlCommand(
+                "SELECT hash, title, summary, description, question, imagePath, userId FROM idea",
+                _connection
+                );
+
+            commnad.Prepare();
+
+            var reader = commnad.ExecuteReader();
+
+            var ideas = new List<Idea>();
+
+            while (reader.Read())
+            {
+                var imagePath = reader["imagePath"] is DBNull ? null : (string)reader["imagePath"];
+                var idea = new Idea((int)reader["userId"], (string)reader["title"], (string)reader["summary"], (string)reader["description"], (string)reader["question"])
+                {
+                    ImagePath = imagePath,
+                    Hash = (string)reader["hash"]
+                };
+                ideas.Add(idea);
+            }
+
+            _connection.Close();
+
+            return ideas;
+        }
+
         #endregion
 
 
         public Idea InsertIdea(Idea idea)
         {
-            var ideaId = SaveIdeaWithoutHash(idea.UserId, idea.Title, idea.Summary, idea.Description, idea.Question);
+            var ideaId = SaveIdeaWithoutHash(idea.UserId, idea.Title, idea.Summary, idea.Description, idea.Question, idea.ImagePath);
 
             //Create the unique hash by combining the idea title and unique id number.
             var shaHasher = SHA256.Create();
@@ -68,7 +99,7 @@ namespace Pitchdea.Core
             _connection.Open();
 
             var command = new MySqlCommand(
-                "SELECT hash, title, summary, description, question, userId FROM idea WHERE hash=@hash;",
+                "SELECT hash, title, summary, description, question, imagePath, userId FROM idea WHERE hash=@hash;",
                 _connection);
 
             command.Parameters.Add("@hash", MySqlDbType.String).Value = ideaHash;
@@ -82,8 +113,11 @@ namespace Pitchdea.Core
                 return null;
             }
 
+            var imagePath = reader["imagePath"] is DBNull ? null : (string)reader["imagePath"];
+
             var idea = new Idea((int)reader["userId"], (string)reader["title"], (string)reader["summary"], (string)reader["description"], (string)reader["question"])
             {
+                ImagePath = imagePath,
                 Hash = (string)reader["hash"]
             };
 
@@ -102,12 +136,12 @@ namespace Pitchdea.Core
         /// Inserts the idea into the database without unique hash.
         /// </summary>
         /// <returns>Inserted idea ID.</returns>
-        private ulong SaveIdeaWithoutHash(int userId, string title, string summary, string description, string question)
+        private ulong SaveIdeaWithoutHash(int userId, string title, string summary, string description, string question, string imagePath)
         {
             _connection.Open();
 
             var command = new MySqlCommand(
-                "INSERT INTO idea (hash, title, summary, description, question, userId) VALUES (@hash, @title, @summary, @description, @question, @userId); SELECT LAST_INSERT_ID();",
+                "INSERT INTO idea (hash, title, summary, description, question, imagePath, userId) VALUES (@hash, @title, @summary, @description, @question, @imagePath, @userId); SELECT LAST_INSERT_ID();",
                 _connection);
             
             command.Parameters.Add("@hash", MySqlDbType.String).Value = null;
@@ -115,6 +149,7 @@ namespace Pitchdea.Core
             command.Parameters.Add("@summary", MySqlDbType.VarChar).Value = summary;
             command.Parameters.Add("@description", MySqlDbType.Text).Value = description;
             command.Parameters.Add("@question", MySqlDbType.VarChar).Value = question;
+            command.Parameters.Add("@imagePath", MySqlDbType.VarChar).Value = imagePath;
             command.Parameters.Add("@userId", MySqlDbType.Int32).Value = userId;
 
             command.Prepare();

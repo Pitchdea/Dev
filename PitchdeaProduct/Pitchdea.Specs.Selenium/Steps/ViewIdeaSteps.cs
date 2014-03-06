@@ -48,6 +48,31 @@ namespace Pitchdea.Specs.Selenium.Steps
             WebBrowser.Current.Navigate().GoToUrl(absoluteUrl);
         }
 
+        [Given(@"an idea with image exists with values: ""(.*)"",""(.*)"",""(.*)"",""(.*)"",""(.*)"" and the page for that idea is open\.")]
+        public void GivenAnIdeaWithImageExistsWithValuesTekstiAndThePageForThatIdeaIsOpen_(string title, string imagePath, string summary, string description, string question)
+        {
+            const string username = "test";
+            const string email = "test@pitchdea.com";
+            const string password = "password123";
+
+            var auth = new Authenticator(SqlTestTool.TestConnectionString);
+
+            auth.RegisterNewUser(username, email, password);
+            var userInfo = auth.Authenticate(email, password);
+
+            Assert.NotNull(userInfo);
+
+            ISqlTool sqlTool = new MySqlTool(SqlTestTool.TestConnectionString);
+
+            var idea = new Idea(userInfo.UserID, title, summary, description, question) {ImagePath = imagePath};
+
+            var hash = sqlTool.InsertIdea(idea).Hash;
+
+            var absoluteUrl = WebBrowser.BaseUrl + "/viewIdeaPage.aspx?ID=" + hash;
+            WebBrowser.Current.Navigate().GoToUrl(absoluteUrl);
+        }
+
+
         [Then(@"page title is ""(.*)"" followed by ""(.*)""")]
         public void ThenPageTitleIsFollowedBy(string title, string pitchdeaPart)
         {
