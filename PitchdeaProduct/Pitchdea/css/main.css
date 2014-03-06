@@ -467,6 +467,50 @@ nav a:hover {
    Helper classes
    ========================================================================== */
 
+.createIdea {
+    color:#34495e;
+}
+
+#loginStatusControl_loginLink {
+  color:#fff;
+  border-radius:4px;
+  padding: 4px 12px;
+  padding-bottom:6px;
+  margin: 10px;
+  margin-right:2px;
+  border: none;
+  background:#48c9b0;    
+  text-decoration:none!important;    
+}
+
+#loginStatusControl_registerLink {
+  color:#fff;
+  border-radius:4px;
+  padding: 4px 12px;
+  padding-bottom:6px;
+  margin: 10px;
+  margin-left:5px;
+  border: none;
+  background:#48c9b0;    
+  text-decoration:none!important;
+}
+
+
+.loginstatus {
+    margin-top:5px;
+}
+
+#loginStatusControl_logoutLink {
+  color:#fff;
+  border-radius:4px;
+  padding: 4px 12px;
+  padding-bottom:6px;
+  margin: 10px;
+  border: none;
+  background:#48c9b0;    
+  text-decoration:none!important;
+}
+
 .loginstatus {
     float:right;
 }
