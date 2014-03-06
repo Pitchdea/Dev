@@ -113,8 +113,9 @@ namespace Pitchdea.Specs.Selenium.Steps
         public void WhenIChooseToUploadAPicture(string picture)
         {
             //sets the value of the ImgUpload field to the value of savePath
-            String path = "document.getElementById('ImgUpload').value='" + "/ideaImages/papukaija.jpg" + "';";
-            ((IJavascriptExecutor)WebBrowser.Current).executeScript(path);
+            String script = "document.getElementById('MainContent_ImgUpload').value='" + picture + "';";
+            var foo = ((IJavaScriptExecutor)WebBrowser.Current).ExecuteScript(script);
+            Console.WriteLine(foo);
         }
 
         [Then(@"the image path is ""(.*)""")]

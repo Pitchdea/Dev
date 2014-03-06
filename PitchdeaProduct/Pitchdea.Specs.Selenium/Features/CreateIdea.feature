@@ -61,8 +61,8 @@ Scenario: user creates an idea with multiline description
 		And idea owner is "test user"
 
 Scenario: User uploads an image
-	When I choose to upload a picture "C:/PitchdeaTestUpload/papukaija.jpg" 
-	Then the image path is "C:/PitchdeaTestUpload/papukaija.jpg" 
+	When I choose to upload a picture "TestResources/testImage.jpg" 
+	Then the image path is "TestResources/testImage.jpg" 
 	When I click upload image button
 	Then I get an Ok message "Your image was uploaded successfully."
 

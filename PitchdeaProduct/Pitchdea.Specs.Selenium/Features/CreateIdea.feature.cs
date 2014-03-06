@@ -167,9 +167,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line 64
- testRunner.When("I choose to upload a picture \"C:/PitchdeaTestUpload/papukaija.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I choose to upload a picture \"TestResources/testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 65
- testRunner.Then("the image path is \"C:/PitchdeaTestUpload/papukaija.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the image path is \"TestResources/testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 66
  testRunner.When("I click upload image button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 67
