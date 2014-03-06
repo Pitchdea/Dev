@@ -11,5 +11,5 @@
 
 <asp:Content runat="server" ID="MainContent" ContentPlaceHolderID="MainContent">
     <asp:Panel runat="server" ID="ideaPanel"/>
-    <a href="createIdeaPage.aspx">Create Idea</a>
+    <a href="createIdeaPage.aspx">Submit an Idea</a>
 </asp:Content>
