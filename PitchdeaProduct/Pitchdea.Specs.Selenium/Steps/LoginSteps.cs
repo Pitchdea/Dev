@@ -61,7 +61,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         [Then(@"user is logged in as ""(.*)""")]
         public void ThenUserIsLoggedInAs(string userName)
         {
-            IWebElement labelElement = WebBrowser.Current.FindElement(By.Id("HeaderContent_loginStatusControl_activeUserLabel"));
+            IWebElement labelElement = WebBrowser.Current.FindElement(By.Id("loginStatusControl_activeUserLabel"));
             Assert.AreEqual(userName, labelElement.Text);
         }
 

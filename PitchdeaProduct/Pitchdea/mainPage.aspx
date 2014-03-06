@@ -9,10 +9,6 @@
     
 </asp:Content>
 
-<asp:Content runat="server" ID="HeaderContentPlaceHolder" ContentPlaceHolderID="HeaderContent">
-    <controls:LoginStatusControl ID="loginStatusControl" runat="server"/>
-</asp:Content>
-
 <asp:Content runat="server" ID="MainContent" ContentPlaceHolderID="MainContent">
     <asp:Panel runat="server" ID="ideaPanel"/>
     <a href="createIdeaPage.aspx">Create Idea</a>
