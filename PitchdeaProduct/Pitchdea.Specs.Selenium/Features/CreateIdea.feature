@@ -98,11 +98,11 @@ Scenario Outline: information is missing
 		And I see "<errorMessage>" error message
 
 	Examples: 
-	| title | summary | description | question  | errorMessage           |
-	|       | summary | description | question? | The idea title is missing       |
-	| title |         | description | question? | The idea summary is missing     |
-	| title | summary |             | question? | The idea description is missing |
-	| title | summary | description |           | The idea question is missing    |
+	| title | summary | description | question  | errorMessage                     |
+	|       | summary | description | question? | The idea title is missing.       |
+	| title |         | description | question? | The idea summary is missing.     |
+	| title | summary |             | question? | The idea description is missing. |
+	| title | summary | description |           | The idea question is missing.    |
 	
 Scenario Outline: information is too long
 #Character limits
@@ -113,20 +113,20 @@ Scenario Outline: information is too long
 
 	Given user is logged in as "test user"
 		And page "/createIdeaPage.aspx" is open
-		And I fill idea title is "<title>" characters
-		And I fill idea summary is "<summary>" characters
-		And I fill idea description is "<description>" characters
-		And I fill idea question is "<question>" characters
+		And I fill idea title with "<title>" characters
+		And I fill idea summary with "<summary>" characters
+		And I fill idea description with "<description>" characters
+		And I fill idea question with "<question>" characters
 	When I click create idea button
 	Then page "/createIdeaPage.aspx" is open
 		And I see "<errorMessage>" error message
 
 	Examples: 
-	| title | summary | description | question | errorMessage |
-	| 71    | 150     | 1499        | 80       | The title is too long, the maximum length is 70 characters.           |
-	| 68    | 201     | 200         | 80       | The summary is too long, the maximum length  is 200 characters.           |
-	| 68    | 150     | 1501        | 80       | The description is too long, the maximum length is 1500 characters.           |
-	| 68    | 150     | 80          | 91       | The question is too long, the maximum length is 90 characters.           |
+	| title | summary | description | question | errorMessage                                                        |
+	| 71    | 150     | 1499        | 80       | The title is too long, the maximum length is 70 characters.         |
+	| 68    | 201     | 200         | 80       | The summary is too long, the maximum length is 200 characters.      |
+	| 69    | 199     | 1501        | 80       | The description is too long, the maximum length is 1500 characters. |
+	| 70    | 200     | 80          | 91       | The question is too long, the maximum length is 90 characters.      |
 
 
 #TODO: Scenario: User is not logged in and opens the page

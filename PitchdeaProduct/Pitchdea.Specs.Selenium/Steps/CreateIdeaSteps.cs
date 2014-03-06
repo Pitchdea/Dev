@@ -150,5 +150,48 @@ namespace Pitchdea.Specs.Selenium.Steps
             Assert.AreNotEqual(ideaSrc, src); 
         }
 
+        [Given(@"I fill idea title with ""(.*)"" characters")]
+        public void GivenIFillIdeaTitleWithCharacters(int count)
+        {
+            var titleElement = WebBrowser.Current.FindElement(By.Id("MainContent_titleTextBox"));
+            var content = GenerateRandomContent(count);
+            titleElement.SendKeys(content);
+        }
+
+        [Given(@"I fill idea summary with ""(.*)"" characters")]
+        public void GivenIFillIdeaSummaryWithCharacters(int count)
+        {
+            var titleElement = WebBrowser.Current.FindElement(By.Id("MainContent_summaryTextBox"));
+            var content = GenerateRandomContent(count);
+            titleElement.SendKeys(content);
+        }
+
+        [Given(@"I fill idea description with ""(.*)"" characters")]
+        public void GivenIFillIdeaDescriptionWithCharacters(int count)
+        {
+            var titleElement = WebBrowser.Current.FindElement(By.Id("MainContent_descriptionTextBox"));
+            var content = GenerateRandomContent(count);
+            titleElement.SendKeys(content);
+        }
+
+        [Given(@"I fill idea question with ""(.*)"" characters")]
+        public void GivenIFillIdeaQuestionWithCharacters(int count)
+        {
+            var titleElement = WebBrowser.Current.FindElement(By.Id("MainContent_questionTextBox"));
+            var content = GenerateRandomContent(count);
+            titleElement.SendKeys(content);
+        }
+        
+        private string GenerateRandomContent(int count)
+        {
+            var result = "";
+            var random = new Random();
+            for (int i = 0; i < count; i++)
+            {
+                result += random.Next(0, 10);
+            }
+            return result;
+        }
+
     }
 }
