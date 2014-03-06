@@ -16,6 +16,7 @@ namespace Pitchdea.Controls
             logoutLink.Visible = false;
             activeUserLabel.Visible = false;
             registerLink.Visible = false;
+            loggedInAsLabel.Visible = false;
 
             object username = Session["username"];
             if (username != null)
@@ -26,6 +27,7 @@ namespace Pitchdea.Controls
                 activeUserLabel.Text = username.ToString();
                 activeUserLabel.Visible = true;
                 logoutLink.Visible = true;
+                loggedInAsLabel.Visible = true;
             }
             else
             {

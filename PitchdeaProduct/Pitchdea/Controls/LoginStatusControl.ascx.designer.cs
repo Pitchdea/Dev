@@ -13,6 +13,15 @@ namespace Pitchdea.Controls {
     public partial class LoginStatusControl {
         
         /// <summary>
+        /// loggedInAsLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label loggedInAsLabel;
+        
+        /// <summary>
         /// activeUserLabel control.
         /// </summary>
         /// <remarks>
