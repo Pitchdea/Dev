@@ -61,6 +61,8 @@ Scenario: user creates an idea with multiline description
 		And idea owner is "test user"
 
 Scenario: User uploads an image
+	Given user is logged in as "test user"
+		And page "/createIdeaPage.aspx" is open
 	When I choose to upload a picture "TestResources/testImage.jpg" 
 	Then the image path is "TestResources/testImage.jpg" 
 	When I click upload image button
