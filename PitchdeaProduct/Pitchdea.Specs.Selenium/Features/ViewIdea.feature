@@ -40,7 +40,4 @@ Scenario Outline: Idea with image is viewed
 
 Scenario: Trying to open a non existing idea
 	Given page "/viewIdeaPage.aspx?ID=hash123=" is open
-	Then TODO
-	
-	#https://www.youtube.com/watch?v=_qDe3Afwg
-	#"Go back to the main page"-link
+	Then "Return to main page." link should be on the page

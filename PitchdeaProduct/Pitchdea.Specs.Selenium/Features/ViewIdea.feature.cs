@@ -150,7 +150,7 @@ this.FeatureBackground();
 #line 42
  testRunner.Given("page \"/viewIdeaPage.aspx?ID=hash123=\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 43
- testRunner.Then("TODO", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\"Return to main page.\" link should be on the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
