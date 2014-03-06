@@ -75,6 +75,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LikeFunctionality.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\ShowAllIdeas.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShowAllIdeas.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Login.feature.cs">
       <DependentUpon>Login.feature</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -105,6 +110,7 @@
     <Compile Include="Steps\LoginStatusControlSteps.cs" />
     <Compile Include="Steps\LoginSteps.cs" />
     <Compile Include="Steps\RegisterSteps.cs" />
+    <Compile Include="Steps\ShowAllIdeasSteps.cs" />
     <Compile Include="Steps\ViewIdeaSteps.cs" />
     <Compile Include="Utils\WebBrowser.cs" />
   </ItemGroup>
@@ -119,6 +125,10 @@
     <None Include="Features\LikeFunctionality.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LikeFunctionality.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ShowAllIdeas.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ShowAllIdeas.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Login.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
