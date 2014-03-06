@@ -75,10 +75,10 @@ namespace Pitchdea.Specs.Selenium.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Idea is viewed")]
-        public virtual void IdeaIsViewed()
+        [NUnit.Framework.DescriptionAttribute("All 3 ideas are shown")]
+        public virtual void All3IdeasAreShown()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Idea is viewed", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All 3 ideas are shown", ((string[])(null)));
 #line 8
 this.ScenarioSetup(scenarioInfo);
 #line 3
@@ -88,8 +88,8 @@ this.FeatureBackground();
 #line 10
   testRunner.And("an idea exists with values: \"title2\",\"summary2\",\"summary2\",\"question2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
-  testRunner.And("an idea with image exists with values: \"title2\",\"testImage.jpg\",\"summary2\",\"summa" +
-                    "ry2\",\"question2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("an idea with image exists with values: \"title3\",\"testImage.jpg\",\"summary3\",\"summa" +
+                    "ry3\",\"question3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
   testRunner.And("page \"mainPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13

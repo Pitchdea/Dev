@@ -1,8 +1,10 @@
 ﻿using System;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using Pitchdea.Core;
 using Pitchdea.Core.Model;
 using Pitchdea.Core.Test.Utils;
+using Pitchdea.Specs.Selenium.Utils;
 using TechTalk.SpecFlow;
 
 namespace Pitchdea.Specs.Selenium.Steps
@@ -68,9 +70,9 @@ namespace Pitchdea.Specs.Selenium.Steps
         }
         
         [Then(@"idea with ""(.*)"" should be on the page")]
-        public void ThenIdeaWithShouldBeOnThePage(string p0)
+        public void ThenIdeaWithShouldBeOnThePage(string title)
         {
-            ScenarioContext.Current.Pending();
+            Assert.DoesNotThrow(() => WebBrowser.Current.FindElement(By.PartialLinkText(title)));
         }
     }
 }

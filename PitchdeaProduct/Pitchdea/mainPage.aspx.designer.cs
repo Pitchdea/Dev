@@ -20,5 +20,14 @@ namespace Pitchdea {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Pitchdea.Controls.LoginStatusControl loginStatusControl;
+        
+        /// <summary>
+        /// ideaPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ideaPanel;
     }
 }
