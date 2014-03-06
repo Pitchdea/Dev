@@ -214,7 +214,7 @@ this.FeatureBackground();
         [NUnit.Framework.TestCaseAttribute("", "summary", "description", "question?", "The idea title is missing", null)]
         [NUnit.Framework.TestCaseAttribute("title", "", "description", "question?", "The idea summary is missing", null)]
         [NUnit.Framework.TestCaseAttribute("title", "summary", "", "question?", "The idea description is missing", null)]
-        [NUnit.Framework.TestCaseAttribute("title", "summary", "description", "", "The idea Question is missing", null)]
+        [NUnit.Framework.TestCaseAttribute("title", "summary", "description", "", "The idea question is missing", null)]
         public virtual void InformationIsMissing(string title, string summary, string description, string question, string errorMessage, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("information is missing", exampleTags);

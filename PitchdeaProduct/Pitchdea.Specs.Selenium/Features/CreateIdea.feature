@@ -102,7 +102,7 @@ Scenario Outline: information is missing
 	|       | summary | description | question? | The idea title is missing       |
 	| title |         | description | question? | The idea summary is missing     |
 	| title | summary |             | question? | The idea description is missing |
-	| title | summary | description |           | The idea Question is missing    |
+	| title | summary | description |           | The idea question is missing    |
 	
 Scenario Outline: information is too long
 #Character limits
