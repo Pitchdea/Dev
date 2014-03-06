@@ -28,7 +28,7 @@ namespace Pitchdea
             }
             else
             {
-                ideaImage.ImageUrl = @"img/defaultIdeaImage.jpg";
+                ideaImage.ImageUrl = "img/ideaImages/defaultIdeaImage.jpg";
             }
 
             summaryLabel.Text = idea.Summary.Replace(Environment.NewLine, "<br />");

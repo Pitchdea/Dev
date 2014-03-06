@@ -94,7 +94,7 @@ this.FeatureBackground();
 #line 11
   testRunner.And(string.Format("\"MainContent_titleLabel\" field value is \"{0}\"", titlelabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
-  testRunner.And("shown image is \"http://localhost:28231//img/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("shown image is \"http://localhost:28231//img/ideaImages/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
   testRunner.And(string.Format("\"MainContent_summaryLabel\" field value is \"{0}\"", summarylabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
