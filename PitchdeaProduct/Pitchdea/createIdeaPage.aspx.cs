@@ -71,8 +71,11 @@ namespace Pitchdea
             // Gets the extension of the file.
             string fExtension = Path.GetExtension(ImgUpload.PostedFile.FileName);
             // Ads the milliseconds and the file extension to the filename.
-            string fileName = Session + timeNow + fExtension;
-            Session["userID"] = userInfo.UserID;
+            var ownerId = Session["userId"];
+            if (ownerId == null)
+                throw new Exception("User is not logged in.");
+            string fileName = ownerId + timeNow + fExtension;
+
 
             // Renames and saves the image to the specified path. If a file with the same name already exists it will be overwritten.  TODO: also add userID.
             this.ImgUpload.SaveAs(Path.Combine(imgLocation, fileName));
