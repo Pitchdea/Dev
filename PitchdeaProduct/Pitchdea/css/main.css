@@ -467,6 +467,26 @@ nav a:hover {
    Helper classes
    ========================================================================== */
 
+.ideaTitle {
+    margin:0 auto;
+    text-align:center;
+}
+
+.ideaImage img {
+    width:100%;
+}
+
+.ideaWrapper {
+    margin:0 auto;
+    width:95%;
+    padding:2%;
+    padding-top:5px;
+    padding-bottom:5px;
+    border-radius:9px;
+    background:#f9f9f9;
+    border:1px solid #f5f5f5;
+}
+
 .createIdea {
     color:#34495e;
 }

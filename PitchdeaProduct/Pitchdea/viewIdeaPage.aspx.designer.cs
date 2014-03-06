@@ -31,15 +31,6 @@ namespace Pitchdea {
         protected global::System.Web.UI.WebControls.Label statusMessage;
         
         /// <summary>
-        /// titleLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label titleLabel;
-        
-        /// <summary>
         /// ideaImage control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace Pitchdea {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image ideaImage;
+        
+        /// <summary>
+        /// titleLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label titleLabel;
         
         /// <summary>
         /// summaryLabel control.
