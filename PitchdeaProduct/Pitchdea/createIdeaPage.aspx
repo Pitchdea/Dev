@@ -21,7 +21,7 @@
     <asp:TextBox runat="server" ID="summaryTextBox" TextMode="MultiLine" height="100px" />
     The main content for your idea page<br/>
 	<asp:TextBox runat="server" ID="descriptionTextBox" TextMode="MultiLine" height="300px"/>    
-    The question you want to ask your audience <span class="de-emphasis">(Ex. Would you like to buy a customized smarthone?)</span><br/>
+    The question you want to ask your audience <span class="de-emphasis">(E.g. Would you like to buy a customized smarthone?)</span><br/>
 	<asp:TextBox runat="server" ID="questionTextBox" TextMode="MultiLine" height="50px" />    
 	
     

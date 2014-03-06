@@ -75,9 +75,8 @@ namespace Pitchdea
             if (ownerId == null)
                 throw new Exception("User is not logged in.");
             string fileName = ownerId + timeNow + fExtension;
-
-
-            // Renames and saves the image to the specified path. If a file with the same name already exists it will be overwritten.  TODO: also add userID.
+            
+            // Renames and saves the image to the specified path. If a file with the same name already exists it will be overwritten.
             this.ImgUpload.SaveAs(Path.Combine(imgLocation, fileName));
             ImgUpload.SaveAs(savePath);
             // Notify the user their file was uploaded successfully.

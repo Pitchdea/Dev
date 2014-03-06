@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using Pitchdea.Specs.Selenium.Utils;
@@ -84,7 +83,5 @@ namespace Pitchdea.Specs.Selenium.Steps
             IWebElement fieldElement = WebBrowser.Current.FindElement(By.Id("MainContent_errorMessage"));
             Assert.AreEqual(value, fieldElement.Text);
         }
-
-
     }
 }
