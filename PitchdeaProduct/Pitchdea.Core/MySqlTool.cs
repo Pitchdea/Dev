@@ -44,6 +44,37 @@ namespace Pitchdea.Core
             return (string)result;
         }
 
+        public List<Idea> FetchAllIdeas()
+        {
+            _connection.Open();
+
+            var commnad = new MySqlCommand(
+                "SELECT hash, title, summary, description, question, imagePath, userId FROM idea",
+                _connection
+                );
+
+            commnad.Prepare();
+
+            var reader = commnad.ExecuteReader();
+
+            var ideas = new List<Idea>();
+
+            while (reader.Read())
+            {
+                var imagePath = reader["imagePath"] is DBNull ? null : (string)reader["imagePath"];
+                var idea = new Idea((int)reader["userId"], (string)reader["title"], (string)reader["summary"], (string)reader["description"], (string)reader["question"])
+                {
+                    ImagePath = imagePath,
+                    Hash = (string)reader["hash"]
+                };
+                ideas.Add(idea);
+            }
+
+            _connection.Close();
+
+            return ideas;
+        }
+
         #endregion
 
 

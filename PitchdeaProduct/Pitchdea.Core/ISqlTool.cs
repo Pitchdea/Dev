@@ -34,6 +34,8 @@ namespace Pitchdea.Core
         /// <param name="userId">The user ID to search.</param>
         /// <returns>Username associated with the user ID.</returns>
         string FindUsername(int userId);
+
+        List<Idea> FetchAllIdeas();
     }
 
     public static class SqlToolFactory

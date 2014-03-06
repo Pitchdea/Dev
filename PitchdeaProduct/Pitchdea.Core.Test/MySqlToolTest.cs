@@ -119,7 +119,7 @@ namespace Pitchdea.Core.Test
             const string description = "jotain ihan muuta";
             const string question = "Question?";
 
-            InsertIdea(title, summary, description, question);
+            InsertAndFetch(title, summary, description, question);
             
             _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
@@ -136,7 +136,7 @@ namespace Pitchdea.Core.Test
             const string description = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\n \t asd";
             const string question = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\n \t asd";
 
-            InsertIdea(title, summary, description, question);
+            InsertAndFetch(title, summary, description, question);
             
             _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
@@ -181,7 +181,7 @@ namespace Pitchdea.Core.Test
             const string description = "line1\r\nline2\r\n";
             const string question = "Question\r\nQuestion??";
 
-            InsertIdea(title, summary, description, question);
+            InsertAndFetch(title, summary, description, question);
         }
 
         [Test]
@@ -196,10 +196,48 @@ namespace Pitchdea.Core.Test
             const string question = "Question\r\nQuestion??";
             const string imagePath = "testImage.jpg";
 
-            InsertIdea(title, summary, description, question, imagePath);
+            InsertAndFetch(title, summary, description, question, imagePath);
         }
 
-        private void InsertIdea(string title, string summary, string description, string question, string imagePath = null)
+
+        [Test]
+        public void _09_InsertMultipleIdeasAndFetchAll()
+        {
+            _sqlTestTool.CleanTable("idea");
+            _sqlTestTool.CleanTable("user");
+
+            const string username = "test";
+            const string email = "test@pitchdea.com";
+            const string password = "password123";
+
+            _auth.RegisterNewUser(username, email, password);
+            var userInfo = _auth.Authenticate(email, password);
+
+            Assert.NotNull(userInfo);
+            
+            var title = "Multi-line";
+            var summary = "line1\r\nline2";
+            var description = "line1\r\nline2\r\n";
+            var question = "Question\r\nQuestion??";
+            var imagePath = "testImage.jpg";
+            var idea = new Idea(userInfo.UserID, title, summary, description, question) { ImagePath = imagePath };
+
+            _mySqlTool.InsertIdea(idea);
+
+            title = "qwerty";
+            summary = "asdf";
+            description = "jotain ihan muuta";
+            question = "Question?";
+
+            var idea2 = new Idea(userInfo.UserID, title, summary, description, question) { ImagePath = null };
+
+            _mySqlTool.InsertIdea(idea2);
+
+            var ideas = _mySqlTool.FetchAllIdeas();
+            Assert.AreEqual(2, ideas.Count);
+        }
+
+        private void InsertAndFetch(string title, string summary, string description, string question, string imagePath = null)
         {
             const string username = "test";
             const string email = "test@pitchdea.com";
