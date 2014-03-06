@@ -63,6 +63,7 @@
     <Content Include="css\normalize.css" />
     <Content Include="css\normalize.min.css" />
     <Content Include="img\ideaImages\defaultIdeaImage.jpg" />
+    <Content Include="img\ideaImages\testImage.jpg" />
     <Content Include="js\jquery.dotdotdot.js" />
     <Content Include="js\jquery.dotdotdot.min.js" />
     <Content Include="js\jquery.js" />

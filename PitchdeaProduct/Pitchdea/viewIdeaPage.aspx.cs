@@ -22,9 +22,9 @@ namespace Pitchdea
             var config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
             var imagePath = config.AppSettings.Settings["savePath"].Value;
 
-            if (idea.ImagePath != null)
+            if (!string.IsNullOrWhiteSpace(idea.ImagePath))
             {
-                throw new NotImplementedException();
+                ideaImage.ImageUrl = imagePath + idea.ImagePath;
             }
             else
             {

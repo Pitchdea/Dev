@@ -184,7 +184,22 @@ namespace Pitchdea.Core.Test
             InsertIdea(title, summary, description, question);
         }
 
-        private void InsertIdea(string title, string summary, string description, string question)
+        [Test]
+        public void _08_InsertAndFetchIdea_WithImage()
+        {
+            _sqlTestTool.CleanTable("idea");
+            _sqlTestTool.CleanTable("user");
+
+            const string title = "Multi-line";
+            const string summary = "line1\r\nline2";
+            const string description = "line1\r\nline2\r\n";
+            const string question = "Question\r\nQuestion??";
+            const string imagePath = "testImage.jpg";
+
+            InsertIdea(title, summary, description, question, imagePath);
+        }
+
+        private void InsertIdea(string title, string summary, string description, string question, string imagePath = null)
         {
             const string username = "test";
             const string email = "test@pitchdea.com";
@@ -195,7 +210,7 @@ namespace Pitchdea.Core.Test
 
            Assert.NotNull(userInfo);
 
-            var idea = new Idea(userInfo.UserID, title, summary, description, question);
+            var idea = new Idea(userInfo.UserID, title, summary, description, question) { ImagePath = imagePath};
 
             var insertedIdea = _mySqlTool.InsertIdea(idea);
 
@@ -204,13 +219,13 @@ namespace Pitchdea.Core.Test
             var connection = new MySqlConnection(SqlTestTool.TestConnectionString);
             connection.Open();
             var cmd = new MySqlCommand(
-                string.Format("SELECT hash, title, summary, description, userID FROM idea WHERE hash='{0}'", insertedIdea.Hash)
+                string.Format("SELECT hash, title, summary, description, imagePath, userID FROM idea WHERE hash='{0}'", insertedIdea.Hash)
                 , connection);
 
             cmd.Prepare();
             var reader = cmd.ExecuteReader();
 
-            var result = new object[5];
+            var result = new object[6];
             var canRead = reader.Read();
 
             try
@@ -220,6 +235,7 @@ namespace Pitchdea.Core.Test
                 result[2] = reader[2];
                 result[3] = reader[3];
                 result[4] = reader[4];
+                result[5] = reader[5];
             }
             finally
             {
@@ -231,7 +247,12 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(title, result[1]);
             Assert.AreEqual(summary, result[2]);
             Assert.AreEqual(description, result[3]);
-            Assert.AreEqual(userInfo.UserID, result[4]);
+            Assert.AreEqual(userInfo.UserID, result[5]);
+
+            if (imagePath == null)
+                Assert.True(result[4] is DBNull);
+            else
+                Assert.AreEqual(imagePath, result[4]);
 
             var fetchedIdea = _mySqlTool.FetchIdea(idea.Hash);
 
@@ -239,6 +260,7 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(title, fetchedIdea.Title);
             Assert.AreEqual(summary, fetchedIdea.Summary);
             Assert.AreEqual(description, fetchedIdea.Description);
+            Assert.AreEqual(imagePath, fetchedIdea.ImagePath);
             Assert.AreEqual(userInfo.UserID, fetchedIdea.UserId);
         }
     }
