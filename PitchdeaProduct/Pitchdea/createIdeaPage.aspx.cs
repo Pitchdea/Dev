@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq.Expressions;
 using System.Web.UI;
 using Pitchdea.Core;
 using Pitchdea.Core.Model;
@@ -15,9 +14,9 @@ namespace Pitchdea
         {
             get
             {
-                return (string)this.ViewState["UploadedImage"];
+                return (string)ViewState["UploadedImage"];
             }
-            set { this.ViewState["UploadedImage"] = value; }
+            set { ViewState["UploadedImage"] = value; }
         }
 
         private static string SavePath
@@ -153,7 +152,7 @@ namespace Pitchdea
             // Gets the file upload location.
             string imgLocation = Server.MapPath(SavePath + fileName);
             // Renames and saves the image to the specified path. If a file with the same name already exists it will be overwritten.
-            this.ImgUpload.SaveAs(imgLocation);
+            ImgUpload.SaveAs(imgLocation);
             
             // Notify the user their file was uploaded successfully.
             UploadedImage = fileName;

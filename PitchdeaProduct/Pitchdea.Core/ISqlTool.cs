@@ -1,10 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Data;
-using System.Linq;
-using System.Net.Sockets;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using Pitchdea.Core.Model;
 
 namespace Pitchdea.Core
@@ -40,7 +34,7 @@ namespace Pitchdea.Core
 
     public static class SqlToolFactory
     {
-        private static string _connString = null;
+        private static string _connString;
 
         public static string ConnectionString
         {

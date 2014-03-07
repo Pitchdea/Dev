@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using Pitchdea.Core;
 using Pitchdea.Core.Model;
@@ -40,7 +35,7 @@ namespace Pitchdea.Specs.Selenium.Steps
 
             ISqlTool sqlTool = new MySqlTool(SqlTestTool.TestConnectionString);
 
-            var idea = new Idea(userInfo.UserID, title, summary, description, question);
+            var idea = new Idea(userInfo.UserId, title, summary, description, question);
 
             var hash = sqlTool.InsertIdea(idea).Hash;
 
@@ -64,7 +59,7 @@ namespace Pitchdea.Specs.Selenium.Steps
 
             ISqlTool sqlTool = new MySqlTool(SqlTestTool.TestConnectionString);
 
-            var idea = new Idea(userInfo.UserID, title, summary, description, question) {ImagePath = imagePath};
+            var idea = new Idea(userInfo.UserId, title, summary, description, question) {ImagePath = imagePath};
 
             var hash = sqlTool.InsertIdea(idea).Hash;
 

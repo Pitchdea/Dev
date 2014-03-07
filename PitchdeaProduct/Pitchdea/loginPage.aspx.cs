@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Pitchdea.Core;
 
 namespace Pitchdea
@@ -33,7 +31,7 @@ namespace Pitchdea
             
             if (userInfo != null)
             {
-                Session["userID"] = userInfo.UserID;
+                Session["userID"] = userInfo.UserId;
                 Session["username"] = userInfo.Username;
                 Response.Redirect("mainPage.aspx");
             }

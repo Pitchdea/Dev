@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -39,7 +36,7 @@ namespace Pitchdea
                     imageUrl = "img/ideaImages/defaultIdeaImage.jpg";
                 }
 
-                inner.Controls.Add(new Image()
+                inner.Controls.Add(new Image
                 {
                     ImageUrl = imageUrl
                 });

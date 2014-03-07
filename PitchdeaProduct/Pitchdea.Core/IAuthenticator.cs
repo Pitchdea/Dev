@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pitchdea.Core
+﻿namespace Pitchdea.Core
 {
     /// <summary>
     /// Provides methods for authentication related operations with internal database connection.
@@ -46,14 +40,14 @@ namespace Pitchdea.Core
     {
         protected bool Equals(UserInfo other)
         {
-            return UserID == other.UserID && string.Equals(Username, other.Username);
+            return UserId == other.UserId && string.Equals(Username, other.Username);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
             return Equals((UserInfo) obj);
         }
 
@@ -61,7 +55,7 @@ namespace Pitchdea.Core
         {
             unchecked
             {
-                return (UserID*397) ^ (Username != null ? Username.GetHashCode() : 0);
+                return (UserId*397) ^ (Username != null ? Username.GetHashCode() : 0);
             }
         }
 
@@ -75,7 +69,7 @@ namespace Pitchdea.Core
             return !Equals(left, right);
         }
 
-        public int UserID { get; set; }
+        public int UserId { get; set; }
         public string Username { get; set; }
     }
 

@@ -112,10 +112,6 @@ namespace Pitchdea.Specs.Selenium.Steps
         [When(@"I choose to upload a picture ""(.*)""")]
         public void WhenIChooseToUploadAPicture(string picture)
         {
-            //sets the value of the ImgUpload field to the value of savePath
-            String script = "document.getElementById('MainContent_ImgUpload').value='" + picture + "';";
-            //var foo = ((IJavaScriptExecutor)WebBrowser.Current).ExecuteScript(script);
-            //Console.WriteLine(foo);
             var uploadElement = WebBrowser.Current.FindElement(By.Id("MainContent_ImgUpload"));
             uploadElement.SendKeys(picture);
         }

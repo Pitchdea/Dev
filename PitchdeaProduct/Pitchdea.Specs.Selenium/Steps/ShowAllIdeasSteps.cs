@@ -26,7 +26,9 @@ namespace Pitchdea.Specs.Selenium.Steps
             {
                 auth.RegisterNewUser(username, email, password);
             }
+// ReSharper disable EmptyGeneralCatchClause
             catch
+// ReSharper restore EmptyGeneralCatchClause
             {
                 //Suppress errors caused when the user is already registered by previous call
             }
@@ -36,7 +38,7 @@ namespace Pitchdea.Specs.Selenium.Steps
 
             ISqlTool sqlTool = new MySqlTool(SqlTestTool.TestConnectionString);
 
-            var idea = new Idea(userInfo.UserID, title, summary, description, question);
+            var idea = new Idea(userInfo.UserId, title, summary, description, question);
 
             sqlTool.InsertIdea(idea);
         }
@@ -55,7 +57,9 @@ namespace Pitchdea.Specs.Selenium.Steps
             {
                 auth.RegisterNewUser(username, email, password);
             }
-            catch
+// ReSharper disable EmptyGeneralCatchClause
+            catch (Exception)
+// ReSharper restore EmptyGeneralCatchClause
             {
                 //Suppress errors caused when the user is already registered by previous call
             }
@@ -65,7 +69,7 @@ namespace Pitchdea.Specs.Selenium.Steps
 
             ISqlTool sqlTool = new MySqlTool(SqlTestTool.TestConnectionString);
 
-            var idea = new Idea(userInfo.UserID, title, summary, description, question) { ImagePath = imagePath};
+            var idea = new Idea(userInfo.UserId, title, summary, description, question) { ImagePath = imagePath};
 
             sqlTool.InsertIdea(idea);
         }

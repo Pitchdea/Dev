@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Runtime.InteropServices;
 using NUnit.Framework;
 using Pitchdea.Core.Test.Utils;
 
@@ -25,7 +24,7 @@ namespace Pitchdea.Core.Test
             _sqlTestTool.CleanTable("idea");
             _sqlTestTool.CleanTable("user");
 
-            var pw = "123123";
+            const string pw = "123123";
             _auth.RegisterNewUser("test","testi@testi.com", pw);
         }
 

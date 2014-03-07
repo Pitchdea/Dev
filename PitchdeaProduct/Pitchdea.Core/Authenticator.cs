@@ -98,7 +98,7 @@ namespace Pitchdea.Core
 
             return new UserInfo
             {
-                UserID = userId,
+                UserId = userId,
                 Username = user
             };
         }
@@ -136,7 +136,7 @@ namespace Pitchdea.Core
             {
                 return new UserInfo
                 {
-                    UserID = userId,
+                    UserId = userId,
                     Username = username
                 };
             }

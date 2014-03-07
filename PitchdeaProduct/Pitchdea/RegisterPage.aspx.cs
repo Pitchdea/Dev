@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Pitchdea.Core;
 
 namespace Pitchdea
@@ -66,7 +62,7 @@ namespace Pitchdea
             var userInfo = _authenticator.RegisterNewUser(user, email, password);
 
             //User is logged in
-            Session["userID"] = userInfo.UserID;
+            Session["userID"] = userInfo.UserId;
             Session["username"] = userInfo.Username;
             Response.Redirect("mainPage.aspx");
         }

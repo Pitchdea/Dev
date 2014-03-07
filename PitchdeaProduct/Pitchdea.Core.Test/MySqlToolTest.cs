@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using MySql.Data.MySqlClient;
 using NUnit.Framework;
 using Pitchdea.Core.Model;
@@ -165,7 +164,7 @@ namespace Pitchdea.Core.Test
             _auth.RegisterNewUser(username, email, password);
             var userInfo = _auth.Authenticate(email, password);
 
-            var fetchedUserName = _mySqlTool.FindUsername(userInfo.UserID);
+            var fetchedUserName = _mySqlTool.FindUsername(userInfo.UserId);
 
             Assert.AreEqual(username, fetchedUserName);
         }
@@ -219,8 +218,8 @@ namespace Pitchdea.Core.Test
             var summary = "line1\r\nline2";
             var description = "line1\r\nline2\r\n";
             var question = "Question\r\nQuestion??";
-            var imagePath = "testImage.jpg";
-            var idea = new Idea(userInfo.UserID, title, summary, description, question) { ImagePath = imagePath };
+            const string imagePath = "testImage.jpg";
+            var idea = new Idea(userInfo.UserId, title, summary, description, question) { ImagePath = imagePath };
 
             _mySqlTool.InsertIdea(idea);
 
@@ -229,7 +228,7 @@ namespace Pitchdea.Core.Test
             description = "jotain ihan muuta";
             question = "Question?";
 
-            var idea2 = new Idea(userInfo.UserID, title, summary, description, question) { ImagePath = null };
+            var idea2 = new Idea(userInfo.UserId, title, summary, description, question) { ImagePath = null };
 
             _mySqlTool.InsertIdea(idea2);
 
@@ -248,7 +247,7 @@ namespace Pitchdea.Core.Test
 
            Assert.NotNull(userInfo);
 
-            var idea = new Idea(userInfo.UserID, title, summary, description, question) { ImagePath = imagePath};
+            var idea = new Idea(userInfo.UserId, title, summary, description, question) { ImagePath = imagePath};
 
             var insertedIdea = _mySqlTool.InsertIdea(idea);
 
@@ -285,7 +284,7 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(title, result[1]);
             Assert.AreEqual(summary, result[2]);
             Assert.AreEqual(description, result[3]);
-            Assert.AreEqual(userInfo.UserID, result[5]);
+            Assert.AreEqual(userInfo.UserId, result[5]);
 
             if (imagePath == null)
                 Assert.True(result[4] is DBNull);
@@ -299,7 +298,7 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(summary, fetchedIdea.Summary);
             Assert.AreEqual(description, fetchedIdea.Description);
             Assert.AreEqual(imagePath, fetchedIdea.ImagePath);
-            Assert.AreEqual(userInfo.UserID, fetchedIdea.UserId);
+            Assert.AreEqual(userInfo.UserId, fetchedIdea.UserId);
         }
     }
 }
