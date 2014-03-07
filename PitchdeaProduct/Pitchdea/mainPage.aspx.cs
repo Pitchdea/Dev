@@ -16,6 +16,7 @@ namespace Pitchdea
         protected void Page_Load(object sender, EventArgs e)
         {
             var ideas = _sqlTool.FetchAllIdeas();
+            ideas.Reverse();
             foreach (var idea in ideas)
             {
                 var hyperLink = new HyperLink
