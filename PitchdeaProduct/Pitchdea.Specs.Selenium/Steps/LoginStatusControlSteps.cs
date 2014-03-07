@@ -56,6 +56,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         {
             var element = WebBrowser.Current.FindElement(By.LinkText(linkText));
             element.Click();
+            Thread.Sleep(1000);
         }
 
         [Then(@"user is not logged in")]
@@ -69,6 +70,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         {
             var element = WebBrowser.Current.FindElement(By.Id("MainContent_loginButton"));
             element.Click();
+            Thread.Sleep(1000);
         }
     }
 }
