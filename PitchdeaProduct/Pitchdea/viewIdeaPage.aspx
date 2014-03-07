@@ -35,8 +35,7 @@
         <h3><asp:Label runat="server" ID="questionLabel"/></h3>
     </div>
      <div class="ideaOwner">
-        Submitted by:<br />
-    <asp:Label runat="server" ID="ideaOwner"/>
+        <asp:Label runat="server" ID="ideaOwner"/>
     </div>
     </div>
 </asp:Content>
