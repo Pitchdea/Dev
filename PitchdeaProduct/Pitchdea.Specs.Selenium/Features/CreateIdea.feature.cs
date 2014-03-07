@@ -89,8 +89,7 @@ this.FeatureBackground();
 #line 10
   testRunner.And("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
-  testRunner.And(string.Format("I fill" +
-                               " idea title \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("I fill idea title \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
   testRunner.And(string.Format("I fill idea summary \"{0}\"", summary), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
@@ -211,14 +210,10 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("information is missing")]
-        [NUnit.Framework.TestCaseAttribute("", "summary", "description", "question?", "The idea title is missing.", null)]
-        [NUnit.Framework.TestCaseAttribute("title", "", "description", "question?", "The idea summary is missing.", null)]
-        [NUnit.Framework.TestCaseAttribute("title", "summary", "", "question?", "The idea description is missing.", null)]
-        [NUnit.Framework.TestCaseAttribute("title", "summary", "description", "", "The idea question is missing.", null)]
-        public virtual void InformationIsMissing(string title, string summary, string description, string question, string errorMessage, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("image preview")]
+        public virtual void ImagePreview()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("information is missing", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("image preview", ((string[])(null)));
 #line 88
 this.ScenarioSetup(scenarioInfo);
 #line 4
@@ -228,18 +223,47 @@ this.FeatureBackground();
 #line 91
   testRunner.And("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 92
-  testRunner.And(string.Format("I fill idea title \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("image preview should not be shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 93
-  testRunner.And(string.Format("I fill idea summary \"{0}\"", summary), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I choose to upload a picture \"testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 94
-  testRunner.And(string.Format("I fill idea description \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I click upload image button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 95
-  testRunner.And(string.Format("I fill idea question \"{0}\"", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 96
- testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("image preview should be shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("information is missing")]
+        [NUnit.Framework.TestCaseAttribute("", "summary", "description", "question?", "The idea title is missing.", null)]
+        [NUnit.Framework.TestCaseAttribute("title", "", "description", "question?", "The idea summary is missing.", null)]
+        [NUnit.Framework.TestCaseAttribute("title", "summary", "", "question?", "The idea description is missing.", null)]
+        [NUnit.Framework.TestCaseAttribute("title", "summary", "description", "", "The idea question is missing.", null)]
+        public virtual void InformationIsMissing(string title, string summary, string description, string question, string errorMessage, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("information is missing", exampleTags);
 #line 97
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
+#line 99
+ testRunner.Given("user is logged in as \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 100
+  testRunner.And("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 101
+  testRunner.And(string.Format("I fill idea title \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 102
+  testRunner.And(string.Format("I fill idea summary \"{0}\"", summary), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 103
+  testRunner.And(string.Format("I fill idea description \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 104
+  testRunner.And(string.Format("I fill idea question \"{0}\"", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 105
+ testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 106
  testRunner.Then("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 98
+#line 107
   testRunner.And(string.Format("I see \"{0}\" error message", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -254,27 +278,27 @@ this.FeatureBackground();
         public virtual void InformationIsTooLong(string title, string summary, string description, string question, string errorMessage, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("information is too long", exampleTags);
-#line 107
+#line 116
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 114
+#line 123
  testRunner.Given("user is logged in as \"test user\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 115
+#line 124
   testRunner.And("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 116
+#line 125
   testRunner.And(string.Format("I fill idea title with \"{0}\" characters", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 117
+#line 126
   testRunner.And(string.Format("I fill idea summary with \"{0}\" characters", summary), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 118
+#line 127
   testRunner.And(string.Format("I fill idea description with \"{0}\" characters", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 119
+#line 128
   testRunner.And(string.Format("I fill idea question with \"{0}\" characters", question), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 120
+#line 129
  testRunner.When("I click create idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 121
+#line 130
  testRunner.Then("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 122
+#line 131
   testRunner.And(string.Format("I see \"{0}\" error message", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

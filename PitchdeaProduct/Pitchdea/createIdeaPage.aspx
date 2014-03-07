@@ -24,6 +24,7 @@
         <asp:FileUpload id="ImgUpload" runat="server" /><br />
         <asp:Button runat="server" ID="uploadImageButton" OnClick="uploadImageButton_OnClick" Text="Upload a picture"/>
         <asp:Label runat="server" ID="uploadStatusLabel" />
+        <asp:Image runat="server" ID="previewImage" />
 
         <asp:Button runat="server" ID="createIdeaButton" OnClick="createIdeaButton_OnClick" Text="Create your idea"/>
         <asp:Label runat="server" ID="errorMessage"/>

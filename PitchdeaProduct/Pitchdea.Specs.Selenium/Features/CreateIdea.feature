@@ -85,6 +85,15 @@ Scenario Outline: user submits an idea WITH image.
 		| title   | summary                  | question                 | description                                                                 |
 		| My Idea | I teach parrots to speak | Would you buy this idea? | I am a ph.d. in neuroscience and I would like to found a parrot talk clinic |
 
+Scenario: image preview
+
+	Given user is logged in as "test user"
+		And page "/createIdeaPage.aspx" is open
+	Then image preview should not be shown
+	When I choose to upload a picture "testImage.jpg" 
+		And I click upload image button
+	Then image preview should be shown
+
 Scenario Outline: information is missing
 
 	Given user is logged in as "test user"

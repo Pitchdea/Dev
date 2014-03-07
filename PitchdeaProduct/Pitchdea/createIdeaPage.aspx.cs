@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq.Expressions;
 using System.Web.UI;
 using Pitchdea.Core;
 using Pitchdea.Core.Model;
@@ -19,9 +20,31 @@ namespace Pitchdea
             set { this.ViewState["UploadedImage"] = value; }
         }
 
+        private static string SavePath
+        {
+            get
+            {
+                var config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
+                var savePath = config.AppSettings.Settings["savePath"].Value;
+                return savePath;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            LoadPreviewImage();
+        }
 
+        private void LoadPreviewImage()
+        {
+            previewImage.Visible = false;
+            if (UploadedImage != null)
+            {
+                previewImage.ImageUrl = SavePath + UploadedImage;
+                previewImage.Width = 100;
+                previewImage.Height = 100;
+                previewImage.Visible = true;
+            }
         }
 
         protected void createIdeaButton_OnClick(object sender, EventArgs e)
@@ -92,9 +115,6 @@ namespace Pitchdea
 
         protected void uploadImageButton_OnClick(object sender, EventArgs e)
         {
-                var config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
-                var savePath = config.AppSettings.Settings["savePath"].Value;
-
             // Verify that the ImgUpload controller has the file.
             if (!ImgUpload.HasFile)
             {
@@ -131,13 +151,14 @@ namespace Pitchdea
             string fileName = ownerId + timeNow + fExtension;
 
             // Gets the file upload location.
-            string imgLocation = Server.MapPath(savePath + fileName);
+            string imgLocation = Server.MapPath(SavePath + fileName);
             // Renames and saves the image to the specified path. If a file with the same name already exists it will be overwritten.
             this.ImgUpload.SaveAs(imgLocation);
             
             // Notify the user their file was uploaded successfully.
             UploadedImage = fileName;
             uploadStatusLabel.Text = "Your image was uploaded successfully.";
+            LoadPreviewImage();
         }
     }
 }

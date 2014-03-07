@@ -193,5 +193,17 @@ namespace Pitchdea.Specs.Selenium.Steps
             return result;
         }
 
+        [Then(@"image preview should be shown")]
+        public void ThenImagePreviewShouldBeShown()
+        {
+            Assert.DoesNotThrow((() => WebBrowser.Current.FindElement(By.Id("MainContent_previewImage"))));
+        }
+
+        [Then(@"image preview should not be shown")]
+        public void ThenImagePreviewShouldNotBeShown()
+        {
+            Assert.Throws<NoSuchElementException>(() =>WebBrowser.Current.FindElement(By.Id("MainContent_previewImage")));
+        }
+
     }
 }
