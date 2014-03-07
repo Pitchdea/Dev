@@ -27,7 +27,7 @@ Scenario Outline: Idea with image is viewed
 	Given an idea with image exists with values: "<titlelabel>","testImage.jpg","<summarylabel>","<descriptionlabel>","<questionLabel>" and the page for that idea is open.
 	Then page title is "<titlelabel>" followed by " | Pitchdea"
 		And "MainContent_titleLabel" field value is "<titlelabel>"
-		And shown image is "http://localhost:28231//img/ideaImages/testImage.jpg"
+		And shown image is "http://localhost:28231//img/ideaImages/uploaded/testImage.jpg"
 		And "MainContent_summaryLabel" field value is "<summarylabel>"
 		And "MainContent_descriptionLabel" field value is "<descriptionlabel>"
 		And "MainContent_questionLabel" field value is "<questionLabel>"

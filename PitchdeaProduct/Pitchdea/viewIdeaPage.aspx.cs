@@ -19,7 +19,7 @@ namespace Pitchdea
                 summaryLabel.Visible = false;
                 descriptionLabel.Visible = false;
                 questionLabel.Visible = false;
-                ideaOwner.Visible = false;
+                ideaOwnerPanel.Visible = false;
                 ideaImage.Visible = false;
                 return;
             }
@@ -44,7 +44,7 @@ namespace Pitchdea
             summaryLabel.Text = idea.Summary.Replace(Environment.NewLine, "<br />");
             descriptionLabel.Text = idea.Description.Replace(Environment.NewLine, "<br />");
             questionLabel.Text = idea.Question.Replace(Environment.NewLine, "<br />");
-            ideaOwner.Text = "Submitted by:<br />" + _sqlTool.FindUsername(idea.UserId);
+            ideaOwner.Text = _sqlTool.FindUsername(idea.UserId);
         }
 
         private Idea FindIdea()

@@ -34,8 +34,9 @@
      <div class="ideaQuestion"   >
         <h3><asp:Label runat="server" ID="questionLabel"/></h3>
     </div>
-     <div class="ideaOwner">
+    <asp:Panel runat="server"  CssClass="ideaOwner" ID="ideaOwnerPanel">
+        Submitted by:<br />
         <asp:Label runat="server" ID="ideaOwner"/>
-    </div>
+    </asp:Panel>
     </div>
 </asp:Content>
