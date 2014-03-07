@@ -58,17 +58,5 @@ namespace Pitchdea.Specs.Selenium.Steps
             element.Click();
         }
 
-        [Then(@"user is not logged in")]
-        public void ThenUserIsNotLoggedIn()
-        {
-            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("loginStatusControl_activeUserLabel")));
-        }
-
-        [Given(@"user is not logged in")]
-        public void GivenUserIsNotLoggedIn()
-        {
-            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("loginStatusControl_activeUserLabel")));
-        }
-
     }
 }

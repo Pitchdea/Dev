@@ -36,12 +36,12 @@ they are redirected back to the idea creation page..
 #createpage
 	Given user "test" with email "test@pitchdea.com" with password "password123" exists in the database 
 		And page "/createIdeaPage.aspx" is open
-	When user clicks "Maincontent_loginStatusControl_loginLink"
+	When user clicks "Maincontent_loginStatusControl_loginLink" link
 #loginpage
-	Then page "/loginPage.aspx" is open
-		When I fill  "MainContent_emailTextBox" field with "test@pitchdea.com"
-		And "MainContent_passwordTextBox" field value is "password123" 
-		And user clicks "MainContent_loginButton" button
+	Then page "http://localhost:28231/loginPage.aspx?url=http://localhost:28231/createideapage.aspx" is open
+		When I fill email field "test@pitchdea.com"
+		And I fill password field "password123" 
+		And user clicks "Login" button
 #createpage
 	Then page "/createIdeaPage.aspx" is open
 		And user is logged in as "test"
