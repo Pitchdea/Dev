@@ -29,19 +29,19 @@ Scenario Outline: User is not logged in
 	| Login    | /loginPage.aspx    |
 	| Register | /registerPage.aspx |
 
-Scenario: user is creating idea, logs in, is redirected back
+Scenario: user logs in and is redirected back to previous page
 User is not logged in and they are on create idea page, when they click log in and succesfully complete it,
-they are redirected back to the idea creation page..
+they are redirected back to the idea creation page.
 
 #createpage
 	Given user "test" with email "test@pitchdea.com" with password "password123" exists in the database 
 		And page "/createIdeaPage.aspx" is open
-	When user clicks "Maincontent_loginStatusControl_loginLink" link
+	When user clicks "Login" link
 #loginpage
-	Then page "http://localhost:28231/loginPage.aspx?url=http://localhost:28231/createideapage.aspx" is open
-		When I fill email field "test@pitchdea.com"
-		And I fill password field "password123" 
-		And user clicks "Login" button
+	Then page "/loginPage.aspx?url=http://localhost:28231/createideapage.aspx" is open
+		When I fill email field with "test@pitchdea.com"
+		And I fill password field with "password123" 
+		And I click login button
 #createpage
 	Then page "/createIdeaPage.aspx" is open
 		And user is logged in as "test"

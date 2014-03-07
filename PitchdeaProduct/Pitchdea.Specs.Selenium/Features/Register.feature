@@ -11,8 +11,7 @@ Background:
 Scenario: User registers succesfully by clicking
 User fills valid credentials and is logged in by clicking register button.
 
-	When 
-	 email field with "test1@pitchdea.com"
+	When I fill email field with "test1@pitchdea.com"
 		And I fill username field with "mikko"
 		And I fill password field with "passu"
 		And I fill password confirmation field with "passu"
