@@ -55,7 +55,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         {
             var root = new Uri(WebBrowser.BaseUrl);
             var absoluteUrl = new Uri(root, url);
-            Assert.AreEqual(absoluteUrl, WebBrowser.Current.Url);
+            Assert.AreEqual(absoluteUrl.ToString(), WebBrowser.Current.Url);
         }
 
         [Then(@"user is logged in as ""(.*)""")]
@@ -83,7 +83,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         [AfterScenario]
         public static void CloseDriver()
         {
-            WebBrowser.Close();
+  //          WebBrowser.Close();
         }
     }
 }

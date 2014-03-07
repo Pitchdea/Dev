@@ -38,7 +38,7 @@ they are redirected back to the idea creation page.
 		And page "/createIdeaPage.aspx" is open
 	When user clicks "Login" link
 #loginpage
-	Then page "/loginPage.aspx?url=http://localhost:28231/createideapage.aspx" is open
+	Then page "/loginPage.aspx?url=http://localhost:28231/createIdeaPage.aspx" is open
 		When I fill email field with "test@pitchdea.com"
 		And I fill password field with "password123" 
 		And I click login button
