@@ -40,8 +40,8 @@ namespace Pitchdea
             if (UploadedImage != null)
             {
                 previewImage.ImageUrl = SavePath + UploadedImage;
-                previewImage.Width = 100;
-                previewImage.Height = 100;
+                previewImage.Width = 80;
+                previewImage.Height = 50;
                 previewImage.Visible = true;
             }
         }

@@ -44,9 +44,7 @@
                 <ul>
                 </ul>
             </nav>
-            <div>
                 <controls:LoginStatusControl ID="loginStatusControl" runat="server"/>
-            </div>
         </header>
     </div>
 

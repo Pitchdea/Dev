@@ -285,6 +285,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .title {
     color: #E62020;
+    width:30%;
+    max-width:300px;
 }
 
 /* ==============
@@ -356,113 +358,6 @@ nav a:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-
-@media only screen and (min-width: 480px) {
-
-    .loginform {
-        width: 100%;
-    }
-/* ====================
-    INTERMEDIATE: Menu
-   ==================== */
-
-    nav a {
-        float: left;
-        width: 27%;
-        margin: 0 1.7%;
-        padding: 25px 2%;
-        margin-bottom: 0;
-    }
-
-    nav li:first-child a {
-        margin-left: 0;
-    }
-
-    nav li:last-child a {
-        margin-right: 0;
-    }
-
-/* ========================
-    INTERMEDIATE: IE Fixes
-   ======================== */
-
-    nav ul li {
-        display: inline;
-    }
-
-    .oldie nav a {
-        margin: 0 0.7%;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .loginform {
-        width: 100%;
-    }
-/* ====================
-    WIDE: CSS3 Effects
-   ==================== */
-
-    .main aside {
-        -webkit-box-shadow: 0 2px 3px #aaa;
-           -moz-box-shadow: 0 2px 3px #aaa;
-                box-shadow: 0 2px 3px #aaa;
-    }
-
-/* ============
-    WIDE: Menu
-   ============ */
-
-    .title {
-        float: left;
-    }
-
-    nav {
-        float: right;
-        width: 38%;
-    }
-
-/* ============
-    WIDE: Main
-   ============ */
-
-    .main article {
-        float: left;
-        width: 90%;
-    }
-
-    .main aside {
-        float: right;
-        width: 2%;
-    }
-}
-
-@media only screen and (min-width: 1140px) {
-
-/* ===============
-    Maximal Width
-   =============== */
-
-    .wrapper {
-        width: 1026px; /* 1140px - 10% for margins */
-        margin: 0 auto;
-    }
-}
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -473,6 +368,7 @@ nav a:hover {
 }
 
 .ideaImage img {
+    margin-top:15px;
     width:100%;
 }
 
@@ -517,7 +413,7 @@ nav a:hover {
 
 
 .loginstatus {
-    margin-top:5px;
+    margin-top:-44px;
 }
 
 #loginStatusControl_logoutLink {
@@ -688,5 +584,157 @@ nav a:hover {
     h2,
     h3 {
         page-break-after: avoid;
+    }
+}
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media only screen and (min-width: 200px) and (max-width: 768px) {
+
+    .loginstatus {
+        margin-right: 0px;
+        margin-top: -47px;
+        width: 30%;
+        min-width: 235px;
+        text-align:right;
+        font-size:80%;
+    }
+
+    #loginStatusControl_loggedInAsLabel {
+        margin-right: 3px;
+        display:none;
+    }
+
+    #loginStatusControl_logoutLink {
+        padding:0px 5px;
+        margin-right:5px;
+        margin-top:3px;
+        margin-bottom:5px;
+        float:right;
+    }
+
+    .loginname {
+        display:none;
+        margin-right:5px;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width:767px) {
+
+    .loginform {
+        width: 100%;
+    }
+/* ====================
+    INTERMEDIATE: Menu
+   ==================== */
+
+    nav a {
+        float: left;
+        width: 27%;
+        margin: 0 1.7%;
+        padding: 25px 2%;
+        margin-bottom: 0;
+    }
+
+    nav li:first-child a {
+        margin-left: 0;
+    }
+
+    nav li:last-child a {
+        margin-right: 0;
+    }
+
+/* ========================
+    INTERMEDIATE: IE Fixes
+   ======================== */
+
+    nav ul li {
+        display: inline;
+    }
+
+    .oldie nav a {
+        margin: 0 0.7%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width:1139px) {
+ 
+    .loginstatus {
+        margin-right: 0px;
+        margin-top: 0px;
+        width: 30%;
+        min-width: 255px;
+        text-align:right;
+    }
+
+    #loginStatusControl_loggedInAsLabel {
+        margin-right: 3px;
+    }
+
+    #loginStatusControl_logoutLink {
+        padding:0px 5px;
+        margin-right:5px;
+        margin-top:3px;
+        margin-bottom:5px;
+        float:right;
+    }
+
+    .loginname {
+        margin-right:5px;
+    }
+
+    .loginform {
+        width: 100%;
+    }
+/* ====================
+    WIDE: CSS3 Effects
+   ==================== */
+
+    .main aside {
+        -webkit-box-shadow: 0 2px 3px #aaa;
+           -moz-box-shadow: 0 2px 3px #aaa;
+                box-shadow: 0 2px 3px #aaa;
+    }
+
+/* ============
+    WIDE: Menu
+   ============ */
+
+    .title {
+        float: left;
+    }
+
+    nav {
+        float: right;
+        width: 38%;
+    }
+
+/* ============
+    WIDE: Main
+   ============ */
+
+    .main article {
+        float: left;
+        width: 90%;
+    }
+
+    .main aside {
+        float: right;
+        width: 2%;
+    }
+}
+
+@media only screen and (min-width: 1140px){
+
+/* ===============
+    Maximal Width
+   =============== */
+
+    .wrapper {
+        width: 1026px; /* 1140px - 10% for margins */
+        margin: 0 auto;
     }
 }
