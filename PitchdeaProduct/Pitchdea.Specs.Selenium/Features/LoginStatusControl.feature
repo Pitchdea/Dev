@@ -46,4 +46,22 @@ they are redirected back to the idea creation page.
 	Then page "/createIdeaPage.aspx" is open
 		And user is logged in as "test"
 
+Scenario: user registers and is redirected back to previous page
+User is not logged in and they are on create idea page, when they click log in and succesfully complete it,
+they are redirected back to the idea creation page.
 
+#createpage
+	Given "idea" table is empty at first
+		And "user" table is empty at first
+		And page "/createIdeaPage.aspx" is open
+	When user clicks "Register" link
+#loginpage
+	Then page "/registerPage.aspx?url=http://localhost:28231/createIdeaPage.aspx" is open
+		When I fill email field with "test@pitchdea.com"
+		And I fill username field with "test"
+		And I fill password field with "password123" 
+		And I fill password confirmation field with "password123"
+		And I click register button
+#createpage
+	Then page "/createIdeaPage.aspx" is open
+		And user is logged in as "test"
