@@ -13,7 +13,7 @@
         <h1>Create your idea</h1>
         Idea title<br/>
         <asp:TextBox runat="server" ID="titleTextBox"/>
-        A short summary of the idea <span class="de-emphasis">(~150 characters or 30 words)</span><br/>
+        A short summary of the idea <span class="de-emphasis">(~200 characters)</span><br/>
         <asp:TextBox runat="server" ID="summaryTextBox" TextMode="MultiLine" height="100px" />
         The main content for your idea page<br/>
 	    <asp:TextBox runat="server" ID="descriptionTextBox" TextMode="MultiLine" height="300px"/>    

@@ -20,7 +20,7 @@ Scenario Outline: User is not logged in
 	Given page "/mainPage.aspx" is open
 	Then "Login" link should be on the page
 		And "Register" link should be on the page
-		And "Logout" link should not be on the page
+		And "Logout" link should not be on the page	
 	When user clicks "<link>" link
 		Then page "<page>" is open
 
@@ -28,3 +28,22 @@ Scenario Outline: User is not logged in
 	| link     | page               |
 	| Login    | /loginPage.aspx    |
 	| Register | /registerPage.aspx |
+
+Scenario: user is creating idea, logs in, is redirected back
+User is not logged in and they are on create idea page, when they click log in and succesfully complete it,
+they are redirected back to the idea creation page..
+
+#createpage
+	Given user "test" with email "test@pitchdea.com" with password "password123" exists in the database 
+		And page "/createIdeaPage.aspx" is open
+	When user clicks "Maincontent_loginStatusControl_loginLink"
+#loginpage
+	Then page "/loginPage.aspx" is open
+		When I fill  "MainContent_emailTextBox" field with "test@pitchdea.com"
+		And "MainContent_passwordTextBox" field value is "password123" 
+		And user clicks "MainContent_loginButton" button
+#createpage
+	Then page "/createIdeaPage.aspx" is open
+		And user is logged in as "test"
+
+

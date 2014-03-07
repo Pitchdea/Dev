@@ -40,4 +40,5 @@ Scenario Outline: Idea with image is viewed
 
 Scenario: Trying to open a non existing idea
 	Given page "/viewIdeaPage.aspx?ID=hash123=" is open
-	Then "Return to main page." link should be on the page
+	#USX: "That idea was not found, return to main page" ?
+	Then "Return to main page." link should be on the page 

@@ -89,7 +89,8 @@ this.FeatureBackground();
 #line 10
   testRunner.And("page \"/createIdeaPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
-  testRunner.And(string.Format("I fill idea title \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("I fill" +
+                               " idea title \"{0}\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
   testRunner.And(string.Format("I fill idea summary \"{0}\"", summary), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
