@@ -306,24 +306,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .title {
+    float:left;
     color: #E62020;
     width: 30%;
-    max-width: 300px;
 }
 
 /* ==============
     MOBILE: Menu
    ============== */
+   nav {
+        margin-top:20px;
+        float:left;
+        width:40%;
+    }
 
 nav ul {
-    margin: 0;
+    margin:0 auto;
+    margin-left:17%;
+    text-align:center;
     padding: 0;
 }
 
-nav a {
-    display: block;
-    margin-bottom: 10px;
-    padding: 15px 0;
+nav li {
+    padding-left:15px;
+    padding-right:15px;
+    float:left;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
@@ -469,7 +476,7 @@ nav a {
 
 
 .loginstatus {
-    margin-top: -44px;
+    margin-top: 20px;
 }
 
 #loginStatusControl_logoutLink {
@@ -665,13 +672,29 @@ nav a {
 
     .loginstatus {
         margin-right: 0px;
-        margin-top: -47px;
-        width: 30%;
-        min-width: 235px;
+        margin-top: 16px;
+        width: 12%;
         text-align: right;
         font-size: 80%;
     }
 
+    .title {
+        width:22%;
+        font-size:100%;
+        margin-top:19px;
+    }
+
+    nav {
+        font-size:90%;
+        width:66%;
+    }
+        nav ul {
+            margin-left:3%;
+        }
+
+        nav li {
+            padding: 0 2%;
+        }
     #loginStatusControl_loggedInAsLabel {
         margin-right: 3px;
         display: none;
@@ -700,11 +723,33 @@ nav a {
     INTERMEDIATE: Menu
    ==================== */
 
-    nav a {
+    .loginstatus {
+        margin-right: 0px;
+        margin-top: 20px;
+        width: 12%;
+        text-align: right;
+        font-size: 80%;
+    }
+
+    .title {
+        margin-left:-15px;
+        width:22%;
+        font-size:100%;
+        margin-top:19px;
+    }
+
+    nav {
+        width:66%;
+    }
+
+        nav ul {
+            margin:0;
+            margin-left:5%;
+        }
+
+    nav li {
+        padding:0 2%;
         float: left;
-        width: 27%;
-        margin: 0 1.7%;
-        padding: 25px 2%;
         margin-bottom: 0;
     }
 
@@ -731,11 +776,23 @@ nav a {
 
 @media only screen and (min-width: 768px) and (max-width:1139px) {
 
+    nav {
+        margin:0;
+        margin-top:20px;
+        padding:0;
+    }
+        nav ul {
+            margin-left:7%;
+        }
+
+        nav li {
+            padding:0 3%;
+        }
+
     .loginstatus {
         margin-right: 0px;
-        margin-top: 0px;
+        margin-top: 16px;
         width: 30%;
-        min-width: 255px;
         text-align: right;
     }
 
@@ -777,7 +834,7 @@ nav a {
     }
 
     nav {
-        float: right;
+        float: left;
         width: 38%;
     }
 

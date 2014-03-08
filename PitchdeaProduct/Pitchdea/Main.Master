@@ -29,6 +29,9 @@
             <h1 class="title"><a href="mainPage.aspx">PITCHDEA</a></h1>
             <nav>
                 <ul>
+                    <li>Browse</li>
+                    <li>Submit</li>
+                    <li>About</li>
                 </ul>
             </nav>
                 <controls:LoginStatusControl ID="loginStatusControl" runat="server"/>
