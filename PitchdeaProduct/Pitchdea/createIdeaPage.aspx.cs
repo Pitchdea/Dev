@@ -45,6 +45,7 @@ namespace Pitchdea
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            errorMessage.Text = "";
             //var foo = ThumbnailCropControl;
 
             ////if (UploadedImage != null)// && !ThumbnailCropControl.ThumbnailSelected)
