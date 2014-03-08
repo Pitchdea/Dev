@@ -131,13 +131,11 @@
 .jcropper-holder { border: 1px black solid; }
 
 </style> 
-
-HAI THERE!
-
 <br/>
 <br/>
 <div>
     <div class="image-cropper">
+        <p>Now drag the cursor over the image to crop a thumbnail for the idea card</p>
         <asp:Image runat="server" ID="uploadedImage" CssClass="image"/>
         <div class="preview" style="margin-left:100px;"></div>
         <a class="result">View the result</a>

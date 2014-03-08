@@ -385,14 +385,16 @@ nav a {
     width:100%;
     height:auto;
     background:#f9f9f9;
-    position:absolute;
     top:0px;
-    left:0px;*/
+    left:0px;
 }
 
-.jcrop-holder, jcrop-tracker {
-    width:100%;
-    height:auto;
+.jcrop-tracker {
+    margin-bottom:20px;
+}
+
+.preview {
+    margin:20px auto!important;
 }
 
 .ideaOwner {
