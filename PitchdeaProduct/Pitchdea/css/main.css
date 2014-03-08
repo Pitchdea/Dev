@@ -2,92 +2,94 @@
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
 a {
-text-decoration:underline;
-transition: 0.2s;
-color:inherit;
+    text-decoration: underline;
+    transition: 0.2s;
+    color: inherit;
 }
 
     a:hover {
-        color:#48c9b0;    
+        color: #48c9b0;
         transition: 0.2s;
     }
 
+    a p:hover {
+        color: inherit;
+    }
+
 .title a {
-text-decoration:none!important;
+    text-decoration: none!important;
 }
 
-.title a:visited {
-    font-size:165%;
-	color:#c0392b!important;
-	font-weight:600;
-    text-decoration:none!important;
+    .title a:visited {
+        font-size: 165%;
+        color: #c0392b!important;
+        font-weight: 600;
+        text-decoration: none!important;
+    }
 
+    .title a:hover {
+        color: #48c9b0!important;
+        transition: 0.2s;
+    }
+
+
+input[type=submit] {
+    color: #fff;
+    border-radius: 4px;
+    padding: 7px 30px;
+    margin: 5px 1px 3px 0px;
+    border: none;
+    background: #48c9b0;
 }
-.title a:hover {
-    color:#48c9b0!important;
-    transition: 0.2s;
-}
 
-
-input[type=submit]{
-  color:#fff;
-  border-radius:4px;
-  padding: 7px 30px;
-  margin: 5px 1px 3px 0px;
-  border: none;
-  background:#48c9b0;
-
-}
-
-input[type=file]{
-  border-radius:4px;
-  border: #48c9b0;
-
+input[type=file] {
+    border-radius: 4px;
+    border: #48c9b0;
 }
 
 input[type=password], textarea {
-   width:98%;
-   height:25px;
-  -webkit-transition: all 0.20s ease-in-out;
-  -moz-transition: all 0.20s ease-in-out;
-  -ms-transition: all 0.20s ease-in-out;
-  -o-transition: all 0.20s ease-in-out;
-  outline: none;
-  padding: 3px 0px 3px 3px;
-  margin: 5px -5px 3px 0px;
-  border: 1px solid #ccc;
-  clear:right;
-}
- 
-input[type=password]:focus, textarea:focus {
-  box-shadow: 0 0 5px #48c9b0;
-  padding: 3px 0px 3px 3px;
-  margin: 5px -5px 3px 0px;
-  border: 1px solid #48c9b0;
-  clear:right;
+    width: 98%;
+    height: 25px;
+    -webkit-transition: all 0.20s ease-in-out;
+    -moz-transition: all 0.20s ease-in-out;
+    -ms-transition: all 0.20s ease-in-out;
+    -o-transition: all 0.20s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px -5px 3px 0px;
+    border: 1px solid #ccc;
+    clear: right;
 }
 
+    input[type=password]:focus, textarea:focus {
+        box-shadow: 0 0 5px #48c9b0;
+        padding: 3px 0px 3px 3px;
+        margin: 5px -5px 3px 0px;
+        border: 1px solid #48c9b0;
+        clear: right;
+    }
+
 input[type=text], textarea {
-   width:98%;
-   height:25px;
-  -webkit-transition: all 0.20s ease-in-out;
-  -moz-transition: all 0.20s ease-in-out;
-  -ms-transition: all 0.20s ease-in-out;
-  -o-transition: all 0.20s ease-in-out;
-  outline: none;
-  padding: 3px 0px 3px 3px;
-  margin: 5px -5px 3px 0px;
-  border: 1px solid #ccc;
-  clear:right;
+    width: 98%;
+    height: 25px;
+    -webkit-transition: all 0.20s ease-in-out;
+    -moz-transition: all 0.20s ease-in-out;
+    -ms-transition: all 0.20s ease-in-out;
+    -o-transition: all 0.20s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px -5px 3px 0px;
+    border: 1px solid #ccc;
+    clear: right;
 }
- 
-input[type=text]:focus, textarea:focus {
-  box-shadow: 0 0 5px #48c9b0;
-  padding: 3px 0px 3px 3px;
-  margin: 5px -5px 3px 0px;
-  border: 1px solid #48c9b0;
-  clear:right;
-}
+
+    input[type=text]:focus, textarea:focus {
+        box-shadow: 0 0 5px #48c9b0;
+        padding: 3px 0px 3px 3px;
+        margin: 5px -5px 3px 0px;
+        border: 1px solid #48c9b0;
+        clear: right;
+    }
 
 html,
 button,
@@ -98,6 +100,7 @@ textarea {
 }
 
 body {
+    min-height: 100%;
     font-size: 1.5em;
     line-height: 2em;
 }
@@ -148,132 +151,134 @@ textarea {
    ========================================================================== */
 
 .linkback {
-	font-size:130%;
-	float:left;
-	color:inherit;
-	font-weight:bold;
-	margin-top:20px;
-	transition: all 0.3s;
-	
+    font-size: 130%;
+    float: left;
+    color: inherit;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: all 0.3s;
 }
 
 .main-container {
-min-height:72%;
-min-height:72vh;
-
+    min-height: 72%;
+    min-height: 72vh;
 }
 
-.linkback:hover{
-	
-	margin-left:-20px;
-	transition: all 0.3s;
+.linkback:hover {
+    margin-left: -20px;
+    transition: all 0.3s;
 }
 
 .yesbutton {
-
-	float:left;
-	width:100px;
-	height:65px;
-	text-align:center;
-	background:#56C238;
-	border-radius:18px;
-	transition: all 0.3s;
-	
+    float: left;
+    width: 100px;
+    height: 65px;
+    text-align: center;
+    background: #56C238;
+    border-radius: 18px;
+    transition: all 0.3s;
 }
 
-.nobutton h2{
-	color:#fff;
+.nobutton h2 {
+    color: #fff;
 }
 
-.yesbutton h2{
-	color:#fff;
+.yesbutton h2 {
+    color: #fff;
 }
 
 .nobutton {
-
-	margin-left:30px;
-	float:left;
-	width:100px;
-	height:65px;
-	text-align:center;
-	background:#c0392b;
-	border-radius:18px;
-	transition: all 0.3s;	
+    margin-left: 30px;
+    float: left;
+    width: 100px;
+    height: 65px;
+    text-align: center;
+    background: #c0392b;
+    border-radius: 18px;
+    transition: all 0.3s;
 }
 
-.nobutton:hover{
-	box-shadow: 0px 0px 6px 2px #6596C7!important;
-	cursor:pointer;	
-	transition: all 0.3s;
-}
+    .nobutton:hover {
+        box-shadow: 0px 0px 6px 2px #6596C7!important;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
 
-.yesbutton:hover{
-	box-shadow: 0px 0px 6px 2px #6596C7!important;
-	cursor:pointer;
-	transition: all 0.3s;
+.yesbutton:hover {
+    box-shadow: 0px 0px 6px 2px #6596C7!important;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 
 .idea:hover {
-	overflow:hidden;
-	box-shadow: 4px 4px 8px #6596C7!important;
-	text-overflow:ellipsis;
+    overflow: hidden;
+    box-shadow: 4px 4px 8px #6596C7!important;
+    text-overflow: ellipsis;
 }
 
-.ideabox:hover{
-	box-shadow: 1px 2px 8px 2px #6596C7!important;
-	transition: all 0.3s;
+.ideabox:hover {
+    box-shadow: 1px 2px 8px 2px #6596C7!important;
+    transition: all 0.3s;
 }
 
 .idea {
-    width:280px;
-    height:400px;
+    width: 280px;
+    height: 400px;
 }
 
 .ideabox {
-    height:350px;
-    width:250px;
-    padding:0;
-    background:#f9f9f9;
-    border:1px solid #ccc;
-    border-radius:5px;
-    box-shadow:0px 0px 7px 1px #ccc;
-    float:left;
-    margin:7px;
-	overflow:hidden!important;
-	text-overflow:ellipsis;
-	transition: all 0.2s;
-}
-.ideabox img{
-    width:250px;
-	text-overflow:ellipsis;
-	box-shadow:none;
-}
-.ideabox h4{
-    padding:5px;
-	text-overflow:ellipsis;
-	box-shadow:none!important;
-}
-.ideabox p{
-    padding:5px;
-	text-overflow:ellipsis;
-	box-shadow:none!important;
+    height: 350px;
+    width: 250px;
+    padding: 0;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px 1px #ccc;
+    float: left;
+    margin: 7px;
+    overflow: hidden!important;
+    text-overflow: ellipsis;
+    transition: all 0.2s;
 }
 
+    .ideabox img {
+        width: 250px;
+        text-overflow: ellipsis;
+        box-shadow: none;
+    }
+
+    .ideabox h4 {
+        padding: 5px;
+        text-overflow: ellipsis;
+        box-shadow: none!important;
+    }
+
+    .ideabox p {
+        color: #34495e;
+        padding: 5px;
+        text-overflow: ellipsis;
+        box-shadow: none!important;
+    }
+
+        .ideabox p:hover {
+            color: #34495e;
+        }
+
 .title {
-    font-size:165%;
-	color:#c0392b!important;
-	font-weight:600;
+    font-size: 165%;
+    color: #c0392b!important;
+    font-weight: 600;
 }
 
 body {
     font: 16px/26px 'Lato', Helvetica, Helvetica Neue, Arial;
-   	color:#34495e;
+    color: #34495e;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family:'Lato', sans-serif;
-	color:#34495e;
+    font-family: 'Lato', sans-serif;
+    color: #34495e;
 }
 
 .wrapper {
@@ -302,8 +307,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .title {
     color: #E62020;
-    width:30%;
-    max-width:300px;
+    width: 30%;
+    max-width: 300px;
 }
 
 /* ==============
@@ -319,23 +324,20 @@ nav a {
     display: block;
     margin-bottom: 10px;
     padding: 15px 0;
-
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-
     color: #000;
-
 }
 
-nav a:hover,
-nav a:visited {
-    color: #777;
-}
+    nav a:hover,
+    nav a:visited {
+        color: #777;
+    }
 
-nav a:hover {
-    text-decoration: underline;
-}
+    nav a:hover {
+        text-decoration: underline;
+    }
 
 /* ==============
     MOBILE: Main
@@ -345,15 +347,15 @@ nav a:hover {
     padding: 30px 0;
 }
 
-.main article h1 {
-    font-size: 2em;
-    line-height:110%;
-}
+    .main article h1 {
+        font-size: 2em;
+        line-height: 110%;
+    }
 
-.main aside {
-    color: #777;
-    padding: 0px 5% 10px;
-}
+    .main aside {
+        color: #777;
+        padding: 0px 5% 10px;
+    }
 
 .footer-container footer {
     color: white;
@@ -379,100 +381,130 @@ nav a:hover {
    Helper classes
    ========================================================================== */
 
-.ideaTitle {
-    margin:0 auto;
-    text-align:center;
-}
-
-.ideaImage img {
-    margin-top:15px;
+.image-cropper {
+    /*width:100%;
     width:100%;
-}
-
-.ideaWrapper {
-    margin:0 auto;
-    width:95%;
-    padding:2%;
-    padding-top:5px;
-    padding-bottom:5px;
-    border-radius:9px;
     background:#f9f9f9;
-    border:1px solid #f5f5f5;
+    position:absolute;
+    top:0px;
+    left:0px;*/
 }
 
-.createIdea {
-    color:#34495e;
+.jcrop-holder, jcrop-tracker {
+    width:100%;
+    height:auto;
 }
 
-#loginStatusControl_loginLink {
-  color:#fff;
-  border-radius:4px;
-  padding: 4px 12px;
-  padding-bottom:6px;
-  margin: 10px;
-  margin-right:2px;
-  border: none;
-  background:#48c9b0;    
-  text-decoration:none!important;    
-}
-
-#loginStatusControl_registerLink {
-  color:#fff;
-  border-radius:4px;
-  padding: 4px 12px;
-  padding-bottom:6px;
-  margin: 10px;
-  margin-left:5px;
-  border: none;
-  background:#48c9b0;    
-  text-decoration:none!important;
-}
-
-
-.loginstatus {
-    margin-top:-44px;
-}
-
-#loginStatusControl_logoutLink {
-  color:#fff;
-  border-radius:4px;
-  padding: 4px 12px;
-  padding-bottom:6px;
-  margin: 10px;
-  border: none;
-  background:#48c9b0;    
-  text-decoration:none!important;
-}
-
-.loginstatus {
+.ideaOwner {
     float:right;
 }
 
+.ideatextwrapper {
+    width:80%;
+    padding:10%;
+    padding-top:5%;
+}
+.ideatextwrapper h1 {
+    padding:0;
+}
+.ideatextwrapper h3 {
+    padding:5%;
+}
+
+.ideaTitle {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ideaImage img {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.ideaWrapper {
+    margin: 0 auto;
+    width: 95%;
+    padding: 2%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 9px;
+    background: #f9f9f9;
+    border: 1px solid #f5f5f5;
+}
+
+.createIdea {
+    color: #34495e;
+}
+
+#loginStatusControl_loginLink {
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px 12px;
+    padding-bottom: 6px;
+    margin: 10px;
+    margin-right: 2px;
+    border: none;
+    background: #48c9b0;
+    text-decoration: none!important;
+}
+
+#loginStatusControl_registerLink {
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px 12px;
+    padding-bottom: 6px;
+    margin: 10px;
+    margin-left: 5px;
+    border: none;
+    background: #48c9b0;
+    text-decoration: none!important;
+}
+
+
+.loginstatus {
+    margin-top: -44px;
+}
+
+#loginStatusControl_logoutLink {
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px 12px;
+    padding-bottom: 6px;
+    margin: 10px;
+    border: none;
+    background: #48c9b0;
+    text-decoration: none!important;
+}
+
+.loginstatus {
+    float: right;
+}
+
 .de-emphasis {
-    color:#c5c5c5;
+    color: #c5c5c5;
 }
 
 .loginname {
-    color:#48c9b0!important;
+    color: #48c9b0!important;
 }
 
 .generalForm {
-    margin:0 auto;
-    width:95%;
-    min-width:220px;
-    max-width:400px;
-    padding:2%;
-    padding-top:5px;
-    padding-bottom:5px;
-    border-radius:9px;
-    background:#f9f9f9;
-    border:1px solid #f5f5f5;
+    margin: 0 auto;
+    width: 95%;
+    min-width: 220px;
+    max-width: 400px;
+    padding: 2%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 9px;
+    background: #f9f9f9;
+    border: 1px solid #f5f5f5;
 }
 
 #MainContent_errorMessage {
-    color:#d74a3a;
-    font-weight:700;
-    margin:20px;
+    color: #d74a3a;
+    font-weight: 700;
+    margin: 20px;
 }
 
 .ir {
@@ -482,12 +514,12 @@ nav a:hover {
     *text-indent: -9999px;
 }
 
-.ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 150%;
-}
+    .ir:before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 150%;
+    }
 
 .hidden {
     display: none !important;
@@ -505,15 +537,15 @@ nav a:hover {
     width: 1px;
 }
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-}
+    .visuallyhidden.focusable:active,
+    .visuallyhidden.focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
 
 .invisible {
     visibility: hidden;
@@ -550,9 +582,9 @@ nav a:hover {
         text-decoration: underline;
     }
 
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
+        a[href]:after {
+            content: " (" attr(href) ")";
+        }
 
     abbr[title]:after {
         content: " (" attr(title) ")";
@@ -616,26 +648,26 @@ nav a:hover {
         margin-top: -47px;
         width: 30%;
         min-width: 235px;
-        text-align:right;
-        font-size:80%;
+        text-align: right;
+        font-size: 80%;
     }
 
     #loginStatusControl_loggedInAsLabel {
         margin-right: 3px;
-        display:none;
+        display: none;
     }
 
     #loginStatusControl_logoutLink {
-        padding:0px 5px;
-        margin-right:5px;
-        margin-top:3px;
-        margin-bottom:5px;
-        float:right;
+        padding: 0px 5px;
+        margin-right: 5px;
+        margin-top: 3px;
+        margin-bottom: 5px;
+        float: right;
     }
 
     .loginname {
-        display:none;
-        margin-right:5px;
+        display: none;
+        margin-right: 5px;
     }
 }
 
@@ -644,7 +676,7 @@ nav a:hover {
     .loginform {
         width: 100%;
     }
-/* ====================
+    /* ====================
     INTERMEDIATE: Menu
    ==================== */
 
@@ -664,7 +696,7 @@ nav a:hover {
         margin-right: 0;
     }
 
-/* ========================
+    /* ========================
     INTERMEDIATE: IE Fixes
    ======================== */
 
@@ -678,13 +710,13 @@ nav a:hover {
 }
 
 @media only screen and (min-width: 768px) and (max-width:1139px) {
- 
+
     .loginstatus {
         margin-right: 0px;
         margin-top: 0px;
         width: 30%;
         min-width: 255px;
-        text-align:right;
+        text-align: right;
     }
 
     #loginStatusControl_loggedInAsLabel {
@@ -692,31 +724,31 @@ nav a:hover {
     }
 
     #loginStatusControl_logoutLink {
-        padding:0px 5px;
-        margin-right:5px;
-        margin-top:3px;
-        margin-bottom:5px;
-        float:right;
+        padding: 0px 5px;
+        margin-right: 5px;
+        margin-top: 3px;
+        margin-bottom: 5px;
+        float: right;
     }
 
     .loginname {
-        margin-right:5px;
+        margin-right: 5px;
     }
 
     .loginform {
         width: 100%;
     }
-/* ====================
+    /* ====================
     WIDE: CSS3 Effects
    ==================== */
 
     .main aside {
         -webkit-box-shadow: 0 2px 3px #aaa;
-           -moz-box-shadow: 0 2px 3px #aaa;
-                box-shadow: 0 2px 3px #aaa;
+        -moz-box-shadow: 0 2px 3px #aaa;
+        box-shadow: 0 2px 3px #aaa;
     }
 
-/* ============
+    /* ============
     WIDE: Menu
    ============ */
 
@@ -729,7 +761,7 @@ nav a:hover {
         width: 38%;
     }
 
-/* ============
+    /* ============
     WIDE: Main
    ============ */
 
@@ -744,9 +776,9 @@ nav a:hover {
     }
 }
 
-@media only screen and (min-width: 1140px){
+@media only screen and (min-width: 1140px) {
 
-/* ===============
+    /* ===============
     Maximal Width
    =============== */
 
