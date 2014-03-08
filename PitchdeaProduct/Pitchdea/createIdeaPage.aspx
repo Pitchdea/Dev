@@ -9,7 +9,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
-    <div class="ideaForm">
+    <asp:Panel runat="server" CssClass="ideaForm" ID="createIdeaPanel">
         <h1>Create your idea</h1>
         Idea title<br/>
         <asp:TextBox runat="server" ID="titleTextBox"/><br />
@@ -28,5 +28,8 @@
         
         <asp:Button runat="server" ID="createIdeaButton" OnClick="createIdeaButton_OnClick" Text="Create your idea"/>
         <asp:Label runat="server" ID="errorMessage"/>
-    </div>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="loginFirstPanel">
+        Please login first...
+    </asp:Panel>
 </asp:Content>

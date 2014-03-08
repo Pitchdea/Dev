@@ -45,6 +45,15 @@ namespace Pitchdea
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userId"] == null)
+            {
+                HideAll();
+            }
+            else
+            {
+                ShowAll();
+            }
+
             errorMessage.Text = "";
             //var foo = ThumbnailCropControl;
 
@@ -76,6 +85,18 @@ namespace Pitchdea
                 uploadStatusLabel.Text = "Your image was uploaded successfully.";
                 LoadPreviewImage();
             };
+        }
+
+        private void ShowAll()
+        {
+            createIdeaPanel.Visible = true;
+            loginFirstPanel.Visible = false;
+        }
+
+        private void HideAll()
+        {
+            createIdeaPanel.Visible = false;
+            loginFirstPanel.Visible = true;
         }
 
         private void LoadPreviewImage()
