@@ -67,6 +67,17 @@
     </form>
 		
 	<script>
+	    $(window).load(function () {
+	        $(".ideabox").dotdotdot({
+	            //	configuration goes here
+	        });
+	        $("p").dotdotdot({
+	            //	configuration goes here
+	        });
+	        $(".ideabox p").dotdotdot({
+	            //	configuration goes here
+	        });
+	    });
 		$(document).ready(function() {
 			$(".ideabox").dotdotdot({
 				//	configuration goes here

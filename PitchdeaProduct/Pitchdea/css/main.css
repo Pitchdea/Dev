@@ -415,7 +415,7 @@ nav a {
     padding:0;
 }
 .ideatextwrapper h3 {
-    padding:5%;
+    padding:5% 0;
 }
 
 .ideaTitle {
@@ -499,7 +499,7 @@ nav a {
     margin: 0 auto;
     width: 99.5%;
     min-width: 220px;
-    max-width: 980px;
+    max-width: 550px;
     padding: 2%;
     padding-top: 5px;
     padding-bottom: 5px;
