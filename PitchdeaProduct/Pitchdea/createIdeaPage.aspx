@@ -9,16 +9,16 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
-    <div class="generalForm">
+    <div class="ideaForm">
         <h1>Create your idea</h1>
         Idea title<br/>
-        <asp:TextBox runat="server" ID="titleTextBox"/>
+        <asp:TextBox runat="server" ID="titleTextBox"/><br />
         A short summary of the idea <span class="de-emphasis">(~200 characters)</span><br/>
-        <asp:TextBox runat="server" ID="summaryTextBox" TextMode="MultiLine" height="100px" />
+        <asp:TextBox runat="server" ID="summaryTextBox" TextMode="MultiLine" height="100px" /><br />
         The main content for your idea page<br/>
-	    <asp:TextBox runat="server" ID="descriptionTextBox" TextMode="MultiLine" height="300px"/>    
+	    <asp:TextBox runat="server" ID="descriptionTextBox" TextMode="MultiLine" height="300px"/><br />  
         The question you want to ask your audience <span class="de-emphasis">(E.g. Would you like to buy a customized smarthone?)</span><br/>
-	    <asp:TextBox runat="server" ID="questionTextBox" TextMode="MultiLine" height="50px" />    
+	    <asp:TextBox runat="server" ID="questionTextBox" TextMode="MultiLine" height="50px" /><br />    
 	
         <asp:FileUpload id="ImgUpload" runat="server" /><br />
         <asp:Button runat="server" ID="uploadImageButton" OnClick="uploadImageButton_OnClick" OnClientClick="#todo" Text="Upload a picture"/>

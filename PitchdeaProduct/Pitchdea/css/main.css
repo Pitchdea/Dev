@@ -381,6 +381,11 @@ nav a {
    Helper classes
    ========================================================================== */
 
+.cropwrapper {
+    margin:0 auto;
+    max-width:350px;
+}
+
 .image-cropper {
     width:100%;
     height:auto;
@@ -488,6 +493,19 @@ nav a {
 
 .loginname {
     color: #48c9b0!important;
+}
+
+.ideaForm {
+    margin: 0 auto;
+    width: 99.5%;
+    min-width: 220px;
+    max-width: 980px;
+    padding: 2%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 9px;
+    background: #f9f9f9;
+    border: 1px solid #f5f5f5;
 }
 
 .generalForm {
