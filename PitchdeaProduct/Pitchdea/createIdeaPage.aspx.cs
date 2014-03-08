@@ -32,10 +32,12 @@ namespace Pitchdea
             }
         }
 
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadPreviewImage();
-            ThumbnailCropControl = (ThumbnailCropControl)LoadControl("~/Controls/ThumbnailCropControl.ascx");
+            ShowImageThumbnailCropper();
         }
 
         private void LoadPreviewImage()
@@ -163,8 +165,17 @@ namespace Pitchdea
             uploadStatusLabel.Text = "Your image was uploaded successfully.";
             LoadPreviewImage();
 
-            ThumbnailCropControl.Image = fileName;
-            thumbnailControlPlaceholder.Controls.Add(ThumbnailCropControl);
+            ShowImageThumbnailCropper();
+        }
+
+        private void ShowImageThumbnailCropper()
+        {
+            if (UploadedImage != null)
+            {
+                ThumbnailCropControl = (ThumbnailCropControl)LoadControl("~/Controls/ThumbnailCropControl.ascx");
+                ThumbnailCropControl.Image = UploadedImage;
+                thumbnailControlPlaceholder.Controls.Add(ThumbnailCropControl);
+            }
         }
     }
 }

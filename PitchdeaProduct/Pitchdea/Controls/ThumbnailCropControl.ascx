@@ -141,7 +141,8 @@ HAI THERE!
         <asp:Image runat="server" ID="uploadedImage" CssClass="image"/>
         <div class="preview" style="margin-left:100px;"></div>
         <a class="result">View the result</a>
+        <input ID='img' type="hidden" class="result" value="" runat="server" />
     </div>
-    <asp:Button runat="server" Text="Done" ID="doneButton"/>
+    <asp:Button runat="server" Text="Done" ID="doneButton" OnClick="doneButton_OnClick"/>
     <asp:Button runat="server" Text="Cancel" ID="cancelButton"/>
 </div>
