@@ -65,6 +65,7 @@
     <Content Include="createIdeaPage.aspx" />
     <Content Include="css\Jcrop.gif" />
     <Content Include="css\jquery.Jcrop.css" />
+    <Content Include="css\jquery.Jcrop.min.css" />
     <Content Include="css\main.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\normalize.min.css" />
