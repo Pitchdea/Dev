@@ -25,6 +25,8 @@
         <asp:Button runat="server" ID="uploadImageButton" OnClick="uploadImageButton_OnClick" OnClientClick="#todo" Text="Upload a picture"/>
         <asp:Label runat="server" ID="uploadStatusLabel" />
         <asp:Image runat="server" ID="previewImage" />
+        <asp:PlaceHolder runat="server" ID="thumbnailControlPlaceholder"/>
+        
 
         <asp:Button runat="server" ID="createIdeaButton" OnClick="createIdeaButton_OnClick" Text="Create your idea"/>
         <asp:Label runat="server" ID="errorMessage"/>

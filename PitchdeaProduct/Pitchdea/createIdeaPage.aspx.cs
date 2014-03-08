@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Web.UI;
+using Pitchdea.Controls;
 using Pitchdea.Core;
 using Pitchdea.Core.Model;
 
@@ -8,6 +9,8 @@ namespace Pitchdea
 {
     public partial class CreateIdeaPage : Page
     {
+        protected ThumbnailCropControl ThumbnailCropControl;
+
         private readonly ISqlTool _sqlTool = SqlToolFactory.CreateNew();
        
         public string UploadedImage
@@ -32,6 +35,7 @@ namespace Pitchdea
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadPreviewImage();
+            ThumbnailCropControl = (ThumbnailCropControl)LoadControl("~/Controls/ThumbnailCropControl.ascx");
         }
 
         private void LoadPreviewImage()
@@ -158,6 +162,9 @@ namespace Pitchdea
             UploadedImage = fileName;
             uploadStatusLabel.Text = "Your image was uploaded successfully.";
             LoadPreviewImage();
+
+            ThumbnailCropControl.Image = fileName;
+            thumbnailControlPlaceholder.Controls.Add(ThumbnailCropControl);
         }
     }
 }

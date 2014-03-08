@@ -85,6 +85,15 @@ namespace Pitchdea {
         protected global::System.Web.UI.WebControls.Image previewImage;
         
         /// <summary>
+        /// thumbnailControlPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder thumbnailControlPlaceholder;
+        
+        /// <summary>
         /// createIdeaButton control.
         /// </summary>
         /// <remarks>

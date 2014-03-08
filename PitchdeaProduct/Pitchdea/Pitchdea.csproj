@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ImageResizer">
+      <HintPath>..\packages\ImageResizer.3.4.2\lib\ImageResizer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -58,7 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Controls\LoginStatusControl.ascx" />
+    <Content Include="Controls\ThumbnailCropControl.ascx" />
     <Content Include="createIdeaPage.aspx" />
+    <Content Include="css\Jcrop.gif" />
+    <Content Include="css\jquery.Jcrop.css" />
     <Content Include="css\main.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\normalize.min.css" />
@@ -66,7 +72,10 @@
     <Content Include="img\ideaImages\testImage.jpg" />
     <Content Include="js\jquery.dotdotdot.js" />
     <Content Include="js\jquery.dotdotdot.min.js" />
+    <Content Include="js\jquery.Jcrop.js" />
+    <Content Include="js\jquery.Jcrop.min.js" />
     <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.min.js" />
     <Content Include="js\main.js" />
     <Content Include="js\vendor\jquery-1.10.1.min.js" />
     <Content Include="js\vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
@@ -85,6 +94,13 @@
     </Compile>
     <Compile Include="Controls\LoginStatusControl.ascx.designer.cs">
       <DependentUpon>LoginStatusControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ThumbnailCropControl.ascx.cs">
+      <DependentUpon>ThumbnailCropControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ThumbnailCropControl.ascx.designer.cs">
+      <DependentUpon>ThumbnailCropControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="createIdeaPage.aspx.cs">
       <DependentUpon>createIdeaPage.aspx</DependentUpon>
@@ -132,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.Master" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
