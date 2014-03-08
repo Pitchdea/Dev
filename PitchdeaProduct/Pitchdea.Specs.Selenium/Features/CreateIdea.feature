@@ -138,5 +138,17 @@ Scenario Outline: information is too long
 	| 70    | 200     | 80          | 91       | The question is too long, the maximum length is 90 characters.      |
 
 
-#TODO: Scenario: User is not logged in and opens the page
+Scenario: User is not logged
+User is not logged in and when they open the create idea page all the content 
+are hidden and user sees a suggestion to login
 #piilota kaikki ja laita "please login"
+Given user is not logged in
+When the user opens create idea page
+Then idea text box is hidden
+	And summary text box is hidden
+	And content text box is hidden
+	And question text box is hidden
+	And upload image control is hidden
+	And upload picture button is hidden
+	And create your idea button is hidden
+	And error message label is "Please login to submit an idea".
