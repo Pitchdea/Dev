@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using Pitchdea.Controls;
 using Pitchdea.Core;
 using Pitchdea.Core.Model;
@@ -9,8 +11,6 @@ namespace Pitchdea
 {
     public partial class CreateIdeaPage : Page
     {
-        protected ThumbnailCropControl ThumbnailCropControl;
-
         private readonly ISqlTool _sqlTool = SqlToolFactory.CreateNew();
        
         public string UploadedImage
@@ -20,6 +20,17 @@ namespace Pitchdea
                 return (string)ViewState["UploadedImage"];
             }
             set { ViewState["UploadedImage"] = value; }
+        }
+        
+        public bool ThumbnailSelected
+        {
+            get
+            {
+                if (ViewState["ThumbnailSelected"] != null)
+                    return (bool)ViewState["ThumbnailSelected"];
+                return false;
+            }
+            set { ViewState["ThumbnailSelected"] = value; }
         }
 
         private static string SavePath
@@ -31,13 +42,39 @@ namespace Pitchdea
                 return savePath;
             }
         }
-
         
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadPreviewImage();
-            ShowImageThumbnailCropper();
+            //var foo = ThumbnailCropControl;
+
+            ////if (UploadedImage != null)// && !ThumbnailCropControl.ThumbnailSelected)
+            ////{
+            //    ShowImageThumbnailCropper();
+            ////}
+            ////else
+            ////{
+            //    //HideImageThumbnailCropper();
+            //    if (ThumbnailCropControl.ThumbnailSelected)
+            //    {
+            //        uploadStatusLabel.Text = "Your image was uploaded successfully.";
+            //        LoadPreviewImage();
+            //    }
+            //}
+            if (UploadedImage == null)
+                cropControl.Visible = false;
+
+            if (cropControl.ThumbnailSelected)
+            {
+                cropControl.Visible = false;
+                LoadPreviewImage();
+            }
+
+            cropControl.ThumbSelected += () =>
+            {
+                cropControl.Visible = false;
+                uploadStatusLabel.Text = "Your image was uploaded successfully.";
+                LoadPreviewImage();
+            };
         }
 
         private void LoadPreviewImage()
@@ -45,9 +82,12 @@ namespace Pitchdea
             previewImage.Visible = false;
             if (UploadedImage != null)
             {
-                previewImage.ImageUrl = SavePath + UploadedImage;
-                previewImage.Width = 80;
-                previewImage.Height = 50;
+                //TODO: maybe show both preview of uploaded image and preview of cropped thumbnail?
+                var ext = Path.GetExtension(UploadedImage);
+                string thumb = UploadedImage.Split(new [] {'.'}).First() + "_thumb" + ext;
+                previewImage.ImageUrl = SavePath + thumb;
+                previewImage.Width = 100;
+                previewImage.Height = 64;
                 previewImage.Visible = true;
             }
         }
@@ -162,20 +202,30 @@ namespace Pitchdea
             
             // Notify the user their file was uploaded successfully.
             UploadedImage = fileName;
-            uploadStatusLabel.Text = "Your image was uploaded successfully.";
-            LoadPreviewImage();
-
-            ShowImageThumbnailCropper();
+            
+            //ShowImageThumbnailCropper();
+            cropControl.Image = fileName;
+            cropControl.UpdateImage();
+            cropControl.Visible = true;
         }
 
-        private void ShowImageThumbnailCropper()
-        {
-            if (UploadedImage != null)
-            {
-                ThumbnailCropControl = (ThumbnailCropControl)LoadControl("~/Controls/ThumbnailCropControl.ascx");
-                ThumbnailCropControl.Image = UploadedImage;
-                thumbnailControlPlaceholder.Controls.Add(ThumbnailCropControl);
-            }
-        }
+        //private void ShowImageThumbnailCropper()
+        //{
+        //    if (UploadedImage != null)
+        //    {
+        //        ThumbnailCropControl.Image = UploadedImage;
+        //        ThumbnailCropControl.Visible = true;
+        //        thumbnailControlPlaceholder.Controls.Add(ThumbnailCropControl);
+        //    }
+        //    else
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //}
+
+        //private void HideImageThumbnailCropper()
+        //{
+        //    ThumbnailCropControl.Visible = false;
+        //}
     }
 }

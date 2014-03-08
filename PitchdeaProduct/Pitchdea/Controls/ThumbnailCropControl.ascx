@@ -2,7 +2,8 @@
     AutoEventWireup="true" 
     CodeBehind="ThumbnailCropControl.ascx.cs" 
     ClassName="ThumbnailCropControl"
-    Inherits="Pitchdea.Controls.ThumbnailCropControl" %>
+    Inherits="Pitchdea.Controls.ThumbnailCropControl"
+    EnableViewState="true" %>
 
 <script src="js/jquery.Jcrop.js" type="text/javascript"></script> 
 <link href="css/jquery.Jcrop.css" type="text/css" rel="stylesheet" />
@@ -138,7 +139,6 @@
         <p>Now drag the cursor over the image to crop a thumbnail for the idea card</p>
         <asp:Image runat="server" ID="uploadedImage" CssClass="image"/>
         <div class="preview" style="margin-left:100px;"></div>
-        <a class="result">View the result</a>
         <input ID='img' type="hidden" class="result" value="" runat="server" />
     </div>
     <asp:Button runat="server" Text="Done" ID="doneButton" OnClick="doneButton_OnClick"/>
