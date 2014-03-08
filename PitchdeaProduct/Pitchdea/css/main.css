@@ -222,23 +222,40 @@ min-height:72vh;
 
 .ideabox:hover{
 	box-shadow: 1px 2px 8px 2px #6596C7!important;
-	transition: all 0.2s;
+	transition: all 0.3s;
+}
+
+.idea {
+    width:280px;
+    height:400px;
 }
 
 .ideabox {
+    height:350px;
+    width:250px;
+    padding:0;
+    background:#f9f9f9;
+    border:1px solid #ccc;
+    border-radius:5px;
+    box-shadow:0px 0px 7px 1px #ccc;
+    float:left;
+    margin:7px;
 	overflow:hidden!important;
 	text-overflow:ellipsis;
 	transition: all 0.2s;
 }
 .ideabox img{
+    width:250px;
 	text-overflow:ellipsis;
 	box-shadow:none;
 }
 .ideabox h4{
+    padding:5px;
 	text-overflow:ellipsis;
 	box-shadow:none!important;
 }
 .ideabox p{
+    padding:5px;
 	text-overflow:ellipsis;
 	box-shadow:none!important;
 }

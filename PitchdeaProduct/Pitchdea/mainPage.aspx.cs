@@ -18,10 +18,12 @@ namespace Pitchdea
             {
                 var hyperLink = new HyperLink
                 {
-                    NavigateUrl = "viewIdeaPage.aspx?ID=" + idea.Hash
+                    NavigateUrl = "viewIdeaPage.aspx?ID=" + idea.Hash,
+                    CssClass = "idea"
                 };
 
                 var inner = new Panel();
+                inner.CssClass = "ideabox";
 
                 var config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
                 var imagePath = config.AppSettings.Settings["savePath"].Value;
