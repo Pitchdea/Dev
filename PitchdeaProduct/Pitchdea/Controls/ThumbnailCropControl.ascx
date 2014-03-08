@@ -4,7 +4,6 @@
     ClassName="ThumbnailCropControl"
     Inherits="Pitchdea.Controls.ThumbnailCropControl" %>
 
-<script src="js/jquery.min.js" type="text/javascript"></script> 
 <script src="js/jquery.Jcrop.js" type="text/javascript"></script> 
 <link href="css/jquery.Jcrop.css" type="text/css" rel="stylesheet" />
 

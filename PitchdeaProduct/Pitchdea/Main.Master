@@ -21,7 +21,7 @@
         <script src="js/jquery.js" type="text/javascript"></script>
 		<script src="js/jquery.dotdotdot.min.js" type="text/javascript"></script>
 		
-		<%--<script>
+		<script>
 			$(document).ready(function() {
 				$(".ideabox").dotdotdot({
 					//	configuration goes here
@@ -33,7 +33,7 @@
 					//	configuration goes here
 				});
 			});
-		</script>--%>
+		</script>
 </head>
 <body>
     <form id="form1" runat="server">

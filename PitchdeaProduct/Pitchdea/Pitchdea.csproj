@@ -70,12 +70,12 @@
     <Content Include="css\normalize.min.css" />
     <Content Include="img\ideaImages\defaultIdeaImage.jpg" />
     <Content Include="img\ideaImages\testImage.jpg" />
+    <Content Include="js\jquery.color.js" />
     <Content Include="js\jquery.dotdotdot.js" />
     <Content Include="js\jquery.dotdotdot.min.js" />
     <Content Include="js\jquery.Jcrop.js" />
     <Content Include="js\jquery.Jcrop.min.js" />
     <Content Include="js\jquery.js" />
-    <Content Include="js\jquery.min.js" />
     <Content Include="js\main.js" />
     <Content Include="js\vendor\jquery-1.10.1.min.js" />
     <Content Include="js\vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
