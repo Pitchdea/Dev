@@ -136,8 +136,12 @@ HAI THERE!
 
 <br/>
 <br/>
-<div class="image-cropper">
-    <asp:Image runat="server" ID="uploadedImage" CssClass="image"/>
-    <div class="preview" style="margin-left:100px;"></div>
-    <a class="result">View the result</a>
+<div>
+    <div class="image-cropper">
+        <asp:Image runat="server" ID="uploadedImage" CssClass="image"/>
+        <div class="preview" style="margin-left:100px;"></div>
+        <a class="result">View the result</a>
+    </div>
+    <asp:Button runat="server" Text="Done" ID="doneButton"/>
+    <asp:Button runat="server" Text="Cancel" ID="cancelButton"/>
 </div>
