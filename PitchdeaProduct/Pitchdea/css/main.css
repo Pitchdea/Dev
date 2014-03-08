@@ -382,8 +382,8 @@ nav a {
    ========================================================================== */
 
 .image-cropper {
-    /*width:100%;
     width:100%;
+    height:auto;
     background:#f9f9f9;
     position:absolute;
     top:0px;

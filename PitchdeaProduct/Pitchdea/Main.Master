@@ -21,20 +21,6 @@
         <script src="js/jquery.min.js" type="text/javascript"></script> 
         <%--<script src="js/jquery.js" type="text/javascript"></script>--%>
 		<script src="js/jquery.dotdotdot.min.js" type="text/javascript"></script>
-		
-		<script>
-			$(document).ready(function() {
-				$(".ideabox").dotdotdot({
-					//	configuration goes here
-				});
-				$("p").dotdotdot({
-					//	configuration goes here
-				});
-				$(".ideabox p").dotdotdot({
-					//	configuration goes here
-				});
-			});
-		</script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -79,5 +65,19 @@
         }(document,'script'));
     </script>
     </form>
+		
+	<script>
+		$(document).ready(function() {
+			$(".ideabox").dotdotdot({
+				//	configuration goes here
+			});
+			$("p").dotdotdot({
+				//	configuration goes here
+			});
+			$(".ideabox p").dotdotdot({
+				//	configuration goes here
+			});
+		});
+	</script>
 </body>
 </html>
