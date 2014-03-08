@@ -15,13 +15,9 @@
 
         //The code will look for a img.image, a div.preview, a.result, an input.result inside the specified container, and link them together.
         //Only 'img.image' is required, however.  
-
-
+        
         //Find the original image
         var image = container.find("img.image");
-
-        //Find the original aspect ratio of the image
-        var originalRatio = image.width() / image.height();
         
         //jCrop will enforce this ratio:
         var forcedRatio = 250/160;
@@ -36,13 +32,9 @@
         //Find the preview div(s) (if they exist) and make sure the have a set height and width.
         var divPreview = container.find("div.preview");
 
-        //What size to make the preview window (defaults to existing width/height if specified in 'style' attribute)
-        var previewFallbackWidth = 100;
-        var previewFallbackHeight = 100;
+        var previewMaxWidth = 250;
+        var previewMaxHeight = 160;
 
-        //Allow the div to override the default width and height in the style attribute
-        var previewMaxWidth = (divPreview.attr('style') != null && divPreview.attr('style').indexOf('width') > -1) ? divPreview.width() : previewFallbackWidth;
-        var previewMaxHeight = (divPreview.attr('style') != null && divPreview.attr('style').indexOf('height') > -1) ? divPreview.height() : previewFallbackHeight;
         //Set the values explicitly.
         divPreview.css({
             width: previewMaxWidth + 'px',
@@ -65,20 +57,11 @@
 
 
         //Create a function to update the link, hidden input, and preview pane
-        var update = function (coords) {
+        var update = function(coords) {
             if (parseInt(coords.w) <= 0 || parseInt(coords.h) <= 0) return; //Require valid width and height
 
-            //The aspect ratio of the cropping rectangle. If 'keepRatio', use originalRatio since it's more precise.
-            //TODO var cropRatio = keepRatio ? originalRatio : (coords.w / coords.h);
-            var cropRatio = forcedRatio;
-
-
-            //When the selection aspect ratio changes, the preview clipping area has to also.
-            //Calculate the width and height.
-
-            var innerWidth = cropRatio >= (previewMaxWidth / previewMaxHeight) ? previewMaxWidth : previewMaxHeight * cropRatio;
-            var innerHeight = cropRatio < (previewMaxWidth / previewMaxHeight) ? previewMaxHeight : previewMaxWidth / cropRatio;
-
+            var innerWidth = previewMaxWidth;
+            var innerHeight = previewMaxHeight;
 
             innerPreview.css({
                 width: Math.ceil(innerWidth) + 'px',
@@ -92,8 +75,6 @@
 
             });
 
-
-
             //Calculate how much we are shrinking the image inside the preview window
             var scalex = innerWidth / coords.w;
             var scaley = innerHeight / coords.h;
@@ -106,8 +87,6 @@
                 marginTop: '-' + Math.round(scaley * coords.y) + 'px'
             });
 
-
-
             //Calculate the querystring
             var query = '?';
 
@@ -118,19 +97,18 @@
             if (inputHeight.size() > 0 && parseInt(inputHeight.val()) > 1) query += 'maxheight=' + inputHeight.val() + '&';
 
             //Add crop rectangle
-            query += 'crop=(' + coords.x + ',' + coords.y + ',' + coords.x2 + ',' + coords.y2 + ')&cropxunits=' + image.width() + '&cropyunits=' + image.height()
+            query += 'crop=(' + coords.x + ',' + coords.y + ',' + coords.x2 + ',' + coords.y2 + ')&cropxunits=' + image.width() + '&cropyunits=' + image.height();
             //Replace ? and & with ; if using Amazon Cloudfront
             if (cloudFront) query = query.replace(/\?\&/g, ';');
 
             //Now, update the links and input values.
             links.attr('href', path + query);
             inputs.attr('value', path + query);
-
-        }
+        };
 
         //Start up jCrop
-        var jcrop_reference = $.Jcrop(image);
-        jcrop_reference.setOptions({
+        var jcropReference = $.Jcrop(image);
+        jcropReference.setOptions({
             onChange: update,
             onSelect: update,
             aspectRatio: forcedRatio,
@@ -161,6 +139,6 @@ HAI THERE!
 <br/>
 <div class="image-cropper">
     <asp:Image runat="server" ID="uploadedImage" CssClass="image"/>
-    <div class="preview" style="margin-left:100px"></div>
+    <div class="preview" style="margin-left:100px;"></div>
     <a class="result">View the result</a>
 </div>
