@@ -201,5 +201,62 @@ namespace Pitchdea.Specs.Selenium.Steps
             Assert.Throws<NoSuchElementException>(() =>WebBrowser.Current.FindElement(By.Id("MainContent_previewImage")));
         }
 
+        [Given(@"user is not logged in")]
+        public void GivenUserIsNotLoggedIn()
+        {
+            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("loginStatusControl_activeUserLabel")));
+        }
+
+        /// <summary>
+        /// Check that all boxes are hidden
+        /// </summary>
+        [Then(@"title text box is hidden")]
+        public void ThenTitleTextBoxIsHidden()
+        {
+            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("MainContent_titleTextBox")));
+        }
+        
+        [Then(@"summary text box is hidden")]
+        public void ThenSummaryTextBoxIsHidden()
+        {
+            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("MainContent_summaryTextBox")));
+        }
+
+        [Then(@"content text box is hidden")]
+        public void ThenContentTextBoxIsHidden()
+        {
+            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("MainContent_descriptionTextBox")));
+        }
+
+        [Then(@"question text box is hidden")]
+        public void ThenQuestionTextBoxIsHidden()
+        {
+            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("MainContent_questionTextBox")));
+        }
+
+        [Then(@"upload image control is hidden")]
+        public void ThenUploadImageControlIsHidden()
+        {
+            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("MainContent_ImgUpload")));
+        }
+
+        [Then(@"upload image button is hidden")]
+        public void ThenUploadImageButtonIsHidden()
+        {
+            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("MainContent_uploadImageButton")));
+        }
+
+        [Then(@"image preview is hidden")]
+        public void ThenImagePreviewIsHidden()
+        {
+            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("MainContent_previewImage")));
+        }
+
+         [Then(@"create your idea button is hidden")]
+        public void ThenCreateYourIdeaButtonIsHidden()
+        {
+            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("MainContent_createIdeaButton")));
+        }
+
     }
 }

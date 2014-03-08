@@ -141,14 +141,13 @@ Scenario Outline: information is too long
 Scenario: User is not logged
 User is not logged in and when they open the create idea page all the content 
 are hidden and user sees a suggestion to login
-#piilota kaikki ja laita "please login"
-Given user is not logged in
-When the user opens create idea page
-Then idea text box is hidden
-	And summary text box is hidden
-	And content text box is hidden
-	And question text box is hidden
-	And upload image control is hidden
-	And upload picture button is hidden
-	And create your idea button is hidden
-	And error message label is "Please login to submit an idea".
+	Given user is not logged in
+		And page "/createIdeaPage.aspx" is open
+	Then title text box is hidden
+		And summary text box is hidden
+		And content text box is hidden
+		And question text box is hidden
+		And upload image control is hidden
+		And upload image button is hidden
+		And image preview is hidden
+		And create your idea button is hidden
