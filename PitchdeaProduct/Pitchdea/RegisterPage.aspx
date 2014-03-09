@@ -12,6 +12,7 @@
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
     <div class="generalForm">
         <h1>Register</h1>
+        <div class="de-emphasis"><p>Closed beta PreGame registration is only open until 16.3.2014</p></div>
         Email:<br/>
         <asp:TextBox runat="server" ID="emailTextBox"/>
         <br />Username:<br />
