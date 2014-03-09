@@ -674,8 +674,8 @@ nav li {
 
     .loginstatus {
         margin-right: 0px;
-        margin-top: 16px;
-        width: 25%;
+        margin-top: 4px;
+        width: 22%;
         text-align: right;
         font-size: 80%;
     }
@@ -686,14 +686,14 @@ nav li {
     }
 
     .title {
-        width:25%;
+        width:27%;
         font-size:100%;
         margin-top:19px;
     }
 
     nav {
         font-size:90%;
-        width:50%;
+        width:51%;
     }
         nav ul {
             width:167px;
@@ -791,6 +791,32 @@ nav li {
     .oldie nav a {
         margin: 0 0.7%;
     }
+
+        #loginStatusControl_logoutLink {
+        padding: 0px 3px;
+        margin-right: 2px;
+        margin-top: 3px;
+        margin-bottom: 5px;
+        float: right;
+    }
+
+    #loginStatusControl_loginLink {
+        padding: 0px 3px;
+        margin-right: 2px;
+        margin-top: 3px;
+        margin-bottom: 5px;
+        float: right;
+    }
+
+    #loginStatusControl_registerLink {
+        padding: 0px 3px;
+        margin-right: 0px;
+        margin-top: 3px;
+        margin-bottom: 5px;
+        float: right;
+    }
+
+
 }
 
 @media only screen and (min-width: 768px) and (max-width:1139px) {
@@ -821,6 +847,22 @@ nav li {
     }
 
     #loginStatusControl_logoutLink {
+        padding: 0px 5px;
+        margin-right: 5px;
+        margin-top: 3px;
+        margin-bottom: 5px;
+        float: right;
+    }
+
+    #loginStatusControl_loginLink {
+        padding: 0px 5px;
+        margin-right: 5px;
+        margin-top: 3px;
+        margin-bottom: 5px;
+        float: right;
+    }
+
+    #loginStatusControl_registerLink {
         padding: 0px 5px;
         margin-right: 5px;
         margin-top: 3px;
