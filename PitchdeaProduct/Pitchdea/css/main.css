@@ -333,17 +333,19 @@ nav li {
     float:left;
     text-align: center;
     text-decoration: none;
-    font-weight: bold;
-    color: #000;
+    font-weight: 600;
+    color: #333;
 }
 
-    nav a:hover,
-    nav a:visited {
-        color: #777;
+    nav a {
+        text-decoration:none;
     }
 
     nav a:hover {
-        text-decoration: underline;
+        color: #48c9b0;
+    }
+
+    nav a:hover {
     }
 
 /* ==============
@@ -673,37 +675,63 @@ nav li {
     .loginstatus {
         margin-right: 0px;
         margin-top: 16px;
-        width: 12%;
+        width: 25%;
         text-align: right;
         font-size: 80%;
     }
 
+    #MainContent_ideaPanel {
+        width:250px;
+        margin:0 auto;
+    }
+
     .title {
-        width:22%;
+        width:25%;
         font-size:100%;
         margin-top:19px;
     }
 
     nav {
         font-size:90%;
-        width:66%;
+        width:50%;
     }
         nav ul {
-            margin-left:3%;
+            width:167px;
+            margin:0 auto;
         }
 
         nav li {
             padding: 0 2%;
+            clear:right;
         }
+
+    nav li:last-child {
+       clear:none;
+    }
     #loginStatusControl_loggedInAsLabel {
         margin-right: 3px;
         display: none;
     }
 
+    #loginStatusControl_loginLink {
+        padding: 0px 1px;
+        margin-right: 2px;
+        margin-top: 1px;
+        margin-bottom: 5px;
+        float: right;
+    }
+
     #loginStatusControl_logoutLink {
-        padding: 0px 5px;
-        margin-right: 5px;
-        margin-top: 3px;
+        padding: 0px 1px;
+        margin-right: 2px;
+        margin-top: 1px;
+        margin-bottom: 5px;
+        float: right;
+    }
+    #loginStatusControl_registerLink {
+        padding: 0px 1px;
+        margin-right: 2px;
+        margin-top: 1px;
         margin-bottom: 5px;
         float: right;
     }
@@ -726,39 +754,30 @@ nav li {
     .loginstatus {
         margin-right: 0px;
         margin-top: 20px;
-        width: 12%;
+        width: 25%;
         text-align: right;
         font-size: 80%;
     }
 
     .title {
-        margin-left:-15px;
-        width:22%;
+        width:25%;
         font-size:100%;
         margin-top:19px;
     }
 
     nav {
-        width:66%;
+        width:50%;
     }
 
         nav ul {
-            margin:0;
-            margin-left:5%;
+            width:168px;
+            margin:0 auto;
         }
 
     nav li {
         padding:0 2%;
         float: left;
         margin-bottom: 0;
-    }
-
-    nav li:first-child a {
-        margin-left: 0;
-    }
-
-    nav li:last-child a {
-        margin-right: 0;
     }
 
     /* ========================
@@ -782,7 +801,8 @@ nav li {
         padding:0;
     }
         nav ul {
-            margin-left:7%;
+            width:200px;
+            margin:0 auto;
         }
 
         nav li {
