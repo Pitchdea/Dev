@@ -686,21 +686,22 @@ nav li {
     }
 
     .title {
-        width:27%;
-        font-size:100%;
+        width:25%;
+        font-size:80%;
         margin-top:19px;
     }
 
     nav {
-        font-size:90%;
-        width:51%;
+        font-size:70%;
+        width:53%;
     }
         nav ul {
-            width:167px;
+            width:140px;
             margin:0 auto;
         }
 
         nav li {
+            content:"|";
             padding: 0 2%;
             clear:right;
         }
@@ -724,7 +725,7 @@ nav li {
     #loginStatusControl_logoutLink {
         padding: 0px 1px;
         margin-right: 2px;
-        margin-top: 1px;
+        margin-top: 16px;
         margin-bottom: 5px;
         float: right;
     }
@@ -770,7 +771,7 @@ nav li {
     }
 
         nav ul {
-            width:168px;
+            width:145px;
             margin:0 auto;
         }
 

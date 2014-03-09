@@ -136,7 +136,7 @@
 <br/>
 <div>
     <div class="image-cropper">
-        <p>Now drag the cursor over the image to crop a thumbnail for the idea card</p>
+        <p>Now drag the cursor over the image to crop a thumbnail for the idea card (The fullsize picture will still appear on the idea page)</p>
         <div class="cropwrapper">
         <asp:Image runat="server" ID="uploadedImage" CssClass="image"/>
         </div>
