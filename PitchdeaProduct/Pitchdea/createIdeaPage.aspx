@@ -25,7 +25,7 @@
         <br /><asp:Label runat="server" ID="uploadStatusLabel" />
         &nbsp;<asp:Image runat="server" ID="previewImage" />
         <controls:ThumbnailCropControl ID="cropControl" runat="server"/>
-        
+        <br />
         <asp:Button runat="server" ID="createIdeaButton" OnClick="createIdeaButton_OnClick" Text="Create your idea"/>
         <asp:Label runat="server" ID="errorMessage"/>
     </asp:Panel>
