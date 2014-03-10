@@ -18,9 +18,7 @@
         public string Question { get; set; }
         public string Hash { get; set; }
         public string ImagePath { get; set; }
-        //public int Likes { get; set; }
-        public int Likes { get { return 0; }}
-        //public int Dislikes { get; set; }
-        public int Dislikes { get { return 0; }}
+        public int Likes { get; set; }
+        public int Dislikes { get; set; }
     }
 }

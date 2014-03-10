@@ -119,8 +119,8 @@ namespace Pitchdea.Core
             {
                 ImagePath = imagePath,
                 Hash = (string)reader["hash"],
-                //Likes = (int)reader["likes"],
-                //Dislikes = (int)reader["dislikes"]
+                Likes = (int)reader["likes"],
+                Dislikes = (int)reader["dislikes"]
             };
 
             if(reader.Read())

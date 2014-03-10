@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,8 +21,24 @@ namespace Pitchdea
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            var number = GetNumber();
+            var number = IncreaseLikes();
             ajaxLabel1.Text = number.ToString();
+        }
+
+        private int IncreaseLikes()
+        {
+            var connection = new MySqlConnection(SqlToolFactory.ConnectionString);
+            connection.Open();
+            var command = new MySqlCommand(
+                "IncreaseLikesTest",
+                connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("ideaID", MySqlDbType.Int32).Value = 18;
+
+            var result = command.ExecuteScalar();
+            connection.Close();
+
+            return (int)result;
         }
 
         private static int GetNumber()
