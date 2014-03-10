@@ -43,6 +43,13 @@ namespace Pitchdea.Core
         /// <returns>Updated number of likes.</returns>
         int Like(int ideaId, int userId);
 
+        /// <summary>
+        /// Increases the dislike count on the idea by one and marks that the user has disliked the idea.
+        /// </summary>
+        /// <param name="ideaId">ID of the idea</param>
+        /// <param name="userId">ID of the user</param>
+        /// <returns>Updated number of dislikes.</returns>
+        int Dislike(int ideaId, int userId);
 
         /// <summary>
         /// Gets the information about likes from this user on this idea.

@@ -38,7 +38,7 @@ CREATE TABLE `idea` (
   PRIMARY KEY (`id`),
   KEY `Id_idx` (`userId`),
   CONSTRAINT `Id` FOREIGN KEY (`userId`) REFERENCES `user` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=260 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=272 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `likes` (
   KEY `UserId_idx` (`userId`),
   CONSTRAINT `IdeaId` FOREIGN KEY (`ideaId`) REFERENCES `idea` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `UserId` FOREIGN KEY (`userId`) REFERENCES `user` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +92,7 @@ CREATE TABLE `user` (
   `salt` char(44) NOT NULL,
   `password` char(44) NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=13733 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13745 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,6 +113,26 @@ BEGIN
 ##UPDATE images SET counter=counter+1 WHERE image_id=15
 UPDATE test SET integerNumber = integerNumber+1 WHERE id = ideaID;
 SELECT integerNumber FROM test WHERE id = ideaID;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `IncrementDislikes` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `IncrementDislikes`(IN ideaID INT)
+BEGIN
+UPDATE idea SET dislikes = dislikes+1 WHERE id = ideaID;
+SELECT dislikes FROM idea WHERE id = ideaID;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -149,4 +169,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-03-10 16:49:33
+-- Dump completed on 2014-03-10 17:00:02

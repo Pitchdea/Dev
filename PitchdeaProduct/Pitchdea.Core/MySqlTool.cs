@@ -78,16 +78,36 @@ namespace Pitchdea.Core
 
         public int Like(int ideaId, int userId)
         {
+            return InsertLike(ideaId, userId, 1);
+        }
+        
+        public int Dislike(int ideaId, int userId)
+        {
+            return InsertLike(ideaId, userId, -1);
+        }
+
+        private int InsertLike(int ideaId, int userId, int likeValue)
+        {
             var likeInfo = GetLikeStatus(ideaId, userId);
             if (likeInfo == LikeStatus.Like || likeInfo == LikeStatus.Dislike)
-                throw new Exception("The user alreaydy likes this idea.");
-
+                throw new Exception("The user alreaydy likes/dislikes this idea.");
             _connection.Open();
 
-            var command = new MySqlCommand("IncrementLikes", _connection)
+            MySqlCommand command;
+            if (likeValue == 1)
             {
-                CommandType = CommandType.StoredProcedure
-            };
+                command = new MySqlCommand("IncrementLikes", _connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+            }
+            else
+            {
+                command = new MySqlCommand("IncrementDislikes", _connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+            }
 
             command.Parameters.Add("ideaID", MySqlDbType.Int32).Value = ideaId;
             command.Prepare();
@@ -97,14 +117,14 @@ namespace Pitchdea.Core
                 "INSERT INTO likes (likevalue, ideaId, userId) VALUES (@likevalue, @ideaId, @userID);",
                 _connection);
 
-            command2.Parameters.Add("@likevalue", MySqlDbType.Int16).Value = 1;
+            command2.Parameters.Add("@likevalue", MySqlDbType.Int16).Value = likeValue;
             command2.Parameters.Add("@ideaId", MySqlDbType.Int32).Value = ideaId;
             command2.Parameters.Add("@userID", MySqlDbType.Int32).Value = userId;
 
             command2.Prepare();
 
             command2.ExecuteNonQuery();
-            
+
             _connection.Close();
 
             return (int) result;
