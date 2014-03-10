@@ -24,7 +24,7 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _01_InsertRowAndRemoveRow()
         {
-            _sqlTestTool.CleanTable("test");
+            _sqlTestTool.CleanTestDb();
 
             const int integerNumber = 2;
             const string textString = "asd";
@@ -67,14 +67,12 @@ namespace Pitchdea.Core.Test
             var result4 = _mySqlTool.ExecuteNonQuery(query4);
 
             Assert.AreEqual(1, result4);
-
-            _sqlTestTool.CleanTable("test");
         }
         
         [Test]
         public void _02_QueryEmptyTable()
         {
-            _sqlTestTool.CleanTable("test");
+            _sqlTestTool.CleanTestDb();
 
             const int integerNumber = 2;
             const string textString = "asd";
@@ -103,15 +101,12 @@ namespace Pitchdea.Core.Test
             var result4 = _mySqlTool.ExecuteNonQuery(query4);
 
             Assert.AreEqual(0, result4);
-
-            _sqlTestTool.CleanTable("test");
         }
 
         [Test]
         public void _03_InsertAndFetchIdea()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             const string title = "qwerty";
             const string summary = "asdf";
@@ -119,16 +114,12 @@ namespace Pitchdea.Core.Test
             const string question = "Question?";
 
             InsertAndFetch(title, summary, description, question);
-            
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
         }
         
         [Test]
         public void _04_InsertAndFetchIdea_SpecialCharacters()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             const string title = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\nn \t asd";
             const string summary = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\nn \t asd";
@@ -136,16 +127,12 @@ namespace Pitchdea.Core.Test
             const string question = "`?=)(/&%¤#\"!@£$€{[]} \\ ~*'^ <> \r\n \t asd";
 
             InsertAndFetch(title, summary, description, question);
-            
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
         }
 
         [Test]
         public void _05_TryToFetchIdeaThatDoesNotExist()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             var idea = _mySqlTool.FetchIdea("hash123");
             Assert.Null(idea);
@@ -154,8 +141,7 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _06_FindUserById()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
             
             const string username = "test";
             const string email = "test@pitchdea.com";
@@ -172,8 +158,7 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _07_InsertAndFetchIdea_Multiline()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             const string title = "Multi-line";
             const string summary = "line1\r\nline2";
@@ -186,8 +171,7 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _08_InsertAndFetchIdea_WithImage()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             const string title = "Multi-line";
             const string summary = "line1\r\nline2";
@@ -202,8 +186,7 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _09_InsertMultipleIdeasAndFetchAll()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             const string username = "test";
             const string email = "test@pitchdea.com";

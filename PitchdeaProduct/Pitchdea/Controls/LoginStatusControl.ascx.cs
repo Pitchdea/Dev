@@ -40,12 +40,12 @@ namespace Pitchdea.Controls
 
         protected void registerLink_OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/registerPage.aspx?url=" + Request.Url);
+            Response.Redirect("~/registerPage.aspx?navUrl=" + Request.Url);
         }
 
         protected void loginLink_OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/loginPage.aspx?url=" + Request.Url);
+            Response.Redirect("~/loginPage.aspx?navUrl=" + Request.Url);
         }
     }
 }

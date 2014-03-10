@@ -1,8 +1,7 @@
 ﻿Feature: Login status control
 
 Background: 
-	Given "idea" table is empty at first
-		And "user" table is empty at first
+	Given test database is empty at first
 
 Scenario: User is logged in
 
@@ -15,7 +14,7 @@ Scenario: User is logged in
 	When user clicks "Logout" link
 		Then user is not logged in
 		
-Scenario Outline: User is not logged in
+Scenario Outline: User is not logged in right now
 	
 	Given page "/mainPage.aspx" is open
 	Then "Login" link should be on the page
@@ -25,9 +24,9 @@ Scenario Outline: User is not logged in
 		Then page "<page>" is open
 
 	Examples: 
-	| link     | page               |
-	| Login    | /loginPage.aspx    |
-	| Register | /registerPage.aspx |
+	| link     | page                                                           |
+	| Login    | /loginPage.aspx?navUrl=http://localhost:28231/mainPage.aspx    |
+	| Register | /registerPage.aspx?navUrl=http://localhost:28231/mainPage.aspx |
 
 Scenario: user logs in and is redirected back to previous page
 User is not logged in and they are on create idea page, when they click log in and succesfully complete it,
@@ -38,7 +37,7 @@ they are redirected back to the idea creation page.
 		And page "/createIdeaPage.aspx" is open
 	When user clicks "Login" link
 #loginpage
-	Then page "/loginPage.aspx?url=http://localhost:28231/createIdeaPage.aspx" is open
+	Then page "/loginPage.aspx?navUrl=http://localhost:28231/createIdeaPage.aspx" is open
 		When I fill email field with "test@pitchdea.com"
 		And I fill password field with "password123" 
 		And I click login button
@@ -56,7 +55,7 @@ they are redirected back to the idea creation page.
 		And page "/createIdeaPage.aspx" is open
 	When user clicks "Register" link
 #loginpage
-	Then page "/registerPage.aspx?url=http://localhost:28231/createIdeaPage.aspx" is open
+	Then page "/registerPage.aspx?navUrl=http://localhost:28231/createIdeaPage.aspx" is open
 		When I fill email field with "test@pitchdea.com"
 		And I fill username field with "test"
 		And I fill password field with "password123" 

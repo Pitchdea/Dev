@@ -1,8 +1,7 @@
 ﻿Feature: Show all ideas on the page
 
 Background: 
-	Given "idea" table is empty at first
-		And "user" table is empty at first
+	Given test database is empty at first
 
 #TODO: separate idea insertion and registeration into different steps
 Scenario: All 3 ideas are shown

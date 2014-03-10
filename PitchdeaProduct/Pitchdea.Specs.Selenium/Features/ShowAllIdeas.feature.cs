@@ -68,9 +68,7 @@ namespace Pitchdea.Specs.Selenium.Features
         {
 #line 3
 #line 4
- testRunner.Given("\"idea\" table is empty at first", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 5
-  testRunner.And("\"user\" table is empty at first", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("test database is empty at first", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
@@ -79,24 +77,24 @@ namespace Pitchdea.Specs.Selenium.Features
         public virtual void All3IdeasAreShown()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All 3 ideas are shown", ((string[])(null)));
-#line 8
+#line 7
 this.ScenarioSetup(scenarioInfo);
 #line 3
 this.FeatureBackground();
-#line 9
+#line 8
  testRunner.Given("an idea exists with values: \"title1\",\"summary1\",\"summary1\",\"question1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 10
+#line 9
   testRunner.And("an idea exists with values: \"title2\",\"summary2\",\"summary2\",\"question2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 11
+#line 10
   testRunner.And("an idea with image exists with values: \"title3\",\"testImage.jpg\",\"summary3\",\"summa" +
                     "ry3\",\"question3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
+#line 11
   testRunner.And("page \"mainPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 13
+#line 12
  testRunner.Then("idea with \"title1\" should be on the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 14
+#line 13
   testRunner.And("idea with \"title2\" should be on the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
+#line 14
   testRunner.And("idea with \"title3\" should be on the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -107,17 +105,17 @@ this.FeatureBackground();
         public virtual void OpenAnIdea()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open an idea", ((string[])(null)));
-#line 17
+#line 16
 this.ScenarioSetup(scenarioInfo);
 #line 3
 this.FeatureBackground();
-#line 18
+#line 17
  testRunner.Given("an idea exists with values: \"title1\",\"summary1\",\"summary1\",\"question1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 19
+#line 18
   testRunner.And("page \"mainPage.aspx\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
+#line 19
  testRunner.When("I click idea \"title1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 21
+#line 20
  testRunner.Then("page title is \"title1\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

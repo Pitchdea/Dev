@@ -2,8 +2,7 @@
 	The user can login into the service.
 
 Background: 
-	Given "idea" table is empty at first
-		And "user" table is empty at first
+	Given test database is empty at first
 		And user "test" with email "test@pitchdea.com" with password "password123" exists in the database
 		And page "/loginPage.aspx" is open
 

@@ -14,44 +14,45 @@
         <asp:Panel runat="server" ID="ideaNotFoundPanel">
             Idea not found...
         
-        <a href="mainPage.aspx">Return to main page.</a>
+            <a href="mainPage.aspx">Return to main page.</a>
         </asp:Panel>
+        
+        <asp:Panel runat="server" ID="ideaPanel">
+            <div class="ideaImage">
+                <asp:Image runat="server" ID="ideaImage" />
+            </div>
+            <div class="ideatextwrapper">
+                <div class="ideaTitle">
+                    <h1>
+                        <asp:Label runat="server" ID="titleLabel" /></h1>
+                </div>
+                <div class="ideaSummary">
+                    <h3>
+                        <asp:Label runat="server" ID="summaryLabel" /></h3>
+                </div>
+                <div class="ideaDescription">
+                    <asp:Label runat="server" ID="descriptionLabel" />
+                </div>
+                <div class="ideaQuestion">
+                    <h3>
+                        <asp:Label runat="server" ID="questionLabel" /></h3>
+                </div>
 
-        <asp:Label runat="server" ID="statusMessage" />
-        <div class="ideaImage">
-            <asp:Image runat="server" ID="ideaImage" />
-        </div>
-        <div class="ideatextwrapper">
-            <div class="ideaTitle">
-                <h1>
-                    <asp:Label runat="server" ID="titleLabel" /></h1>
-            </div>
-            <div class="ideaSummary">
-                <h3>
-                    <asp:Label runat="server" ID="summaryLabel" /></h3>
-            </div>
-            <div class="ideaDescription">
-                <asp:Label runat="server" ID="descriptionLabel" />
-            </div>
-            <div class="ideaQuestion">
-                <h3>
-                    <asp:Label runat="server" ID="questionLabel" /></h3>
-            </div>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <div class="ideabuttons">
+                            <asp:Button ID="noButton" runat="server" CssClass="nobutton" OnClick="noButton_OnClick" Text="Like"/>
+                            <asp:Button ID="yesButton" runat="server" CssClass="yesbutton" Text="Dislike"/>
+    	      	            <asp:label runat="server" ID="ideaLikeLabel" CssClass="idealikes" /> Likes
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
 
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <ContentTemplate>
-                    <div class="ideabuttons">
-                        <asp:Button ID="noButton" runat="server" CssClass="nobutton" OnClick="noButton_OnClick"/>
-                        <asp:Button ID="yesButton" runat="server" CssClass="yesbutton"/>
-    	      	        <asp:label runat="server" ID="ideaLikeLabel" CssClass="idealikes" />
-                    </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
-
-            <asp:Panel runat="server" CssClass="ideaOwner" ID="ideaOwnerPanel">
-                Idea owner: &nbsp;
-                <asp:Label runat="server" ID="ideaOwner" />
-            </asp:Panel>
-        </div>
+                <asp:Panel runat="server" CssClass="ideaOwner" ID="ideaOwnerPanel">
+                    Idea owner: &nbsp;
+                    <asp:Label runat="server" ID="ideaOwner" />
+                </asp:Panel>
+            </div>
+        </asp:Panel>
     </div>
 </asp:Content>

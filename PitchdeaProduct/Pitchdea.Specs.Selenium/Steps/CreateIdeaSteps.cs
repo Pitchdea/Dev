@@ -258,5 +258,13 @@ namespace Pitchdea.Specs.Selenium.Steps
             Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("MainContent_createIdeaButton")));
         }
 
+         [When(@"I click done button")]
+         public void WhenIClickDoneButton()
+         {
+             IWebElement uploadButton = WebBrowser.Current.FindElement(By.Id("MainContent_cropControl_doneButton"));
+             uploadButton.Click();
+             Thread.Sleep(1000);
+         }
+
     }
 }

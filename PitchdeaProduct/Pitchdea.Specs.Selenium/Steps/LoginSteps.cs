@@ -12,13 +12,13 @@ namespace Pitchdea.Specs.Selenium.Steps
     [Binding]
     public class LoginSteps
     {
-        [Given(@"the user database is empty first")]
-        public void GivenTheUserDatabaseIsEmptyFirst()
+        [Given(@"test database is empty at first")]
+        public void GivenTestDatabaseIsEmptyAtFirst()
         {
-            var sqlTool = new SqlTestTool();
-            sqlTool.CleanTable("user");
+            var tool = new SqlTestTool();
+            tool.CleanTestDb();
         }
-
+        
         [Given(@"user ""(.*)"" with email ""(.*)"" with password ""(.*)"" exists in the database")]
         public void GivenUserWithPasswordExistsInTheDatabase(string username, string email, string password)
         {

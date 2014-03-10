@@ -45,6 +45,8 @@ namespace Pitchdea
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            previewImage.Visible = false;
+
             if (Session["userId"] == null)
             {
                 HideAll();
@@ -101,7 +103,6 @@ namespace Pitchdea
 
         private void LoadPreviewImage()
         {
-            previewImage.Visible = false;
             if (UploadedImage != null)
             {
                 //TODO: maybe show both preview of uploaded image and preview of cropped thumbnail?

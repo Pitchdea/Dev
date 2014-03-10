@@ -2,8 +2,7 @@
 	User creates an idea.
 
 Background: 
-	Given "idea" table is empty at first
-		And "user" table is empty at first
+	Given test database is empty at first
 
 Scenario Outline: user submits an idea
 	Given user is logged in as "test user"
@@ -71,6 +70,7 @@ Scenario Outline: user submits an idea WITH image.
 		And I fill idea question "<question>"
 	When I choose to upload a picture "testImage.jpg" 
 		And I click upload image button
+		And I click done button
 	Then I get an Ok message "Your image was uploaded successfully."
 	When I click create idea button
 	Then page title is "<title>" followed by " | Pitchdea"
@@ -92,6 +92,7 @@ Scenario: image preview
 	Then image preview should not be shown
 	When I choose to upload a picture "testImage.jpg" 
 		And I click upload image button
+		And I click done button
 	Then image preview should be shown
 
 Scenario Outline: information is missing

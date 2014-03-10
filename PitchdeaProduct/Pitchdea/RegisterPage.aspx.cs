@@ -64,7 +64,7 @@ namespace Pitchdea
             //User is logged in
             Session["userID"] = userInfo.UserId;
             Session["username"] = userInfo.Username;
-            Response.Redirect(Request["url"] ?? "mainPage.aspx");
+            Response.Redirect(Request["navUrl"] ?? "mainPage.aspx");
         }
     }
 }

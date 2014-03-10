@@ -2,8 +2,7 @@
 	User views an idea 
 
 Background: 
-	Given "idea" table is empty at first
-		And "user" table is empty at first
+	Given test database is empty at first
 
 Scenario Outline: Idea is viewed
 	Given an idea exists with values: "<titlelabel>","<summarylabel>","<descriptionlabel>","<questionLabel>" and the page for that idea is open.

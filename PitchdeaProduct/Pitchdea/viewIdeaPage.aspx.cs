@@ -15,17 +15,28 @@ namespace Pitchdea
         protected void Page_Load(object sender, EventArgs e)
         {
             _idea = FindIdea();
-            _userId = (int)Session["userId"];
 
             if (_idea == null)
             {
-                titleLabel.Visible = false;
-                summaryLabel.Visible = false;
-                descriptionLabel.Visible = false;
-                questionLabel.Visible = false;
-                ideaOwnerPanel.Visible = false;
-                ideaImage.Visible = false;
+                ideaPanel.Visible = false;
                 return;
+            }
+
+            if (Session["userId"] != null)
+            {
+                _userId = (int) Session["userId"];
+                if (_userId == _idea.UserId)
+                {
+                    //User is the idea owner
+                }
+                else
+                {
+                    //User is logged in but is not the owner
+                }
+            }
+            else
+            {
+                //User is not logged in
             }
 
             ideaNotFoundPanel.Visible = false;

@@ -21,8 +21,7 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _01_SanityCheck()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             const string pw = "123123";
             _auth.RegisterNewUser("test","testi@testi.com", pw);
@@ -31,8 +30,7 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _02_IterateRandomPasswords()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             var random = new Random();
 
@@ -55,8 +53,7 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _03_RegisterAndAuthenticate_WithUserName()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             const string email = "testi@testi.com";
             const string username = "test";
@@ -74,8 +71,7 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _04_RegisterAndAuthenticate_WithEmail()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             const string email = "testi@testi.com";
             const string username = "test";
@@ -93,8 +89,7 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _05_CheckIfUsernameExists()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             const string email = "testi@testi.com";
             const string username = "test";
@@ -115,8 +110,7 @@ namespace Pitchdea.Core.Test
         [Test]
         public void _05_CheckIfEmailExists()
         {
-            _sqlTestTool.CleanTable("idea");
-            _sqlTestTool.CleanTable("user");
+            _sqlTestTool.CleanTestDb();
 
             const string email = "testi@testi.com";
             const string username = "test";

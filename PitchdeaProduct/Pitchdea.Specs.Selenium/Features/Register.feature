@@ -4,8 +4,7 @@
 
 
 Background: 
-	Given "idea" table is empty at first
-		And "user" table is empty at first
+	Given test database is empty at first
 		And page "/RegisterPage.aspx" is open
 
 Scenario: User registers succesfully by clicking
