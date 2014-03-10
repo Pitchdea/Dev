@@ -15,85 +15,85 @@ Scenario: User likes an idea
 
 	When I click the like button
 	Then number of likes is "1"
-		And the like button is active
+#		And the like button is active
 	When I refresh the page
 	Then number of likes is "1"
-		And the like button is active
+#		And the like button is active
 
 
 Scenario: User dislikes an idea
 	
 	When I click the dislike button
-	Then the dislike button is active
+#	Then the dislike button is active
 	When I refresh the page
-	Then the dislike button is active
+#	Then the dislike button is active
+	When I refresh the page
+	Then number of likes is "0"
+#		And the dislike button is active
+
 
 Scenario: User unlikes an idea without refresh
 
 	When I click the like button
 	Then number of likes is "1"
-		And the like button is active
+#		And the like button is active
 	When I click the like button
 	Then number of likes is "0"
-		And the like button is inactive
+#		And the like button is inactive
 	When I refresh the page
 	Then number of likes is "0"
-		And the like button is inactive
+#		And the like button is inactive
 	
 
 Scenario: User unlikes an idea with refresh
 
 	When I click the like button
 	Then number of likes is "1"
-		And the like button is active
+#		And the like button is active
 	When I refresh the page
 	Then number of likes is "1"
-		And the like button is active
+#		And the like button is active
 	When I click the like button
 	Then number of likes is "0"
-		And the like button is inactive
+#		And the like button is inactive
 	When I refresh the page
 	Then number of likes is "0"
-		And the like button is inactive
+#		And the like button is inactive
+
 
 Scenario: User un-dislikes an idea
 	
 	When I click the dislike button
 	Then number of dislikes in database is "1"
-		And the dislike button is active
+#		And the dislike button is active
 	When I click the dislike button
 	Then number of dislikes in database is "0"
-		And the dislike button is inactive
+#		And the dislike button is inactive
 	When I refresh the page
 	Then number of dislikes in database is "0"
-		And the dislike button is inactive 
-#Scenario: User un-dislikes an idea
-#
-#	When I click the dislike button
-#	Then the dislike button is active
-#	When I click the dislike button
-#	Then the dislike button is inactive
+#		And the dislike button is inactive 
+
 
 Scenario: Dislike -> Like
 	
 	Given number of dislikes in database is "1"
-		And dislike button is active
+#		And dislike button is active
 	When I click the like button 
 	Then number of dislikes in database is "0"
 		And number of likes is "1"
-		And like button is active 
-		And dislike button is inactive
+#		And like button is active 
+#		And dislike button is inactive
 
 
 Scenario: Like -> Dislike
 
 	Given number of likes is "1"
-		And like button is active
+#		And like button is active
 	When I click the dislike button 
 	Then number of likes is "0"
 		And number of dislikes in database is "1"
-		And dislike button is active 
-		And like button is inactive
+#		And dislike button is active 
+#		And like button is inactive
 	
 
 #Scenario: User opens their own idea
