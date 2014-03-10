@@ -214,7 +214,10 @@ namespace Pitchdea
             // Ads the milliseconds and the file extension to the filename.
             var ownerId = Session["userId"];
             if (ownerId == null)
-                throw new Exception("User is not logged in.");
+            {
+                errorMessage.Text = "Something went wrong. Please refresh the page and make sure you are logged in.";
+                return;
+            }
             string fileName = ownerId + timeNow + fExtension;
 
             // Gets the file upload location.
@@ -230,24 +233,5 @@ namespace Pitchdea
             cropControl.UpdateImage();
             cropControl.Visible = true;
         }
-
-        //private void ShowImageThumbnailCropper()
-        //{
-        //    if (UploadedImage != null)
-        //    {
-        //        ThumbnailCropControl.Image = UploadedImage;
-        //        ThumbnailCropControl.Visible = true;
-        //        thumbnailControlPlaceholder.Controls.Add(ThumbnailCropControl);
-        //    }
-        //    else
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
-
-        //private void HideImageThumbnailCropper()
-        //{
-        //    ThumbnailCropControl.Visible = false;
-        //}
     }
 }
