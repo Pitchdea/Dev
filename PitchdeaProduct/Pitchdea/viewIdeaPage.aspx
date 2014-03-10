@@ -38,9 +38,9 @@
                     <asp:Label runat="server" ID="questionLabel" /></h3>
             </div>
             <div class="ideabuttons">
-               	<asp:Button ID="nobutton" runat="server" CssClass="nobutton"></asp:Button>
-               	<asp:Button ID="yesbutton" runat="server" CssClass="yesbutton"></asp:Button>
-    	      	<asp:label runat="server" ID="idealikes" CssClass="idealikes" />
+               	<asp:Button ID="noButton" runat="server" CssClass="nobutton"></asp:Button>
+               	<asp:Button ID="yesButton" runat="server" CssClass="yesbutton"></asp:Button>
+    	      	<asp:label runat="server" ID="ideaLikeLabel" CssClass="idealikes" />
             </div>
             <asp:Panel runat="server" CssClass="ideaOwner" ID="ideaOwnerPanel">
                 Idea owner: &nbsp;

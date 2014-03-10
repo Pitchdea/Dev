@@ -17,6 +17,8 @@
         public string Description { get; set; }
         public string Question { get; set; }
         public string Hash { get; set; }
-        public string ImagePath { get; set; } //TODO SQL stuff and constructor
+        public string ImagePath { get; set; }
+        public int Likes { get; set; }
+        public int Dislikes { get; set; }
     }
 }

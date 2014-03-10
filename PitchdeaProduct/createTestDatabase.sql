@@ -33,10 +33,12 @@ CREATE TABLE `idea` (
   `question` varchar(90) NOT NULL,
   `imagePath` varchar(45) DEFAULT NULL,
   `userId` int(11) NOT NULL,
+  `likes` int(11) NOT NULL DEFAULT '0',
+  `dislikes` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `Id_idx` (`userId`),
   CONSTRAINT `Id` FOREIGN KEY (`userId`) REFERENCES `user` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,7 +55,7 @@ CREATE TABLE `test` (
   `floatNumber` float DEFAULT NULL,
   `doubleNumber` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +72,7 @@ CREATE TABLE `user` (
   `salt` char(44) NOT NULL,
   `password` char(44) NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=12511 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13718 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -82,4 +84,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-03-06 14:57:54
+-- Dump completed on 2014-03-10 10:23:27

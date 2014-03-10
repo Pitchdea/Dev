@@ -99,7 +99,7 @@ namespace Pitchdea.Core
             _connection.Open();
 
             var command = new MySqlCommand(
-                "SELECT hash, title, summary, description, question, imagePath, userId FROM idea WHERE hash=@hash;",
+                "SELECT hash, title, summary, description, question, imagePath, userId, likes, dislikes FROM idea WHERE hash=@hash;",
                 _connection);
 
             command.Parameters.Add("@hash", MySqlDbType.String).Value = ideaHash;
@@ -118,7 +118,9 @@ namespace Pitchdea.Core
             var idea = new Idea((int)reader["userId"], (string)reader["title"], (string)reader["summary"], (string)reader["description"], (string)reader["question"])
             {
                 ImagePath = imagePath,
-                Hash = (string)reader["hash"]
+                Hash = (string)reader["hash"],
+                Likes = (int)reader["likes"],
+                Dislikes = (int)reader["dislikes"]
             };
 
             if(reader.Read())

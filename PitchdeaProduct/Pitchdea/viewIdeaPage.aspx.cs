@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Web.UI;
 using Pitchdea.Core;
 using Pitchdea.Core.Model;
@@ -45,6 +46,7 @@ namespace Pitchdea
             descriptionLabel.Text = idea.Description.Replace(Environment.NewLine, "<br />");
             questionLabel.Text = idea.Question.Replace(Environment.NewLine, "<br />");
             ideaOwner.Text = _sqlTool.FindUsername(idea.UserId);
+            ideaLikeLabel.Text = idea.Likes.ToString(CultureInfo.InvariantCulture);
         }
 
         private Idea FindIdea()

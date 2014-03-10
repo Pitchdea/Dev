@@ -69,7 +69,6 @@
     <Content Include="css\main.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\normalize.min.css" />
-    <Content Include="default.aspx" />
     <Content Include="img\ideaImages\defaultIdeaImage.jpg" />
     <Content Include="img\ideaImages\testImage.jpg" />
     <Content Include="js\jquery.color.js" />
@@ -111,13 +110,6 @@
     </Compile>
     <Compile Include="createIdeaPage.aspx.designer.cs">
       <DependentUpon>createIdeaPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="default.aspx.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="default.aspx.designer.cs">
-      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="loginPage.aspx.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
