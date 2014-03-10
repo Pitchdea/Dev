@@ -69,10 +69,10 @@ namespace Pitchdea.Core
         public UserInfo RegisterNewUser(string user, string email, string password)
         {
             if (CheckIfUsernameExists(user))
-                throw new Exception("Username \"" + user + "\" alreaydy exists." );
+                throw new Exception("Username \"" + user + "\" already exists." );
 
             if (CheckIfEmailExists(email))
-                throw new Exception("Email \"" + email + "\" alreaydy exists.");
+                throw new Exception("Email \"" + email + "\" already exists.");
 
             var salt = GenerateNewSalt();
             var passwordHash = CreateHash(password, salt);

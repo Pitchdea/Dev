@@ -50,7 +50,7 @@ namespace Pitchdea.Core
             _connection.Open();
 
             var commnad = new MySqlCommand(
-                "SELECT hash, title, summary, description, question, imagePath, userId FROM idea",
+                "SELECT id, hash, title, summary, description, question, imagePath, userId, likes, dislikes FROM idea",
                 _connection
                 );
 
@@ -66,7 +66,10 @@ namespace Pitchdea.Core
                 var idea = new Idea((int)reader["userId"], (string)reader["title"], (string)reader["summary"], (string)reader["description"], (string)reader["question"])
                 {
                     ImagePath = imagePath,
-                    Hash = (string)reader["hash"]
+                    Hash = (string)reader["hash"],
+                    Likes = (int)reader["likes"],
+                    Dislikes = (int)reader["dislikes"],
+                    Id = (int)reader["id"]
                 };
                 ideas.Add(idea);
             }
@@ -90,7 +93,7 @@ namespace Pitchdea.Core
         {
             var likeInfo = GetLikeStatus(ideaId, userId);
             if (likeInfo == LikeStatus.Like || likeInfo == LikeStatus.Dislike)
-                throw new Exception("The user alreaydy likes/dislikes this idea.");
+                throw new Exception("The user already likes/dislikes this idea.");
             _connection.Open();
 
             MySqlCommand command;

@@ -22,8 +22,8 @@ namespace Pitchdea.Specs.Selenium.Steps
         [Given(@"an idea exists with values: ""(.*)"",""(.*)"",""(.*)"",""(.*)"" and the page for that idea is open\.")]
         public void GivenAnIdeaExistsWithValuesAndThePageForThatIdeaIsOpen_(string title, string summary, string description, string question)
         {
-            const string username = "test";
-            const string email = "test@pitchdea.com";
+            const string username = "test2";
+            const string email = "test2@pitchdea.com";
             const string password = "password123";
 
             var auth = new Authenticator(SqlTestTool.TestConnectionString);

@@ -94,15 +94,6 @@ namespace Pitchdea {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// noButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button noButton;
-        
-        /// <summary>
         /// yesButton control.
         /// </summary>
         /// <remarks>
@@ -110,6 +101,15 @@ namespace Pitchdea {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button yesButton;
+        
+        /// <summary>
+        /// noButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button noButton;
         
         /// <summary>
         /// ideaLikeLabel control.

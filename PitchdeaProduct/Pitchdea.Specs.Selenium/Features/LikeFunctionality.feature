@@ -2,9 +2,7 @@
 User can like and dislike ideas, except their own. The amount of likes is shown on the viewidea page.
 
 Background: 
-	Given "idea" table is empty at first
-		And "user" table is empty at first
-		And page "\viewIdeaPage.aspx" is open
+	Given test database is empty at first
 		And user is logged in as "test"
 		And an idea exists with values: "<titlelabel>","<summarylabel>","<descriptionlabel>","<questionLabel>" and the page for that idea is open.
 	Then page title is "<titlelabel>" followed by " | Pitchdea"
@@ -77,7 +75,7 @@ Scenario: User un-dislikes an idea
 
 Scenario: Dislike -> Like
 	
-	Given number of dislikes in database is "1"
+	Then number of dislikes in database is "1"
 #		And dislike button is active
 	When I click the like button 
 	Then number of dislikes in database is "0"
@@ -88,7 +86,7 @@ Scenario: Dislike -> Like
 
 Scenario: Like -> Dislike
 
-	Given number of likes is "1"
+	Then number of likes is "1"
 #		And like button is active
 	When I click the dislike button 
 	Then number of likes is "0"

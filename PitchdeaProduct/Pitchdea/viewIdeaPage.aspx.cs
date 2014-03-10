@@ -71,9 +71,13 @@ namespace Pitchdea
 
         protected void noButton_OnClick(object sender, EventArgs e)
         {
-            //TODO
-            //int likes = _sqlTool.Like(_idea.Id, _userId);
-            //ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
+            var dislikes = _sqlTool.Dislike(_idea.Id, _userId);
+        }
+
+        protected void yesButton_OnClick(object sender, EventArgs e)
+        {
+            int likes = _sqlTool.Like(_idea.Id, _userId);
+            ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
         }
     }
 }
