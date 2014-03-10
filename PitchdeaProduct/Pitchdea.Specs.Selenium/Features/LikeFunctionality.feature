@@ -55,8 +55,18 @@ Scenario: User unlikes an idea with refresh
 	When I refresh the page
 	Then number of likes is "0"
 		And the like button is inactive
-	
 
+Scenario: User un-dislikes an idea
+	
+	When I click the dislike button
+	Then number of dislikes is "1"
+		And the dislike button is active
+	When I click the dislike button
+	Then number of dislikes is "0"
+		And the dislike button is inactive
+	When I refresh the page
+	Then number of dislikes is "0"
+		And the dislike button is inactive 
 #Scenario: User un-dislikes an idea
 #
 #	When I click the dislike button
@@ -64,6 +74,33 @@ Scenario: User unlikes an idea with refresh
 #	When I click the dislike button
 #	Then the dislike button is inactive
 
+Scenario: Dislike -> Like
+	
+	Given number of dislikes is "1"
+		And dislike button is active
+	When I click the like button 
+	Then number of dislikes is "0"
+		And number of likes is "1"
+		And like button is active 
+		And dislike button is inactive
+
+#Scenario: User opens an idea which he has disliked and likes it.
+#	Given dislike button is active
+#		And number of dislikes is "1"
+#	When the user clicks the like button
+#	Then number of dislikes is "0"
+#		And number of likes is "1"
+#		And like button is active
+
+Scenario: Like -> Dislike
+
+	Given number of likes is "1"
+		And like button is active
+	When I click the dislike button 
+	Then number of likes is "0"
+		And number of dislikes is "1"
+		And dislike button is active 
+		And like button is inactive
 
 #Scenario: User opens an idea which he has already liked and dislikes it.
 #User opens and idea he has liked, and is allowed to dislike it instead
@@ -74,15 +111,8 @@ Scenario: User unlikes an idea with refresh
 #	Then number of likes is "0"
 #		And number of dislikes is "1"
 #		And the dislike button is active
-#
-#Scenario: User opens an idea which he has disliked and likes it.
-#	Given dislike button is active
-#		And number of dislikes is "1"
-#	When the user clicks the like button
-#	Then number of dislikes is "0"
-#		And number of likes is "1"
-#		And like button is active
-#
+
+
 #Scenario: User opens their own idea
 #	When user opens their own idea
 #	Then like button is hidden 
