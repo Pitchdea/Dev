@@ -29,11 +29,13 @@ namespace Pitchdea
         {
             var connection = new MySqlConnection(SqlToolFactory.ConnectionString);
             connection.Open();
+            var id = GetID(connection);
+
             var command = new MySqlCommand(
                 "IncreaseLikesTest",
                 connection);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("ideaID", MySqlDbType.Int32).Value = 18;
+            command.Parameters.Add("ideaID", MySqlDbType.Int32).Value = id;
 
             var result = command.ExecuteScalar();
             connection.Close();
@@ -41,12 +43,21 @@ namespace Pitchdea
             return (int)result;
         }
 
+        private static int GetID(MySqlConnection connection)
+        {
+            var cmd = new MySqlCommand(
+                "SELECT id FROM test;", connection);
+            var r = cmd.ExecuteScalar();
+            var id = (int) r;
+            return id;
+        }
+
         private static int GetNumber()
         {
             var connection = new MySqlConnection(SqlToolFactory.ConnectionString);
             connection.Open();
             var command = new MySqlCommand(
-                "SELECT integerNumber FROM test WHERE id = 18;",
+                string.Format("SELECT integerNumber FROM test WHERE id = {0};", GetID(connection)),
                 connection);
 
             var result = command.ExecuteScalar();
