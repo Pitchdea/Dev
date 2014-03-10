@@ -11,6 +11,7 @@ Background:
 		And number of likes is "0"
 
 
+
 Scenario: User likes an idea
 
 	When I click the like button
