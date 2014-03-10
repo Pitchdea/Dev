@@ -46,7 +46,7 @@ namespace Pitchdea
             descriptionLabel.Text = idea.Description.Replace(Environment.NewLine, "<br />");
             questionLabel.Text = idea.Question.Replace(Environment.NewLine, "<br />");
             ideaOwner.Text = _sqlTool.FindUsername(idea.UserId);
-            ideaLikeLabel.Text = idea.Likes.ToString(CultureInfo.InvariantCulture);
+            //ideaLikeLabel.Text = idea.Likes.ToString(CultureInfo.InvariantCulture);
         }
 
         private Idea FindIdea()

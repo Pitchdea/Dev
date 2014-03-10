@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -31,7 +33,9 @@ namespace Pitchdea
                 string imageUrl;
                 if (!string.IsNullOrWhiteSpace(idea.ImagePath)) //Use custom image submitted by the user.
                 {
-                    imageUrl = imagePath + idea.ImagePath;
+                    var ext = Path.GetExtension(idea.ImagePath);
+                    string thumb = idea.ImagePath.Split(new[] { '.' }).First() + "_thumb" + ext;
+                    imageUrl = imagePath + thumb;
                 }
                 else
                 {
