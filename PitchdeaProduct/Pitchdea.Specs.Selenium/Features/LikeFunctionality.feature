@@ -2,15 +2,18 @@
 User can like and dislike ideas, except their own. The amount of likes is shown on the viewidea page.
 
 Background: 
-Given User is logged in and page "/viewIdeaPage.aspx" is open
-And Idea exists with correct IdeaID and title
+	Given "idea" table is empty at first
+		And "user" table is empty at first
 
 Scenario: User opens an idea and likes it 
-#Idea has not been liked before by this user
-Given "Maincontent_LikeInfoLabel" field value is "You can like this idea below"
-When the user clicks the "Maincontent_LikeIdeaButton"
-Then "Maincontent_LikeInfoLabel" field value is "You gave this idea +1"
-	And "Maincontent_LikeCountLabel" field value is increased by 1 point
+Given an idea exists with values: "<titlelabel>","<summarylabel>","<descriptionlabel>","<questionLabel>" and the page for that idea is open.
+Then page title is "<titlelabel>" followed by " | Pitchdea"
+ And number of likes is "0"
+When I click like button
+Then number of likes is "1"
+	And the like button is active
+
+#TODO: all below
 
 Scenario: User opens an idea and dislikes it
 #Idea has not been liked before by this user
