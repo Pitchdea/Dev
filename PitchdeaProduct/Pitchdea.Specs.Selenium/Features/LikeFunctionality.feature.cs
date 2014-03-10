@@ -91,17 +91,17 @@ namespace Pitchdea.Specs.Selenium.Features
         public virtual void UserLikesAnIdea()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User likes an idea", ((string[])(null)));
-#line 15
+#line 14
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 17
+#line 16
  testRunner.When("I click the like button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 18
+#line 17
  testRunner.Then("number of likes is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 20
+#line 19
  testRunner.When("I refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 21
+#line 20
  testRunner.Then("number of likes is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -112,18 +112,18 @@ this.FeatureBackground();
         public virtual void UserDislikesAnIdea()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User dislikes an idea", ((string[])(null)));
-#line 25
+#line 24
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 27
+#line 26
  testRunner.When("I click the dislike button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+  testRunner.Then("number of dislikes in database is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 29
-  testRunner.And("number of dislikes in database is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 30
  testRunner.When("I refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 32
-  testRunner.And("number of dislikes in database is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 31
+  testRunner.Then("number of dislikes in database is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -133,21 +133,21 @@ this.FeatureBackground();
         public virtual void UserUnlikesAnIdeaWithoutRefresh()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User unlikes an idea without refresh", ((string[])(null)));
-#line 37
+#line 36
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
+#line 38
+ testRunner.When("I click the like button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 39
- testRunner.When("I click the like button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 40
  testRunner.Then("number of likes is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 42
+#line 41
  testRunner.When("I click the like button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 43
+#line 42
  testRunner.Then("number of likes is \"0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 45
+#line 44
  testRunner.When("I refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 46
+#line 45
  testRunner.Then("number of likes is \"0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -158,25 +158,25 @@ this.FeatureBackground();
         public virtual void UserUnlikesAnIdeaWithRefresh()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User unlikes an idea with refresh", ((string[])(null)));
-#line 50
+#line 49
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
+#line 51
+ testRunner.When("I click the like button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 52
- testRunner.When("I click the like button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 53
  testRunner.Then("number of likes is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 54
+ testRunner.When("I refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 55
- testRunner.When("I refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 56
  testRunner.Then("number of likes is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 58
+#line 57
  testRunner.When("I click the like button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 59
+#line 58
  testRunner.Then("number of likes is \"0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 61
+#line 60
  testRunner.When("I refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 62
+#line 61
  testRunner.Then("number of likes is \"0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -187,21 +187,21 @@ this.FeatureBackground();
         public virtual void UserUn_DislikesAnIdea()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User un-dislikes an idea", ((string[])(null)));
-#line 66
+#line 65
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
+#line 67
+ testRunner.When("I click the dislike button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 68
- testRunner.When("I click the dislike button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 69
  testRunner.Then("number of dislikes in database is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 71
+#line 70
  testRunner.When("I click the dislike button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 72
+#line 71
  testRunner.Then("number of dislikes in database is \"0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 74
+#line 73
  testRunner.When("I refresh the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 75
+#line 74
  testRunner.Then("number of dislikes in database is \"0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -212,17 +212,17 @@ this.FeatureBackground();
         public virtual void Dislike_Like()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Dislike -> Like", ((string[])(null)));
-#line 79
+#line 78
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 81
+#line 80
  testRunner.Given("number of dislikes in database is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 83
+#line 82
  testRunner.When("I click the like button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 84
+#line 83
  testRunner.Then("number of dislikes in database is \"0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 85
+#line 84
   testRunner.And("number of likes is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -233,17 +233,17 @@ this.FeatureBackground();
         public virtual void Like_Dislike()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Like -> Dislike", ((string[])(null)));
-#line 90
+#line 89
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 92
+#line 91
  testRunner.Given("number of likes is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 94
+#line 93
  testRunner.When("I click the dislike button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 95
+#line 94
  testRunner.Then("number of likes is \"0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 96
+#line 95
   testRunner.And("number of dislikes in database is \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

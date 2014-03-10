@@ -11,7 +11,6 @@ Background:
 		And number of likes is "0"
 
 
-
 Scenario: User likes an idea
 
 	When I click the like button
@@ -26,10 +25,10 @@ Scenario: User dislikes an idea
 	
 	When I click the dislike button
 #	Then the dislike button is active
-		And number of dislikes in database is "1"
+		Then number of dislikes in database is "1"
 	When I refresh the page
 #	Then the dislike button is active
-		And number of dislikes in database is "1"
+		Then number of dislikes in database is "1"
 
 #		And the dislike button is active
 
@@ -97,6 +96,7 @@ Scenario: Like -> Dislike
 #		And dislike button is active 
 #		And like button is inactive
 	
+
 
 #Scenario: User opens their own idea
 #	When user opens their own idea
