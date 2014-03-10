@@ -32,6 +32,15 @@ a {
         transition: 0.2s;
     }
 
+.beta {
+    height:0px;
+    font-size:60%;
+    color:#34495e;
+    margin-top:-9px;
+    margin-bottom:9px;
+    margin-left:1px;
+}
+
 
 input[type=submit] {
     color: #fff;
@@ -177,6 +186,10 @@ textarea {
     background: #56C238;
     border-radius: 18px;
     transition: all 0.3s;
+}
+
+.ideabuttons {
+    text-align:center;
 }
 
 .nobutton h2 {
@@ -696,7 +709,7 @@ nav li {
         width:53%;
     }
         nav ul {
-            width:140px;
+            width:135px;
             margin:0 auto;
         }
 
@@ -723,7 +736,7 @@ nav li {
     }
 
     #loginStatusControl_logoutLink {
-        padding: 0px 1px;
+        padding: 0px 4px;
         margin-right: 2px;
         margin-top: 16px;
         margin-bottom: 5px;

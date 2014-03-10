@@ -76,6 +76,33 @@ namespace Pitchdea {
         protected global::System.Web.UI.WebControls.Label questionLabel;
         
         /// <summary>
+        /// nobutton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button nobutton;
+        
+        /// <summary>
+        /// yesbutton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button yesbutton;
+        
+        /// <summary>
+        /// idealikes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label idealikes;
+        
+        /// <summary>
         /// ideaOwnerPanel control.
         /// </summary>
         /// <remarks>

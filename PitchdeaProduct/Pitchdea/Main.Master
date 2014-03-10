@@ -23,10 +23,11 @@
 		<script src="js/jquery.dotdotdot.min.js" type="text/javascript"></script>
 </head>
 <body>
+
     <form id="form1" runat="server">
     <div class="header-container">
         <header class="wrapper clearfix">
-            <h1 class="title"><a href="mainPage.aspx">PITCHDEA</a></h1>
+            <h1 class="title"><a href="mainPage.aspx">PITCHDEA</a><div class="beta">Beta</div></h1>
             <nav>
                 <ul>
                     <li><a href="MainPage.aspx">Browse</a></li>
