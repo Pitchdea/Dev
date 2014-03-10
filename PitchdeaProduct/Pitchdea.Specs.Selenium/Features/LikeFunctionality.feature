@@ -25,8 +25,11 @@ Scenario: User dislikes an idea
 	
 	When I click the dislike button
 	Then the dislike button is active
+		And number of dislikes in database is "1"
 	When I refresh the page
 	Then the dislike button is active
+		And number of dislikes in database is "1"
+
 
 Scenario: User unlikes an idea without refresh
 
@@ -67,12 +70,7 @@ Scenario: User un-dislikes an idea
 	When I refresh the page
 	Then number of dislikes in database is "0"
 		And the dislike button is inactive 
-#Scenario: User un-dislikes an idea
-#
-#	When I click the dislike button
-#	Then the dislike button is active
-#	When I click the dislike button
-#	Then the dislike button is inactive
+
 
 Scenario: Dislike -> Like
 	
