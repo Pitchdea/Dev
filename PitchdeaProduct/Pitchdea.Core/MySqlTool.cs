@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -75,6 +76,64 @@ namespace Pitchdea.Core
             return ideas;
         }
 
+        public int Like(int ideaId, int userId)
+        {
+            var likeInfo = GetLikeStatus(ideaId, userId);
+            if (likeInfo == LikeStatus.Like || likeInfo == LikeStatus.Dislike)
+                throw new Exception("The user alreaydy likes this idea.");
+
+            _connection.Open();
+
+            var command = new MySqlCommand("IncrementLikes", _connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            command.Parameters.Add("ideaID", MySqlDbType.Int32).Value = ideaId;
+            command.Prepare();
+            var result = command.ExecuteScalar();
+
+            var command2 = new MySqlCommand(
+                "INSERT INTO likes (likevalue, ideaId, userId) VALUES (@likevalue, @ideaId, @userID);",
+                _connection);
+
+            command2.Parameters.Add("@likevalue", MySqlDbType.Int16).Value = 1;
+            command2.Parameters.Add("@ideaId", MySqlDbType.Int32).Value = ideaId;
+            command2.Parameters.Add("@userID", MySqlDbType.Int32).Value = userId;
+
+            command2.Prepare();
+
+            command2.ExecuteNonQuery();
+            
+            _connection.Close();
+
+            return (int) result;
+        }
+
+        public LikeStatus GetLikeStatus(int ideaId, int userId)
+        {
+            _connection.Open();
+
+            var command = new MySqlCommand(
+                "SELECT likevalue FROM likes WHERE ideaId=@ideaID AND userId=@userID;",
+                _connection);
+
+            command.Parameters.Add("@ideaID", MySqlDbType.Int32).Value = ideaId;
+            command.Parameters.Add("@userID", MySqlDbType.Int32).Value = userId;
+
+            command.Prepare();
+
+            var result = command.ExecuteScalar();
+
+            _connection.Close();
+
+            if (result == null) return LikeStatus.Neutral;
+            if ((sbyte) result == 1) return LikeStatus.Like;
+            if ((sbyte) result == -1) return LikeStatus.Dislike;
+
+            throw new Exception("Like value out of range.");
+        }
+
         #endregion
 
 
@@ -90,6 +149,7 @@ namespace Pitchdea.Core
             SaveHashWithIdea(hash, ideaId);
 
             idea.Hash = hash;
+            idea.Id = Convert.ToInt32(ideaId);
 
             return idea;
         }
@@ -99,7 +159,7 @@ namespace Pitchdea.Core
             _connection.Open();
 
             var command = new MySqlCommand(
-                "SELECT hash, title, summary, description, question, imagePath, userId, likes, dislikes FROM idea WHERE hash=@hash;",
+                "SELECT id, hash, title, summary, description, question, imagePath, userId, likes, dislikes FROM idea WHERE hash=@hash;",
                 _connection);
 
             command.Parameters.Add("@hash", MySqlDbType.String).Value = ideaHash;
@@ -120,7 +180,8 @@ namespace Pitchdea.Core
                 ImagePath = imagePath,
                 Hash = (string)reader["hash"],
                 Likes = (int)reader["likes"],
-                Dislikes = (int)reader["dislikes"]
+                Dislikes = (int)reader["dislikes"],
+                Id = (int)reader["id"]
             };
 
             if(reader.Read())

@@ -236,6 +236,47 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(2, ideas.Count);
         }
 
+        
+        [Test]
+        public void _10_LikeAnIdea_HasLiked()
+        {
+            _sqlTestTool.CleanTestDb();
+
+            const string username = "test";
+            const string email = "test@pitchdea.com";
+            const string password = "password123";
+
+            _auth.RegisterNewUser(username, email, password);
+            var userInfo = _auth.Authenticate(email, password);
+
+            Assert.NotNull(userInfo);
+
+            const string title = "qwerty";
+            const string summary = "asdf";
+            const string description = "jotain ihan muuta";
+            const string question = "Question?";
+
+            var idea = new Idea(userInfo.UserId, title, summary, description, question) { ImagePath = null };
+            idea = _mySqlTool.InsertIdea(idea);
+
+            Assert.AreEqual(0, idea.Likes);
+            Assert.AreEqual(0, idea.Dislikes);
+
+            var likeInfo = _mySqlTool.GetLikeStatus(idea.Id, userInfo.UserId);
+            Assert.AreEqual(LikeStatus.Neutral, likeInfo);
+            
+            var result = _mySqlTool.Like(idea.Id, userInfo.UserId);
+            Assert.AreEqual(1, result);
+
+            var updatedIdea = _mySqlTool.FetchIdea(idea.Hash);
+
+            Assert.AreEqual(1, updatedIdea.Likes);
+            Assert.AreEqual(0, updatedIdea.Dislikes);
+
+            var likeInfoAfter = _mySqlTool.GetLikeStatus(idea.Id, userInfo.UserId);
+            Assert.AreEqual(LikeStatus.Like, likeInfoAfter);
+        }
+
         private void InsertAndFetch(string title, string summary, string description, string question, string imagePath = null)
         {
             const string username = "test";

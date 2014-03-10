@@ -35,5 +35,12 @@ namespace Pitchdea.Core.Test.Utils
             command.ExecuteNonQuery();
             _connection.Close();
         }
+
+        public void CleanTestDb()
+        {
+            CleanTable("likes");
+            CleanTable("idea");
+            CleanTable("user");
+        }
     }
 }

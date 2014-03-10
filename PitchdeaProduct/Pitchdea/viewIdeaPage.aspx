@@ -9,7 +9,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server"/>
     <div class="ideaWrapper">
         <asp:Panel runat="server" ID="ideaNotFoundPanel">
             Idea not found...
@@ -37,11 +37,17 @@
                 <h3>
                     <asp:Label runat="server" ID="questionLabel" /></h3>
             </div>
-            <div class="ideabuttons">
-               	<asp:Button ID="noButton" runat="server" CssClass="nobutton"></asp:Button>
-               	<asp:Button ID="yesButton" runat="server" CssClass="yesbutton"></asp:Button>
-    	      	<asp:label runat="server" ID="ideaLikeLabel" CssClass="idealikes" />
-            </div>
+
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <div class="ideabuttons">
+                        <asp:Button ID="noButton" runat="server" CssClass="nobutton" OnClick="noButton_OnClick"/>
+                        <asp:Button ID="yesButton" runat="server" CssClass="yesbutton"/>
+    	      	        <asp:label runat="server" ID="ideaLikeLabel" CssClass="idealikes" />
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
             <asp:Panel runat="server" CssClass="ideaOwner" ID="ideaOwnerPanel">
                 Idea owner: &nbsp;
                 <asp:Label runat="server" ID="ideaOwner" />

@@ -29,7 +29,28 @@ namespace Pitchdea.Core
         /// <returns>Username associated with the user ID.</returns>
         string FindUsername(int userId);
 
+        /// <summary>
+        /// Fetches all the ideas found in the database.
+        /// </summary>
+        /// <returns>List of the Ideas</returns>
         List<Idea> FetchAllIdeas();
+
+        /// <summary>
+        /// Increases the like count on the idea by one and marks that the user has liked the idea.
+        /// </summary>
+        /// <param name="ideaId">ID of the idea</param>
+        /// <param name="userId">ID of the user</param>
+        /// <returns>Updated number of likes.</returns>
+        int Like(int ideaId, int userId);
+
+
+        /// <summary>
+        /// Gets the information about likes from this user on this idea.
+        /// </summary>
+        /// <param name="ideaId">ID of the idea</param>
+        /// <param name="userId">ID of the user</param>
+        /// <returns>Like info for this user and this idea.</returns>
+        LikeStatus GetLikeStatus(int ideaId, int userId);
     }
 
     public static class SqlToolFactory
