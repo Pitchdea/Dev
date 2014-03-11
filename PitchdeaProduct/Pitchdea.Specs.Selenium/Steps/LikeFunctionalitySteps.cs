@@ -43,7 +43,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         {
             var tool = new MySqlTool(SqlTestTool.TestConnectionString);
             var ideas = tool.FetchAllIdeas();
-            Assert.AreEqual(1, ideas.Single().Dislikes); //TODO this works for this step but isn't truly deterministic
+            Assert.AreEqual(int.Parse(dislike), ideas.Single().Dislikes); //TODO this works for this step but isn't truly deterministic
         }
 
         [When(@"I refresh the page")]
