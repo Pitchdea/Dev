@@ -112,7 +112,7 @@ namespace Pitchdea
                     ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
                     _sqlTool.Dislike(_idea.Id, _userId);
                     noButton.CssClass = "disliked";
-                    yesButton.CssClass = "yesButton";
+                    yesButton.CssClass = "yesbutton";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

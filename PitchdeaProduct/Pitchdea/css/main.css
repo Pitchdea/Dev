@@ -199,7 +199,8 @@ textarea {
 }
 
 .ideabuttons {
-    min-height:60px;
+    max-width:320px;
+    min-height:90px;
     text-align:center;
 }
 
@@ -213,7 +214,7 @@ textarea {
 
 .nobutton {
     margin-left: 30px;
-    float: left;
+    float: right;
     height: 65px;
     text-align: center;
     background: #c0392b!important;
@@ -225,39 +226,64 @@ textarea {
         cursor: pointer;
         transition: all 0.3s;
         height:80px;
-        margin-top:-4px;
+        margin-top:-3px;
     }
 
 .yesbutton:hover {
         cursor: pointer;
         transition: all 0.3s;
         height:80px;
-        margin-top:-4px;
+        margin-top:-3px;
 }
 
 .liked {
+        float: left;
+        height: 65px;
+        margin-right:20px!important;
+        text-align: center;
+        background: #56C238;
+        border-radius: 18px;
+        transition: all 0.3s;
+        padding-left:40px;
+        padding-right:40px;
         cursor: pointer;
         transition: all 0.3s;
         height:80px;
-        margin-top:-4px;
+        margin-top:-3px!important;
+
 }
 
 .disliked {
+        margin-left: 30px;
+        float: right;
+        height: 65px;
+        text-align: center;
+        background: #c0392b!important;
+        border-radius: 18px;
+        transition: all 0.3s;
         cursor: pointer;
         transition: all 0.3s;
         height:80px;
-        margin-top:-4px;
+        margin-top:-3px!important;
+
 }
 
 
 .idealikes {
-    margin:20px;
+    width:100%;
+    margin:10px;
     float:left;
+    font-size:150%;
+    color:#34495e;
+    font-family:'lato';
+    font-weight:400;
 }
 
     .idealikes:after {
-        content: " Likes";
-    
+        content: " Users like this idea.";
+        color:#34495e;
+        font-family:'lato';
+        font-weight:400;
     }
 
 .idea:hover {
