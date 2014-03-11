@@ -32,7 +32,7 @@
                 <ul>
                     <li><a href="MainPage.aspx">Browse</a></li>
                     <li><a href="CreateIdeaPage.aspx">Submit</a></li>
-                    <li><a href="MainPage.aspx">About</a></li>
+                    <li><a href="http://pitchdea.com/">About</a></li>
                 </ul>
             </nav>
                 <controls:LoginStatusControl ID="loginStatusControl" runat="server"/>
