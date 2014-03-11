@@ -74,12 +74,15 @@ namespace Pitchdea
             switch (_sqlTool.GetLikeStatus(_idea.Id, _userId))
             {
                 case LikeStatus.Neutral:
+                    noButton.CssClass = "nobutton";
                     _sqlTool.Dislike(_idea.Id, _userId);
                     break;
                 case LikeStatus.Dislike:
+                    noButton.CssClass = "disliked";
                     _sqlTool.Undislike(_idea.Id, _userId);
                     break;
                 case LikeStatus.Like:
+                    noButton.CssClass = "nobutton";
                     //TODO: Performance issues?
                     var likes = _sqlTool.Unlike(_idea.Id, _userId);
                     ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
@@ -96,18 +99,21 @@ namespace Pitchdea
             {
                 case LikeStatus.Neutral:
                     {
+                        yesButton.CssClass = "yesbutton";
                         var likes = _sqlTool.Like(_idea.Id, _userId);
                         ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case LikeStatus.Like:
                     {
+                        yesButton.CssClass = "liked";
                         var likes = _sqlTool.Unlike(_idea.Id, _userId);
                         ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case LikeStatus.Dislike:
                     {
+                        yesButton.CssClass = "yesbutton";
                         //TODO: Performance issues?
                         _sqlTool.Undislike(_idea.Id, _userId);
                         var likes = _sqlTool.Like(_idea.Id, _userId);
