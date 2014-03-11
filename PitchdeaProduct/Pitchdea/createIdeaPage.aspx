@@ -20,7 +20,7 @@
         The question you want to ask your audience <span class="de-emphasis">(E.g. Would you like to buy a customized smarthone?)</span><br/>
 	    <asp:TextBox runat="server" ID="questionTextBox" TextMode="MultiLine" height="50px" /><br />    
 	
-        <asp:FileUpload id="ImgUpload" runat="server" /><br />
+        <asp:FileUpload id="ImgUpload" runat="server" />  (Max. 500KB) <br />
         <asp:Button runat="server" ID="uploadImageButton" OnClick="uploadImageButton_OnClick" OnClientClick="#todo" Text="Upload a picture"/>
         <br /><asp:Label runat="server" ID="uploadStatusLabel" />
         &nbsp;<asp:Image runat="server" ID="previewImage" />
