@@ -10,7 +10,7 @@ namespace Pitchdea
     {
         private readonly ISqlTool _sqlTool = SqlToolFactory.CreateNew();
         private Idea _idea;
-        private int _userId;
+        private int _userId = -1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +24,7 @@ namespace Pitchdea
 
             if (Session["userId"] != null)
             {
+                loggedIn.Text = string.Format("<input type='hidden' id='loggedIn' name='loggedInHidden' value='{0}' />", true);
                 _userId = (int) Session["userId"];
                 if (_userId == _idea.UserId)
                 {
@@ -36,7 +37,7 @@ namespace Pitchdea
             }
             else
             {
-                //User is not logged in
+                loggedIn.Text = string.Format("<input type='hidden' id='loggedIn' name='loggedInHidden' value='{0}' />", false);
             }
 
             ideaNotFoundPanel.Visible = false;
@@ -61,6 +62,10 @@ namespace Pitchdea
             questionLabel.Text = _idea.Question.Replace(Environment.NewLine, "<br />");
             ideaOwner.Text = _sqlTool.FindUsername(_idea.UserId);
             ideaLikeLabel.Text = _idea.Likes.ToString(CultureInfo.InvariantCulture);
+
+            if (_userId == -1)
+                return;
+
             switch (_sqlTool.GetLikeStatus(_idea.Id, _userId)) //User like status BEFORE the button is pressed
             {
                 case LikeStatus.Neutral:
@@ -88,6 +93,9 @@ namespace Pitchdea
 
         protected void noButton_OnClick(object sender, EventArgs e)
         {
+            if (_userId == -1)
+                return;
+
             switch (_sqlTool.GetLikeStatus(_idea.Id, _userId)) //User like status BEFORE the button is pressed
             {
                 case LikeStatus.Neutral:
@@ -113,6 +121,9 @@ namespace Pitchdea
 
         protected void yesButton_OnClick(object sender, EventArgs e)
         {
+            if (_userId == -1)
+                return;
+
             switch (_sqlTool.GetLikeStatus(_idea.Id, _userId)) //User like status BEFORE the button is pressed
             {
                 case LikeStatus.Neutral:

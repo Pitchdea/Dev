@@ -10,6 +10,7 @@
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
     <asp:ScriptManager ID="ScriptManager1" runat="server"/>
+    <asp:Literal runat="server" ID="loggedIn"/>
     <div class="ideaWrapper">
         <asp:Panel runat="server" ID="ideaNotFoundPanel">
             Idea not found...
