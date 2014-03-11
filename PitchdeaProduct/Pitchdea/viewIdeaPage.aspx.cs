@@ -71,35 +71,51 @@ namespace Pitchdea
 
         protected void noButton_OnClick(object sender, EventArgs e)
         {
-            if (_sqlTool.GetLikeStatus(_idea.Id, _userId) == LikeStatus.Neutral)
+            switch (_sqlTool.GetLikeStatus(_idea.Id, _userId))
             {
-                _sqlTool.Dislike(_idea.Id, _userId);
-            }
-            else if (_sqlTool.GetLikeStatus(_idea.Id, _userId) == LikeStatus.Dislike)
-            {
-                _sqlTool.Undislike(_idea.Id, _userId);
-            }
-            else
-            {
-                throw new NotImplementedException();
+                case LikeStatus.Neutral:
+                    _sqlTool.Dislike(_idea.Id, _userId);
+                    break;
+                case LikeStatus.Dislike:
+                    _sqlTool.Undislike(_idea.Id, _userId);
+                    break;
+                case LikeStatus.Like:
+                    //TODO: Performance issues?
+                    var likes = _sqlTool.Unlike(_idea.Id, _userId);
+                    ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
+                    _sqlTool.Dislike(_idea.Id, _userId);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
         protected void yesButton_OnClick(object sender, EventArgs e)
         {
-            if (_sqlTool.GetLikeStatus(_idea.Id, _userId) == LikeStatus.Neutral)
+            switch (_sqlTool.GetLikeStatus(_idea.Id, _userId))
             {
-                int likes = _sqlTool.Like(_idea.Id, _userId);
-                ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
-            }
-            else if (_sqlTool.GetLikeStatus(_idea.Id, _userId) == LikeStatus.Like)
-            {
-                int likes = _sqlTool.Unlike(_idea.Id, _userId);
-                ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
-            }
-            else
-            {
-                throw new NotImplementedException();
+                case LikeStatus.Neutral:
+                    {
+                        var likes = _sqlTool.Like(_idea.Id, _userId);
+                        ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
+                    }
+                    break;
+                case LikeStatus.Like:
+                    {
+                        var likes = _sqlTool.Unlike(_idea.Id, _userId);
+                        ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
+                    }
+                    break;
+                case LikeStatus.Dislike:
+                    {
+                        //TODO: Performance issues?
+                        _sqlTool.Undislike(_idea.Id, _userId);
+                        var likes = _sqlTool.Like(_idea.Id, _userId);
+                        ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
+                    }
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }
