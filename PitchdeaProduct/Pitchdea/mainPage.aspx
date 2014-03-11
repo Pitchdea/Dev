@@ -10,5 +10,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="MainContent" ContentPlaceHolderID="MainContent">
-    <asp:Panel runat="server" ID="ideaPanel"/>
+    <div class="idearoll">
+        <asp:Panel runat="server" ID="ideaPanel"/>
+    </div>
 </asp:Content>
