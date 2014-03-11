@@ -91,16 +91,37 @@ namespace Pitchdea.Core
 
         public int Unlike(int ideaId, int userId)
         {
+            return RemoveLike(ideaId, userId, 1);
+        }
+
+        public int Undislike(int ideaId, int userId)
+        {
+            return RemoveLike(ideaId, userId, -1);
+        }
+
+        private int RemoveLike(int ideaId, int userId, int likeValue)
+        {
             var likeInfo = GetLikeStatus(ideaId, userId);
             if (likeInfo == LikeStatus.Neutral)
                 throw new Exception("The user doesn't have a like for this idea.");
 
             _connection.Open();
 
-            var command = new MySqlCommand("DecreaseLikes", _connection)
+            MySqlCommand command;
+            if (likeValue == 1)
             {
-                CommandType = CommandType.StoredProcedure
-            };
+                command = new MySqlCommand("DecreaseLikes", _connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+            }
+            else
+            {
+                command = new MySqlCommand("DecreaseDislikes", _connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+            }
 
             command.Parameters.Add("ideaID", MySqlDbType.Int32).Value = ideaId;
             command.Prepare();

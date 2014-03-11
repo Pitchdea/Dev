@@ -60,6 +60,14 @@ namespace Pitchdea.Core
         int Unlike(int ideaId, int userId);
 
         /// <summary>
+        /// Decrease the dislike count and remove the dislike from this users
+        /// </summary>
+        /// <param name="ideaId">ID of the idea</param>
+        /// <param name="userId">ID of the user</param>
+        /// <returns>Updated number of dislikes.</returns>
+        int Undislike(int ideaId, int userId);
+
+        /// <summary>
         /// Gets the information about likes from this user on this idea.
         /// </summary>
         /// <param name="ideaId">ID of the idea</param>

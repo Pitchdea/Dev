@@ -77,7 +77,7 @@ namespace Pitchdea
             }
             else if (_sqlTool.GetLikeStatus(_idea.Id, _userId) == LikeStatus.Dislike)
             {
-                throw new NotImplementedException();
+                _sqlTool.Undislike(_idea.Id, _userId);
             }
             else
             {
