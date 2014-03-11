@@ -61,6 +61,23 @@ namespace Pitchdea
             questionLabel.Text = _idea.Question.Replace(Environment.NewLine, "<br />");
             ideaOwner.Text = _sqlTool.FindUsername(_idea.UserId);
             ideaLikeLabel.Text = _idea.Likes.ToString(CultureInfo.InvariantCulture);
+            switch (_sqlTool.GetLikeStatus(_idea.Id, _userId)) //User like status BEFORE the button is pressed
+            {
+                case LikeStatus.Neutral:
+                    yesButton.CssClass = "yesbutton";
+                    noButton.CssClass = "nobutton";
+                    break;
+                case LikeStatus.Like:
+                    yesButton.CssClass = "liked";
+                    noButton.CssClass = "nobutton";
+                    break;
+                case LikeStatus.Dislike:
+                    yesButton.CssClass = "yesbutton";
+                    noButton.CssClass = "disliked";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private Idea FindIdea()
@@ -71,22 +88,23 @@ namespace Pitchdea
 
         protected void noButton_OnClick(object sender, EventArgs e)
         {
-            switch (_sqlTool.GetLikeStatus(_idea.Id, _userId))
+            switch (_sqlTool.GetLikeStatus(_idea.Id, _userId)) //User like status BEFORE the button is pressed
             {
                 case LikeStatus.Neutral:
-                    noButton.CssClass = "nobutton";
                     _sqlTool.Dislike(_idea.Id, _userId);
+                    noButton.CssClass = "disliked";
                     break;
                 case LikeStatus.Dislike:
-                    noButton.CssClass = "disliked";
                     _sqlTool.Undislike(_idea.Id, _userId);
+                    noButton.CssClass = "nobutton";
                     break;
                 case LikeStatus.Like:
-                    noButton.CssClass = "nobutton";
                     //TODO: Performance issues?
                     var likes = _sqlTool.Unlike(_idea.Id, _userId);
                     ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
                     _sqlTool.Dislike(_idea.Id, _userId);
+                    noButton.CssClass = "disliked";
+                    yesButton.CssClass = "yesButton";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -95,29 +113,30 @@ namespace Pitchdea
 
         protected void yesButton_OnClick(object sender, EventArgs e)
         {
-            switch (_sqlTool.GetLikeStatus(_idea.Id, _userId))
+            switch (_sqlTool.GetLikeStatus(_idea.Id, _userId)) //User like status BEFORE the button is pressed
             {
                 case LikeStatus.Neutral:
                     {
-                        yesButton.CssClass = "yesbutton";
                         var likes = _sqlTool.Like(_idea.Id, _userId);
                         ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
+                        yesButton.CssClass = "liked";
                     }
                     break;
                 case LikeStatus.Like:
                     {
-                        yesButton.CssClass = "liked";
                         var likes = _sqlTool.Unlike(_idea.Id, _userId);
                         ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
+                        yesButton.CssClass = "yesbutton";
                     }
                     break;
                 case LikeStatus.Dislike:
                     {
-                        yesButton.CssClass = "yesbutton";
                         //TODO: Performance issues?
                         _sqlTool.Undislike(_idea.Id, _userId);
                         var likes = _sqlTool.Like(_idea.Id, _userId);
                         ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
+                        yesButton.CssClass = "liked";
+                        noButton.CssClass = "nobutton";
                     }
                     break;
                 default:
