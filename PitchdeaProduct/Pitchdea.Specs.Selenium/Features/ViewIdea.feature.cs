@@ -100,7 +100,7 @@ this.FeatureBackground();
 #line 14
   testRunner.And(string.Format("\"MainContent_questionLabel\" field value is \"{0}\"", questionLabel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
-  testRunner.And("\"MainContent_ideaOwner\" field value is \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("\"MainContent_ideaOwner\" field value is \"test2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

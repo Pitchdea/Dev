@@ -83,7 +83,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         [AfterScenario]
         public static void CloseDriver()
         {
-            //WebBrowser.Close();
+            WebBrowser.Close();
         }
     }
 }

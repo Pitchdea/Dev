@@ -13,7 +13,7 @@ Scenario Outline: Idea is viewed
 		And "MainContent_descriptionLabel" field value is "<descriptionlabel>"
 		And "MainContent_questionLabel" field value is "<questionLabel>"
 		# User "test" is defined in the Given step.
-		And "MainContent_ideaOwner" field value is "test"
+		And "MainContent_ideaOwner" field value is "test2"
 
 	Examples:
 	| titlelabel    | summarylabel                                         | descriptionlabel                                                             | questionLabel       |
