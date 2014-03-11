@@ -71,13 +71,36 @@ namespace Pitchdea
 
         protected void noButton_OnClick(object sender, EventArgs e)
         {
-            var dislikes = _sqlTool.Dislike(_idea.Id, _userId);
+            if (_sqlTool.GetLikeStatus(_idea.Id, _userId) == LikeStatus.Neutral)
+            {
+                _sqlTool.Dislike(_idea.Id, _userId);
+            }
+            else if (_sqlTool.GetLikeStatus(_idea.Id, _userId) == LikeStatus.Dislike)
+            {
+                throw new NotImplementedException();
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
         protected void yesButton_OnClick(object sender, EventArgs e)
         {
-            int likes = _sqlTool.Like(_idea.Id, _userId);
-            ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
+            if (_sqlTool.GetLikeStatus(_idea.Id, _userId) == LikeStatus.Neutral)
+            {
+                int likes = _sqlTool.Like(_idea.Id, _userId);
+                ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
+            }
+            else if (_sqlTool.GetLikeStatus(_idea.Id, _userId) == LikeStatus.Like)
+            {
+                int likes = _sqlTool.Unlike(_idea.Id, _userId);
+                ideaLikeLabel.Text = likes.ToString(CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

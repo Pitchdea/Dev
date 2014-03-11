@@ -89,11 +89,45 @@ namespace Pitchdea.Core
             return InsertLike(ideaId, userId, -1);
         }
 
+        public int Unlike(int ideaId, int userId)
+        {
+            var likeInfo = GetLikeStatus(ideaId, userId);
+            if (likeInfo == LikeStatus.Neutral)
+                throw new Exception("The user doesn't have a like for this idea.");
+
+            _connection.Open();
+
+            var command = new MySqlCommand("DecreaseLikes", _connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            command.Parameters.Add("ideaID", MySqlDbType.Int32).Value = ideaId;
+            command.Prepare();
+            var result = command.ExecuteScalar();
+
+            var command2 = new MySqlCommand(
+                "DELETE FROM likes WHERE ideaId=@ideaId AND userID=@userID;",
+                _connection);
+
+            command2.Parameters.Add("@ideaId", MySqlDbType.Int32).Value = ideaId;
+            command2.Parameters.Add("@userID", MySqlDbType.Int32).Value = userId;
+
+            command2.Prepare();
+
+            command2.ExecuteNonQuery();
+
+            _connection.Close();
+
+            return (int) result;
+        }
+
         private int InsertLike(int ideaId, int userId, int likeValue)
         {
             var likeInfo = GetLikeStatus(ideaId, userId);
             if (likeInfo == LikeStatus.Like || likeInfo == LikeStatus.Dislike)
                 throw new Exception("The user already likes/dislikes this idea.");
+            
             _connection.Open();
 
             MySqlCommand command;

@@ -300,6 +300,41 @@ namespace Pitchdea.Core.Test
             Assert.AreEqual(LikeStatus.Dislike, likeInfoAfter);
         }
 
+        [Test]
+        public void _12_UnlikeAnIdea()
+        {
+            _sqlTestTool.CleanTestDb();
+
+            const string username = "test";
+            const string email = "test@pitchdea.com";
+            const string password = "password123";
+
+            _auth.RegisterNewUser(username, email, password);
+            var userInfo = _auth.Authenticate(email, password);
+
+            Assert.NotNull(userInfo);
+
+            const string title = "qwerty";
+            const string summary = "asdf";
+            const string description = "jotain ihan muuta";
+            const string question = "Question?";
+
+            var idea = new Idea(userInfo.UserId, title, summary, description, question) { ImagePath = null };
+            idea = _mySqlTool.InsertIdea(idea);
+
+            var result = _mySqlTool.Like(idea.Id, userInfo.UserId);
+            Assert.AreEqual(1, result);
+
+            var likeInfoAfter = _mySqlTool.GetLikeStatus(idea.Id, userInfo.UserId);
+            Assert.AreEqual(LikeStatus.Like, likeInfoAfter);
+
+            var result2 = _mySqlTool.Unlike(idea.Id, userInfo.UserId);
+            Assert.AreEqual(0, result2);
+
+            var likeInfo = _mySqlTool.GetLikeStatus(idea.Id, userInfo.UserId);
+            Assert.AreEqual(LikeStatus.Neutral, likeInfo);
+        }
+
         private void InsertAndFetch(string title, string summary, string description, string question, string imagePath = null)
         {
             const string username = "test";
