@@ -52,6 +52,11 @@
                     Idea owner: &nbsp;
                     <asp:Label runat="server" ID="ideaOwner" />
                 </asp:Panel>
+                <div class="commentplaceholder">
+                    <textarea disabled="disabled">
+                           Commenting coming soon!
+                    </textarea>
+                </div>
             </div>
         </asp:Panel>
     </div>
