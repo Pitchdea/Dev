@@ -237,12 +237,13 @@ textarea {
 }
 
 .liked {
+        box-shadow: 0px 0px 0px 2px #555;
         float: left;
         height: 65px;
         margin-right:20px!important;
         text-align: center;
         background: #56C238;
-        border-radius: 18px;
+        border-radius: 22px;
         transition: all 0.3s;
         padding-left:40px;
         padding-right:40px;
@@ -254,12 +255,13 @@ textarea {
 }
 
 .disliked {
+        box-shadow: 0px 0px 0px 2px #444;
         margin-left: 30px;
         float: right;
         height: 65px;
         text-align: center;
         background: #c0392b!important;
-        border-radius: 18px;
+        border-radius: 22px;
         transition: all 0.3s;
         cursor: pointer;
         transition: all 0.3s;
