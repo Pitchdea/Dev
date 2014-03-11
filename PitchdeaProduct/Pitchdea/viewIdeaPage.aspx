@@ -41,7 +41,7 @@
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                         <div class="ideabuttons">
-                            <asp:Button ID="yesButton" runat="server" CssClass="yesbutton" OnClick="yesButton_OnClick" Text="&nbsp; I like this! &nbsp;"/>
+                            <asp:Button ID="yesButton" runat="server" CssClass="yesbutton" OnClick="yesButton_OnClick" Text="&nbsp;&nbsp; I like this! &nbsp;&nbsp;"/>
                             <asp:Button ID="noButton" runat="server" CssClass="nobutton" OnClick="noButton_OnClick" Text="Not my thing!"/>
                         </div>
     	      	        <asp:label runat="server" ID="ideaLikeLabel" CssClass="idealikes" />

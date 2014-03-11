@@ -752,6 +752,22 @@ nav li {
    ========================================================================== */
 @media only screen and (min-width: 200px) and (max-width: 768px) {
 
+    .ideatextwrapper {
+        width:92%;
+        padding:4%;
+    }
+
+    .ideabuttons {
+        min-width:150px;
+        max-width:300px;
+    }
+
+        .ideabuttons .yesbutton, .ideabuttons .liked, .ideabuttons .disliked, .ideabuttons .nobutton {
+            margin-right:2px!important;
+            margin-left:2px!important;
+            padding:5%!important;
+        }
+
     .loginstatus {
         margin-right: 0px;
         margin-top: 4px;
@@ -760,9 +776,12 @@ nav li {
         font-size: 80%;
     }
 
-    #MainContent_ideaPanel {
+    .idearoll {
         width:250px;
         margin:0 auto;
+    }
+
+    #MainContent_ideaPanel {
     }
 
     .title {
