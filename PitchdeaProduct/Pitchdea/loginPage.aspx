@@ -10,13 +10,20 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
-    <div class="generalForm">
-    <h1>Login</h1>
-    Email or username:<br/>
-    <asp:TextBox runat="server" ID="emailTextBox"/>
-    <br/>Password:<br/>
-    <asp:TextBox runat="server" ID="passwordTextBox" TextMode="Password"/><br/>
-    <asp:Button runat="server" ID="loginButton" OnClick="loginButton_OnClick" Text="Log in"/><br/>
-    <asp:Label runat="server" ID="errorMessage"/>
-    </div>
+    
+    <asp:ScriptManager runat="server" ID="MainScriptManager"/>
+
+    <asp:UpdatePanel  runat="server" ID="MainUpdatePanel">
+        <ContentTemplate>
+            <div class="generalForm">
+                  <h1>Login</h1>
+                  Email or username:<br/>
+                  <asp:TextBox runat="server" ID="emailTextBox"/>
+                  <br/>Password:<br/>
+                  <asp:TextBox runat="server" ID="passwordTextBox" TextMode="Password"/><br/>
+                  <asp:Button runat="server" ID="loginButton" OnClick="loginButton_OnClick" Text="Log in"/><br/>
+                  <asp:Label runat="server" ID="errorMessage"/>
+              </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
