@@ -11,10 +11,11 @@
 <asp:Content runat="server" ID="ContentPlaceHolder1" ContentPlaceHolderID="MainContent">
     <asp:Panel runat="server" CssClass="ideaForm" ID="createIdeaPanel">
         <h1>Create your idea</h1>
-        <asp:ScriptManager runat="server" ID="MainScriptManager"/>
+        <%-- TODO: Ajax file upload! --%>
+        <%--<asp:ScriptManager runat="server" ID="MainScriptManager"/>
 
         <asp:UpdatePanel  runat="server" ID="MainUpdatePanel">
-            <ContentTemplate>
+            <ContentTemplate>--%>
                 Idea title<br/>
                 <asp:TextBox runat="server" ID="titleTextBox"/><br />
                 A short summary of the idea <span class="de-emphasis">(~200 characters)</span><br/>
@@ -32,8 +33,8 @@
                 <br />
                 <asp:Button runat="server" ID="createIdeaButton" OnClick="createIdeaButton_OnClick" Text="Create your idea"/>
                 <asp:Label runat="server" ID="errorMessage"/>
-            </ContentTemplate>
-        </asp:UpdatePanel>
+            <%--</ContentTemplate>
+        </asp:UpdatePanel>--%>
     </asp:Panel>
     <asp:Panel runat="server" ID="loginFirstPanel">
         Please login first...

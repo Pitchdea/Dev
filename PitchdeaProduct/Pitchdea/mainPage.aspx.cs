@@ -39,7 +39,7 @@ namespace Pitchdea
                 }
                 else
                 {
-                    imageUrl = "img/ideaImages/defaultIdeaImage.jpg";
+                    imageUrl = "img/ideaImages/defaultIdeaImage_thumb.jpg";
                 }
 
                 inner.Controls.Add(new Image
