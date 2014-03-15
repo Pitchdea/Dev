@@ -13,8 +13,8 @@
     <asp:Literal runat="server" ID="loggedIn"/>
     <div class="ideaWrapper">
         <asp:Panel runat="server" ID="ideaNotFoundPanel">
-            Idea not found...
-        
+            <h4>Oops!  Idea not found.</h4>
+            <br/>
             <a href="mainPage.aspx">Return to main page.</a>
         </asp:Panel>
         
