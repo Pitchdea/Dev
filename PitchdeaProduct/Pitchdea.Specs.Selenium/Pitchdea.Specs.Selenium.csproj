@@ -65,6 +65,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentSteps.cs" />
     <Compile Include="Features\Comment.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
