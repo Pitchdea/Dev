@@ -18,6 +18,21 @@ USE `pitchdeatest`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `betakeys`
+--
+
+DROP TABLE IF EXISTS `betakeys`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `betakeys` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) NOT NULL,
+  `betakey` char(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `idea`
 --
 
@@ -38,7 +53,7 @@ CREATE TABLE `idea` (
   PRIMARY KEY (`id`),
   KEY `Id_idx` (`userId`),
   CONSTRAINT `Id` FOREIGN KEY (`userId`) REFERENCES `user` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=358 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +73,7 @@ CREATE TABLE `likes` (
   KEY `UserId_idx` (`userId`),
   CONSTRAINT `IdeaId` FOREIGN KEY (`ideaId`) REFERENCES `idea` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `UserId` FOREIGN KEY (`userId`) REFERENCES `user` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +90,7 @@ CREATE TABLE `test` (
   `floatNumber` float DEFAULT NULL,
   `doubleNumber` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +107,7 @@ CREATE TABLE `user` (
   `salt` char(44) NOT NULL,
   `password` char(44) NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=14951 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16184 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,4 +224,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-03-11  9:02:21
+-- Dump completed on 2014-03-19  0:52:24
