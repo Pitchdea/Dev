@@ -83,5 +83,19 @@ namespace Pitchdea.Specs.Selenium.Steps
             IWebElement fieldElement = WebBrowser.Current.FindElement(By.Id("MainContent_errorMessage"));
             Assert.AreEqual(value, fieldElement.Text);
         }
+
+        [Given(@"beta key pair ""(.*)"" and ""(.*)"" exists")]
+        public void GivenBetaKeyPairAndExists(string email, string key)
+        {
+            var tool = new SqlTestTool();
+            tool.InsertBetaKey(email, key);
+        }
+
+        [When(@"I fill beta key field with ""(.*)""")]
+        public void WhenIFillBetaKeyFieldWith(string betakey)
+        {
+            IWebElement fieldElement = WebBrowser.Current.FindElement(By.Id("MainContent_betaAccessKeyTextBox"));
+            fieldElement.SendKeys(betakey);
+        }
     }
 }

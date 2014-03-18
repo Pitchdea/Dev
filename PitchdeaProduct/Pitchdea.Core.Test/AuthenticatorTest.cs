@@ -127,5 +127,33 @@ namespace Pitchdea.Core.Test
 
             Assert.True(exists);
         }
+
+        [Test]
+        public void _06_ValidateBetaAccessKey_Found()
+        {
+            _sqlTestTool.CleanTestDb();
+
+            const string email = "test@test.com";
+            const string betaKey = "1324567890";
+
+            _sqlTestTool.InsertBetaKey(email, betaKey);
+
+            var result = _auth.ValidateBetaKey(email, betaKey);
+
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void _07_ValidateBetaAccessKey_NotFound()
+        {
+            _sqlTestTool.CleanTestDb();
+
+            const string email = "test@test.com";
+            const string betaKey = "1324567890";
+
+            var result = _auth.ValidateBetaKey(email, betaKey);
+
+            Assert.AreEqual(false, result);
+        }
     }
 }

@@ -35,6 +35,14 @@
         /// <param name="password">Password to authenticate</param>
         /// <returns>User info for the authenticated user or null if authentication failed.</returns>
         UserInfo Authenticate(string usernameOrPassword, string password);
+
+        /// <summary>
+        /// Chekcs if the email and beta key pair exists in the database.
+        /// </summary>
+        /// <param name="email">Email</param>
+        /// <param name="betakey">Betakey</param>
+        /// <returns>True if the email and key pair is found.</returns>
+        bool ValidateBetaKey(string email, string betakey);
     }
     public class UserInfo
     {

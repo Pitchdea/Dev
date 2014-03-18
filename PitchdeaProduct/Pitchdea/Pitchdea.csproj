@@ -61,7 +61,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AjaxTest.aspx" />
     <Content Include="Controls\LoginStatusControl.ascx" />
     <Content Include="Controls\ThumbnailCropControl.ascx" />
     <Content Include="createIdeaPage.aspx" />
@@ -92,13 +91,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AjaxTest.aspx.cs">
-      <DependentUpon>AjaxTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AjaxTest.aspx.designer.cs">
-      <DependentUpon>AjaxTest.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Controls\LoginStatusControl.ascx.cs">
       <DependentUpon>LoginStatusControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -17,6 +17,7 @@ namespace Pitchdea
             var user = usernameTextBox.Text;
             var email = emailTextBox.Text;
             var password = passwordTextBox.Text;
+            var betakey = betaAccessKeyTextBox.Text;
             
             if (emailTextBox.Text == string.Empty)
             {
@@ -26,6 +27,12 @@ namespace Pitchdea
             if (!EmailValidator.IsValid(emailTextBox.Text))
             {
                 errorMessage.Text = "This doesn't seem to be an email address.";
+                return;
+            }
+
+            if (betaAccessKeyTextBox.Text == string.Empty)
+            {
+                errorMessage.Text = "You forgot to give a beta access key.";
                 return;
             }
 
@@ -56,6 +63,12 @@ namespace Pitchdea
             if (_authenticator.CheckIfEmailExists(email))
             {
                 errorMessage.Text = "Oops! That email is already in use";
+                return;
+            }
+
+            if (!_authenticator.ValidateBetaKey(email, betakey))
+            {
+                errorMessage.Text = "Email and beta key do not match";
                 return;
             }
 

@@ -144,6 +144,28 @@ namespace Pitchdea.Core
             return null;
         }
 
+        public bool ValidateBetaKey(string email, string betakey)
+        {
+            _connection.Open();
+
+            var command = new MySqlCommand(
+                "SELECT count(*) FROM betakeys WHERE email = @email AND betakey=@betakey;",
+                _connection);
+
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@betakey", MySqlDbType.String).Value = betakey;
+
+            command.Prepare();
+            var count = Convert.ToInt64(command.ExecuteScalar());
+
+            _connection.Close();
+
+            if (count == 1) return true;
+            if (count == 0) return false;
+
+            return false;
+        }
+
         #endregion
         
         /// <summary>

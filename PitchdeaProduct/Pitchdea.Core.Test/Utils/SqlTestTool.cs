@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using MySql.Data.MySqlClient;
 
 namespace Pitchdea.Core.Test.Utils
@@ -41,6 +42,16 @@ namespace Pitchdea.Core.Test.Utils
             CleanTable("likes");
             CleanTable("idea");
             CleanTable("user");
+            CleanTable("betakeys");
+        }
+
+        public void InsertBetaKey(string email, string key)
+        {
+            _connection.Open();
+            var query = String.Format(@"INSERT INTO betakeys (email, betakey) VALUES ('{0}','{1}');", email, key.ToString(CultureInfo.InvariantCulture));
+            var command = new MySqlCommand(query, _connection);
+            command.ExecuteNonQuery();
+            _connection.Close();
         }
     }
 }
