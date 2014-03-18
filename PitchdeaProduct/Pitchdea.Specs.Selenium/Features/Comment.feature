@@ -2,7 +2,7 @@
 	I can comment on ideas posted by myself or others.
 
 Background: 
-	Given "comment" table is empty at first
+	Given test database is empty at first
 		And user is logged in as "test"
 		And an idea exists with values: "<titlelabel>","<summarylabel>","<descriptionlabel>","<questionLabel>" and the page for that idea is open.
 		And page title is "<titlelabel>" followed by " | Pitchdea"
