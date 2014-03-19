@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
@@ -210,6 +211,31 @@ namespace Pitchdea.Core
             if ((sbyte) result == -1) return LikeStatus.Dislike;
 
             throw new Exception("Like value out of range.");
+        }
+
+        public void InsertComment(int ideaId, int userId, string comment)
+        {
+            _connection.Open();
+
+            var command = new MySqlCommand(
+                "INSERT INTO comments (ideaId, userId, commentText, submitTime) VALUES (@ideaId, @userId, @commentText, @submitTime)", 
+                _connection);
+
+            command.Parameters.Add("@ideaId", MySqlDbType.Int32).Value = ideaId;
+            command.Parameters.Add("@userId", MySqlDbType.Int32).Value = userId;
+            command.Parameters.Add("@commentText", MySqlDbType.VarChar).Value = comment;
+            command.Parameters.Add("@submitTime", MySqlDbType.Timestamp).Value = DateTime.Now;
+
+            command.Prepare();
+
+            command.ExecuteScalar();
+
+            _connection.Close();
+        }
+
+        public List<Comment> FetchAllComments(int ideaId)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

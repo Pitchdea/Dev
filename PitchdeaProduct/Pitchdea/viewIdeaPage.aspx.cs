@@ -154,5 +154,16 @@ namespace Pitchdea
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        protected void submitCommentButton_OnClick(object sender, EventArgs e)
+        {
+            if (_userId == -1)
+                return;
+
+            var comment = commentTextBox.Text;
+            _sqlTool.InsertComment(_idea.Id, _userId, comment);
+
+            throw new NotImplementedException();
+        }
     }
 }

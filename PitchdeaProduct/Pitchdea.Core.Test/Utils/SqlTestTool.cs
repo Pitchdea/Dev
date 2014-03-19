@@ -39,6 +39,7 @@ namespace Pitchdea.Core.Test.Utils
 
         public void CleanTestDb()
         {
+            CleanTable("comments");
             CleanTable("likes");
             CleanTable("idea");
             CleanTable("user");

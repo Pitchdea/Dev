@@ -46,6 +46,7 @@
     <Compile Include="Authenticator.cs" />
     <Compile Include="EmailValidator.cs" />
     <Compile Include="ISqlTool.cs" />
+    <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Idea.cs" />
     <Compile Include="Model\LikeStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

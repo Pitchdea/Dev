@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MySql.Data.MySqlClient;
 using NUnit.Framework;
 using Pitchdea.Core.Model;
@@ -368,6 +369,41 @@ namespace Pitchdea.Core.Test
 
             var likeInfo = _mySqlTool.GetLikeStatus(idea.Id, userInfo.UserId);
             Assert.AreEqual(LikeStatus.Neutral, likeInfo);
+        }
+
+        [Test]
+        public void _14_CommentOnAnIdea()
+        {
+            _sqlTestTool.CleanTestDb();
+
+            const string username = "test";
+            const string email = "test@pitchdea.com";
+            const string password = "password123";
+
+            _auth.RegisterNewUser(username, email, password);
+            var userInfo = _auth.Authenticate(email, password);
+
+            Assert.NotNull(userInfo);
+
+            const string title = "qwerty";
+            const string summary = "asdf";
+            const string description = "jotain ihan muuta";
+            const string question = "Question?";
+
+            var idea = new Idea(userInfo.UserId, title, summary, description, question) { ImagePath = null };
+            idea = _mySqlTool.InsertIdea(idea);
+
+            const string commentText = "This is a comment.";
+            _mySqlTool.InsertComment(idea.Id, userInfo.UserId, commentText);
+
+            var comments = _mySqlTool.FetchAllComments(idea.Id);
+
+            Assert.AreEqual(1, comments.Count);
+            var comment = comments.Single();
+            Assert.AreEqual(idea.Id, comment.IdeaId);
+            Assert.AreEqual(userInfo.UserId, comment.UserId);
+            Assert.AreEqual(commentText, comment.Text);
+            Assert.That(DateTime.Now.Subtract(comment.SubmitTime).TotalSeconds < 2); //Assume that the test doesn't take more than 2 seconds to complete.
         }
 
         private void InsertAndFetch(string title, string summary, string description, string question, string imagePath = null)

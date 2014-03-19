@@ -59,16 +59,20 @@
     	      	        <asp:label runat="server" ID="ideaLikeLabel" CssClass="idealikes" />
                     </ContentTemplate>
                 </asp:UpdatePanel>
-
                 <asp:Panel runat="server" CssClass="ideaOwner" ID="ideaOwnerPanel">
                     Idea owner: &nbsp;
                     <asp:Label runat="server" ID="ideaOwner" />
                 </asp:Panel>
-                <div class="commentplaceholder">
-                    <textarea disabled="disabled">
-                           Commenting coming soon!
-                    </textarea>
-                </div>
+                
+                <asp:UpdatePanel ID="CommentUpdatePanel" runat="server">
+                    <ContentTemplate>
+                        <div class="commentplaceholder">
+                            Comment:
+                            <asp:TextBox runat="server" ID="commentTextBox" TextMode="MultiLine"/>
+                            <asp:Button runat="server" ID="submitCommentButton" Text="Send" OnClick="submitCommentButton_OnClick"/>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
         </asp:Panel>
     </div>

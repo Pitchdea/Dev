@@ -74,6 +74,21 @@ namespace Pitchdea.Core
         /// <param name="userId">ID of the user</param>
         /// <returns>Like info for this user and this idea.</returns>
         LikeStatus GetLikeStatus(int ideaId, int userId);
+
+        /// <summary>
+        /// Adds a comment to the idea.
+        /// </summary>
+        /// <param name="ideaId">ID of the idea.</param>
+        /// <param name="userId">ID of the user.</param>
+        /// <param name="comment">Comment text.</param>
+        void InsertComment(int ideaId, int userId, string comment);
+
+        /// <summary>
+        /// Fetches all comments for this idea.
+        /// </summary>
+        /// <param name="ideaId"></param>
+        /// <returns>List of all comments for this idea.</returns>
+        List<Comment> FetchAllComments(int ideaId);
     }
 
     public static class SqlToolFactory
