@@ -142,6 +142,25 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Trying to post empty comment")]
+        public virtual void TryingToPostEmptyComment()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trying to post empty comment", ((string[])(null)));
+#line 36
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
+#line 38
+ testRunner.When("I click submit comment button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 39
+ testRunner.Then("page title is \"<titlelabel>\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 40
+  testRunner.And("there are 0 comments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

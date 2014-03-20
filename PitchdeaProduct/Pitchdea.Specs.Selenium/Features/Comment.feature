@@ -32,3 +32,10 @@ Scenario: Post two comment
 		And first comment was submitted by "test"
 		And first comment has posted time field
 		And there are 2 comments
+
+Scenario: Trying to post empty comment
+
+	When I click submit comment button
+	Then page title is "<titlelabel>" followed by " | Pitchdea"
+		And there are 0 comments
+		#TODO: Notify user?

@@ -163,8 +163,12 @@ namespace Pitchdea
         {
             if (_userId == -1)
                 return;
-
+            
             var comment = commentTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(comment))
+                return;
+
             _sqlTool.InsertComment(_idea.Id, _userId, comment);
             commentTextBox.Text = string.Empty;
 
