@@ -235,7 +235,35 @@ namespace Pitchdea.Core
 
         public List<Comment> FetchAllComments(int ideaId)
         {
-            throw new NotImplementedException();
+            _connection.Open();
+
+            var command = new MySqlCommand(
+                "SELECT ideaId, userId, commentText, submitTime FROM comments WHERE ideaId = @ideaId;",
+                _connection);
+
+            command.Parameters.Add("@ideaId", MySqlDbType.Int32).Value = ideaId;
+
+            command.Prepare();
+
+            var reader = command.ExecuteReader();
+
+            var comments = new List<Comment>();
+
+            while (reader.Read())
+            {
+                var comment = new Comment
+                {
+                    IdeaId = (int)reader["ideaId"],
+                    UserId = (int)reader["userId"],
+                    Text = (string)reader["commentText"],
+                    SubmitTime = (DateTime)reader["submitTime"],
+                };
+                comments.Add(comment);
+            }
+
+            _connection.Close();
+
+            return comments;
         }
 
         #endregion
