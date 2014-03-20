@@ -22,6 +22,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         {
             var element = WebBrowser.Current.FindElement(By.Id("MainContent_submitCommentButton"));
             element.Click();
+            Thread.Sleep(1000);
         }
 
         [Then(@"first comment is ""(.*)""")]
@@ -54,6 +55,13 @@ namespace Pitchdea.Specs.Selenium.Steps
 
             var commentDiv = elements.Single();
             Assert.DoesNotThrow(() =>commentDiv.FindElement(By.ClassName("commentSubmitter")));
+        }
+
+        [Then(@"there are (.*) comments")]
+        public void ThenThereAreComments(int commentCount)
+        {
+            var elements = WebBrowser.Current.FindElements(By.ClassName("commentBox"));
+            Assert.AreEqual(commentCount, elements.Count);
         }
     }
 }

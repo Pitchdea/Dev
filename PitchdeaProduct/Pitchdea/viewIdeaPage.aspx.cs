@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Pitchdea.Core;
@@ -165,6 +166,8 @@ namespace Pitchdea
 
             var comment = commentTextBox.Text;
             _sqlTool.InsertComment(_idea.Id, _userId, comment);
+            commentTextBox.Text = string.Empty;
+
             LoadComments();
         }
 
@@ -174,7 +177,7 @@ namespace Pitchdea
 
             var comments = _sqlTool.FetchAllComments(_idea.Id);
             var i = 0;
-            foreach (var comment in comments)
+            foreach (var comment in comments.OrderByDescending(n => n.SubmitTime))
             {
                 i++;
                 var submitter = _sqlTool.FindUsername(comment.UserId);
@@ -184,7 +187,7 @@ namespace Pitchdea
                 //If there is a need to change these, feel free to do so, tests can be updated. 
                 //Either update the tests or notify Tero about the changes.
 
-                var inner = new Panel {ID = "comment"+i};
+                var inner = new Panel {ID = "comment"+i, CssClass = "commentBox"};
                 var commentLabel = new Label { Text = comment.Text, CssClass = "commentText" };
                 var commentSubmitter = new Label { Text = submitter, CssClass = "commentSubmitter" };
 

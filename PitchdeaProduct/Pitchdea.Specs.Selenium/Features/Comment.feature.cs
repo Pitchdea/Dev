@@ -103,6 +103,45 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Post two comment")]
+        public virtual void PostTwoComment()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post two comment", ((string[])(null)));
+#line 20
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
+#line 22
+ testRunner.When("I fill comment field with text \"This is a comment\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 23
+  testRunner.And("I click submit comment button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.Then("page title is \"<titlelabel>\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 25
+  testRunner.And("first comment is \"This is a comment\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+  testRunner.And("first comment was submitted by \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+  testRunner.And("first comment has posted time field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+ testRunner.When("I fill comment field with text \"This is a comment too\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
+  testRunner.And("I click submit comment button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 30
+ testRunner.Then("page title is \"<titlelabel>\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 31
+  testRunner.And("first comment is \"This is a comment too\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 32
+  testRunner.And("first comment was submitted by \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+  testRunner.And("first comment has posted time field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+  testRunner.And("there are 2 comments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
