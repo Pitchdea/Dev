@@ -26,6 +26,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         [Then(@"first comment is ""(.*)""")]
         public void ThenFirstCommentIs(string comment)
         {
+            //find all comments, parse id (commentID/number), select the correct one
             ScenarioContext.Current.Pending();
         }
 
