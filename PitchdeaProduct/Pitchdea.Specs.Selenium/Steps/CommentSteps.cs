@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using Pitchdea.Specs.Selenium.Utils;
@@ -26,20 +27,33 @@ namespace Pitchdea.Specs.Selenium.Steps
         [Then(@"first comment is ""(.*)""")]
         public void ThenFirstCommentIs(string comment)
         {
-            //find all comments, parse id (commentID/number), select the correct one
-            ScenarioContext.Current.Pending();
+            var elements = WebBrowser.Current.FindElements(By.Id("MainContent_comment1"));
+            Assert.AreEqual(1, elements.Count);
+
+            var commentDiv = elements.Single();
+            var commentTextElement = commentDiv.FindElement(By.ClassName("commentText"));
+            Assert.AreEqual(comment, commentTextElement.Text);
         }
 
         [Then(@"first comment was submitted by ""(.*)""")]
-        public void ThenFirstCommentWasSubmittedBy(string p0)
+        public void ThenFirstCommentWasSubmittedBy(string submitter)
         {
-            ScenarioContext.Current.Pending();
+            var elements = WebBrowser.Current.FindElements(By.Id("MainContent_comment1"));
+            Assert.AreEqual(1, elements.Count);
+
+            var commentDiv = elements.Single();
+            var submitterElement = commentDiv.FindElement(By.ClassName("commentSubmitter"));
+            Assert.AreEqual(submitter, submitterElement.Text);
         }
 
         [Then(@"first comment has posted time field")]
         public void ThenFirstCommentHasPostedTimeField()
         {
-            ScenarioContext.Current.Pending();
+            var elements = WebBrowser.Current.FindElements(By.Id("MainContent_comment1"));
+            Assert.AreEqual(1, elements.Count);
+
+            var commentDiv = elements.Single();
+            Assert.DoesNotThrow(() =>commentDiv.FindElement(By.ClassName("commentSubmitter")));
         }
     }
 }

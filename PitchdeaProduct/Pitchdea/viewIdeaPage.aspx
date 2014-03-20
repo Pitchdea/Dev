@@ -70,6 +70,7 @@
                             Comment:
                             <asp:TextBox runat="server" ID="commentTextBox" TextMode="MultiLine"/>
                             <asp:Button runat="server" ID="submitCommentButton" Text="Send" OnClick="submitCommentButton_OnClick"/>
+                            <asp:Panel runat="server" ID="commentPanel"/>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>

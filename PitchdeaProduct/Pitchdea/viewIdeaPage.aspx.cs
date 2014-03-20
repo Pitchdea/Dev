@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using Pitchdea.Core;
 using Pitchdea.Core.Model;
 
@@ -62,6 +63,8 @@ namespace Pitchdea
             questionLabel.Text = _idea.Question.Replace(Environment.NewLine, "<br />");
             ideaOwner.Text = _sqlTool.FindUsername(_idea.UserId);
             ideaLikeLabel.Text = _idea.Likes.ToString(CultureInfo.InvariantCulture);
+            
+            LoadComments();
 
             if (_userId == -1)
                 return;
@@ -162,8 +165,43 @@ namespace Pitchdea
 
             var comment = commentTextBox.Text;
             _sqlTool.InsertComment(_idea.Id, _userId, comment);
+            LoadComments();
+        }
 
-            throw new NotImplementedException();
+        private void LoadComments()
+        {
+            commentPanel.Controls.Clear();
+
+            var comments = _sqlTool.FetchAllComments(_idea.Id);
+            var i = 0;
+            foreach (var comment in comments)
+            {
+                i++;
+                var submitter = _sqlTool.FindUsername(comment.UserId);
+
+                //NOTE: The CssClass names are used in the automated tests, changing them will thus break the tests.
+                //Also changes in the structure (elements and their relations) can cause tests to break.
+                //If there is a need to change these, feel free to do so, tests can be updated. 
+                //Either update the tests or notify Tero about the changes.
+
+                var inner = new Panel {ID = "comment"+i};
+                var commentLabel = new Label { Text = comment.Text, CssClass = "commentText" };
+                var commentSubmitter = new Label { Text = submitter, CssClass = "commentSubmitter" };
+
+                var timeAgo = DateTime.Now.Subtract(comment.SubmitTime);
+
+                var commentTimestamp = new Label
+                {
+                    Text = (int)timeAgo.TotalMinutes + "minutes ago.", //TODO: scale the time: seconds - minutes - hours - days - weeks - months - years
+                    CssClass = "commenttimeStamp"
+                };
+
+                inner.Controls.Add(commentLabel);
+                inner.Controls.Add(commentSubmitter);
+                inner.Controls.Add(commentTimestamp);
+
+                commentPanel.Controls.Add(inner);
+            }
         }
     }
 }
