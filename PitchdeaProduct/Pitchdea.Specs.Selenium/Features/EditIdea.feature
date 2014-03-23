@@ -3,15 +3,15 @@
 Background: 
 	Given test database is empty at first
 		And user is logged in (with password) as "test" with password "password123"
-		And an idea submitted by "test" with password "password123"  exists with values: "<title>","<summary>","<description>","<question>" and the page for that idea is open
-	Then page title is "<title>" followed by " | Pitchdea"
+		And an idea submitted by "test" with password "password123"  exists with values: "title1","summary1","description1","question1" and the page for that idea is open
+	Then page title is "title1" followed by " | Pitchdea"
 	When I press edit idea button
-	Then edit page for "<title>" is open
+	Then edit page for "title1" is open
 		And shown image is "http://localhost:28231//img/ideaImages/defaultIdeaImage.jpg"
-		And editable idea title is "<title>"
-		And editable idea summary is "<summary>"
-		And editable idea description is "<description>"
-		And editable idea question is "<question>"
+		And editable idea title is "title1"
+		And editable idea summary is "summary1"
+		And editable idea description is "description1"
+		And editable idea question is "question1"
 		And idea owner is "test"
 		
 Scenario: Open edit page and overwrite idea values
@@ -52,21 +52,21 @@ Scenario: Open edit page and upload a new image
 		And I click upload image button
 		And I click done button
 		And I press submit changes button
-	Then page title is "<title>" followed by " | Pitchdea"
+	Then page title is "title1" followed by " | Pitchdea"
 		And shown image is not "http://localhost:28231//img/ideaImages/defaultIdeaImage.jpg"
-		And idea title is "<title>"
-		And idea summary is "<summary>"
-		And idea description is "<description>"
-		And idea question is "<question>"
+		And idea title is "title1"
+		And idea summary is "summary1"
+		And idea description is "description1"
+		And idea question is "question1"
 		And idea owner is "test"
 
 
 Scenario: Open edit page and change to default image
 
-	Given an idea submitted by "test" with password "password123" with image exists with values: "<titlelabel>","testImage.jpg","<summarylabel>","<descriptionlabel>","<questionLabel>" and the page for that idea is open.	
-	Then page title is "<title>" followed by " | Pitchdea"
+	Given an idea submitted by "test" with password "password123" with image exists with values: "titlelabel1","testImage.jpg","summarylabel1","descriptionlabel1","questionLabel1" and the page for that idea is open.	
+	Then page title is "title1" followed by " | Pitchdea"
 	When I press edit idea button
-	Then edit page for "<title>" is open
+	Then edit page for "title1" is open
 		And shown image is "http://localhost:28231//img/ideaImages/testImage.jpg"
 	When I press use default picture button
 	Then shown image is "http://localhost:28231//img/ideaImages/uploaded/testImage.jpg"

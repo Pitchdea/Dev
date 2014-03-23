@@ -72,25 +72,24 @@ namespace Pitchdea.Specs.Selenium.Features
 #line 5
   testRunner.And("user is logged in (with password) as \"test\" with password \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 6
-  testRunner.And("an idea submitted by \"test\" with password \"password123\"  exists with values: \"<ti" +
-                    "tle>\",\"<summary>\",\"<description>\",\"<question>\" and the page for that idea is ope" +
-                    "n", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("an idea submitted by \"test\" with password \"password123\"  exists with values: \"tit" +
+                    "le1\",\"summary1\",\"description1\",\"question1\" and the page for that idea is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 7
- testRunner.Then("page title is \"<title>\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("page title is \"title1\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 8
  testRunner.When("I press edit idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
- testRunner.Then("edit page for \"<title>\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("edit page for \"title1\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 10
   testRunner.And("shown image is \"http://localhost:28231//img/ideaImages/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
-  testRunner.And("editable idea title is \"<title>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("editable idea title is \"title1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
-  testRunner.And("editable idea summary is \"<summary>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("editable idea summary is \"summary1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
-  testRunner.And("editable idea description is \"<description>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("editable idea description is \"description1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
-  testRunner.And("editable idea question is \"<question>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("editable idea question is \"question1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
   testRunner.And("idea owner is \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -188,17 +187,17 @@ this.FeatureBackground();
 #line 54
   testRunner.And("I press submit changes button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
- testRunner.Then("page title is \"<title>\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("page title is \"title1\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 56
   testRunner.And("shown image is not \"http://localhost:28231//img/ideaImages/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 57
-  testRunner.And("idea title is \"<title>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("idea title is \"title1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 58
-  testRunner.And("idea summary is \"<summary>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("idea summary is \"summary1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 59
-  testRunner.And("idea description is \"<description>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("idea description is \"description1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 60
-  testRunner.And("idea question is \"<question>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("idea question is \"question1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 61
   testRunner.And("idea owner is \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -216,14 +215,14 @@ this.ScenarioSetup(scenarioInfo);
 this.FeatureBackground();
 #line 66
  testRunner.Given("an idea submitted by \"test\" with password \"password123\" with image exists with va" +
-                    "lues: \"<titlelabel>\",\"testImage.jpg\",\"<summarylabel>\",\"<descriptionlabel>\",\"<que" +
-                    "stionLabel>\" and the page for that idea is open.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "lues: \"titlelabel1\",\"testImage.jpg\",\"summarylabel1\",\"descriptionlabel1\",\"questio" +
+                    "nLabel1\" and the page for that idea is open.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 67
- testRunner.Then("page title is \"<title>\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("page title is \"title1\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 68
  testRunner.When("I press edit idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 69
- testRunner.Then("edit page for \"<title>\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("edit page for \"title1\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 70
   testRunner.And("shown image is \"http://localhost:28231//img/ideaImages/testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 71

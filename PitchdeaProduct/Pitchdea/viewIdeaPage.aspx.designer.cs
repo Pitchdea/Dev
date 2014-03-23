@@ -49,6 +49,24 @@ namespace Pitchdea {
         protected global::System.Web.UI.WebControls.Panel ideaPanel;
         
         /// <summary>
+        /// ideaAdminPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ideaAdminPanel;
+        
+        /// <summary>
+        /// editIdeaLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink editIdeaLink;
+        
+        /// <summary>
         /// ideaImage control.
         /// </summary>
         /// <remarks>

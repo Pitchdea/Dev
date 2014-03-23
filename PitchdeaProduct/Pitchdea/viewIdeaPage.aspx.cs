@@ -23,6 +23,9 @@ namespace Pitchdea
                 ideaPanel.Visible = false;
                 return;
             }
+            
+            Title = _idea.Title + " | Pitchdea";
+            editIdeaLink.NavigateUrl = "~/editIdeaPage.aspx?ID=" + _idea.Hash;
 
             if (Session["userId"] != null)
             {
@@ -43,8 +46,6 @@ namespace Pitchdea
             }
 
             ideaNotFoundPanel.Visible = false;
-
-            Title = _idea.Title + " | Pitchdea";
             titleLabel.Text = _idea.Title;
 
             var config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -59,11 +60,39 @@ namespace Pitchdea.Specs.Selenium.Steps
         [When(@"I press edit idea button")]
         public void WhenIPressEditIdeaButton()
         {
-            ScenarioContext.Current.Pending();
+            var editButton = WebBrowser.Current.FindElement(By.Id("MainContent_editIdeaLink"));
+            editButton.Click();
         }
 
         [Then(@"edit page for ""(.*)"" is open")]
         public void ThenEditPageForIsOpen(string title)
+        {
+            const string pitchdeaPart = " | Pitchdea";
+            Assert.AreEqual(title + pitchdeaPart, WebBrowser.Current.Title);
+            var raw = WebBrowser.Current.Url.Split('?');
+            Assert.AreEqual(WebBrowser.BaseUrl + "/editIdeaPage.aspx",raw.First());
+        }
+
+        [Then(@"editable idea title is ""(.*)""")]
+        public void ThenEditableIdeaTitleIs(string title)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"editable idea summary is ""(.*)""")]
+        public void ThenEditableIdeaSummaryIs(string summary)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"editable idea description is ""(.*)""")]
+        public void ThenEditableIdeaDescriptionIs(string description)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"editable idea question is ""(.*)""")]
+        public void ThenEditableIdeaQuestionIs(string question)
         {
             ScenarioContext.Current.Pending();
         }

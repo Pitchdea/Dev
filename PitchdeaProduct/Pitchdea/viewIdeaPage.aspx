@@ -30,6 +30,11 @@
                     return false;
                 }
             </script>
+
+            <asp:Panel runat="server" ID="ideaAdminPanel">
+                <asp:HyperLink runat="server" ID="editIdeaLink" Text="Edit idea"/>
+            </asp:Panel>
+
             <div class="ideaImage">
                 <asp:Image runat="server" ID="ideaImage" />
             </div>
