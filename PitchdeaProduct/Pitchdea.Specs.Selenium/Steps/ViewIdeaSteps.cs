@@ -66,8 +66,7 @@ namespace Pitchdea.Specs.Selenium.Steps
             var absoluteUrl = WebBrowser.BaseUrl + "/viewIdeaPage.aspx?ID=" + hash;
             WebBrowser.Current.Navigate().GoToUrl(absoluteUrl);
         }
-
-
+        
         [Then(@"page title is ""(.*)"" followed by ""(.*)""")]
         public void ThenPageTitleIsFollowedBy(string title, string pitchdeaPart)
         {

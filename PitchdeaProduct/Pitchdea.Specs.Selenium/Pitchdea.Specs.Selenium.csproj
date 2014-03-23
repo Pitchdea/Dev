@@ -75,6 +75,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateIdea.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\EditIdea.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditIdea.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\LikeFunctionality.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -113,6 +118,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\CommentSteps.cs" />
     <Compile Include="Steps\CreateIdeaSteps.cs" />
+    <Compile Include="Steps\EditIdeaSteps.cs" />
     <Compile Include="Steps\LikeFunctionalitySteps.cs" />
     <Compile Include="Steps\LoginStatusControlSteps.cs" />
     <Compile Include="Steps\LoginSteps.cs" />
@@ -132,6 +138,10 @@
     <None Include="Features\CreateIdea.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreateIdea.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\EditIdea.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EditIdea.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\LikeFunctionality.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

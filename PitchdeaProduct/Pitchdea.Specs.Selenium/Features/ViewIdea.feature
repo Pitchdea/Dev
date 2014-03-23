@@ -40,3 +40,18 @@ Scenario Outline: Idea with image is viewed
 Scenario: Trying to open a non existing idea
 	Given page "/viewIdeaPage.aspx?ID=hash123=" is open
 	Then "Return to main page." link should be on the page
+
+
+Scenario: Edit button is hidden when not logged in
+	
+	Given an idea exists with values: "title","summary","description","question" and the page for that idea is open.
+	Then page title is "<titlelabel>" followed by " | Pitchdea"
+		And edit idea button does not exist
+
+
+Scenario: Edit button is hidden when user is not the idea owner
+	
+	Given user is logged in (with password) as "test" with password "password123"
+	Given an idea exists with values: "title","summary","description","question" and the page for that idea is open.
+	Then page title is "title" followed by " | Pitchdea"
+		And edit idea button does not exist

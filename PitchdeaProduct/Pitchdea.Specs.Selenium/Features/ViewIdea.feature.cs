@@ -152,6 +152,48 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Edit button is hidden when not logged in")]
+        public virtual void EditButtonIsHiddenWhenNotLoggedIn()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit button is hidden when not logged in", ((string[])(null)));
+#line 45
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
+#line 47
+ testRunner.Given("an idea exists with values: \"title\",\"summary\",\"description\",\"question\" and the pa" +
+                    "ge for that idea is open.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 48
+ testRunner.Then("page title is \"<titlelabel>\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 49
+  testRunner.And("edit idea button does not exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Edit button is hidden when user is not the idea owner")]
+        public virtual void EditButtonIsHiddenWhenUserIsNotTheIdeaOwner()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit button is hidden when user is not the idea owner", ((string[])(null)));
+#line 52
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
+#line 54
+ testRunner.Given("user is logged in (with password) as \"test\" with password \"password123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 55
+ testRunner.Given("an idea exists with values: \"title\",\"summary\",\"description\",\"question\" and the pa" +
+                    "ge for that idea is open.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 56
+ testRunner.Then("page title is \"title\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 57
+  testRunner.And("edit idea button does not exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
