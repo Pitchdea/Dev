@@ -266,6 +266,31 @@ namespace Pitchdea.Core
             return comments;
         }
 
+        public void UpdateIdea(Idea idea)
+        {
+            _connection.Open();
+
+            var command = new MySqlCommand(
+                "UPDATE idea SET title=@title, summary=@summary, description=@description, question=@question, imagePath=@imagePath WHERE id = @id",
+                _connection);
+
+            command.Parameters.Add("@title", MySqlDbType.VarChar).Value = idea.Title;
+            command.Parameters.Add("@summary", MySqlDbType.VarChar).Value = idea.Summary;
+            command.Parameters.Add("@description", MySqlDbType.Text).Value = idea.Description;
+            command.Parameters.Add("@question", MySqlDbType.VarChar).Value = idea.Question;
+            command.Parameters.Add("@imagePath", MySqlDbType.VarChar).Value = idea.ImagePath;
+            command.Parameters.Add("@id", MySqlDbType.Int32).Value = idea.Id;
+
+            command.Prepare();
+
+            var result = command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            if (result != 1)
+                throw new Exception("Expected to change only one row.");
+        }
+
         #endregion
 
 

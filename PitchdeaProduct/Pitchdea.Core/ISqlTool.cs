@@ -89,6 +89,12 @@ namespace Pitchdea.Core
         /// <param name="ideaId"></param>
         /// <returns>List of all comments for this idea.</returns>
         List<Comment> FetchAllComments(int ideaId);
+
+        /// <summary>
+        /// Update the idea in the database to match the new values.
+        /// </summary>
+        /// <param name="idea"></param>
+        void UpdateIdea(Idea idea);
     }
 
     public static class SqlToolFactory

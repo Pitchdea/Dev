@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -53,7 +54,7 @@ namespace Pitchdea.Specs.Selenium.Steps
 
             var hash = sqlTool.InsertIdea(idea).Hash;
 
-            var absoluteUrl = WebBrowser.BaseUrl + "/viewIdeaPage.aspx?ID=" + hash;
+            var absoluteUrl = WebBrowser.BaseUrl + "viewIdeaPage.aspx?ID=" + hash;
             WebBrowser.Current.Navigate().GoToUrl(absoluteUrl);
         }
 
@@ -70,60 +71,74 @@ namespace Pitchdea.Specs.Selenium.Steps
             const string pitchdeaPart = " | Pitchdea";
             Assert.AreEqual(title + pitchdeaPart, WebBrowser.Current.Title);
             var raw = WebBrowser.Current.Url.Split('?');
-            Assert.AreEqual(WebBrowser.BaseUrl + "/editIdeaPage.aspx",raw.First());
+            Assert.AreEqual(WebBrowser.BaseUrl + "editIdeaPage.aspx",raw.First());
         }
 
         [Then(@"editable idea title is ""(.*)""")]
         public void ThenEditableIdeaTitleIs(string title)
         {
-            ScenarioContext.Current.Pending();
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaTitleTextBox"));
+            Assert.AreEqual(title, element.GetAttribute("value"));
         }
 
         [Then(@"editable idea summary is ""(.*)""")]
         public void ThenEditableIdeaSummaryIs(string summary)
         {
-            ScenarioContext.Current.Pending();
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaSummaryTextBox"));
+            Assert.AreEqual(summary, element.GetAttribute("value"));
         }
 
         [Then(@"editable idea description is ""(.*)""")]
         public void ThenEditableIdeaDescriptionIs(string description)
         {
-            ScenarioContext.Current.Pending();
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaDescriptionTextBox"));
+            Assert.AreEqual(description, element.GetAttribute("value"));
         }
 
         [Then(@"editable idea question is ""(.*)""")]
         public void ThenEditableIdeaQuestionIs(string question)
         {
-            ScenarioContext.Current.Pending();
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaQuestionTextBox"));
+            Assert.AreEqual(question, element.GetAttribute("value"));
         }
 
         [When(@"I edit idea title to ""(.*)""")]
         public void WhenIEditIdeaTitleTo(string title)
         {
-            ScenarioContext.Current.Pending();
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaTitleTextBox"));
+            element.Clear();
+            element.SendKeys(title);
         }
 
         [When(@"I edit idea summary to ""(.*)""")]
         public void WhenIEditIdeaSummaryTo(string summary)
         {
-            ScenarioContext.Current.Pending();
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaSummaryTextBox"));
+            element.Clear();
+            element.SendKeys(summary);
         }
 
         [When(@"I edit idea description to ""(.*)""")]
         public void WhenIEditIdeaDescriptionTo(string description)
         {
-            ScenarioContext.Current.Pending();
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaDescriptionTextBox"));
+            element.Clear();
+            element.SendKeys(description);
         }
 
         [When(@"I edit idea question to ""(.*)""")]
         public void WhenIEditIdeaQuestionTo(string question)
         {
-            ScenarioContext.Current.Pending();
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaQuestionTextBox"));
+            element.Clear();
+            element.SendKeys(question);
         }
+
         [When(@"I press submit changes button")]
         public void WhenIPressSubmitChangesButton()
         {
-            ScenarioContext.Current.Pending();
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_submitChangesButton"));
+            element.Click();
         }
 
         [Then(@"edit idea button does not exist")]
@@ -138,20 +153,8 @@ namespace Pitchdea.Specs.Selenium.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"I extend idea summary with ""(.*)""")]
-        public void WhenIExtendIdeaSummaryWith(string summary)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [When(@"I extend idea description with ""(.*)""")]
-        public void WhenIExtendIdeaDescriptionWith(string description)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [When(@"I extend idea question with ""(.*)""")]
-        public void WhenIExtendIdeaQuestionWith(string question)
+        [When(@"I extend idea summary with")]
+        public void WhenIExtendIdeaSummaryWith(string multilineText)
         {
             ScenarioContext.Current.Pending();
         }

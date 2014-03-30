@@ -406,6 +406,55 @@ namespace Pitchdea.Core.Test
             Assert.That(DateTime.Now.Subtract(comment.SubmitTime).TotalSeconds < 2); //Assume that the test doesn't take more than 2 seconds to complete.
         }
 
+        [Test]
+        public void _15_UpdateIdea()
+        {
+            _sqlTestTool.CleanTestDb();
+
+            const string username = "test";
+            const string email = "test@pitchdea.com";
+            const string password = "password123";
+
+            _auth.RegisterNewUser(username, email, password);
+            var userInfo = _auth.Authenticate(email, password);
+
+            Assert.NotNull(userInfo);
+
+            const string title = "qwerty";
+            const string summary = "asdf";
+            const string description = "jotain ihan muuta";
+            const string question = "Question?";
+            const string imagePath = "testImage.jpg";
+
+            var idea = new Idea(userInfo.UserId, title, summary, description, question) { ImagePath = imagePath };
+            idea = _mySqlTool.InsertIdea(idea);
+
+            const string title2 = "qwerty123";
+            const string summary2 = "asdfasdf";
+            const string description2 = "jotain ihan muuta, siis oikeesti";
+            const string question2 = "Kysymys?";
+            const string imagePath2 = "testImage2.jpg";
+
+            idea.Title = title2;
+            idea.Summary = summary2;
+            idea.Description = description2;
+            idea.Question = question2;
+            idea.ImagePath = imagePath2;
+
+            _mySqlTool.UpdateIdea(idea);
+            var fetchdIdea = _mySqlTool.FetchIdea(idea.Hash);
+
+            Assert.AreEqual(idea.Id, fetchdIdea.Id);
+            Assert.AreEqual(idea.Likes, fetchdIdea.Likes);
+            Assert.AreEqual(idea.Dislikes, fetchdIdea.Dislikes);
+
+            Assert.AreEqual(title2, fetchdIdea.Title);
+            Assert.AreEqual(summary2, fetchdIdea.Summary);
+            Assert.AreEqual(description2, fetchdIdea.Description);
+            Assert.AreEqual(question2, fetchdIdea.Question);
+            Assert.AreEqual(imagePath2, fetchdIdea.ImagePath);
+        }
+
         private void InsertAndFetch(string title, string summary, string description, string question, string imagePath = null)
         {
             const string username = "test";
