@@ -10,7 +10,15 @@
         <div class="ideaImage">
             <asp:Image runat="server" ID="ideaImage" />
         </div>
-    
+
+        <asp:FileUpload id="ImgUpload" runat="server" />  (Max. 500KB) <br />
+        <asp:Button runat="server" ID="uploadImageButton" OnClick="uploadImageButton_OnClick" OnClientClick="#todo" Text="Upload a picture"/>
+        <br /><asp:Label runat="server" ID="uploadStatusLabel" />
+        &nbsp;<asp:Image runat="server" ID="previewImage" />
+        <controls:ThumbnailCropControl ID="cropControl" runat="server"/>
+        <br />
+        
+
         <asp:TextBox runat="server" ID="ideaTitleTextBox"/>
         <asp:TextBox runat="server" ID="ideaSummaryTextBox" TextMode="MultiLine"/>
         <asp:TextBox runat="server" ID="ideaDescriptionTextBox" TextMode="MultiLine"/>

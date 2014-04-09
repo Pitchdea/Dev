@@ -57,21 +57,7 @@ namespace Pitchdea
             }
 
             errorMessage.Text = "";
-            //var foo = ThumbnailCropControl;
 
-            ////if (UploadedImage != null)// && !ThumbnailCropControl.ThumbnailSelected)
-            ////{
-            //    ShowImageThumbnailCropper();
-            ////}
-            ////else
-            ////{
-            //    //HideImageThumbnailCropper();
-            //    if (ThumbnailCropControl.ThumbnailSelected)
-            //    {
-            //        uploadStatusLabel.Text = "Your image was uploaded successfully.";
-            //        LoadPreviewImage();
-            //    }
-            //}
             if (UploadedImage == null)
                 cropControl.Visible = false;
 

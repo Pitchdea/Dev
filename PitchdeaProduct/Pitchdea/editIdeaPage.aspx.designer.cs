@@ -31,6 +31,51 @@ namespace Pitchdea {
         protected global::System.Web.UI.WebControls.Image ideaImage;
         
         /// <summary>
+        /// ImgUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImgUpload;
+        
+        /// <summary>
+        /// uploadImageButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button uploadImageButton;
+        
+        /// <summary>
+        /// uploadStatusLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uploadStatusLabel;
+        
+        /// <summary>
+        /// previewImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image previewImage;
+        
+        /// <summary>
+        /// cropControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Pitchdea.Controls.ThumbnailCropControl cropControl;
+        
+        /// <summary>
         /// ideaTitleTextBox control.
         /// </summary>
         /// <remarks>

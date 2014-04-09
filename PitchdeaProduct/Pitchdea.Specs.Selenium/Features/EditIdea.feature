@@ -74,7 +74,8 @@ Scenario: Open edit page and upload a new image
 	When I choose to upload a picture "testImage.jpg" 
 		And I click upload image button
 		And I click done button
-		And I press submit changes button
+	Then shown image is not "http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg"
+	When I press submit changes button	
 	Then page title is "title1" followed by " | Pitchdea"
 		And shown image is not "http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg"
 		And idea title is "title1"
