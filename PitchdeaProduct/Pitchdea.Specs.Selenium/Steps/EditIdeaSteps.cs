@@ -148,15 +148,52 @@ namespace Pitchdea.Specs.Selenium.Steps
         }
 
         [When(@"I extend idea title with ""(.*)""")]
-        public void WhenIExtendIdeaTitleWith(string title)
+        public void WhenIExtendIdeaTitleWith(string multilineText)
         {
-            ScenarioContext.Current.Pending();
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaTitleTextBox"));
+            element.SendKeys(multilineText);
         }
 
         [When(@"I extend idea summary with")]
         public void WhenIExtendIdeaSummaryWith(string multilineText)
         {
-            ScenarioContext.Current.Pending();
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaSummaryTextBox"));
+            element.SendKeys(multilineText);
+        }
+
+        [When(@"I extend idea description with")]
+        public void WhenIExtendIdeaDescriptionWith(string multilineText)
+        {
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaDescriptionTextBox"));
+            element.SendKeys(multilineText);
+        }
+
+        [When(@"I extend idea question with")]
+        public void WhenIExtendIdeaQuestionWith(string multilineText)
+        {
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_ideaQuestionTextBox"));
+            element.SendKeys(multilineText);
+        }
+
+        [Then(@"idea summary is")]
+        public void ThenIdeaSummaryIs(string multilineText)
+        {
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_summaryLabel"));
+            Assert.AreEqual(multilineText, element.Text);
+        }
+
+        [Then(@"idea description is")]
+        public void ThenIdeaDescriptionIs(string multilineText)
+        {
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_descriptionLabel"));
+            Assert.AreEqual(multilineText, element.Text);
+        }
+
+        [Then(@"idea question is")]
+        public void ThenIdeaQuestionIs(string multilineText)
+        {
+            var element = WebBrowser.Current.FindElement(By.Id("MainContent_questionLabel"));
+            Assert.AreEqual(multilineText, element.Text);
         }
     }
 }

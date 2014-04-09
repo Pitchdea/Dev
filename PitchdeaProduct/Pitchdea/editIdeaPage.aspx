@@ -12,9 +12,9 @@
         </div>
     
         <asp:TextBox runat="server" ID="ideaTitleTextBox"/>
-        <asp:TextBox runat="server" ID="ideaSummaryTextBox"/>
-        <asp:TextBox runat="server" ID="ideaDescriptionTextBox"/>
-        <asp:TextBox runat="server" ID="ideaQuestionTextBox"/>
+        <asp:TextBox runat="server" ID="ideaSummaryTextBox" TextMode="MultiLine"/>
+        <asp:TextBox runat="server" ID="ideaDescriptionTextBox" TextMode="MultiLine"/>
+        <asp:TextBox runat="server" ID="ideaQuestionTextBox" TextMode="MultiLine"/>
         <asp:Button runat="server" ID="submitChangesButton" Text="Save changes" OnClick="submitChangesButton_OnClick"/>
     </asp:Panel>
 </asp:Content>

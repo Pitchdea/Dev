@@ -153,21 +153,21 @@ this.FeatureBackground();
 #line 50
   testRunner.And("I press submit changes button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
- testRunner.Then("page title is \"title Another title\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("page title is \"title1 Another title\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 52
   testRunner.And("shown image is \"http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 53
-  testRunner.And("idea title is \"title Another title\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("idea title is \"title1 Another title\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 54
-  testRunner.And("idea summary is", "summary\r\n\r\nSomething else.", ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("idea summary is", "summary1\r\nSomething else.", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 60
-  testRunner.And("idea description is", "description\r\n\r\nSomething totally else.", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 59
+  testRunner.And("idea description is", "description1\r\nSomething totally else.", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 66
-  testRunner.And("idea question is", "question\r\n\r\nAnother question?", ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 72
+#line 64
+  testRunner.And("idea question is", "question1\r\nAnother question?", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 69
   testRunner.And("idea owner is \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -178,31 +178,31 @@ this.FeatureBackground();
         public virtual void OpenEditPageAndUploadANewImage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open edit page and upload a new image", ((string[])(null)));
-#line 75
+#line 72
 this.ScenarioSetup(scenarioInfo);
 #line 3
 this.FeatureBackground();
-#line 77
+#line 74
  testRunner.When("I choose to upload a picture \"testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 78
+#line 75
   testRunner.And("I click upload image button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 79
+#line 76
   testRunner.And("I click done button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 80
+#line 77
   testRunner.And("I press submit changes button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 81
+#line 78
  testRunner.Then("page title is \"title1\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 82
+#line 79
   testRunner.And("shown image is not \"http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 83
+#line 80
   testRunner.And("idea title is \"title1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 84
+#line 81
   testRunner.And("idea summary is \"summary1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 85
+#line 82
   testRunner.And("idea description is \"description1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 86
+#line 83
   testRunner.And("idea question is \"question1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 87
+#line 84
   testRunner.And("idea owner is \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -213,41 +213,41 @@ this.FeatureBackground();
         public virtual void OpenEditPageAndChangeToDefaultImage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open edit page and change to default image", ((string[])(null)));
-#line 90
+#line 87
 this.ScenarioSetup(scenarioInfo);
 #line 3
 this.FeatureBackground();
-#line 92
+#line 89
  testRunner.Given("an idea submitted by \"test\" with password \"password123\" with image exists with va" +
                     "lues: \"titlelabel1\",\"testImage.jpg\",\"summarylabel1\",\"descriptionlabel1\",\"questio" +
                     "nLabel1\" and the page for that idea is open.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 93
+#line 90
  testRunner.Then("page title is \"title1\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 94
+#line 91
  testRunner.When("I press edit idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 95
+#line 92
  testRunner.Then("edit page for \"title1\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 96
+#line 93
   testRunner.And("shown image is \"http://localhost:28231/img/ideaImages/testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 97
+#line 94
  testRunner.When("I press use default picture button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 98
+#line 95
  testRunner.Then("shown image is \"http://localhost:28231/img/ideaImages/uploaded/testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 99
+#line 96
  testRunner.When("I press submit changes button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 100
+#line 97
  testRunner.Then("page title is \"title Another title\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 101
+#line 98
   testRunner.And("shown image is \"http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 102
+#line 99
   testRunner.And("idea title is \"title Another title\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 103
+#line 100
   testRunner.And("idea summary is \"summary Something else.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 104
+#line 101
   testRunner.And("idea description is \"description Something totally else.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 105
+#line 102
   testRunner.And("idea question is \"question Another question?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 106
+#line 103
   testRunner.And("idea owner is \"test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

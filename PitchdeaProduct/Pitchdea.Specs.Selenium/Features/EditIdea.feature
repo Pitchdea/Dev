@@ -34,7 +34,7 @@ Scenario: Open edit page and extend idea values
 	When I extend idea title with " Another title"
 		And I extend idea summary with 
 		"""
-
+		
 		Something else.
 		"""
 		And I extend idea description with 
@@ -48,25 +48,22 @@ Scenario: Open edit page and extend idea values
 		Another question?
 		"""
 		And I press submit changes button
-	Then page title is "title Another title" followed by " | Pitchdea"
+	Then page title is "title1 Another title" followed by " | Pitchdea"
 		And shown image is "http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg"
-		And idea title is "title Another title"
+		And idea title is "title1 Another title"
 		And idea summary is 
 		"""
-		summary
-		
+		summary1
 		Something else.
 		"""
 		And idea description is 
 		"""
-		description
-		
+		description1
 		Something totally else.
 		"""
 		And idea question is 
 		"""
-		question
-		
+		question1
 		Another question?
 		"""
 		And idea owner is "test"
