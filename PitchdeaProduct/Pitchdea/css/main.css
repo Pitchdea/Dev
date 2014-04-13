@@ -676,6 +676,33 @@ nav li {
     *zoom: 1;
 }
 
+.commentBox {
+    margin-top:10px;
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:10px;
+    padding:10px;
+    float:left;
+    clear:both;
+}
+
+.commentText {
+    margin-bottom:10px;
+    float:left;
+    clear:both;
+    width:100%;
+}
+
+.commentSubmitter {
+    float:left;
+    color:#aaa;
+    margin-right:4px;
+}
+
+.commenttimeStamp {
+    color:#aaa;
+}
+
 /* ==========================================================================
    Print styles
    ========================================================================== */
