@@ -18,10 +18,13 @@
         <controls:ThumbnailCropControl ID="cropControl" runat="server"/>
         <br />
         
-
+        Idea title<br/>
         <asp:TextBox runat="server" ID="ideaTitleTextBox"/>
-        <asp:TextBox runat="server" ID="ideaSummaryTextBox" TextMode="MultiLine"/>
-        <asp:TextBox runat="server" ID="ideaDescriptionTextBox" TextMode="MultiLine"/>
+        A short summary of the idea <span class="de-emphasis">(~200 characters)</span><br/>
+        <asp:TextBox runat="server" ID="ideaSummaryTextBox" height="100px" TextMode="MultiLine"/>
+        The main content for your idea page<br/>
+        <asp:TextBox runat="server" ID="ideaDescriptionTextBox" height="100px" TextMode="MultiLine"/>
+        The question you want to ask your audience <span class="de-emphasis">(E.g. Would you like to buy a customized smarthone?)</span><br/>
         <asp:TextBox runat="server" ID="ideaQuestionTextBox" TextMode="MultiLine"/>
         <asp:Button runat="server" ID="submitChangesButton" Text="Save changes" OnClick="submitChangesButton_OnClick"/>
     </asp:Panel>
