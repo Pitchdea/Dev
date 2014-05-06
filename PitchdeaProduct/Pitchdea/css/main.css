@@ -676,6 +676,39 @@ nav li {
     *zoom: 1;
 }
 
+.commentBox {
+    margin-top:10px;
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:10px;
+    padding:10px;
+    display:inline-block;
+    min-width:47%;
+    max-width:97%;
+    padding-right:2%;
+}
+
+.commentswrapper {
+    padding:1px;
+}
+
+.commentText {
+    margin-bottom:10px;
+    float:left;
+    clear:left;
+    width:100%;
+}
+
+.commentSubmitter {
+    float:left;
+    color:#aaa;
+    margin-right:4px;
+}
+
+.commenttimeStamp {
+    color:#aaa;
+}
+
 /* ==========================================================================
    Print styles
    ========================================================================== */

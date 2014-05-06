@@ -194,19 +194,48 @@ namespace Pitchdea
 
                 var inner = new Panel {ID = "comment"+i, CssClass = "commentBox"};
                 var commentLabel = new Label { Text = comment.Text, CssClass = "commentText" };
-                var commentSubmitter = new Label { Text = submitter, CssClass = "commentSubmitter" };
+                var commentSubmitter = new Label { Text = submitter + " ", CssClass = "commentSubmitter" };
 
-                var timeAgo = DateTime.Now.Subtract(comment.SubmitTime);
+                var timeAgo = DateTime.Now.Subtract(comment.SubmitTime);  
 
-                var commentTimestamp = new Label
+                if ((int)timeAgo.TotalMinutes > 1440)
                 {
-                    Text = (int)timeAgo.TotalMinutes + "minutes ago.", //TODO: scale the time: seconds - minutes - hours - days - weeks - months - years
-                    CssClass = "commenttimeStamp"
-                };
+
+                    var commentTimestamp = new Label
+                    {
+
+                        Text = (int)timeAgo.TotalMinutes/1440 + " days ago.", //TODO: scale the time: seconds - minutes - hours - days - weeks - months - years
+
+                        CssClass = "commenttimeStamp"
+                    };
+                    inner.Controls.Add(commentTimestamp);
+                }
+                else if ((int)timeAgo.TotalMinutes > 60)
+                {
+                    var commentTimestamp = new Label
+                    {
+
+                        Text = (int)timeAgo.TotalMinutes / 60 + " hours ago.", //TODO: scale the time: seconds - minutes - hours - days - weeks - months - years
+
+                        CssClass = "commenttimeStamp"
+                    };
+                    inner.Controls.Add(commentTimestamp);
+                }
+
+                else
+                {
+                    var commentTimestamp = new Label
+                    {
+
+                        Text = (int)timeAgo.TotalMinutes + " minutes ago.", //TODO: scale the time: seconds - minutes - hours - days - weeks - months - years
+
+                        CssClass = "commenttimeStamp"
+                    };
+                    inner.Controls.Add(commentTimestamp);
+                }
 
                 inner.Controls.Add(commentLabel);
                 inner.Controls.Add(commentSubmitter);
-                inner.Controls.Add(commentTimestamp);
 
                 commentPanel.Controls.Add(inner);
             }
