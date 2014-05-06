@@ -224,13 +224,13 @@ this.FeatureBackground();
                     "lues: \"titlelabel1\",\"testImage.jpg\",\"summarylabel1\",\"descriptionlabel1\",\"questio" +
                     "nLabel1\" and the page for that idea is open.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 91
- testRunner.Then("page title is \"title1\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("page title is \"titlelabel1\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 92
  testRunner.When("I press edit idea button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 93
- testRunner.Then("edit page for \"title1\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("edit page for \"titlelabel1\" is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 94
-  testRunner.And("shown image is \"http://localhost:28231/img/ideaImages/testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("shown image is \"http://localhost:28231/img/ideaImages/uploaded/testImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 95
  testRunner.When("I press use default picture button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 96
@@ -238,11 +238,11 @@ this.FeatureBackground();
 #line 97
  testRunner.When("I press submit changes button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 98
- testRunner.Then("page title is \"title Another title\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("page title is \"titlelabel1 Another title\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 99
   testRunner.And("shown image is \"http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 100
-  testRunner.And("idea title is \"title Another title\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("idea title is \"titlelabel1 Another title\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 101
   testRunner.And("idea summary is \"summary Something else.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 102

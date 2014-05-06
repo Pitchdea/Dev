@@ -88,16 +88,16 @@ Scenario: Open edit page and upload a new image
 Scenario: Open edit page and change to default image
 
 	Given an idea submitted by "test" with password "password123" with image exists with values: "titlelabel1","testImage.jpg","summarylabel1","descriptionlabel1","questionLabel1" and the page for that idea is open.	
-	Then page title is "title1" followed by " | Pitchdea"
+	Then page title is "titlelabel1" followed by " | Pitchdea"
 	When I press edit idea button
-	Then edit page for "title1" is open
-		And shown image is "http://localhost:28231/img/ideaImages/testImage.jpg"
+	Then edit page for "titlelabel1" is open
+		And shown image is "http://localhost:28231/img/ideaImages/uploaded/testImage.jpg"
 	When I press use default picture button
 	Then shown image is "http://localhost:28231/img/ideaImages/uploaded/testImage.jpg"
 	When I press submit changes button
-	Then page title is "title Another title" followed by " | Pitchdea"
+	Then page title is "titlelabel1 Another title" followed by " | Pitchdea"
 		And shown image is "http://localhost:28231/img/ideaImages/defaultIdeaImage.jpg"
-		And idea title is "title Another title"
+		And idea title is "titlelabel1 Another title"
 		And idea summary is "summary Something else."
 		And idea description is "description Something totally else."
 		And idea question is "question Another question?"

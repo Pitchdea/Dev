@@ -58,6 +58,25 @@ namespace Pitchdea.Specs.Selenium.Steps
             WebBrowser.Current.Navigate().GoToUrl(absoluteUrl);
         }
 
+        [Given(@"an idea submitted by ""(.*)"" with password ""(.*)"" with image exists with values: ""(.*)"",""(.*)"",""(.*)"",""(.*)"",""(.*)"" and the page for that idea is open\.")]
+        public void GivenAnIdeaSubmittedByWithPasswordWithImageExistsWithValuesAndThePageForThatIdeaIsOpen_(string username, string password, string title, string image, string summary, string description, string question)
+        {
+            var auth = new Authenticator(SqlTestTool.TestConnectionString);
+            var userInfo = auth.Authenticate(username, password);
+
+            Assert.NotNull(userInfo);
+
+            ISqlTool sqlTool = new MySqlTool(SqlTestTool.TestConnectionString);
+
+            var idea = new Idea(userInfo.UserId, title, summary, description, question) { ImagePath = image};
+
+            var hash = sqlTool.InsertIdea(idea).Hash;
+
+            var absoluteUrl = WebBrowser.BaseUrl + "viewIdeaPage.aspx?ID=" + hash;
+            WebBrowser.Current.Navigate().GoToUrl(absoluteUrl);
+        }
+
+
         [When(@"I press edit idea button")]
         public void WhenIPressEditIdeaButton()
         {
@@ -195,5 +214,12 @@ namespace Pitchdea.Specs.Selenium.Steps
             var element = WebBrowser.Current.FindElement(By.Id("MainContent_questionLabel"));
             Assert.AreEqual(multilineText, element.Text);
         }
+
+        [When(@"I press use default picture button")]
+        public void WhenIPressUseDefaultPictureButton()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
     }
 }
