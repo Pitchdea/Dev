@@ -11,6 +11,7 @@ namespace Pitchdea
     {
         private readonly ISqlTool _sqlTool = SqlToolFactory.CreateNew();
         private Idea _idea;
+        private int _userId = -1;
 
         public string UploadedImage
         {
@@ -48,8 +49,26 @@ namespace Pitchdea
 
             if (_idea == null)
             {
+                editIdeaPanel.Visible = false;
+                ideaNotFoundPanel.Visible = true;
                 return;
+
             }
+            
+            if (Session["userId"] != null)
+            {
+                _userId = (int)Session["userId"];
+                if (_userId != _idea.UserId)
+                {
+                    editIdeaPanel.Visible = false;
+                    ideaNotFoundPanel.Visible = true;
+                    return;
+                }
+            }
+
+            editIdeaPanel.Visible = true;
+            ideaNotFoundPanel.Visible = false;
+            
 
             Title = _idea.Title + " | Pitchdea";
 

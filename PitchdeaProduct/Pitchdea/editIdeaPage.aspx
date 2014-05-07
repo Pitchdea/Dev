@@ -5,6 +5,13 @@
     MasterPageFile="Main.Master"  %>
 
 <asp:Content runat="server" ID="ContentPlaceHolder1"  ContentPlaceHolderID="MainContent">
+    <asp:Panel runat="server" ID="ideaNotFoundPanel">
+            <h4>Idea is editable only by the owner.</h4>
+            You are not logged in or you are not the owner of this idea.
+            <br/>
+            <br/>
+            <a href="mainPage.aspx">Return to main page.</a>
+        </asp:Panel>
     <asp:Panel runat="server" CssClass="ideaForm" ID="editIdeaPanel">
         <h1>Edit your idea</h1>
         <div class="ideaImage">
