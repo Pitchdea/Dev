@@ -27,5 +27,6 @@
         The question you want to ask your audience <span class="de-emphasis">(E.g. Would you like to buy a customized smarthone?)</span><br/>
         <asp:TextBox runat="server" ID="ideaQuestionTextBox" TextMode="MultiLine"/>
         <asp:Button runat="server" ID="submitChangesButton" Text="Save changes" OnClick="submitChangesButton_OnClick"/>
+        <asp:Label runat="server" ID="errorMessage"/>
     </asp:Panel>
 </asp:Content>

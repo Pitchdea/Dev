@@ -100,11 +100,66 @@ namespace Pitchdea
 
         protected void submitChangesButton_OnClick(object sender, EventArgs e)
         {
+            var title = ideaTitleTextBox.Text;
+            var summary = ideaSummaryTextBox.Text;
+            var description = ideaDescriptionTextBox.Text;
+            var question = ideaQuestionTextBox.Text;
+
+            //TODO: IMPORTANT!! test automation for these!
+
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                errorMessage.Text = "The idea title is missing.";
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(summary))
+            {
+                errorMessage.Text = "The idea summary is missing.";
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                errorMessage.Text = "The idea description is missing.";
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(question))
+            {
+                errorMessage.Text = "The idea question is missing.";
+                return;
+            }
+
+            if (title.Length > 70)
+            {
+                errorMessage.Text = "The title is too long, the maximum length is 70 characters.";
+                return;
+            }
+
+            if (summary.Length > 200)
+            {
+                errorMessage.Text = "The summary is too long, the maximum length  is 200 characters.";
+                return;
+            }
+
+            if (description.Length > 1500)
+            {
+                errorMessage.Text = "The description is too long, the maximum length is 1500 characters.";
+                return;
+            }
+
+            if (question.Length > 90)
+            {
+                errorMessage.Text = "The question is too long, the maximum length is 90 characters.";
+                return;
+            }
+
             _idea.ImagePath = UploadedImage;
-            _idea.Title = ideaTitleTextBox.Text;
-            _idea.Summary = ideaSummaryTextBox.Text;
-            _idea.Description = ideaDescriptionTextBox.Text;
-            _idea.Question = ideaQuestionTextBox.Text;
+            _idea.Title = title;
+            _idea.Summary = summary;
+            _idea.Description = description;
+            _idea.Question = question;
             _sqlTool.UpdateIdea(_idea);
             Response.Redirect("viewIdeaPage.aspx?ID=" + _idea.Hash);
         }
