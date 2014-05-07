@@ -33,16 +33,17 @@ namespace Pitchdea
                 _userId = (int) Session["userId"];
                 if (_userId == _idea.UserId)
                 {
-                    //User is the idea owner
+                    ideaAdminPanel.Visible = true;
                 }
                 else
                 {
-                    //User is logged in but is not the owner
+                    ideaAdminPanel.Visible = false;
                 }
             }
-            else
+            else //User is not logged in
             {
                 loggedIn.Text = string.Format("<input type='hidden' id='loggedIn' name='loggedInHidden' value='{0}' />", false);
+                ideaAdminPanel.Visible = false;
             }
 
             ideaNotFoundPanel.Visible = false;

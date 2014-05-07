@@ -166,7 +166,7 @@ this.FeatureBackground();
  testRunner.Given("an idea exists with values: \"title\",\"summary\",\"description\",\"question\" and the pa" +
                     "ge for that idea is open.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 48
- testRunner.Then("page title is \"<titlelabel>\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("page title is \"title\" followed by \" | Pitchdea\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 49
   testRunner.And("edit idea button does not exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

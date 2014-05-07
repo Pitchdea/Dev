@@ -163,7 +163,7 @@ namespace Pitchdea.Specs.Selenium.Steps
         [Then(@"edit idea button does not exist")]
         public void ThenEditIdeaButtonDoesNotExist()
         {
-            ScenarioContext.Current.Pending();
+            Assert.Throws<NoSuchElementException>(() => WebBrowser.Current.FindElement(By.Id("MainContent_editIdeaLink")));
         }
 
         [When(@"I extend idea title with ""(.*)""")]

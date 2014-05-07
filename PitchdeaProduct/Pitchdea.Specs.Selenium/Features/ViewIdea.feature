@@ -45,7 +45,7 @@ Scenario: Trying to open a non existing idea
 Scenario: Edit button is hidden when not logged in
 	
 	Given an idea exists with values: "title","summary","description","question" and the page for that idea is open.
-	Then page title is "<titlelabel>" followed by " | Pitchdea"
+	Then page title is "title" followed by " | Pitchdea"
 		And edit idea button does not exist
 
 
